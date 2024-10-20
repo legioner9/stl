@@ -1,0 +1,46 @@
+#!/bin/bash
+
+if [ -f ~/.stl.d/stl.bashrc.d/bashrc.flag ]; then
+
+    is_stl_log=$(cat ~/.stl.d/stl.bashrc.d/bashrc.flag)
+
+    [ -z "${is_stl_log}" ] && {
+        echo " ~/.stl.d/stl.bashrc.d/bashrc.flag EXIST and EMPTY" >&2
+    }
+
+    [ 0 -ne ${is_stl_log} ] && [ 1 -ne ${is_stl_log} ] && {
+        echo " ~/.is_bashrc_log EXIST and NOT_CONTANE '1' or '0' " >&2
+    }
+
+else
+
+    echo 0 >~/.stl.d/stl.bashrc.d/bashrc.flag
+    is_stl_log=0
+
+fi
+
+if [ 1 -eq ${is_stl_log} ]; then
+
+    : >~/.stl.d/stl.bashrc.d/bashrc.log
+
+    # ~/.stl.d/stl.boot.d/stl.boot.sh
+
+    if [[ -f ~/.stl.d/stl.boot.d/stl.boot.sh ]]; then if ! . ~/.stl.d/stl.boot.d/stl.boot.sh &>~/.stl.d/stl.bashrc.d/bashrc.log; then
+        # if [[ -f ~/.d/.rc.d/.st.rc.d/.st.rc ]]; then if ! . ~/.d/.rc.d/.st.rc.d/.st.rc >/dev/null; then
+        echo "in ~/.bashrc : FAIL . ~/.stl.d/stl.boot.d/stl.boot.sh : return 1" >&2
+        return 1
+    fi; fi
+
+fi
+
+if [ 0 -eq ${is_stl_log} ]; then
+
+    # ~/.stl.d/stl.boot.d/stl.boot.sh
+
+    if [[ -f ~/.stl.d/stl.boot.d/stl.boot.sh ]]; then if ! . ~/.stl.d/stl.boot.d/stl.boot.sh &>/dev/null; then
+        # if [[ -f ~/.d/.rc.d/.st.rc.d/.st.rc ]]; then if ! . ~/.d/.rc.d/.st.rc.d/.st.rc >/dev/null; then
+        echo "in ~/.bashrc : FAIL . ~/.stl.d/stl.boot.d/stl.boot.sh : return 1" >&2
+        return 1
+    fi; fi
+
+fi
