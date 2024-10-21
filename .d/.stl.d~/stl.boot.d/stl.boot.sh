@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo -e "${CYAN}--- stl.boot_rnd7_fccf426() $* in file://${HOME}/.stl.boot/stl.boot.sh ---${NORMAL}" #started functions
+echo -e "${CYAN}--- stl.boot_rnd7_fccf426() $* in file://${HOME}/.stl.d/stl.boot.d/stl.boot.sh ---${NORMAL}" #started functions
 
-stl.boot_rnd7_fccf426() {
+stl_boot_sh() {
 
     # gig from file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/ufl_stl0.ram/.grot/ufl_stl0.sh
 
@@ -10,14 +10,14 @@ stl.boot_rnd7_fccf426() {
     local ARGS=("$@")
     local NARGS=$#
     local PPWD=$PWD
-    local path_file="${HOME}/.stl.boot/stl.boot.sh"
+    local path_file="${HOME}/.stl.d/stl.boot.d/stl.boot.sh"
     local path_dir="$(dirname "$path_file")"
 
     # echo -e "${CYAN}--- $FNN() $* in file://${path_file}---${NORMAL}" #started functions
 
     cd ${path_dir} || {
         # hint="\$1: \$2: "
-        _st_exit "in fs= file://$path_file , line=${LINENO}, ${FNN}() : NOT_DIR : 'file://${path_dir}' : ${hint} : return 1"
+        echo "in fs= file://$path_file , line=${LINENO}, ${FNN}() : NOT_DIR : 'file://${path_dir}' : ${hint} : return 1" >&2
         return 1
     }
 
@@ -57,13 +57,51 @@ ${NORMAL}"
 
     echo "START BODY FN : ${FNN}() $*"
 
+    boot_stl_c_up() { 
+
+        if [[ -d "$1" ]]; then
+            cd $1
+        else
+            echo "in fs= file://$path_file , line=${LINENO}, ${FUNCNAME[0]} () '$1' is not dir :: return 1" >&2
+            return 1
+        fi
+
+        local dir
+        dir=$(pwd)
+
+        for item in *; do
+
+            local item_path=$dir/$item
+
+            if [ -f "$item_path" ] && [ "${item:0:1}" != "_" ] && [ "${item##*.}" = sh ]; then
+
+                if ! . "$item_path"; then
+                    hint="\$1: \$2: "
+                    echo "in fs=file:// , line=${LINENO}, ${FNN}() : EXEC_FAIL : '. file://$item_path' : ${hint} : return 1" >&2
+                    return 1
+                fi
+
+            elif
+                [ -d "$item_path" ] && [ "${item:0:1}" != "_" ]
+            then
+
+                boot_stl_c_up "$item_path"
+
+            fi
+
+        done
+    }
+
+    # up to memery 
+    boot_stl_c_up ${HOME}/.stl.d/stl.boot.d/stl.boot.sh.d
+
     #{{body_fn}}
 
     #! END BODY FN ---------------------------------------
-    
+
     cd $PPWD
     return 0
 
 }
 
-stl.boot_rnd7_fccf426 "$@"
+stl_boot_sh "$@"

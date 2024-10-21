@@ -1,6 +1,6 @@
 #!/bin/bash
 
-is_yes_boot_stl() {
+is_yes_boot_stl() { # $1 str question
     local yes
     read -r -p "only 'y' is yes. QUESTION: $1" yes
 
