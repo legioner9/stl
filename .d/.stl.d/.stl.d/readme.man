@@ -4,6 +4,8 @@
 
 in ${STL_PATH}/.d/.ham/main/main.fn.lst.d/cp_dotstldotd.sh
 
-## str_git_reset =( w+ write - not reset | w- not write - reset )
+## Пояснение к флагу \~/.stl.d/stl.comm.d/stl.comm.data.d/git_reset.flag
+
+str_git_reset = ( w+ write - not reset | w- not write - reset )
 
 str_git_reset=$(f2e_stl ~/.stl.d/stl.comm.d/stl.comm.data.d/git_reset.flag)
