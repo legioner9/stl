@@ -88,6 +88,8 @@ file:\~/path_s
 000: source \~/path_s
 ;
 
+
+' STANDART DGM -------- start --------
 *:
 file:\~/path
 
@@ -95,6 +97,7 @@ file:\~/path
 000: fn 
 000: source \~/path_s
 ;
+
 
 **:define: fn() {
     any_act
@@ -117,5 +120,7 @@ file:\~/path_s
 000: fn 
 000: source \~/path_s
 ;
+
+' STANDART DGM -------- end --------
 
 @endmindmap

@@ -39,7 +39,8 @@ source <path_to_file> влечет за собой
                 функции для использования в \~/.stl.d/stl.boot.d/stl.boot.sh
             \~/.stl.d/stl.boot.d/stl.boot.sh.d/color_self_boot_stl.sh функция color_self_boot_stl()
             \~/.stl.d/stl.boot.d/stl.boot.sh.d/is_yes_boot_stl.sh функция is_yes_boot_stl()
-    \~/.stl.d/stl.comm.d - файлы для общего использования всеми библиотеками STL
+    \~/.stl.d/stl.cdn.d - файлы неизменяемые для общего использования всеми библиотеками STL
+    \~/.stl.d/stl.comm.d - файлы изменяемые для общего использования всеми библиотеками STL
         \~/.stl.d/stl.comm.d/stl.comm.data.d - директория с флагами
             \~/.stl.d/stl.comm.d/stl.comm.data.d/git_reset.flag - флаг для сброса
                     всех изменений в рабочей директории git 
