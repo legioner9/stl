@@ -11,7 +11,7 @@ STL:${HOME}/REPOBARE/_repo/stl/stl.lib.d:${HOME}/REPOBARE/_repo/stl/stl.data.d
 # STL1${HOME}/REPOBARE/_repo/stl1/stl1.lib.d:${HOME}/REPOBARE/_repo/stl1_data_tml/stl1.data.d
 
 # stl1_data_st - my stl1 lib_data with my dat
-STL1${HOME}/REPOBARE/_repo/stl1/stl1.lib.d:${HOME}/REPOBARE/_repo/stl1_data_st/stl1.data.d
+STL1:${HOME}/REPOBARE/_repo/stl1/stl1.lib.d:${HOME}/REPOBARE/_repo/stl1_data_st/stl1.data.d
 
 # example:
 # stl -  issue stl lib (underground lib)
