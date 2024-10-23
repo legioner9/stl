@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo -e "${CYAN}--- stl.boot.flumen.tml_rnd7_e175d57() $* in file://${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.boot.flumen.tml.puml_ufl10 ---${NORMAL}" #started functions
+echo -e "${CYAN}--- v_puml2png_rnd7_60768d2() $* in file://${ST_RC_D_PATH}/.d/.flumen/bashrc.flumen.d/v_puml2png.sh ---${NORMAL}" #started functions
 
-stl.boot.flumen.tml_rnd7_e175d57() {
+v_puml2png_rnd7_60768d2() {
 
     # gig from file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/ufl_stl0.ram/.grot/ufl_stl0.sh
 
@@ -10,7 +10,7 @@ stl.boot.flumen.tml_rnd7_e175d57() {
     local ARGS=("$@")
     local NARGS=$#
     local PPWD=$PWD
-    local path_file="${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.boot.flumen.tml.puml_ufl10"
+    local path_file="${ST_RC_D_PATH}/.d/.flumen/bashrc.flumen.d/v_puml2png.sh"
     local path_dir="$(dirname "$path_file")"
 
     # echo -e "${CYAN}--- $FNN() $* in file://${path_file}---${NORMAL}" #started functions
@@ -55,18 +55,23 @@ ${NORMAL}"
 
     #! START BODY FN ---------------------------------------
 
-    echo "START BODY FN : ${FNN}() $*"
-
+    while true; do
+        sleep 10
+        [ v.puml.png -ot v.puml ] && {
+            echo "START BODY FN : ${FNN}() $*"
+            cd ${path_dir}
+            puml_ v.puml -_drawing
+            cd ${path_dir}
+            rm -f v.puml.png
+        }
+    done
     #{{body_fn}}
 
-ufl_stl0 10 ${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.boot.flumen.puml.cntx.d ${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.boot.flumen.tml.puml
-
-
     #! END BODY FN ---------------------------------------
-    
+
     cd $PPWD
     return 0
 
 }
 
-stl.boot.flumen.tml_rnd7_e175d57 "$@"
+v_puml2png_rnd7_60768d2 "$@"

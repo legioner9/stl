@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo -e "${CYAN}--- stl.boot.flumen.tml_rnd7_e175d57() $* in file://${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.boot.flumen.tml.puml_ufl10 ---${NORMAL}" #started functions
+echo -e "${CYAN}--- rbld_pml_png_rnd7_5f73a8e() $* in file://${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/.sh/rbld_pml_png.sh ---${NORMAL}" #started functions
 
-stl.boot.flumen.tml_rnd7_e175d57() {
+rbld_pml_png_rnd7_5f73a8e() {
 
     # gig from file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/ufl_stl0.ram/.grot/ufl_stl0.sh
 
@@ -10,7 +10,7 @@ stl.boot.flumen.tml_rnd7_e175d57() {
     local ARGS=("$@")
     local NARGS=$#
     local PPWD=$PWD
-    local path_file="${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.boot.flumen.tml.puml_ufl10"
+    local path_file="${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/.sh/rbld_pml_png.sh"
     local path_dir="$(dirname "$path_file")"
 
     # echo -e "${CYAN}--- $FNN() $* in file://${path_file}---${NORMAL}" #started functions
@@ -57,16 +57,22 @@ ${NORMAL}"
 
     echo "START BODY FN : ${FNN}() $*"
 
+    rm ${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.boot.flumen.tml.puml.png.d/stl.boot.flumen.tml.png
+
+    . ${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.boot.flumen.tml.puml_ufl10
+
+    cp -f ${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.boot.flumen.tml.puml ${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.boot.flumen.tml.puml~
+    _puml ${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.boot.flumen.tml.puml
+
+    drawing ${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.boot.flumen.tml.puml.png.d/stl.boot.flumen.tml.png &
+
     #{{body_fn}}
 
-ufl_stl0 10 ${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.boot.flumen.puml.cntx.d ${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.boot.flumen.tml.puml
-
-
     #! END BODY FN ---------------------------------------
-    
+
     cd $PPWD
     return 0
 
 }
 
-stl.boot.flumen.tml_rnd7_e175d57 "$@"
+rbld_pml_png_rnd7_5f73a8e "$@"

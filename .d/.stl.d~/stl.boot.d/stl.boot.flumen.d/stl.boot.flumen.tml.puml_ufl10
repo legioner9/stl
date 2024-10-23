@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo -e "${CYAN}--- stl.boot.flumen.tml_rnd7_e175d57() $* in file://${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.boot.flumen.tml.puml_ufl10 ---${NORMAL}" #started functions
+echo -e "${CYAN}--- stl.boot.flumen.tml_rnd7_3224a85() $* in file://${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.boot.flumen.tml.puml_ufl10 ---${NORMAL}" #started functions
 
-stl.boot.flumen.tml_rnd7_e175d57() {
+stl.boot.flumen.tml_rnd7_3224a85() {
 
     # gig from file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/ufl_stl0.ram/.grot/ufl_stl0.sh
 
@@ -69,4 +69,4 @@ ufl_stl0 10 ${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.boot.flumen.puml.cnt
 
 }
 
-stl.boot.flumen.tml_rnd7_e175d57 "$@"
+stl.boot.flumen.tml_rnd7_3224a85 "$@"
