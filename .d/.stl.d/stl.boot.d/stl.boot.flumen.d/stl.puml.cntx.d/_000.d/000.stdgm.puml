@@ -1,14 +1,14 @@
-@startmindmap
+' @startmindmap
 
 ' ' STANDART DGM -------- start --------
-*:
-file:\~/path
+' *:
+' file:\~/path
 
-000: define fn() {}
-000: fn 
-000: source \~/path_s
-N0
-;
+' 000: define fn() {}
+' 000: fn 
+' 000: source \~/path_s
+' N0
+' ;
 
 
 ' **:define: fn() {
@@ -40,4 +40,4 @@ N0
 
 ' ' STANDART DGM -------- end --------
 
-@endmindmap
+' @endmindmap
