@@ -1,11 +1,13 @@
 @startmindmap
-*:
+'/home/st/.stl.d/stl.boot.d/stl.boot.flumen.d/_stl.puml.cntx.d/001.fl.intro_desc.d/__000.puml
+
+**:
 ПРИНЦИП ЗАГРУЗКИ STL :
 Все функции , константы загружаются , все фунуции тестируются ДО 
 окончания загузки пользовательской оболочки
 ;
 
-*:
+**:
 ПРИНЯТЫЕ ОБОЗНАЧЕНИЯ И УСЛОВНОСТИ :
 
 <file:> <path_to_file>
@@ -17,7 +19,7 @@ source <path_to_file> влечет за собой
 правой секции соединенной с текущей секцией
 ;
 
-*:
+**:
 СОСТАВ ФАЙЛОВОЙ СИСТЕМЫ ПРОЕКТА STL:
 
 \~/.stl.d - стартовая директория библиотек STL 
@@ -44,70 +46,10 @@ source <path_to_file> влечет за собой
         \~/.stl.d/stl.comm.d/stl.comm.data.d - директория с флагами
             \~/.stl.d/stl.comm.d/stl.comm.data.d/git_reset.flag - флаг для сброса
                     всех изменений в рабочей директории git 
-    \~/.stl.d/stl.opus.d - md catalog , description of the loading process of STL
     \~/.stl.d/readme.man 
             1. Хранение ~/.stl.d
             2. Пояснение к флагу \~/.stl.d/stl.comm.d/stl.comm.data.d/git_reset.flag
 
-' ВНУТРЕННИЕ УПРАВЛЯЮЩИЕ ФАЙЛЫ
-' USER ВНЕШНИЕ УПРАВЛЯЮЩИЕ ФАЙЛЫ
-' USER ВНЕШНИЕ ИНФОРМАЦИОННЫЕ ФАЙЛЫ STL
 ;
-*:
-file:\~/.bashrc
-
-000: source \~/.stl.d/stl.bashrc.d/bashrc.stl
-;
-
-**:
-file: \~/.stl.d/stl.bashrc.d/bashrc.stl
-
-fix source \~/.stl.d/stl.boot.d/stl.boot.sh stdout to \~/.stl.d/stl.bashrc.d/bashrc.log
-
-source \~/.stl.d/stl.boot.d/stl.boot.sh
-;
-
-***:
-file: \~/.stl.d/stl.boot.d/stl.boot.sh
-
-000: define fn() {}
-000: fn 
-000: source \~/path_s
-;
-
-
-' STANDART DGM -------- start --------
-*:
-file:\~/path
-
-000: define fn() {}
-000: fn 
-000: source \~/path_s
-;
-
-
-**:define: fn() {
-    any_act
-}
-;
-
-**:exec: fn
-;
-
-***:any_act
-;
-
-**:source: \~/path_s
-;
-
-***:
-file:\~/path_s
-
-000: define fn() {}
-000: fn 
-000: source \~/path_s
-;
-
-' STANDART DGM -------- end --------
 
 @endmindmap

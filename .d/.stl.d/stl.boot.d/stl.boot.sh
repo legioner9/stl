@@ -57,7 +57,12 @@ ${NORMAL}"
 
     echo "START BODY FN : ${FNN}() $*"
 
-    boot_stl_c_up() { 
+    boot_stl_c_up() {
+
+        if [[ "-h" == "$1" ]]; then
+            echo "boot_stl_c_up() :: source upath.sh files (ls, not _) in \$1 "
+            return 0
+        fi
 
         if [[ -d "$1" ]]; then
             cd $1
@@ -92,10 +97,8 @@ ${NORMAL}"
         done
     }
 
-    # up to memery 
+    # up to memery
     boot_stl_c_up ${HOME}/.stl.d/stl.boot.d/stl.boot.sh.d
-
-    
 
     #{{body_fn}}
 

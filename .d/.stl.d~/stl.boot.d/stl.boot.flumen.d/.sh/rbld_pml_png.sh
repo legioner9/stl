@@ -57,14 +57,14 @@ ${NORMAL}"
 
     echo "START BODY FN : ${FNN}() $*"
 
-    rm ${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.boot.flumen.tml.puml.png.d/stl.boot.flumen.tml.png
+    rm ${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.tml.puml.png.d/stl.tml.png
 
-    . ${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.boot.flumen.tml.puml_ufl10
+    . ${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.tml.puml_ufl10
 
-    cp -f ${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.boot.flumen.tml.puml ${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.boot.flumen.tml.puml~
-    _puml ${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.boot.flumen.tml.puml
+    cp -f ${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.tml.puml ${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.tml.puml~
+    _puml ${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.tml.puml
 
-    drawing ${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.boot.flumen.tml.puml.png.d/stl.boot.flumen.tml.png &
+    drawing ${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.tml.puml.png.d/stl.tml.png &
 
     #{{body_fn}}
 
