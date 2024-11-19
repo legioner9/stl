@@ -4,9 +4,10 @@ echo -e "${BLUE}--- that file://${REPO_PATH}/${name_repo}/.d/.ham/main/main.fn.l
 
 cp_dotstldotd() {
     #! rbld ${HOME}/.stl.d/stl.opus.d
-    if [[ -f ${HOME}/.stl.d/stl.opus.d/_rbld_res_md.sh ]]; then
-        . ${HOME}/.stl.d/stl.opus.d/_rbld_res_md.sh || {
-            echo "in file://${REPO_PATH}/${name_repo}/.d/.ham/main/main.fn.lst.d/cp_dotstldotd.sh : FAIL_EXEC: . ${HOME}/.stl.d/stl.opus.d/_rbld_res_md.sh return 1" >&2
+    local rbld_stl_opus_pth=${HOME}/stl.data.d/opus.d/boot.opus/_rbld_res_md.sh
+    if [[ -f ${rbld_stl_opus_pth} ]]; then
+        . ${rbld_stl_opus_pth} || {
+            echo "in file://${REPO_PATH}/${name_repo}/.d/.ham/main/main.fn.lst.d/cp_dotstldotd.sh : FAIL_EXEC: . file://${rbld_stl_opus_pth} return 1" >&2
             return 1
         }
     fi
@@ -17,7 +18,7 @@ cp_dotstldotd() {
             rm -rf ${REPO_PATH}/${name_repo}/.d/.stl.d.copy~
             mv ${REPO_PATH}/${name_repo}/.d/.stl.d.copy ${REPO_PATH}/${name_repo}/.d/.stl.d.copy~
             cp -fr ${HOME}/.stl.d ${REPO_PATH}/${name_repo}/.d/.stl.d.copy || {
-                echo "in file://${REPO_PATH}/${name_repo}/.d/.ham/main/main.fn.lst.d/cp_dotstldotd.sh : FAIL_EXEC: cp -fr ${HOME}/.stl.d ${REPO_PATH}/${name_repo}/.d/.stl.d return 1" >&2
+                echo "in file://${REPO_PATH}/${name_repo}/.d/.ham/main/main.fn.lst.d/cp_dotstldotd.sh : FAIL_EXEC: cp -fr ${HOME}/.stl.d ${REPO_PATH}/${name_repo}/.d/.stl.d.copy return 1" >&2
                 return 1
             }
         }

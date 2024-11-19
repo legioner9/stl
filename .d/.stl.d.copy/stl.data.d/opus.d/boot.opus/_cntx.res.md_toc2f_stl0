@@ -34,15 +34,15 @@ Start Contents Menu
 End Contents Menu
 
 <!--
-CMND: ufl_stl0 9 /home/st/.stl.d/stl.opus.d/cntx.ins.d /home/st/.stl.d/stl.opus.d/cntx.res.md 2
+CMND: ufl_stl0 9 /home/st/.stl.d/stl.data.d/opus.d/boot.opus/cntx.ins.d /home/st/.stl.d/stl.data.d/opus.d/boot.opus/cntx.res.md 2
 
-PPWD: /home/st/.stl.d/stl.opus.d
+PPWD: /home/st/.stl.d/stl.data.d/opus.d/boot.opus
 
 FLOW: /home/st/REPOBARE/_repo/sta/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/009_dr2m
 
-DATE: 1732026886_19112024213446
+DATE: 1732031393_19112024224953
 
-DATX: 1732026886
+DATX: 1732031393
 -->
 
 
