@@ -72,15 +72,15 @@ source \~/.stl.d/stl.fuit.d/stl.fuit.sh
 file: \~/.stl.d/stl.fuit.d/stl.fuit.sh
 
         is: "up all in root"
-060: def: boot_stl_c_up() {}
+060: def: fuit_stl_c_up() {}
 
-        up stl.boot util functions:
-101: boot_stl_c_up ${HOME}/.stl.d/stl.fuit.d/stl.fuit.sh.d
+        up stl.fuit util functions:
+101: fuit_stl_c_up ${HOME}/.stl.d/stl.fuit.d/stl.fuit.sh.d
         up color_self_fuit_stl -> def color const
         up is_yes_fuit_stl
 
         is: "up main path"
-000: def: boot_stl_prs_fuit_lst(){}
+000: def: fuit_stl_prs_fuit_lst(){}
 
 000: fn 
 000: fn 
