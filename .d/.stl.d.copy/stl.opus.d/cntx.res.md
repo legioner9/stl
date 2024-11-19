@@ -28,9 +28,9 @@
 Start Contents Menu
 
 <!-- TOC toc2f_stl0 --> 
- - <a href=#5ef3886e410543e7875d42406400523b> First Head</a>
-   - <a href=#0920b59c506d40d6ae3e3c8e7b4d9918> Сохранение ~/stl.d</a>
-   - <a href=#dd982ec81c004d46a757f6478d19abcf> Использование данных установки</a>
+ - <a href=#d58da1b4b93a46f981a6e9a8691cb7c2> First Head</a>
+   - <a href=#1c2b0cb65c264ffe9a6f13a59118ca90> Сохранение ~/stl.d</a>
+   - <a href=#4d2d1ed0aa5e42beb4ec199839f2beb3> Использование данных установки</a>
 
 <!-- /TOC toc2f_stl0 -->
 
@@ -43,9 +43,9 @@ PPWD: /home/st/.stl.d/stl.opus.d
 
 FLOW: /home/st/REPOBARE/_repo/sta/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/009_dr2m
 
-DATE: 1731996278_19112024130438
+DATE: 1732026886_19112024213446
 
-DATX: 1731996278
+DATX: 1732026886
 -->
 
 
@@ -53,30 +53,30 @@ DATX: 1731996278
 
 
 
- <a id="5ef3886e410543e7875d42406400523b"></a>
+ <a id="d58da1b4b93a46f981a6e9a8691cb7c2"></a>
 # First Head
 
 
     
 
-[001.txt.md](cntx.ins.d/002.d/001.txt.md)
+[001.txt.md](cntx.ins.d/002.fuit.d/002.d/001.txt.md)
 
 
 
- <a id="0920b59c506d40d6ae3e3c8e7b4d9918"></a>
+ <a id="1c2b0cb65c264ffe9a6f13a59118ca90"></a>
 ## Сохранение ~/stl.d
 
 
-[001.txt.md](cntx.ins.d/003.d/001.txt.md)
+[001.txt.md](cntx.ins.d/002.fuit.d/003.d/001.txt.md)
 
 
 
- <a id="dd982ec81c004d46a757f6478d19abcf"></a>
+ <a id="4d2d1ed0aa5e42beb4ec199839f2beb3"></a>
 ## Использование данных установки
 
 - BOOT_REPO_PATH определяется при установе STL и используется для дальнейшего определения путей 
     c.e. STL_PATH  
- 
+
 
 
 

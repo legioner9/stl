@@ -1,6 +1,6 @@
 #!/bin/bash
 
-color_self_boot_stl() { # $1 str question
+color_self_fuit_stl() { # $1 str question
     #? ALIASE_OLD
     NORMAL='\033[0m'
     HLIGHT='\033[1m'
@@ -18,4 +18,4 @@ color_self_boot_stl() { # $1 str question
     return 0
 }
 
-color_self_boot_stl
+color_self_fuit_stl
