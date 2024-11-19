@@ -17,3 +17,5 @@ color_self_boot_stl() { # $1 str question
 
     return 0
 }
+
+color_self_boot_stl

@@ -1,0 +1,31 @@
+<!--
+CMND: ufl_stl0 9 /home/st/.stl.d/stl.opus.d/cntx.ins.d /home/st/.stl.d/stl.opus.d/cntx.res.md 2
+
+PPWD: /home/st/.stl.d/stl.opus.d
+
+FLOW: /home/st/REPOBARE/_repo/sta/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/009_dr2m
+
+DATE: 1731936897_18112024203457
+
+DATX: 1731936897
+-->
+
+
+[001.001.first_head.txt.md](cntx.ins.d/001.001.first_head.txt.md)
+
+
+
+# First Head
+
+
+    
+
+[001.txt.md](cntx.ins.d/002.d/001.txt.md)
+
+
+
+# Следующий раздел
+
+
+
+

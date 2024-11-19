@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo -e "${CYAN}--- stl.tml_rnd7_d602167() $* in file://${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.tml.puml_ufl10 ---${NORMAL}" #started functions
+echo -e "${CYAN}--- _rbld_res_md_rnd7_2f14728() $* in file://${HOME}/.stl.d/stl.opus.d/_rbld_res_md.sh ---${NORMAL}" #started functions
 
-stl.tml_rnd7_d602167() {
+_rbld_res_md_rnd7_2f14728() {
 
     # gig from file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/ufl_stl0.ram/.grot/ufl_stl0.sh
 
@@ -10,7 +10,7 @@ stl.tml_rnd7_d602167() {
     local ARGS=("$@")
     local NARGS=$#
     local PPWD=$PWD
-    local path_file="${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.tml.puml_ufl10"
+    local path_file="${HOME}/.stl.d/stl.opus.d/_rbld_res_md.sh"
     local path_dir="$(dirname "$path_file")"
 
     # echo -e "${CYAN}--- $FNN() $* in file://${path_file}---${NORMAL}" #started functions
@@ -59,9 +59,22 @@ ${NORMAL}"
 
     #{{body_fn}}
 
-ufl_stl0 10 ${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.puml.cntx.d ${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.tml.puml ${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.puml.issu.d
+    if [ -d $path_dir/cntx.ins.d ] && [ -f $path_dir/cntx.res.md ]; then
+        echo | ufl_stl0 9 $path_dir/cntx.ins.d $path_dir/cntx.res.md 2
+    fi
 
+    #! rebuild all in .d/.lst/cntx.res.copy.lst
+    local cpy_pth=
+    for cpy_pth in $(_f2e ${path_dir}/.d/.lst/cntx.res.copy.lst); do
+        echo -e "${GREEN}\$cpy_pth = ' file://$cpy_pth'${NORMAL}"
 
+        if [ -d $path_dir/cntx.ins.d ] && [ -f $cpy_pth ]; then
+            echo | ufl_stl0 9 $path_dir/cntx.ins.d $cpy_pth 2
+        fi
+
+    done
+
+    _edit $path_dir/cntx.res.md
     #! END BODY FN ---------------------------------------
     
     cd $PPWD
@@ -69,4 +82,4 @@ ufl_stl0 10 ${HOME}/.stl.d/stl.boot.d/stl.boot.flumen.d/stl.puml.cntx.d ${HOME}/
 
 }
 
-stl.tml_rnd7_d602167 "$@"
+_rbld_res_md_rnd7_2f14728 "$@"

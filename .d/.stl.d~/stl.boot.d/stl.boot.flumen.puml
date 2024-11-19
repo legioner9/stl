@@ -44,6 +44,7 @@ source <path_to_file> влечет за собой
         \~/.stl.d/stl.comm.d/stl.comm.data.d - директория с флагами
             \~/.stl.d/stl.comm.d/stl.comm.data.d/git_reset.flag - флаг для сброса
                     всех изменений в рабочей директории git 
+    \~/.stl.d/stl.opus.d - md catalog , description of the loading process of STL
     \~/.stl.d/readme.man 
             1. Хранение ~/.stl.d
             2. Пояснение к флагу \~/.stl.d/stl.comm.d/stl.comm.data.d/git_reset.flag
@@ -66,22 +67,8 @@ fix source \~/.stl.d/stl.boot.d/stl.boot.sh stdout to \~/.stl.d/stl.bashrc.d/bas
 source \~/.stl.d/stl.boot.d/stl.boot.sh
 ;
 
-***:define: fn() {
-    any_act
-}
-;
-
-***:exec: fn
-;
-
-****:any_act
-;
-
-***:source: \~/path_s
-;
-
-****:
-file:\~/path_s
+***:
+file: \~/.stl.d/stl.boot.d/stl.boot.sh
 
 000: define fn() {}
 000: fn 
