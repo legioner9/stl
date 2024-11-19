@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo -e "${CYAN}--- _rbld_res_md_rnd7_92e226e() $* in file://${HOME}/.stl.d/stl.data.d/opus.d/boot.opus/_rbld_res_md.sh ---${NORMAL}" #started functions
+echo -e "${CYAN}--- _cntx.res_rnd7_c6701ac() $* in file://${HOME}/.stl.d/stl.opus.d/_cntx.res.md_ufl9 ---${NORMAL}" #started functions
 
-_rbld_res_md_rnd7_92e226e() {
+_cntx.res_rnd7_c6701ac() {
 
     # gig from file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/ufl_stl0.ram/.grot/ufl_stl0.sh
 
@@ -10,7 +10,7 @@ _rbld_res_md_rnd7_92e226e() {
     local ARGS=("$@")
     local NARGS=$#
     local PPWD=$PWD
-    local path_file="${HOME}/.stl.d/stl.data.d/opus.d/boot.opus/_rbld_res_md.sh"
+    local path_file="${HOME}/.stl.d/stl.opus.d/_cntx.res.md_ufl9"
     local path_dir="$(dirname "$path_file")"
 
     # echo -e "${CYAN}--- $FNN() $* in file://${path_file}---${NORMAL}" #started functions
@@ -59,22 +59,9 @@ ${NORMAL}"
 
     #{{body_fn}}
 
-    if [ -d $path_dir/cntx.ins.d ] && [ -f $path_dir/cntx.res.md ]; then
-        echo | ufl_stl0 9 $path_dir/cntx.ins.d $path_dir/cntx.res.md 2
-    fi
+echo | ufl_stl0 9 ${HOME}/.stl.d/stl.opus.d/cntx.ins.d ${HOME}/.stl.d/stl.opus.d/cntx.res.md 2
 
-    #! rebuild all in .d/.lst/cntx.res.copy.lst
-    local cpy_pth=
-    for cpy_pth in $(_f2e ${path_dir}/.d/.lst/cntx.res.copy.lst); do
-        echo -e "${GREEN}\$cpy_pth = ' file://$cpy_pth'${NORMAL}"
 
-        if [ -d $path_dir/cntx.ins.d ] && [ -f $cpy_pth ]; then
-            echo | ufl_stl0 9 $path_dir/cntx.ins.d $cpy_pth 2
-        fi
-
-    done
-
-    _edit $path_dir/cntx.res.md
     #! END BODY FN ---------------------------------------
     
     cd $PPWD
@@ -82,4 +69,4 @@ ${NORMAL}"
 
 }
 
-_rbld_res_md_rnd7_92e226e "$@"
+_cntx.res_rnd7_c6701ac "$@"

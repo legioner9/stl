@@ -28,24 +28,24 @@
 Start Contents Menu
 
 <!-- TOC toc2f_stl0 --> 
- - <a href=#eefbf1f76df348b3b4e00b3a0185172a> First Head</a>
-   - <a href=#1729a1c449d446a9999c7a62001040c2> Сохранение ~/stl.d</a>
-   - <a href=#b3979ab4514e4ad984ab2885b749f6bc> Использование данных установки</a>
+ - <a href=#d58da1b4b93a46f981a6e9a8691cb7c2> First Head</a>
+   - <a href=#1c2b0cb65c264ffe9a6f13a59118ca90> Сохранение ~/stl.d</a>
+   - <a href=#4d2d1ed0aa5e42beb4ec199839f2beb3> Использование данных установки</a>
 
 <!-- /TOC toc2f_stl0 -->
 
 End Contents Menu
 
 <!--
-CMND: ufl_stl0 9 /home/st/.stl.d/stl.data.d/opus.d/boot.opus/cntx.ins.d /home/st/.stl.d/stl.data.d/opus.d/boot.opus/cntx.res.md 2
+CMND: ufl_stl0 9 /home/st/.stl.d/stl.opus.d/cntx.ins.d /home/st/.stl.d/stl.opus.d/cntx.res.md 2
 
-PPWD: /home/st/.stl.d/stl.data.d/opus.d/boot.opus
+PPWD: /home/st/.stl.d/stl.opus.d
 
 FLOW: /home/st/REPOBARE/_repo/sta/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/009_dr2m
 
-DATE: 1732031393_19112024224953
+DATE: 1732026886_19112024213446
 
-DATX: 1732031393
+DATX: 1732026886
 -->
 
 
@@ -53,7 +53,7 @@ DATX: 1732031393
 
 
 
- <a id="eefbf1f76df348b3b4e00b3a0185172a"></a>
+ <a id="d58da1b4b93a46f981a6e9a8691cb7c2"></a>
 # First Head
 
 
@@ -63,7 +63,7 @@ DATX: 1732031393
 
 
 
- <a id="1729a1c449d446a9999c7a62001040c2"></a>
+ <a id="1c2b0cb65c264ffe9a6f13a59118ca90"></a>
 ## Сохранение ~/stl.d
 
 
@@ -71,7 +71,7 @@ DATX: 1732031393
 
 
 
- <a id="b3979ab4514e4ad984ab2885b749f6bc"></a>
+ <a id="4d2d1ed0aa5e42beb4ec199839f2beb3"></a>
 ## Использование данных установки
 
 - BOOT_REPO_PATH определяется при установе STL и используется для дальнейшего определения путей 
