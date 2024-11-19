@@ -4,7 +4,7 @@ echo -e "${BLUE}--- that file://${REPO_PATH}/${name_repo}/.d/.ham/main/main.fn.l
 
 cp_dotstldotd() {
     #! rbld ${HOME}/.stl.d/stl.opus.d
-    local rbld_stl_opus_pth=${HOME}/stl.data.d/opus.d/boot.opus/_rbld_res_md.sh
+    local rbld_stl_opus_pth=${HOME}/.stl.d/stl.data.d/opus.d/boot.opus/_rbld_res_md.sh
     if [[ -f ${rbld_stl_opus_pth} ]]; then
         . ${rbld_stl_opus_pth} || {
             echo "in file://${REPO_PATH}/${name_repo}/.d/.ham/main/main.fn.lst.d/cp_dotstldotd.sh : FAIL_EXEC: . file://${rbld_stl_opus_pth} return 1" >&2
