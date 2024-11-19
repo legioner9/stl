@@ -3,6 +3,14 @@
 echo -e "${BLUE}--- that file://${REPO_PATH}/${name_repo}/.d/.ham/main/main.fn.lst.d/cp_dotstldotd.sh ---${NORMAL}" #sistem info mesage
 
 cp_dotstldotd() {
+    #! rbld ${HOME}/.stl.d/stl.opus.d
+    if [[ -f ${HOME}/.stl.d/stl.opus.d/_rbld_res_md.sh ]]; then
+        . ${HOME}/.stl.d/stl.opus.d/_rbld_res_md.sh || {
+            echo "in file://${REPO_PATH}/${name_repo}/.d/.ham/main/main.fn.lst.d/cp_dotstldotd.sh : FAIL_EXEC: . ${HOME}/.stl.d/stl.opus.d/_rbld_res_md.sh return 1" >&2
+            return 1
+        }
+    fi
+
     diff -r ${HOME}/.stl.d ${REPO_PATH}/${name_repo}/.d/.stl.d || {
         is_yes_boot_stl "cp -rf ${HOME}/.stl.d ${REPO_PATH}/${name_repo}/.d/.stl.d" && {
             echo "exec: cp -fr ${HOME}/.stl.d ${REPO_PATH}/${name_repo}/.d/.stl.d"
