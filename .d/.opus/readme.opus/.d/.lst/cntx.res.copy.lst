@@ -1,2 +1,2 @@
 # cp cntx.res.md ONLY with files from cntx.ins.d to :
-${REPO_PATH}/REPOBARE/_repo/stl/README.md
+${REPO_PATH}/stl/README.md

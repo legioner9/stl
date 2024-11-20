@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo -e "${CYAN}--- _cntx.res_rnd7_f3bf8a7() $* in file://${REPO_PATH}/stl/.d/.opus/readme.opus/_cntx.res.md_ufl9 ---${NORMAL}" #started functions
+echo -e "${CYAN}--- _README_rnd7_eb1fd2d() $* in file://${REPO_PATH}/stl/_README.md_ufl9 ---${NORMAL}" #started functions
 
-_cntx.res_rnd7_f3bf8a7() {
+_README_rnd7_eb1fd2d() {
 
     # gig from file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/ufl_stl0.ram/.grot/ufl_stl0.sh
 
@@ -10,7 +10,7 @@ _cntx.res_rnd7_f3bf8a7() {
     local ARGS=("$@")
     local NARGS=$#
     local PPWD=$PWD
-    local path_file="${REPO_PATH}/stl/.d/.opus/readme.opus/_cntx.res.md_ufl9"
+    local path_file="${REPO_PATH}/stl/_README.md_ufl9"
     local path_dir="$(dirname "$path_file")"
 
     # echo -e "${CYAN}--- $FNN() $* in file://${path_file}---${NORMAL}" #started functions
@@ -59,7 +59,7 @@ ${NORMAL}"
 
     #{{body_fn}}
 
-echo | ufl_stl0 9 ${REPO_PATH}/stl/.d/.opus/readme.opus/cntx.ins.d ${REPO_PATH}/stl/.d/.opus/readme.opus/cntx.res.md 2
+echo | ufl_stl0 9 ${REPO_PATH}/stl/.d/.opus/readme.opus/cntx.ins.d ${REPO_PATH}/stl/README.md 2
 
 
     #! END BODY FN ---------------------------------------
@@ -69,4 +69,4 @@ echo | ufl_stl0 9 ${REPO_PATH}/stl/.d/.opus/readme.opus/cntx.ins.d ${REPO_PATH}/
 
 }
 
-_cntx.res_rnd7_f3bf8a7 "$@"
+_README_rnd7_eb1fd2d "$@"
