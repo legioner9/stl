@@ -14,7 +14,8 @@ cp_dotstldotd() {
 
     #! if diff -> cp ~/.stl.d to stl_repo
     diff -r ${HOME}/.stl.d ${REPO_PATH}/${name_repo}/.d/.stl.d.copy || {
-        is_yes_boot_stl "cp -rf ${HOME}/.stl.d ${REPO_PATH}/${name_repo}/.d/.stl.d.copy" && {
+        #! is_yes_boot_stl "cp -rf ${HOME}/.stl.d ${REPO_PATH}/${name_repo}/.d/.stl.d.copy" && {
+        _is_yes "cp -rf ${HOME}/.stl.d ${REPO_PATH}/${name_repo}/.d/.stl.d.copy" && {
             echo "exec: cp -fr ${HOME}/.stl.d ${REPO_PATH}/${name_repo}/.d/.stl.d.copy"
             rm -rf ${REPO_PATH}/${name_repo}/.d/.stl.d.copy~
             mv ${REPO_PATH}/${name_repo}/.d/.stl.d.copy ${REPO_PATH}/${name_repo}/.d/.stl.d.copy~

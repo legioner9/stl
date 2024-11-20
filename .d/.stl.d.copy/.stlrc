@@ -1,55 +1,60 @@
 #!/bin/bash
 
-stlrc_log_flag_pth="${HOME}/.stl.d/stl.data.d/flag.d/stlrc.log.flag"
+stl_flow_boot_sh() {
 
-if [ -f ${stlrc_log_flag_pth} ]; then
+    # check and up flag
+    local stlrc_log_flag_pth="${HOME}/.stl.d/data.d/flag.d/stlrc.log.flag"
+    if [ -f ${stlrc_log_flag_pth} ]; then
 
-    is_stl_log=$(cat ${stlrc_log_flag_pth})
+        is_stl_log=$(cat ${stlrc_log_flag_pth})
 
-    [ -z "${is_stl_log}" ] && {
-        echo " file://${stlrc_log_flag_pth} EXIST bat EMPTY :: return 1" >&2
-        return 1
-    }
+        [ -z "${is_stl_log}" ] && {
+            echo " file://${stlrc_log_flag_pth} EXIST bat EMPTY :: return 1" >&2
+            return 1
+        }
 
-    [ 0 -ne ${is_stl_log} ] && [ 1 -ne ${is_stl_log} ] && {
-        echo " file://${stlrc_log_flag_pth} EXIST and NOT_CONTANE '1' or '0' :: return 1" >&2
-        return 1
-    }
+        [ 0 -ne ${is_stl_log} ] && [ 1 -ne ${is_stl_log} ] && {
+            echo " file://${stlrc_log_flag_pth} EXIST and NOT_CONTANE '1' or '0' :: return 1" >&2
+            return 1
+        }
 
-else
+    else
 
-    echo 0 >${stlrc_log_flag_pth}
-    is_stl_log=0
+        echo 0 >${stlrc_log_flag_pth}
+        is_stl_log=0
 
-fi
+    fi
 
-#! ~/.stl.d/stl.boot.d/stl.boot.sh : stout, stderr > ~/.stl.d/stl.bashrc.d/bashrc.log
-if [ 1 -eq ${is_stl_log} ]; then
+    #! ~/.stl.d/stl.boot.d/stl.boot.sh : stout, stderr > ~/.stl.d/stl.bashrc.d/bashrc.log
+    if [ 1 -eq ${is_stl_log} ]; then
 
-    stlrc_log_pth="${HOME}/.stl.d/stl.data.d/log.d/stlrc.log"
-    : >${stlrc_log_pth}
+        stlrc_log_pth="${HOME}/.stl.d/data.d/log.d/stlrc.log"
+        : >${stlrc_log_pth}
 
-    # ~/.stl.d/stl.boot.d/stl.boot.sh
+        # ~/.stl.d/boot.d/stl.boot.sh
 
-    stl_fuit_sh="${HOME}/.stl.d/stl.flow.d/fuit.d/stl.fuit.sh"
+        stl_boot_sh="${HOME}/.stl.d/flow.d/boot.d/boot.sh"
 
-    if [[ -f ${stl_fuit_sh} ]]; then if ! . ${stl_fuit_sh} &>~/.stl.d/stl.bashrc.d/bashrc.log; then
-        # if [[ -f ~/.d/.rc.d/.st.rc.d/.st.rc ]]; then if ! . ~/.d/.rc.d/.st.rc.d/.st.rc >/dev/null; then
-        echo "in ${HOME}/.stl.d/.stlrc : FAIL . file://${stl_fuit_sh} : return 1" >&2
-        return 1
-    fi; fi
+        if [[ -f ${stl_fuit_sh} ]]; then if ! . ${stl_fuit_sh} &>~/.stl.d/stl.bashrc.d/bashrc.log; then
+            # if [[ -f ~/.d/.rc.d/.st.rc.d/.st.rc ]]; then if ! . ~/.d/.rc.d/.st.rc.d/.st.rc >/dev/null; then
+            echo "in ${HOME}/.stl.d/.stlrc : FAIL . file://${stl_fuit_sh} : return 1" >&2
+            return 1
+        fi; fi
 
-fi
+    fi
 
-#! ~/.stl.d/stl.boot.d/stl.boot.sh : stout, stderr > /dev/null
-if [ 0 -eq ${is_stl_log} ]; then
+    #! ~/.stl.d/stl.boot.d/stl.boot.sh : stout, stderr > /dev/null
+    if [ 0 -eq ${is_stl_log} ]; then
 
-    # ~/.stl.d/stl.boot.d/stl.boot.sh
+        # ~/.stl.d/stl.boot.d/stl.boot.sh
 
-    if [[ -f ~/.stl.d/stl.boot.d/stl.boot.sh ]]; then if ! . ~/.stl.d/stl.boot.d/stl.boot.sh &>/dev/null; then
-        # if [[ -f ~/.d/.rc.d/.st.rc.d/.st.rc ]]; then if ! . ~/.d/.rc.d/.st.rc.d/.st.rc >/dev/null; then
-        echo "in ~/.stl.d/stl.bashrc.d/bashrc.stl : FAIL . ~/.stl.d/stl.boot.d/stl.boot.sh : return 1" >&2
-        return 1
-    fi; fi
+        if [[ -f ~/.stl.d/boot.d/boot.sh ]]; then if ! . ~/.stl.d/boot.d/boot.sh &>/dev/null; then
+            # if [[ -f ~/.d/.rc.d/.st.rc.d/.st.rc ]]; then if ! . ~/.d/.rc.d/.st.rc.d/.st.rc >/dev/null; then
+            echo "in ~/.stl.d/.stlrc : FAIL . ~/.stl.d/boot.d/boot.sh : return 1" >&2
+            return 1
+        fi; fi
 
-fi
+    fi
+}
+
+stl_flow_boot_sh
