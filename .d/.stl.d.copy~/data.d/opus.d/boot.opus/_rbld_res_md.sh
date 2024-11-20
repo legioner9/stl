@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -e "${CYAN}--- _rbld_res_md_rnd7_92e226e() $* in file://${HOME}/.stl.d/stl.data.d/opus.d/boot.opus/_rbld_res_md.sh ---${NORMAL}" #started functions
+echo -e "${CYAN}--- _rbld_res_md_rnd7_92e226e() $* in file://${HOME}/.stl.d/data.d/opus.d/boot.opus/_rbld_res_md.sh ---${NORMAL}" #started functions
 
 _rbld_res_md_rnd7_92e226e() {
 
@@ -10,7 +10,7 @@ _rbld_res_md_rnd7_92e226e() {
     local ARGS=("$@")
     local NARGS=$#
     local PPWD=$PWD
-    local path_file="${HOME}/.stl.d/stl.data.d/opus.d/boot.opus/_rbld_res_md.sh"
+    local path_file="${HOME}/.stl.d/data.d/opus.d/boot.opus/_rbld_res_md.sh h"
     local path_dir="$(dirname "$path_file")"
 
     # echo -e "${CYAN}--- $FNN() $* in file://${path_file}---${NORMAL}" #started functions
