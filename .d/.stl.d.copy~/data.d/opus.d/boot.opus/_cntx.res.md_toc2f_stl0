@@ -23,6 +23,39 @@
     height: 1em;
     background-color: #F8F8F8;
 }
+
+h1{
+    color: rgb(155, 0, 218);
+    font-weight: normal;
+    font-style: italic;
+    font-weight:bold;
+
+}
+h2{
+    color: rgb(155, 40, 238);
+    font-style: italic;
+    font-weight:bold;
+}
+h3{
+    color: rgb(155, 80, 218);
+    font-style: italic;
+    font-weight:bold;
+}
+h4{
+    color: rgb(155, 120, 218);
+    font-style: italic;
+    font-weight:bold;
+}
+h5{
+    color: rgb(155, 160, 218);
+    font-style: italic;
+    font-weight:bold;
+}
+h6 {
+    color: rgb(155, 200, 230);
+    font-style: italic;
+    font-weight:bold;
+}
 </style>
 
 Start Contents Menu
@@ -34,15 +67,15 @@ Start Contents Menu
 End Contents Menu
 
 <!--
-CMND: ufl_stl0 9 /home/st/.stl.d/stl.data.d/opus.d/boot.opus/cntx.ins.d /home/st/.stl.d/stl.data.d/opus.d/boot.opus/cntx.res.md 2
+CMND: ufl_stl0 9 /home/st/.stl.d/data.d/opus.d/boot.opus/cntx.ins.d /home/st/.stl.d/data.d/opus.d/boot.opus/cntx.res.md 2
 
-PPWD: /home/st/.stl.d/stl.data.d/opus.d/boot.opus
+PPWD: /home/st/.stl.d/data.d/opus.d/boot.opus
 
 FLOW: /home/st/REPOBARE/_repo/sta/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/009_dr2m
 
-DATE: 1732031393_19112024224953
+DATE: 1732081971_20112024125251
 
-DATX: 1732031393
+DATX: 1732081971
 -->
 
 
@@ -50,19 +83,38 @@ DATX: 1732031393
 
 
 
-# First Head
+# STL OPUS  
+
+[001.txt.md](cntx.ins.d/001.concept.d/001.txt.md)
 
 
-    
 
-[001.txt.md](cntx.ins.d/002.fuit.d/002.d/001.txt.md)
+# Концепция 
+
+
+
+[001.txt.md](cntx.ins.d/001.concept.d/002.flags.d/001.txt.md)
+
+
+
+## Флаги 
+
+
+[001.txt.md](cntx.ins.d/002.boot.d/001.txt.md)
+
+
+
+# Загрузка 
+
+
+[001.txt.md](cntx.ins.d/002.boot.d/002.d/001.txt.md)
 
 
 
 ## Сохранение ~/stl.d
 
 
-[001.txt.md](cntx.ins.d/002.fuit.d/003.d/001.txt.md)
+[001.txt.md](cntx.ins.d/002.boot.d/003.d/001.txt.md)
 
 
 
@@ -70,6 +122,20 @@ DATX: 1732031393
 
 - BOOT_REPO_PATH определяется при установе STL и используется для дальнейшего определения путей 
     c.e. STL_PATH  
+
+
+[001.txt.md](cntx.ins.d/003.inst.d/001.txt.md)
+
+
+
+# Установка
+ 
+
+[001.txt.md](cntx.ins.d/004.dlt.d/001.txt.md)
+
+
+
+# Удаление 
 
 
 
