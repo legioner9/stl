@@ -61,8 +61,8 @@ h6 {
 Start Contents Menu
 
 <!-- TOC toc2f_stl0 --> 
- - <a href=#74b447af7b38470cb65683648db776f9> STL REPO OPUS</a>
- - <a href=#e8acdb257c6c422d929c6bf87ffda368> INFO</a>
+ - <a href=#128803a6a8bf4453be72072424d6260c> STL REPO OPUS</a>
+ - <a href=#67d524a7661140ce87d95b2039662ab0> INFO</a>
 
 <!-- /TOC toc2f_stl0 -->
 
@@ -75,9 +75,9 @@ PPWD: /home/st/REPOBARE/_repo/stl/.d/.opus/readme.opus
 
 FLOW: /home/st/REPOBARE/_repo/sta/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/009_dr2m
 
-DATE: 1732188303_21112024182503
+DATE: 1732200598_21112024214958
 
-DATX: 1732188303
+DATX: 1732200598
 -->
 
 
@@ -85,7 +85,7 @@ DATX: 1732188303
 
 
 
- <a id="74b447af7b38470cb65683648db776f9"></a>
+ <a id="128803a6a8bf4453be72072424d6260c"></a>
 # STL REPO OPUS
  
 
@@ -93,12 +93,17 @@ DATX: 1732188303
 
 
 
- <a id="e8acdb257c6c422d929c6bf87ffda368"></a>
+ <a id="67d524a7661140ce87d95b2039662ab0"></a>
 # INFO
 
 - cli after install
-
-    $ _stl -h
+    - help stl lib
+    
+        $ s_ -h 
+    - start stl [ source ]
+    
+        $ s_ ~/.stl.d/.stlrc
+        
 
 
 

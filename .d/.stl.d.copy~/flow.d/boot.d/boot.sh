@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -e "${CYAN}--- stl.boot_rnd7_fccf426() $* in file://${HOME}/.stl.d/stl.boot.d/stl.boot.sh ---${NORMAL}" #started functions
+echo -e "${CYAN}--- stl.boot_rnd7_fccf426() $* in file://${HOME}/.stl.d/flow.d/boot.d/boot.sh ---${NORMAL}" #started functions
 
 stl_boot_sh() {
 
@@ -10,7 +10,7 @@ stl_boot_sh() {
     local ARGS=("$@")
     local NARGS=$#
     local PPWD=$PWD
-    local path_file="${HOME}/.stl.d/stl.boot.d/stl.boot.sh"
+    local path_file="${HOME}/.stl.d/flow.d/boot.d/boot.sh"
     local path_dir="$(dirname "$path_file")"
 
     # echo -e "${CYAN}--- $FNN() $* in file://${path_file}---${NORMAL}" #started functions
@@ -56,6 +56,7 @@ ${NORMAL}"
     #! START BODY FN ---------------------------------------
 
     echo "START BODY FN : ${FNN}() $*"
+
 
 
     #{{body_fn}}

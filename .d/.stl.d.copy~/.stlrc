@@ -6,7 +6,7 @@ dotstlrc_boot_stl() {
     local PPWD=$PWD
     local sh_file=${HOME}/.stl.d/.stlrc
     # echo -e "${CYAN}--- $FNN() $* in file://${sh_file} ---${NORMAL}"
-    echo -e "$FNN() in file://${sh_file}"
+    # echo -e "$FNN() in file://${sh_file}"
 
     c_up_boot_stl() {
 
@@ -60,24 +60,59 @@ dotstlrc_boot_stl() {
     }
 
     #! up boot util fn and constants
-    c_up_boot_stl ${HOME}/.stl.d/prc.d || {
+    c_up_boot_stl ${HOME}/.stl.d/prc.d >/dev/null || {
         echo "EXEC_FAIL 'c_up_boot_stl ${HOME}/.stl.d/prc.d' :: return 1" >&2
         cd ${PPWD}
         return 1
     }
 
     #! define use_flag
-    up_flag_boot_stl_fn ${HOME}/.stl.use.flag use_flag
+    local use_flag=
+    local use_flag_file=${HOME}/.stl.use.flag
+    up_flag_boot_stl_fn ${use_flag_file} use_flag >/dev/null || {
+        err_boot_stl_fn "EXEC_FAIL 'up_flag_boot_stl_fn ${use_flag_file} use_flag' :: return 1"
+        cd ${PPWD}
+        return 1
+    }
 
     #! ~/.stl.use.flag :: check abort boot stl
     [[ 0 -eq $use_flag ]] && {
-        warn_boot_stl_fn "\$use_flag = 0 :: ABORT_OPERATION boot stl :: return 0"
+        # warn_boot_stl_fn "\$use_flag = 0 :: ABORT_OPERATION boot stl :: return 0"
         cd ${PPWD}
         return 0
     }
 
-    read -p "enter"
-    #! ~/.stl.d/stl.boot.d/stl.boot.sh : stout, stderr > ~/.stl.d/stl.bashrc.d/bashrc.log
+    #! define log_flag
+    local log_flag=
+    local log_flag_file=${HOME}/.stl.d/data.d/flag.d/stlrc.log.flag
+    up_flag_boot_stl_fn ${log_flag_file} log_flag >/dev/null || {
+        err_boot_stl_fn "EXEC_FAIL 'up_flag_boot_stl_fn ${log_flag_file} log_flag' :: return 1"
+        cd ${PPWD}
+        return 1
+    }
+
+    local stl_boot_file=${HOME}/.stl.d/flow.d/boot.d/boot.sh
+    [[ 0 -eq $log_flag ]] && {
+        source ${stl_boot_file} || {
+            err_boot_stl_fn "EXEC_FAIL 'source ${stl_boot_file}' :: return 1"
+            cd ${PPWD}
+            return 1
+        }
+
+        cd ${PPWD}
+        return 0
+    }
+    local log_file=${HOME}/.stl.d/data.d/log.d/stlrc.log
+    [[ 1 -eq $log_flag ]] && {
+        source ${stl_boot_file} 1>${log_file} 2>${log_file} || {
+            err_boot_stl_fn "EXEC_FAIL 'source ${stl_boot_file}' :: return 1"
+            cd ${PPWD}
+            return 1
+        }
+
+        cd ${PPWD}
+        return 0
+    }
 
     #! IFS to default value
     unset IFS
