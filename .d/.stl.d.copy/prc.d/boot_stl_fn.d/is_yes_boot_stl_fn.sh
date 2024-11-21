@@ -1,6 +1,6 @@
 #!/bin/bash
 
-is_yes_boot_stl() { # $1 str question
+is_yes_boot_stl_fn() { # $1 str question
 
     local yes
 

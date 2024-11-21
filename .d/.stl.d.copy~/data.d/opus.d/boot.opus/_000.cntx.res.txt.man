@@ -1,6 +1,5 @@
-DATE: 1732081971_20112024125251
 
-DATX: 1732081971
+DATX: 1732160914
 -->
 
 
@@ -32,14 +31,14 @@ DATX: 1732081971
 # Загрузка 
 
 
-[001.txt.md](cntx.ins.d/002.boot.d/002.d/001.txt.md)
+[001.txt.md](cntx.ins.d/002.boot.d/002.save.d/001.txt.md)
 
 
 
-## Сохранение ~/stl.d
+## Сохранение ~/.stl.d
 
 
-[001.txt.md](cntx.ins.d/002.boot.d/003.d/001.txt.md)
+[001.txt.md](cntx.ins.d/002.boot.d/003.use_data.d/001.txt.md)
 
 
 
@@ -48,6 +47,25 @@ DATX: 1732081971
 - BOOT_REPO_PATH определяется при установе STL и используется для дальнейшего определения путей 
     c.e. STL_PATH  
 
+
+[001.txt.md](cntx.ins.d/002.boot.d/004.flags.d/001.txt.md)
+
+
+
+## Флаги
+
+0 - false
+1 - true
+
+### Глобальные `~/`
+
+    ~/.stl.use.flag - use or not stl  external setting behavior
+
+### Локальные `~/.stl.d/data.d/flag.d`
+
+    ~/.stl.d/data.d/flag.d/stlrc.log.flag - start or not 
+
+    ~/.stl.d/data.d/flag.d/git_reset.flag - reset or not all git diff :: use in git_flow_functions
 
 [001.txt.md](cntx.ins.d/003.inst.d/001.txt.md)
 

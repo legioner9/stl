@@ -67,35 +67,24 @@ Start Contents Menu
 End Contents Menu
 
 <!--
-CMND: ufl_stl0 9 /home/st/REPOBARE/_repo/stl/.d/.opus/readme.opus/cntx.ins.d /home/st/REPOBARE/_repo/stl/README.md 2
+CMND: ufl_stl0 9 /home/st/REPOBARE/_repo/stl/.d/.opus/readme.opus/cntx.ins.d /home/st/.stl.d/data.d/opus.d/repo_readme/readme_copy_repo_stl.md 2
 
 PPWD: /home/st/REPOBARE/_repo/stl/.d/.opus/readme.opus
 
 FLOW: /home/st/REPOBARE/_repo/sta/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/009_dr2m
 
-DATE: 1732188300_21112024182500
+DATE: 1732160936_21112024104856
 
-DATX: 1732188300
+DATX: 1732160936
 -->
 
 
-[001.001.first_head.txt.md](.d/.opus/readme.opus/cntx.ins.d/001.001.first_head.txt.md)
+[001.001.first_head.txt.md](../../../../REPOBARE/_repo/stl/.d/.opus/readme.opus/cntx.ins.d/001.001.first_head.txt.md)
 
 
 
 # STL REPO OPUS
  
-
-[001.txt.md](.d/.opus/readme.opus/cntx.ins.d/002.info.d/001.txt.md)
-
-
-
-# INFO
-
-- cli after install
-
-    $ _stl -h
-
 
 
 
