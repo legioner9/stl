@@ -1,5 +1,5 @@
 
-DATX: 1732188300
+DATX: 1732200595
 -->
 
 
@@ -17,8 +17,13 @@ DATX: 1732188300
 # INFO
 
 - cli after install
-
-    $ _stl -h
+    - help stl lib
+    
+        $ s_ -h 
+    - start stl [ source ]
+    
+        $ s_ ~/.stl.d/.stlrc
+        
 
 
 

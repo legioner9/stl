@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo -e "${CYAN}--- stl.boot_rnd7_fccf426() $* in file://${HOME}/.stl.d/stl.boot.d/stl.boot.sh ---${NORMAL}" #started functions
+echo -e "${CYAN}--- _tst_check_up_flag_boot_stl_rnd7_cdb38af() $* in file://${HOME}/.stl.d/prc.d/comm.sh.d/__tst/_tst_check_up_flag_boot_stl/_tst.sh ---${NORMAL}" #started functions
 
-stl_boot_sh() {
+_tst_check_up_flag_boot_stl_rnd7_cdb38af() {
 
     # gig from file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/ufl_stl0.ram/.grot/ufl_stl0.sh
 
@@ -10,7 +10,7 @@ stl_boot_sh() {
     local ARGS=("$@")
     local NARGS=$#
     local PPWD=$PWD
-    local path_file="${HOME}/.stl.d/stl.boot.d/stl.boot.sh"
+    local path_file="${HOME}/.stl.d/prc.d/comm.sh.d/__tst/_tst_check_up_flag_boot_stl/_tst.sh"
     local path_dir="$(dirname "$path_file")"
 
     # echo -e "${CYAN}--- $FNN() $* in file://${path_file}---${NORMAL}" #started functions
@@ -57,6 +57,23 @@ ${NORMAL}"
 
     echo "START BODY FN : ${FNN}() $*"
 
+    local tst_dr=${HOME}/.stl.d/prc.d/comm.sh.d/__tst/_tst_check_up_flag_boot_stl/_tst.d
+
+    local sh_fl=${HOME}/.stl.d/prc.d/comm.sh.d/up_flag_boot_stl.sh
+
+    . ${sh_fl} || {
+        echo "EXEC_FAIL '. file://${sh_fl}' :: return 1" >&2
+        cd $PPWD
+        return 1
+    }
+
+    cp -f ${tst_dr}/init.f ${tst_dr}/file.flag
+
+    local v_flag=
+
+    up_flag_boot_stl ${tst_dr}/file.flag v_flag
+
+    echo -e "${GREEN}\$v_flag = '$v_flag'${NORMAL}"
 
     #{{body_fn}}
 
@@ -67,4 +84,4 @@ ${NORMAL}"
 
 }
 
-stl_boot_sh "$@"
+_tst_check_up_flag_boot_stl_rnd7_cdb38af "$@"

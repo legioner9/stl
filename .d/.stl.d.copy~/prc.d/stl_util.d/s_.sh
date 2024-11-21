@@ -1,6 +1,6 @@
 #!/bin/bash
 
-_stl() {
+s_() {
 
     if [[ "-h" == "$1" ]]; then
         echo -e "
@@ -15,6 +15,9 @@ _stl() {
 
 
 "
+        return 0
     fi
+
+    . ${HOME}/.stl.d/.stlrc
 
 }

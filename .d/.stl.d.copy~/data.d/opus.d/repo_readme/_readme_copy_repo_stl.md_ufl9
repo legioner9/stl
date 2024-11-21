@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo -e "${CYAN}--- stl.boot_rnd7_fccf426() $* in file://${HOME}/.stl.d/stl.boot.d/stl.boot.sh ---${NORMAL}" #started functions
+echo -e "${CYAN}--- _readme_copy_repo_stl_rnd7_e37d7bd() $* in file://${HOME}/.stl.d/data.d/opus.d/repo_readme/_readme_copy_repo_stl.md_ufl9 ---${NORMAL}" #started functions
 
-stl_boot_sh() {
+_readme_copy_repo_stl_rnd7_e37d7bd() {
 
     # gig from file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/ufl_stl0.ram/.grot/ufl_stl0.sh
 
@@ -10,14 +10,14 @@ stl_boot_sh() {
     local ARGS=("$@")
     local NARGS=$#
     local PPWD=$PWD
-    local path_file="${HOME}/.stl.d/stl.boot.d/stl.boot.sh"
+    local path_file="${HOME}/.stl.d/data.d/opus.d/repo_readme/_readme_copy_repo_stl.md_ufl9"
     local path_dir="$(dirname "$path_file")"
 
     # echo -e "${CYAN}--- $FNN() $* in file://${path_file}---${NORMAL}" #started functions
 
     cd ${path_dir} || {
         # hint="\$1: \$2: "
-        echo "in fs= file://$path_file , line=${LINENO}, ${FNN}() : NOT_DIR : 'file://${path_dir}' : ${hint} : return 1" >&2
+        _st_exit "in fs= file://$path_file , line=${LINENO}, ${FNN}() : NOT_DIR : 'file://${path_dir}' : ${hint} : return 1"
         return 1
     }
 
@@ -57,14 +57,16 @@ ${NORMAL}"
 
     echo "START BODY FN : ${FNN}() $*"
 
-
     #{{body_fn}}
 
-    #! END BODY FN ---------------------------------------
+echo | ufl_stl0 9 ${REPO_PATH}/stl/.d/.opus/readme.opus/cntx.ins.d ${HOME}/.stl.d/data.d/opus.d/repo_readme/readme_copy_repo_stl.md 2
 
+
+    #! END BODY FN ---------------------------------------
+    
     cd $PPWD
     return 0
 
 }
 
-stl_boot_sh "$@"
+_readme_copy_repo_stl_rnd7_e37d7bd "$@"

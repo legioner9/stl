@@ -1,29 +1,51 @@
 #!/bin/bash
 
-stl_flow_boot_sh() {
+dotstlrc_boot_stl() {
 
-    # check and up flag
-    local stlrc_log_flag_pth="${HOME}/.stl.d/data.d/flag.d/stlrc.log.flag"
-    if [ -f ${stlrc_log_flag_pth} ]; then
+    c_up_boot_stl() {
+        echo -e "${CYAN}---c_up() \$1 = $1---${NORMAL}" #started functions
+        IFS=$' \t\n'
 
-        is_stl_log=$(cat ${stlrc_log_flag_pth})
-
-        [ -z "${is_stl_log}" ] && {
-            echo " file://${stlrc_log_flag_pth} EXIST bat EMPTY :: return 1" >&2
+        # cd_h "$1" "$filename" "$LINENO"
+        if [[ -d "$1" ]]; then
+            cd "$1" || {
+                echo "FAIL_EXEC :: 'cd $1'"
+            }
+        else
+            echo "$1 is not dir" >&2
             return 1
-        }
+        fi
 
-        [ 0 -ne ${is_stl_log} ] && [ 1 -ne ${is_stl_log} ] && {
-            echo " file://${stlrc_log_flag_pth} EXIST and NOT_CONTANE '1' or '0' :: return 1" >&2
-            return 1
-        }
+        local dir
+        dir=$(pwd)
 
-    else
+        for item in *; do
 
-        echo 0 >${stlrc_log_flag_pth}
-        is_stl_log=0
+            local item_path=$dir/$item
 
-    fi
+            if [ -f "$item_path" ] && [ "${item:0:1}" != "_" ] && [ "${item##*.}" = sh ]; then
+                . "$item_path"
+
+            elif
+                [ -d "$item_path" ] && [ "${item:0:1}" != "_" ]
+            then
+
+                c_up_boot_stl "$item_path"
+
+            fi
+
+        done
+    }
+
+    export c_up_boot_stl
+
+    c_up_boot_stl ${HOME}/.stl.d/prc.d || {
+        echo "EXEC_FAIL 'c_up_boot_stl ${HOME}/.stl.d/prc.d' :: return 1" >&2
+    }
+
+    up_flag_boot_stl_fn ${HOME}/.
+
+    read -p "enter"
 
     #! ~/.stl.d/stl.boot.d/stl.boot.sh : stout, stderr > ~/.stl.d/stl.bashrc.d/bashrc.log
     if [ 1 -eq ${is_stl_log} ]; then
@@ -57,4 +79,4 @@ stl_flow_boot_sh() {
     fi
 }
 
-stl_flow_boot_sh
+dotstlrc_boot_stl

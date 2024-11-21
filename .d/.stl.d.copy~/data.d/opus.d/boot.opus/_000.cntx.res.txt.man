@@ -1,5 +1,5 @@
 
-DATX: 1732160914
+DATX: 1732188217
 -->
 
 
@@ -15,13 +15,6 @@ DATX: 1732160914
 
 # Концепция 
 
-
-
-[001.txt.md](cntx.ins.d/001.concept.d/002.flags.d/001.txt.md)
-
-
-
-## Флаги 
 
 
 [001.txt.md](cntx.ins.d/002.boot.d/001.txt.md)
@@ -57,15 +50,46 @@ DATX: 1732160914
 0 - false
 1 - true
 
-### Глобальные `~/`
+### Глобальные in dr: `~/`
 
-    ~/.stl.use.flag - use or not stl  external setting behavior
+    ~/.stl.use.flag - use or not stl  external setting behavior :: ~/.stl.d/flow.d/boot.d/boot.sh
 
-### Локальные `~/.stl.d/data.d/flag.d`
+### Локальные in dr: `~/.stl.d/data.d/flag.d`
 
-    ~/.stl.d/data.d/flag.d/stlrc.log.flag - start or not 
+    ~/.stl.d/data.d/flag.d/stlrc.log.flag - start or not ~/.stl.d/flow.d/boot.d/boot.sh
 
     ~/.stl.d/data.d/flag.d/git_reset.flag - reset or not all git diff :: use in git_flow_functions
+
+
+[001.1L.txt.md](cntx.ins.d/002.boot.d/005.files.d/001.1L.txt.md)
+
+
+
+# Files :: `~/.stl.d`
+
+
+
+
+[001.txt.md](cntx.ins.d/002.boot.d/005.files.d/002.const.d/001.txt.md)
+
+
+
+## `~/.stl.d/prc.d/boot_stl_const.d` :: define const for all stl (felf start fn)
+
+
+[001.txt.md](cntx.ins.d/002.boot.d/005.files.d/003.fn.d/001.txt.md)
+
+
+
+## `~/.stl.d/prc.d/boot_stl_fn.d` :: define fn for use for boot stl
+
+
+[001.txt.md](cntx.ins.d/002.boot.d/005.files.d/004.util.d/001.txt.md)
+
+
+
+## `~/.stl.d/prc.d/stl_util.d` :: define fn for temporary maintenacce - NOT STABLE 
+
 
 [001.txt.md](cntx.ins.d/003.inst.d/001.txt.md)
 

@@ -2,81 +2,89 @@
 
 dotstlrc_boot_stl() {
 
-    c_up_boot_stl() {
-        echo -e "${CYAN}---c_up() \$1 = $1---${NORMAL}" #started functions
-        IFS=$' \t\n'
+    local FNN=${FUNCNAME[0]}
+    local PPWD=$PWD
+    local sh_file=${HOME}/.stl.d/.stlrc
+    # echo -e "${CYAN}--- $FNN() $* in file://${sh_file} ---${NORMAL}"
+    echo -e "$FNN() in file://${sh_file}"
 
-        # cd_h "$1" "$filename" "$LINENO"
+    c_up_boot_stl() {
+
+        local FNN=${FUNCNAME[0]}
+        local PPWD=$PWD
+
+        echo "$FNN() $*"
+
+        #! IFS to default value
+        unset IFS
+
         if [[ -d "$1" ]]; then
             cd "$1" || {
-                echo "FAIL_EXEC :: 'cd $1'"
+                echo "FAIL_EXEC :: 'cd $1' :: return 1" >&2
+                return 1
             }
         else
             echo "$1 is not dir" >&2
             return 1
         fi
 
-        local dir
+        local dir=
+        local item=
+        local item_path=
+
         dir=$(pwd)
 
         for item in *; do
 
-            local item_path=$dir/$item
+            item_path=$dir/$item
 
-            if [ -f "$item_path" ] && [ "${item:0:1}" != "_" ] && [ "${item##*.}" = sh ]; then
-                . "$item_path"
+            if [ -f "$item_path" ] && [ "${item:0:1}" != "_" ] && [ "${item##*.}" == "sh" ]; then
+                . "$item_path" || {
+                    echo "EXEC_FAIL '. file://$item_path' :: return 1" >&2
+                    cd ${PPWD}
+                    return 1
+                }
 
-            elif
-                [ -d "$item_path" ] && [ "${item:0:1}" != "_" ]
-            then
-
-                c_up_boot_stl "$item_path"
-
+            elif [ -d "$item_path" ] && [ "${item:0:1}" != "_" ]; then
+                c_up_boot_stl "$item_path" || {
+                    echo "EXEC_FAIL 'c_up_boot_stl file://$item_path' :: return 1" >&2
+                    cd ${PPWD}
+                    return 1
+                }
             fi
 
         done
+
+        cd ${PPWD} || return 1
+        return 0
     }
 
-    export c_up_boot_stl
-
+    #! up boot util fn and constants
     c_up_boot_stl ${HOME}/.stl.d/prc.d || {
         echo "EXEC_FAIL 'c_up_boot_stl ${HOME}/.stl.d/prc.d' :: return 1" >&2
+        cd ${PPWD}
+        return 1
     }
 
-    up_flag_boot_stl_fn ${HOME}/.
+    #! define use_flag
+    up_flag_boot_stl_fn ${HOME}/.stl.use.flag use_flag
+
+    #! ~/.stl.use.flag :: check abort boot stl
+    [[ 0 -eq $use_flag ]] && {
+        warn_boot_stl_fn "\$use_flag = 0 :: ABORT_OPERATION boot stl :: return 0"
+        cd ${PPWD}
+        return 0
+    }
 
     read -p "enter"
-
     #! ~/.stl.d/stl.boot.d/stl.boot.sh : stout, stderr > ~/.stl.d/stl.bashrc.d/bashrc.log
-    if [ 1 -eq ${is_stl_log} ]; then
 
-        stlrc_log_pth="${HOME}/.stl.d/data.d/log.d/stlrc.log"
-        : >${stlrc_log_pth}
-
-        # ~/.stl.d/boot.d/stl.boot.sh
-
-        stl_boot_sh="${HOME}/.stl.d/flow.d/boot.d/boot.sh"
-
-        if [[ -f ${stl_fuit_sh} ]]; then if ! . ${stl_fuit_sh} &>~/.stl.d/stl.bashrc.d/bashrc.log; then
-            # if [[ -f ~/.d/.rc.d/.st.rc.d/.st.rc ]]; then if ! . ~/.d/.rc.d/.st.rc.d/.st.rc >/dev/null; then
-            echo "in ${HOME}/.stl.d/.stlrc : FAIL . file://${stl_fuit_sh} : return 1" >&2
-            return 1
-        fi; fi
-
-    fi
-
-    #! ~/.stl.d/stl.boot.d/stl.boot.sh : stout, stderr > /dev/null
-    if [ 0 -eq ${is_stl_log} ]; then
-
-        # ~/.stl.d/stl.boot.d/stl.boot.sh
-
-        if [[ -f ~/.stl.d/boot.d/boot.sh ]]; then if ! . ~/.stl.d/boot.d/boot.sh &>/dev/null; then
-            # if [[ -f ~/.d/.rc.d/.st.rc.d/.st.rc ]]; then if ! . ~/.d/.rc.d/.st.rc.d/.st.rc >/dev/null; then
-            echo "in ~/.stl.d/.stlrc : FAIL . ~/.stl.d/boot.d/boot.sh : return 1" >&2
-            return 1
-        fi; fi
-
-    fi
+    #! IFS to default value
+    unset IFS
+    cd ${PPWD}
+    return 0
 }
 
-dotstlrc_boot_stl
+dotstlrc_boot_stl || {
+    echo "in file://${HOME}/.stl.d/.stlrc :: EXEC_FAIL 'dotstlrc_boot_stl ' :: return 1" >&2
+}
