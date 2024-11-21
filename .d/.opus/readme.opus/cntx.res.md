@@ -100,7 +100,7 @@ DATX: 1732200592
     - help stl lib
     
         $ s_ -h 
-    - start stl [ source ]
+     - start stl [ source ]
     
         $ s_ ~/.stl.d/.stlrc
         

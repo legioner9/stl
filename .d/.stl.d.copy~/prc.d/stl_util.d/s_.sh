@@ -1,6 +1,12 @@
 #!/bin/bash
 
 s_() {
+    local FNN=${FUNCNAME[0]}
+    local PPWD=$PWD
+    echo "$FNN() $*"
+
+    # cd "$PPWD" || return 1
+    # return 0
 
     if [[ "-h" == "$1" ]]; then
         echo -e "
@@ -15,9 +21,13 @@ s_() {
 
 
 "
+        cd "$PPWD" || return 1
         return 0
     fi
 
     . ${HOME}/.stl.d/.stlrc
+
+    cd "$PPWD" || return 1
+    return 0
 
 }

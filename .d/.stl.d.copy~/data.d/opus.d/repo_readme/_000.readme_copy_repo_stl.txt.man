@@ -1,5 +1,5 @@
 
-DATX: 1732160936
+DATX: 1732188303
 -->
 
 
@@ -9,6 +9,17 @@ DATX: 1732160936
 
 # STL REPO OPUS
  
+
+[001.txt.md](../../../../REPOBARE/_repo/stl/.d/.opus/readme.opus/cntx.ins.d/002.info.d/001.txt.md)
+
+
+
+# INFO
+
+- cli after install
+
+    $ _stl -h
+
 
 
 

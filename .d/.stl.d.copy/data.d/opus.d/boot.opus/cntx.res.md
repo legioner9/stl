@@ -61,20 +61,20 @@ h6 {
 Start Contents Menu
 
 <!-- TOC toc2f_stl0 --> 
- - <a href=#67ff83e5572b4da586121c251cb5e237> STL OPUS  </a>
- - <a href=#37c9d26727904f8f98413e4bd1d3eb2f> Концепция </a>
- - <a href=#8a2f252593f345cabbc79a1277d4ad2d> Загрузка </a>
-   - <a href=#a0373a0948b7434fac2014ce5c99d6e3> Сохранение ~/.stl.d</a>
-   - <a href=#090ef89fea514670bbf5f26fb5c457af> Использование данных установки</a>
-   - <a href=#c58eb200ef054e08bd6397e98358a370> Флаги</a>
-     - <a href=#0385f1a5d2ce4ef18378d8e6513b2c9b> Глобальные in dr: `~/`</a>
-     - <a href=#bbf4b8cf86034f91a44395b7e2d9b127> Локальные in dr: `~/.stl.d/data.d/flag.d`</a>
- - <a href=#a5f7ca261e2d4bb89cfd2d5cb3879561> Files :: `~/.stl.d`</a>
-   - <a href=#be5a731eb54d4373829959602535bad4> `~/.stl.d/prc.d/boot_stl_const.d` :: define const for all stl (felf start fn)</a>
-   - <a href=#872ca7be066945bda55cb3e151af59fa> `~/.stl.d/prc.d/boot_stl_fn.d` :: define fn for use for boot stl</a>
-   - <a href=#51dc4813b3494ccea1199bf46f5b0afb> `~/.stl.d/prc.d/stl_util.d` :: define fn for temporary maintenacce - NOT STABLE </a>
- - <a href=#d80fcdd0913a4de0b623a49db3b7a4d7> Установка</a>
- - <a href=#3f33788e65df4c1ba35283e20d2c72a3> Удаление </a>
+ - <a href=#88c48b2ef6924320947f88314a1ee08e> STL OPUS  </a>
+ - <a href=#9a3f7730771c4d3ab468f221e4cc10c4> Концепция </a>
+ - <a href=#a3c75aa0d66647a4a9e1ad3c1527bcd2> Загрузка </a>
+   - <a href=#601ad839e9bc4f3f818bfe2d92571a92> Сохранение ~/.stl.d</a>
+   - <a href=#9460964dba444dbb953a8ca412b1f69b> Использование данных установки</a>
+   - <a href=#db2902ca73be4989aff78c10d61ca7f1> Флаги</a>
+     - <a href=#a84b106bd12d4dac8906109b43717dde> Global in dr: `~/`</a>
+     - <a href=#7a8f84fa6def4c2d859b0cf3a22ff85c> Local in dr: `~/.stl.d/data.d/flag.d`</a>
+ - <a href=#67c96cb3391343a78feeecba7c934304> Files :: `~/.stl.d`</a>
+   - <a href=#bc34b5b5746b4243a7dd3442725184b7> `~/.stl.d/prc.d/boot_stl_const.d` :: define const for all stl (felf start fn)</a>
+   - <a href=#e7b47985b7164d2483c4f95df89f0728> `~/.stl.d/prc.d/boot_stl_fn.d` :: define fn for use for boot stl</a>
+   - <a href=#3eda2a8fab634354bfdccfd143eecda6> `~/.stl.d/prc.d/stl_util.d` :: define fn for temporary maintenacce - NOT STABLE </a>
+ - <a href=#fd3dd55a372145728680317ffe8fc5de> Установка</a>
+ - <a href=#79108a6b17354256b379f1fbb1e575b6> Удаление </a>
 
 <!-- /TOC toc2f_stl0 -->
 
@@ -87,9 +87,9 @@ PPWD: /home/st/.stl.d/data.d/opus.d/boot.opus
 
 FLOW: /home/st/REPOBARE/_repo/sta/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/009_dr2m
 
-DATE: 1732188217_21112024182337
+DATE: 1732213392_22112024012312
 
-DATX: 1732188217
+DATX: 1732213392
 -->
 
 
@@ -97,14 +97,14 @@ DATX: 1732188217
 
 
 
- <a id="67ff83e5572b4da586121c251cb5e237"></a>
+ <a id="88c48b2ef6924320947f88314a1ee08e"></a>
 # STL OPUS  
 
 [001.txt.md](cntx.ins.d/001.concept.d/001.txt.md)
 
 
 
- <a id="37c9d26727904f8f98413e4bd1d3eb2f"></a>
+ <a id="9a3f7730771c4d3ab468f221e4cc10c4"></a>
 # Концепция 
 
 
@@ -113,7 +113,7 @@ DATX: 1732188217
 
 
 
- <a id="8a2f252593f345cabbc79a1277d4ad2d"></a>
+ <a id="a3c75aa0d66647a4a9e1ad3c1527bcd2"></a>
 # Загрузка 
 
 
@@ -121,7 +121,7 @@ DATX: 1732188217
 
 
 
- <a id="a0373a0948b7434fac2014ce5c99d6e3"></a>
+ <a id="601ad839e9bc4f3f818bfe2d92571a92"></a>
 ## Сохранение ~/.stl.d
 
 
@@ -129,7 +129,7 @@ DATX: 1732188217
 
 
 
- <a id="090ef89fea514670bbf5f26fb5c457af"></a>
+ <a id="9460964dba444dbb953a8ca412b1f69b"></a>
 ## Использование данных установки
 
 - BOOT_REPO_PATH определяется при установе STL и используется для дальнейшего определения путей 
@@ -140,30 +140,41 @@ DATX: 1732188217
 
 
 
- <a id="c58eb200ef054e08bd6397e98358a370"></a>
+ <a id="db2902ca73be4989aff78c10d61ca7f1"></a>
 ## Флаги
 
-0 - false
-1 - true
+Acceptable values:
 
- <a id="0385f1a5d2ce4ef18378d8e6513b2c9b"></a>
-### Глобальные in dr: `~/`
+    0 - false
+    1 - true
 
-    ~/.stl.use.flag - use or not stl  external setting behavior :: ~/.stl.d/flow.d/boot.d/boot.sh
+ <a id="a84b106bd12d4dac8906109b43717dde"></a>
+### Global in dr: `~/`
 
- <a id="bbf4b8cf86034f91a44395b7e2d9b127"></a>
-### Локальные in dr: `~/.stl.d/data.d/flag.d`
+- ~/.stl.use.flag - 
 
-    ~/.stl.d/data.d/flag.d/stlrc.log.flag - start or not ~/.stl.d/flow.d/boot.d/boot.sh
+    (1|0) :: (abort|not abort) process : `source ~/.stl.d/flow.d/boot.d/boot.sh` at the begining 
 
-    ~/.stl.d/data.d/flag.d/git_reset.flag - reset or not all git diff :: use in git_flow_functions
+ <a id="7a8f84fa6def4c2d859b0cf3a22ff85c"></a>
+### Local in dr: `~/.stl.d/data.d/flag.d`
 
+
+- `~/.stl.d/data.d/flag.d/stlrc.log.flag` :
+
+
+    (1|0) :: `source ~/.stl.d/flow.d/boot.d/boot.sh`  (`> ~/.stl.d/data.d/log.d/stlrc.log` | `> stdout, stderr`)
+     
+
+- `~/.stl.d/data.d/flag.d/git_reset.flag` : 
+ 
+
+    (1|0) :: (reset | not reset) all git diff :: use in git_flow_functions :: protection mode against changes
 
 [001.1L.txt.md](cntx.ins.d/002.boot.d/005.files.d/001.1L.txt.md)
 
 
 
- <a id="a5f7ca261e2d4bb89cfd2d5cb3879561"></a>
+ <a id="67c96cb3391343a78feeecba7c934304"></a>
 # Files :: `~/.stl.d`
 
 
@@ -173,7 +184,7 @@ DATX: 1732188217
 
 
 
- <a id="be5a731eb54d4373829959602535bad4"></a>
+ <a id="bc34b5b5746b4243a7dd3442725184b7"></a>
 ## `~/.stl.d/prc.d/boot_stl_const.d` :: define const for all stl (felf start fn)
 
 
@@ -181,7 +192,7 @@ DATX: 1732188217
 
 
 
- <a id="872ca7be066945bda55cb3e151af59fa"></a>
+ <a id="e7b47985b7164d2483c4f95df89f0728"></a>
 ## `~/.stl.d/prc.d/boot_stl_fn.d` :: define fn for use for boot stl
 
 
@@ -189,7 +200,7 @@ DATX: 1732188217
 
 
 
- <a id="51dc4813b3494ccea1199bf46f5b0afb"></a>
+ <a id="3eda2a8fab634354bfdccfd143eecda6"></a>
 ## `~/.stl.d/prc.d/stl_util.d` :: define fn for temporary maintenacce - NOT STABLE 
 
 
@@ -197,7 +208,7 @@ DATX: 1732188217
 
 
 
- <a id="d80fcdd0913a4de0b623a49db3b7a4d7"></a>
+ <a id="fd3dd55a372145728680317ffe8fc5de"></a>
 # Установка
  
 
@@ -205,7 +216,7 @@ DATX: 1732188217
 
 
 
- <a id="3f33788e65df4c1ba35283e20d2c72a3"></a>
+ <a id="79108a6b17354256b379f1fbb1e575b6"></a>
 # Удаление 
 
 

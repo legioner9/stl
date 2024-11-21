@@ -61,7 +61,8 @@ h6 {
 Start Contents Menu
 
 <!-- TOC toc2f_stl0 --> 
- - <a href=#208d454ce58a498fa51283b5ba29c99f> STL REPO OPUS</a>
+ - <a href=#74b447af7b38470cb65683648db776f9> STL REPO OPUS</a>
+ - <a href=#e8acdb257c6c422d929c6bf87ffda368> INFO</a>
 
 <!-- /TOC toc2f_stl0 -->
 
@@ -74,9 +75,9 @@ PPWD: /home/st/REPOBARE/_repo/stl/.d/.opus/readme.opus
 
 FLOW: /home/st/REPOBARE/_repo/sta/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/009_dr2m
 
-DATE: 1732160936_21112024104856
+DATE: 1732188303_21112024182503
 
-DATX: 1732160936
+DATX: 1732188303
 -->
 
 
@@ -84,9 +85,21 @@ DATX: 1732160936
 
 
 
- <a id="208d454ce58a498fa51283b5ba29c99f"></a>
+ <a id="74b447af7b38470cb65683648db776f9"></a>
 # STL REPO OPUS
  
+
+[001.txt.md](../../../../REPOBARE/_repo/stl/.d/.opus/readme.opus/cntx.ins.d/002.info.d/001.txt.md)
+
+
+
+ <a id="e8acdb257c6c422d929c6bf87ffda368"></a>
+# INFO
+
+- cli after install
+
+    $ _stl -h
+
 
 
 
