@@ -1,5 +1,5 @@
 
-DATX: 1732200592
+DATX: 1732268743
 -->
 
 
@@ -24,6 +24,9 @@ DATX: 1732200592
     
         $ s_ ~/.stl.d/.stlrc
         
+
+
+[001.from_dot_stl.file.md](cntx.ins.d/099.from_dot_stl.d.ax/001.from_dot_stl.file.md)
 
 
 

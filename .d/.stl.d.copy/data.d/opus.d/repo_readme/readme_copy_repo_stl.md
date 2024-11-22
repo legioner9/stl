@@ -61,8 +61,8 @@ h6 {
 Start Contents Menu
 
 <!-- TOC toc2f_stl0 --> 
- - <a href=#128803a6a8bf4453be72072424d6260c> STL REPO OPUS</a>
- - <a href=#67d524a7661140ce87d95b2039662ab0> INFO</a>
+ - <a href=#7eb778881b014322bad86811de0ec6dd> STL REPO OPUS</a>
+ - <a href=#b569e4b2f3de471ebbf78b86b97ea91e> INFO</a>
 
 <!-- /TOC toc2f_stl0 -->
 
@@ -75,9 +75,9 @@ PPWD: /home/st/REPOBARE/_repo/stl/.d/.opus/readme.opus
 
 FLOW: /home/st/REPOBARE/_repo/sta/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/009_dr2m
 
-DATE: 1732200598_21112024214958
+DATE: 1732267032_22112024161712
 
-DATX: 1732200598
+DATX: 1732267032
 -->
 
 
@@ -85,7 +85,7 @@ DATX: 1732200598
 
 
 
- <a id="128803a6a8bf4453be72072424d6260c"></a>
+ <a id="7eb778881b014322bad86811de0ec6dd"></a>
 # STL REPO OPUS
  
 
@@ -93,7 +93,7 @@ DATX: 1732200598
 
 
 
- <a id="67d524a7661140ce87d95b2039662ab0"></a>
+ <a id="b569e4b2f3de471ebbf78b86b97ea91e"></a>
 # INFO
 
 - cli after install
@@ -104,6 +104,9 @@ DATX: 1732200598
     
         $ s_ ~/.stl.d/.stlrc
         
+
+
+[001.file.md](../../../../REPOBARE/_repo/stl/.d/.opus/readme.opus/cntx.ins.d/099.from_dot_stl.d.sx/001.file.md)
 
 
 

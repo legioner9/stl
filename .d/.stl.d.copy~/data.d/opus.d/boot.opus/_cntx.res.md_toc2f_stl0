@@ -73,9 +73,9 @@ PPWD: /home/st/.stl.d/data.d/opus.d/boot.opus
 
 FLOW: /home/st/REPOBARE/_repo/sta/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/009_dr2m
 
-DATE: 1732213392_22112024012312
+DATE: 1732213685_22112024012805
 
-DATX: 1732213392
+DATX: 1732213685
 -->
 
 
@@ -130,7 +130,7 @@ Acceptable values:
 
 ### Global in dr: `~/`
 
-- ~/.stl.use.flag - 
+- `~/.stl.use.flag` :
 
     (1|0) :: (abort|not abort) process : `source ~/.stl.d/flow.d/boot.d/boot.sh` at the begining 
 
