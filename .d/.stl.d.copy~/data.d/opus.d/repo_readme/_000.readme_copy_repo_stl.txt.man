@@ -1,5 +1,5 @@
 
-DATX: 1732267032
+DATX: 1732269343
 -->
 
 
@@ -26,7 +26,13 @@ DATX: 1732267032
         
 
 
-[001.file.md](../../../../REPOBARE/_repo/stl/.d/.opus/readme.opus/cntx.ins.d/099.from_dot_stl.d.sx/001.file.md)
+[001.a.L1.txt.md](../../../../REPOBARE/_repo/stl/.d/.opus/readme.opus/cntx.ins.d/099.from_dot_stl.d.ax/001.a.L1.txt.md)
+
+
+
+# STL in Linux (file 001.from_dot_stl.file.md)
+
+[001.from_dot_stl.file.md](../../../../REPOBARE/_repo/stl/.d/.opus/readme.opus/cntx.ins.d/099.from_dot_stl.d.ax/001.from_dot_stl.file.md)
 
 
 
