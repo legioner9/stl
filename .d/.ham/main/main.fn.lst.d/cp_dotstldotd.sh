@@ -24,7 +24,7 @@ cp_dotstldotd() {
                 return 1
             }
         }
-
+        read -p "enter 2"
         return 0
     }
     return 0
@@ -34,4 +34,3 @@ if ! cp_dotstldotd; then
     echo "in file://${REPO_PATH}/${name_repo}/.d/.ham/main/main.fn.lst.d/cp_dotstldotd.sh : FAIL_EXEC : cp_dotstldotd() : return 1" >&2
     return 1
 fi
-read -p "enter 2"
