@@ -1,5 +1,5 @@
 
-DATX: 1732287291
+DATX: 1732292954
 -->
 
 
@@ -33,6 +33,16 @@ DATX: 1732287291
 # STL in Linux (file 001.from_dot_stl.file.md)
 
 [001.from_dot_stl.file.md](cntx.ins.d/099.from_dot_stl.d.ax/001.from_dot_stl.file.md)
+
+
+[001.L1.txt.md](cntx.ins.d/100.notebook.d/001.L1.txt.md)
+
+
+
+# Note Book (file 002.from_notebook.file.md)
+
+
+[002.from_notebook.file.md](cntx.ins.d/100.notebook.d/002.from_notebook.file.md)
 
 
 

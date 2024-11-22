@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo -e "${CYAN}--- _rbld_res_md_rnd7_0502b36() $* in file://${REPO_PATH}/stl/.d/.opus/readme.opus/_rbld_res_md.sh ---${NORMAL}" #started functions
+echo -e "${CYAN}--- _rbld_res_md_rnd7_4056096() $* in file://${REPO_PATH}/stl/.d/.opus/notebook.opus/_rbld_res_md.sh ---${NORMAL}" #started functions
 
-_rbld_res_md_rnd7_0502b36() {
+_rbld_res_md_rnd7_4056096() {
 
     # gig from file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/ufl_stl0.ram/.grot/ufl_stl0.sh
 
@@ -10,7 +10,7 @@ _rbld_res_md_rnd7_0502b36() {
     local ARGS=("$@")
     local NARGS=$#
     local PPWD=$PWD
-    local path_file="${REPO_PATH}/stl/.d/.opus/readme.opus/_rbld_res_md.sh"
+    local path_file="${REPO_PATH}/stl/.d/.opus/notebook.opus/_rbld_res_md.sh"
     local path_dir="$(dirname "$path_file")"
 
     # echo -e "${CYAN}--- $FNN() $* in file://${path_file}---${NORMAL}" #started functions
@@ -58,15 +58,6 @@ ${NORMAL}"
     echo "START BODY FN : ${FNN}() $*"
 
     #{{body_fn}}
-    local in_pth=
-    for in_pth in $(_f2e ${path_dir}/.d/.lst/rbld.in.file.lst); do
-        . ${in_pth} || {
-            echo "in fs= file://$path_file , line=${LINENO}, EXEC: ${FNN} $* : : EXEC_FAIL : '. file://${in_pth}' : ${hint} : return 1" >&2
-            cd "$PPWD" || echo "EXEC_FAIL : 'cd $PPWD' :: return 0|1" >&2
-            return 1
-        }
-        read -p 1
-    done
 
     if [ -d $path_dir/cntx.ins.d ] && [ -f $path_dir/cntx.res.md ]; then
         echo | ufl_stl0 9 $path_dir/cntx.ins.d $path_dir/cntx.res.md 2
@@ -85,10 +76,10 @@ ${NORMAL}"
 
     _edit $path_dir/cntx.res.md
     #! END BODY FN ---------------------------------------
-
+    
     cd $PPWD
     return 0
 
 }
 
-_rbld_res_md_rnd7_0502b36 "$@"
+_rbld_res_md_rnd7_4056096 "$@"

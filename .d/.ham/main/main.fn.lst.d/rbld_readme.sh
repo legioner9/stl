@@ -11,7 +11,7 @@ source_inject_fn_ham ${REPO_PATH}/${name_repo}/.d/.opus/readme.opus/cntx.ins.d/0
     echo "in file://${file_sh} :: EXEC_FAIL 'source_inject_fn_ham ${REPO_PATH}/${name_repo}/.d/.opus/readme.opus/cntx.ins.d/099.from_dot_stl.d.ax/_001.from_dot_stl.file.md_ufl9' :: return 1" >&2
     return 1
 }
-read -p "enter 3"
+
 # if [ -f ${rgig_001_from_dot_stl} ]; then
 
 #     . ${rgig_001_from_dot_stl} || {
@@ -21,6 +21,11 @@ read -p "enter 3"
 
 # fi
 
+source_inject_fn_ham ${REPO_PATH}/${name_repo}/.d/.opus/notebook.opus/_rbld_res_md.sh || {
+    echo "in file://${file_sh} :: EXEC_FAIL 'source_inject_fn_ham ${REPO_PATH}/${name_repo}/.d/.opus/notebook.opus/_rbld_res_md.sh' :: return 1" >&2
+    return 1
+}
+
 #! rbld stl repo readme
 # local rbld_file=${REPO_PATH}/${name_repo}/.d/.opus/readme.opus/_rbld_res_md.sh #start files
 
@@ -28,7 +33,7 @@ source_inject_fn_ham ${REPO_PATH}/${name_repo}/.d/.opus/readme.opus/_rbld_res_md
     echo "in file://${file_sh} :: EXEC_FAIL 'source_inject_fn_ham ${REPO_PATH}/${name_repo}/.d/.opus/readme.opus/_rbld_res_md.sh' :: return 1" >&2
     return 1
 }
-read -p "enter 4"
+
 # if [ -f ${rbld_file} ]; then
 
 #     . ${rbld_file} || {

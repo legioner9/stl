@@ -11,7 +11,7 @@ cp_dotstldotd() {
             return 1
         }
     fi
-    read -p "enter 1"
+
     #! if diff -> cp ~/.stl.d to stl_repo
     diff -r ${HOME}/.stl.d ${REPO_PATH}/${name_repo}/.d/.stl.d.copy || {
         #! is_yes_boot_stl "cp -rf ${HOME}/.stl.d ${REPO_PATH}/${name_repo}/.d/.stl.d.copy" && {
@@ -24,7 +24,7 @@ cp_dotstldotd() {
                 return 1
             }
         }
-        read -p "enter 2"
+
         return 0
     }
     return 0
