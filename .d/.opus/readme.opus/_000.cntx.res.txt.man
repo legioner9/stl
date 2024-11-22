@@ -1,5 +1,5 @@
 
-DATX: 1732268743
+DATX: 1732270053
 -->
 
 
@@ -25,6 +25,12 @@ DATX: 1732268743
         $ s_ ~/.stl.d/.stlrc
         
 
+
+[001.a.L1.txt.md](cntx.ins.d/099.from_dot_stl.d.ax/001.a.L1.txt.md)
+
+
+
+# STL in Linux (file 001.from_dot_stl.file.md)
 
 [001.from_dot_stl.file.md](cntx.ins.d/099.from_dot_stl.d.ax/001.from_dot_stl.file.md)
 

@@ -61,20 +61,26 @@ h6 {
 Start Contents Menu
 
 <!-- TOC toc2f_stl0 --> 
- - <a href=#50225d7c34ce4e8da479b1274ce8ddd7> STL OPUS  </a>
- - <a href=#270cd65a3fc848269971b2f035a41564> Концепция </a>
- - <a href=#a25250be7aaa4decbe0196567b70b9ef> Загрузка </a>
-   - <a href=#78a44966490e403aa72c54a7efe4df1d> Сохранение ~/.stl.d</a>
-   - <a href=#608bce40dfa74dda9d20331bd45ac23d> Использование данных установки</a>
-   - <a href=#d5ed3357322140139aed363ac74fc65e> Флаги</a>
-     - <a href=#d18fb20648584714a33c285602c0a2c8> Global in dr: `~/`</a>
-     - <a href=#a7560fb2f6274547a3fe734117da0840> Local in dr: `~/.stl.d/data.d/flag.d`</a>
- - <a href=#88c749f8d83d48da8d182be0ae58276e> Files :: `~/.stl.d`</a>
-   - <a href=#9c672b4be9544368ba0791a3f94f5c00> `~/.stl.d/prc.d/boot_stl_const.d` :: define const for all stl (felf start fn)</a>
-   - <a href=#efc167c605d049bfa9777833b022f662> `~/.stl.d/prc.d/boot_stl_fn.d` :: define fn for use for boot stl</a>
-   - <a href=#e91db1ca428b4384a1876993782264a6> `~/.stl.d/prc.d/stl_util.d` :: define fn for temporary maintenacce - NOT STABLE </a>
- - <a href=#5f825245246e456a8b555848639b0fb4> Установка</a>
- - <a href=#3bcf7938df144ea4bd0bca46f643be4d> Удаление </a>
+ - <a href=#3d33ed4d3bb14f0b8f0d589122f19a57> STL in Linux</a>
+   - <a href=#987113eeebc04c50b9e267a6a374dd92> General </a>
+     - <a href=#aff9b35faa2a444a8017f7aa195938cf> Save ~/.stl.d</a>
+     - <a href=#78886af4097c4b5a948cebc6976c7c7a> Flags</a>
+       - <a href=#0243088c286449d7966acf1bcef9f1f9> Global in dr: `~/`</a>
+       - <a href=#34fbc7c76aba48ff82cd4602f69b6a56> Local in dr: `~/.stl.d/data.d/flag.d`</a>
+     - <a href=#46f1681cc672438cb886303e9ccdbdfc> Using data</a>
+   - <a href=#7e61ad6de685420ca10f9cb9d34e9db5> Processes</a>
+     - <a href=#e3bdcc72317b4f37b63471c5cba15027> Download</a>
+     - <a href=#2d391195a01b423b8683220bf9ddda00> Boot</a>
+     - <a href=#dc93e92574634cc981f027bd9c8ab3ef> Delete </a>
+     - <a href=#132d779f4984495bb34ab1c92c8e0337> Common</a>
+   - <a href=#1f099cb748754963ae28ac4f57cbda4f> Files :: `~/.stl.d`</a>
+     - <a href=#55260a19e261452288b6f17501fc3799> Download</a>
+     - <a href=#e7836fbc320b4308a88a2b91dd8de48a> Boot</a>
+       - <a href=#96ef7e39f79b480ba2e4201ccfadb5f1> `~/.stl.d/prc.d/boot_stl_const.d` :: define const for all stl (felf start fn)</a>
+       - <a href=#259cd8bbb3084088a6ff9d0726fd4051> `~/.stl.d/prc.d/boot_stl_fn.d` :: define fn for use for boot stl</a>
+     - <a href=#0d231cf6bacf4fda8c752c84e754e532> Delete</a>
+     - <a href=#9bac0682442a4c13abbf0174b72f3a04> Common</a>
+       - <a href=#e5c09f03249d4144a5ce1cd27c925b78> `~/.stl.d/prc.d/stl_util.d` :: define fn for temporary maintenace - NOT STABLE </a>
 
 <!-- /TOC toc2f_stl0 -->
 
@@ -87,9 +93,9 @@ PPWD: /home/st/.stl.d/data.d/opus.d/boot.opus
 
 FLOW: /home/st/REPOBARE/_repo/sta/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/009_dr2m
 
-DATE: 1732213685_22112024012805
+DATE: 1732266950_22112024161550
 
-DATX: 1732213685
+DATX: 1732266950
 -->
 
 
@@ -97,66 +103,46 @@ DATX: 1732213685
 
 
 
- <a id="50225d7c34ce4e8da479b1274ce8ddd7"></a>
-# STL OPUS  
+ <a id="3d33ed4d3bb14f0b8f0d589122f19a57"></a>
+# STL in Linux
 
-[001.txt.md](cntx.ins.d/001.concept.d/001.txt.md)
-
-
-
- <a id="270cd65a3fc848269971b2f035a41564"></a>
-# Концепция 
+[001.txt.md](cntx.ins.d/002.generald/001.txt.md)
 
 
 
-[001.txt.md](cntx.ins.d/002.boot.d/001.txt.md)
+ <a id="987113eeebc04c50b9e267a6a374dd92"></a>
+## General 
+
+
+[001.txt.md](cntx.ins.d/002.generald/002.save.d/001.txt.md)
 
 
 
- <a id="a25250be7aaa4decbe0196567b70b9ef"></a>
-# Загрузка 
+ <a id="aff9b35faa2a444a8017f7aa195938cf"></a>
+### Save ~/.stl.d
 
 
-[001.txt.md](cntx.ins.d/002.boot.d/002.save.d/001.txt.md)
-
-
-
- <a id="78a44966490e403aa72c54a7efe4df1d"></a>
-## Сохранение ~/.stl.d
-
-
-[001.txt.md](cntx.ins.d/002.boot.d/003.use_data.d/001.txt.md)
+[001.txt.md](cntx.ins.d/002.generald/003.flags.d/001.txt.md)
 
 
 
- <a id="608bce40dfa74dda9d20331bd45ac23d"></a>
-## Использование данных установки
-
-- BOOT_REPO_PATH определяется при установе STL и используется для дальнейшего определения путей 
-    c.e. STL_PATH  
-
-
-[001.txt.md](cntx.ins.d/002.boot.d/004.flags.d/001.txt.md)
-
-
-
- <a id="d5ed3357322140139aed363ac74fc65e"></a>
-## Флаги
+ <a id="78886af4097c4b5a948cebc6976c7c7a"></a>
+### Flags
 
 Acceptable values:
 
     0 - false
     1 - true
 
- <a id="d18fb20648584714a33c285602c0a2c8"></a>
-### Global in dr: `~/`
+ <a id="0243088c286449d7966acf1bcef9f1f9"></a>
+#### Global in dr: `~/`
 
 - `~/.stl.use.flag` :
 
     (1|0) :: (abort|not abort) process : `source ~/.stl.d/flow.d/boot.d/boot.sh` at the begining 
 
- <a id="a7560fb2f6274547a3fe734117da0840"></a>
-### Local in dr: `~/.stl.d/data.d/flag.d`
+ <a id="34fbc7c76aba48ff82cd4602f69b6a56"></a>
+#### Local in dr: `~/.stl.d/data.d/flag.d`
 
 
 - `~/.stl.d/data.d/flag.d/stlrc.log.flag` :
@@ -170,54 +156,122 @@ Acceptable values:
 
     (1|0) :: (reset | not reset) all git diff :: use in git_flow_functions :: protection mode against changes
 
-[001.1L.txt.md](cntx.ins.d/002.boot.d/005.files.d/001.1L.txt.md)
+[001.txt.md](cntx.ins.d/002.generald/003.use_data.d/001.txt.md)
 
 
 
- <a id="88c749f8d83d48da8d182be0ae58276e"></a>
-# Files :: `~/.stl.d`
+ <a id="46f1681cc672438cb886303e9ccdbdfc"></a>
+### Using data
+
+- BOOT_REPO_PATH определяется при установе STL и используется для дальнейшего определения путей 
+    c.e. STL_PATH  
+
+
+[001.txt.md](cntx.ins.d/003.processes.d/001.txt.md)
 
 
 
-
-[001.txt.md](cntx.ins.d/002.boot.d/005.files.d/002.const.d/001.txt.md)
-
-
-
- <a id="9c672b4be9544368ba0791a3f94f5c00"></a>
-## `~/.stl.d/prc.d/boot_stl_const.d` :: define const for all stl (felf start fn)
+ <a id="7e61ad6de685420ca10f9cb9d34e9db5"></a>
+## Processes
 
 
-[001.txt.md](cntx.ins.d/002.boot.d/005.files.d/003.fn.d/001.txt.md)
+[001.txt.md](cntx.ins.d/003.processes.d/002.inst.d/001.txt.md)
 
 
 
- <a id="efc167c605d049bfa9777833b022f662"></a>
-## `~/.stl.d/prc.d/boot_stl_fn.d` :: define fn for use for boot stl
-
-
-[001.txt.md](cntx.ins.d/002.boot.d/005.files.d/004.util.d/001.txt.md)
-
-
-
- <a id="e91db1ca428b4384a1876993782264a6"></a>
-## `~/.stl.d/prc.d/stl_util.d` :: define fn for temporary maintenacce - NOT STABLE 
-
-
-[001.txt.md](cntx.ins.d/003.inst.d/001.txt.md)
-
-
-
- <a id="5f825245246e456a8b555848639b0fb4"></a>
-# Установка
+ <a id="e3bdcc72317b4f37b63471c5cba15027"></a>
+### Download
  
 
-[001.txt.md](cntx.ins.d/004.dlt.d/001.txt.md)
+[001.txt.md](cntx.ins.d/003.processes.d/003.boot.d/001.txt.md)
 
 
 
- <a id="3bcf7938df144ea4bd0bca46f643be4d"></a>
-# Удаление 
+ <a id="2d391195a01b423b8683220bf9ddda00"></a>
+### Boot
+
+
+[001.txt.md](cntx.ins.d/003.processes.d/004.dlt.d/001.txt.md)
+
+
+
+ <a id="dc93e92574634cc981f027bd9c8ab3ef"></a>
+### Delete 
+
+
+[001.txt.md](cntx.ins.d/003.processes.d/005.comm.d/001.txt.md)
+
+
+
+ <a id="132d779f4984495bb34ab1c92c8e0337"></a>
+### Common
+
+
+[001.1L.txt.md](cntx.ins.d/004.files.d/001.1L.txt.md)
+
+
+
+ <a id="1f099cb748754963ae28ac4f57cbda4f"></a>
+## Files :: `~/.stl.d`
+
+
+
+
+[001.txt.md](cntx.ins.d/004.files.d/002.inst.d/001.txt.md)
+
+
+
+ <a id="55260a19e261452288b6f17501fc3799"></a>
+### Download
+
+
+[001.txt.md](cntx.ins.d/004.files.d/003.boot.d/001.txt.md)
+
+
+
+ <a id="e7836fbc320b4308a88a2b91dd8de48a"></a>
+### Boot
+ 
+
+
+[001.txt.md](cntx.ins.d/004.files.d/003.boot.d/002.const.d/001.txt.md)
+
+
+
+ <a id="96ef7e39f79b480ba2e4201ccfadb5f1"></a>
+#### `~/.stl.d/prc.d/boot_stl_const.d` :: define const for all stl (felf start fn)
+
+
+[001.txt.md](cntx.ins.d/004.files.d/003.boot.d/003.fn.d/001.txt.md)
+
+
+
+ <a id="259cd8bbb3084088a6ff9d0726fd4051"></a>
+#### `~/.stl.d/prc.d/boot_stl_fn.d` :: define fn for use for boot stl
+
+
+[001.txt.md](cntx.ins.d/004.files.d/004.dlt.d/001.txt.md)
+
+
+
+ <a id="0d231cf6bacf4fda8c752c84e754e532"></a>
+### Delete
+
+
+[001.txt.md](cntx.ins.d/004.files.d/005.comm.d/001.txt.md)
+
+
+
+ <a id="9bac0682442a4c13abbf0174b72f3a04"></a>
+### Common
+
+
+[001.txt.md](cntx.ins.d/004.files.d/005.comm.d/004.util.d/001.txt.md)
+
+
+
+ <a id="e5c09f03249d4144a5ce1cd27c925b78"></a>
+#### `~/.stl.d/prc.d/stl_util.d` :: define fn for temporary maintenace - NOT STABLE 
 
 
 
