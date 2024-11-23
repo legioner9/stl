@@ -61,8 +61,8 @@ h6 {
 Start Contents Menu
 
 <!-- TOC toc2f_stl0 --> 
- - <a href=#da502f81623647b3a984e12eed14a74a> Note Book</a>
-   - <a href=#354567b0d8184787a1467e10d4aafe9f> second part</a>
+ - <a href=#62d725a0dc3b40e9868f3897dd04e44d> Note Book</a>
+   - <a href=#3b0bfb468cd54f67a943a01e61150166> second part 1</a>
 
 <!-- /TOC toc2f_stl0 -->
 
@@ -75,9 +75,9 @@ PPWD: /home/st/REPOBARE/_repo/stl/.d/.opus/notebook.opus
 
 FLOW: /home/st/REPOBARE/_repo/sta/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/009_dr2m
 
-DATE: 1732360376_23112024181256
+DATE: 1732360469_23112024181429
 
-DATX: 1732360376
+DATX: 1732360469
 -->
 
 
@@ -85,11 +85,11 @@ DATX: 1732360376
 
 
 
- <a id="da502f81623647b3a984e12eed14a74a"></a>
+ <a id="62d725a0dc3b40e9868f3897dd04e44d"></a>
 # Note Book
 
- <a id="354567b0d8184787a1467e10d4aafe9f"></a>
-## second part
+ <a id="3b0bfb468cd54f67a943a01e61150166"></a>
+## second part 1
 
 
 

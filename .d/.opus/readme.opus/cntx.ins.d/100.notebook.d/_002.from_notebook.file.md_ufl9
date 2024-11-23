@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo -e "${CYAN}--- _002.from_notebook.file_rnd7_66b6241() $* in file://${REPO_PATH}/stl/.d/.opus/readme.opus/cntx.ins.d/100.notebook.d/_002.from_notebook.file.md_ufl9 ---${NORMAL}" #started functions
+echo -e "${CYAN}--- _002.from_notebook.file_rnd7_2312218() $* in file://${REPO_PATH}/stl/.d/.opus/readme.opus/cntx.ins.d/100.notebook.d/_002.from_notebook.file.md_ufl9 ---${NORMAL}" #started functions
 
-_002.from_notebook.file_rnd7_66b6241() {
+_002.from_notebook.file_rnd7_2312218() {
 
     # gig from file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/ufl_stl0.ram/.grot/ufl_stl0.sh
 
@@ -69,4 +69,4 @@ echo | ufl_stl0 9 ${REPO_PATH}/stl/.d/.opus/notebook.opus/cntx.ins.d ${REPO_PATH
 
 }
 
-_002.from_notebook.file_rnd7_66b6241 "$@"
+_002.from_notebook.file_rnd7_2312218 "$@"
