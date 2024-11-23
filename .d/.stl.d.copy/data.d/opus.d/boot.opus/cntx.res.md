@@ -61,26 +61,26 @@ h6 {
 Start Contents Menu
 
 <!-- TOC toc2f_stl0 --> 
- - <a href=#b5deac7b0c80448da3a5a74e1bdc159a> STL in Linux</a>
-   - <a href=#7c53e782d3d74936a86ef1a10b0c8bce> General </a>
-     - <a href=#a5d3777d8ed945a19fa651a566bfc3e0> Save ~/.stl.d</a>
-     - <a href=#a09ee7f0d99b4d9fa6021bd20027f88b> Flags</a>
-       - <a href=#08408d4a9be440de9acfe537e7249e50> Global in dr: `~/`</a>
-       - <a href=#18fd006c1e12445d9a9b28ae20dd741d> Local in dr: `~/.stl.d/data.d/flag.d`</a>
-     - <a href=#f30855a5a1884bc68095ac81e9fb1bee> Using data</a>
-   - <a href=#2a4b3ee3f81d4e22abbaa64ea80cc5bb> Processes</a>
-     - <a href=#7c3282f5fc9140399d8b12cfc606f50a> Download</a>
-     - <a href=#b1f922e697ea40e4a40f143d8aa956e4> Boot</a>
-     - <a href=#8ac6c8c381d148a09c4518237aae45b3> Delete </a>
-     - <a href=#fb9dcd8760714775b7ee661c85c84f32> Common</a>
-   - <a href=#703b22102be14f8e8e2b12098106324d> Files :: `~/.stl.d`</a>
-     - <a href=#d75dc67b44be44429a37c49f483c35a5> Download</a>
-     - <a href=#af6df4036f4a423e8f63903eb7d3d3c7> Boot</a>
-       - <a href=#1ac65d3a13034d18ba202e685caeeda3> `~/.stl.d/prc.d/boot_stl_const.d` :: define const for all stl (felf start fn)</a>
-       - <a href=#81f4e0abc25640f39af99c47269c4cd6> `~/.stl.d/prc.d/boot_stl_fn.d` :: define fn for use for boot stl</a>
-     - <a href=#8734f61ce51b49738cb16627fd8140b1> Delete</a>
-     - <a href=#22f7e6e9c89f47ecb9115467e720404e> Common</a>
-       - <a href=#0cc89855243545459030b6bd1862e0a9> `~/.stl.d/prc.d/stl_util.d` :: define fn for temporary maintenace - NOT STABLE </a>
+ - <a href=#141d73ae776f413fbfcbb511cc96516d> STL in Linux</a>
+   - <a href=#d478b281260e4aa5a6db3abe108da729> General </a>
+     - <a href=#e655e8224f244c29ab29c376e23ce46e> Save ~/.stl.d</a>
+     - <a href=#9f03e21e82a1464cb177946c07de9210> Flags</a>
+       - <a href=#d7cc88da3bce4d4f86a3a8981fe0e9b3> Global in dr: `~/`</a>
+       - <a href=#668ca78543894e8c98e85cee16efed00> Local in dr: `~/.stl.d/data.d/flag.d`</a>
+     - <a href=#9bd4df6fb8784528bf2dc9f0957bedae> Using data</a>
+   - <a href=#dd5894cc945b4cb08443895836e30b80> Processes</a>
+     - <a href=#40bac7262df54819bd370ced1bda1ca8> Download</a>
+     - <a href=#276aabaf1e7f44e2975886d4ae9958a6> Boot</a>
+     - <a href=#4e3ecd9ab3df47a59d5d0aac1c0ba2fe> Delete </a>
+     - <a href=#2a0e95a7f33e400eb34480637bc0320c> Common</a>
+   - <a href=#9d06071b462c4fcf83492db2dd21e8ca> Files :: `~/.stl.d`</a>
+     - <a href=#70c9a7789a5d4658b81d00a62feef15d> Download </a>
+     - <a href=#6c5b53ddf47a485385a67344232969d7> Boot</a>
+       - <a href=#3b9d5938407f4591b0bdd2cc9a6f49c7> `~/.stl.d/prc.d/boot_stl_const.d` :: define const for all stl (felf start fn)</a>
+       - <a href=#11a7980215ca4d3f93728030a0f275b9> `~/.stl.d/prc.d/boot_stl_fn.d` :: define fn for use for boot stl</a>
+     - <a href=#19f2fd88db23463c9819b591b7952c73> Delete</a>
+     - <a href=#1ddb51634fcf48d5a4864f8523b8e921> Common</a>
+       - <a href=#92dac27d6eec48318f8d50dfaea760d2> `~/.stl.d/prc.d/stl_util.d` :: define fn for temporary maintenace - NOT STABLE </a>
 
 <!-- /TOC toc2f_stl0 -->
 
@@ -93,9 +93,9 @@ PPWD: /home/st/.stl.d/data.d/opus.d/boot.opus
 
 FLOW: /home/st/REPOBARE/_repo/sta/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/009_dr2m
 
-DATE: 1732270176_22112024170936
+DATE: 1732360129_23112024180849
 
-DATX: 1732270176
+DATX: 1732360129
 -->
 
 
@@ -103,14 +103,14 @@ DATX: 1732270176
 
 
 
- <a id="b5deac7b0c80448da3a5a74e1bdc159a"></a>
+ <a id="141d73ae776f413fbfcbb511cc96516d"></a>
 # STL in Linux
 
 [001.txt.md](cntx.ins.d/002.generald/001.txt.md)
 
 
 
- <a id="7c53e782d3d74936a86ef1a10b0c8bce"></a>
+ <a id="d478b281260e4aa5a6db3abe108da729"></a>
 ## General 
 
 
@@ -118,7 +118,7 @@ DATX: 1732270176
 
 
 
- <a id="a5d3777d8ed945a19fa651a566bfc3e0"></a>
+ <a id="e655e8224f244c29ab29c376e23ce46e"></a>
 ### Save ~/.stl.d
 
 
@@ -126,7 +126,7 @@ DATX: 1732270176
 
 
 
- <a id="a09ee7f0d99b4d9fa6021bd20027f88b"></a>
+ <a id="9f03e21e82a1464cb177946c07de9210"></a>
 ### Flags
 
 Acceptable values:
@@ -134,14 +134,14 @@ Acceptable values:
     0 - false
     1 - true
 
- <a id="08408d4a9be440de9acfe537e7249e50"></a>
+ <a id="d7cc88da3bce4d4f86a3a8981fe0e9b3"></a>
 #### Global in dr: `~/`
 
 - `~/.stl.use.flag` :
 
     (1|0) :: (abort|not abort) process : `source ~/.stl.d/flow.d/boot.d/boot.sh` at the begining 
 
- <a id="18fd006c1e12445d9a9b28ae20dd741d"></a>
+ <a id="668ca78543894e8c98e85cee16efed00"></a>
 #### Local in dr: `~/.stl.d/data.d/flag.d`
 
 
@@ -160,7 +160,7 @@ Acceptable values:
 
 
 
- <a id="f30855a5a1884bc68095ac81e9fb1bee"></a>
+ <a id="9bd4df6fb8784528bf2dc9f0957bedae"></a>
 ### Using data
 
 - BOOT_REPO_PATH определяется при установе STL и используется для дальнейшего определения путей 
@@ -171,7 +171,7 @@ Acceptable values:
 
 
 
- <a id="2a4b3ee3f81d4e22abbaa64ea80cc5bb"></a>
+ <a id="dd5894cc945b4cb08443895836e30b80"></a>
 ## Processes
 
 
@@ -179,7 +179,7 @@ Acceptable values:
 
 
 
- <a id="7c3282f5fc9140399d8b12cfc606f50a"></a>
+ <a id="40bac7262df54819bd370ced1bda1ca8"></a>
 ### Download
  
 
@@ -187,7 +187,7 @@ Acceptable values:
 
 
 
- <a id="b1f922e697ea40e4a40f143d8aa956e4"></a>
+ <a id="276aabaf1e7f44e2975886d4ae9958a6"></a>
 ### Boot
 
 
@@ -195,7 +195,7 @@ Acceptable values:
 
 
 
- <a id="8ac6c8c381d148a09c4518237aae45b3"></a>
+ <a id="4e3ecd9ab3df47a59d5d0aac1c0ba2fe"></a>
 ### Delete 
 
 
@@ -203,7 +203,7 @@ Acceptable values:
 
 
 
- <a id="fb9dcd8760714775b7ee661c85c84f32"></a>
+ <a id="2a0e95a7f33e400eb34480637bc0320c"></a>
 ### Common
 
 
@@ -211,7 +211,7 @@ Acceptable values:
 
 
 
- <a id="703b22102be14f8e8e2b12098106324d"></a>
+ <a id="9d06071b462c4fcf83492db2dd21e8ca"></a>
 ## Files :: `~/.stl.d`
 
 
@@ -221,15 +221,15 @@ Acceptable values:
 
 
 
- <a id="d75dc67b44be44429a37c49f483c35a5"></a>
-### Download
+ <a id="70c9a7789a5d4658b81d00a62feef15d"></a>
+### Download 
 
 
 [001.txt.md](cntx.ins.d/004.files.d/003.boot.d/001.txt.md)
 
 
 
- <a id="af6df4036f4a423e8f63903eb7d3d3c7"></a>
+ <a id="6c5b53ddf47a485385a67344232969d7"></a>
 ### Boot
  
 
@@ -238,7 +238,7 @@ Acceptable values:
 
 
 
- <a id="1ac65d3a13034d18ba202e685caeeda3"></a>
+ <a id="3b9d5938407f4591b0bdd2cc9a6f49c7"></a>
 #### `~/.stl.d/prc.d/boot_stl_const.d` :: define const for all stl (felf start fn)
 
 
@@ -246,7 +246,7 @@ Acceptable values:
 
 
 
- <a id="81f4e0abc25640f39af99c47269c4cd6"></a>
+ <a id="11a7980215ca4d3f93728030a0f275b9"></a>
 #### `~/.stl.d/prc.d/boot_stl_fn.d` :: define fn for use for boot stl
 
 
@@ -254,7 +254,7 @@ Acceptable values:
 
 
 
- <a id="8734f61ce51b49738cb16627fd8140b1"></a>
+ <a id="19f2fd88db23463c9819b591b7952c73"></a>
 ### Delete
 
 
@@ -262,7 +262,7 @@ Acceptable values:
 
 
 
- <a id="22f7e6e9c89f47ecb9115467e720404e"></a>
+ <a id="1ddb51634fcf48d5a4864f8523b8e921"></a>
 ### Common
 
 
@@ -270,7 +270,7 @@ Acceptable values:
 
 
 
- <a id="0cc89855243545459030b6bd1862e0a9"></a>
+ <a id="92dac27d6eec48318f8d50dfaea760d2"></a>
 #### `~/.stl.d/prc.d/stl_util.d` :: define fn for temporary maintenace - NOT STABLE 
 
 
