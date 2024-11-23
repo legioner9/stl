@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo -e "${CYAN}--- _cntx.res_rnd7_4729eb7() $* in file://${REPO_PATH}/stl/.d/.opus/readme.opus/_cntx.res.md_ufl9 ---${NORMAL}" #started functions
+echo -e "${CYAN}--- _cntx.res_rnd7_da83c4d() $* in file://${REPO_PATH}/stl/.d/.opus/readme.opus/_cntx.res.md_ufl9 ---${NORMAL}" #started functions
 
-_cntx.res_rnd7_4729eb7() {
+_cntx.res_rnd7_da83c4d() {
 
     # gig from file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/ufl_stl0.ram/.grot/ufl_stl0.sh
 
@@ -69,4 +69,4 @@ echo | ufl_stl0 9 ${REPO_PATH}/stl/.d/.opus/readme.opus/cntx.ins.d ${REPO_PATH}/
 
 }
 
-_cntx.res_rnd7_4729eb7 "$@"
+_cntx.res_rnd7_da83c4d "$@"
