@@ -58,6 +58,8 @@ ${NORMAL}"
     echo "START BODY FN : ${FNN}() $*"
 
     #{{body_fn}}
+
+    #! rbld in files
     local in_pth=
     for in_pth in $(_f2e ${path_dir}/.d/.lst/rbld.in.file.lst); do
         . ${in_pth} || {
@@ -65,7 +67,6 @@ ${NORMAL}"
             cd "$PPWD" || echo "EXEC_FAIL : 'cd $PPWD' :: return 0|1" >&2
             return 1
         }
-        read -p 1
     done
 
     if [ -d $path_dir/cntx.ins.d ] && [ -f $path_dir/cntx.res.md ]; then

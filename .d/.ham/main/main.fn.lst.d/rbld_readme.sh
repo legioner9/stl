@@ -26,8 +26,6 @@ source_inject_fn_ham ${REPO_PATH}/${name_repo}/.d/.opus/notebook.opus/_rbld_res_
     return 1
 }
 
-read -p 2
-
 #! rbld stl repo readme
 # local rbld_file=${REPO_PATH}/${name_repo}/.d/.opus/readme.opus/_rbld_res_md.sh #start files
 
