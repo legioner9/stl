@@ -61,12 +61,12 @@ h6 {
 Start Contents Menu
 
 <!-- TOC toc2f_stl0 --> 
- - <a href=#c81a90ade7644e06a6fb5d568c851a61> STL REPO OPUS</a>
- - <a href=#b5b66ca8cc6746aca1efbf52473a0187> INFO</a>
- - <a href=#543ffa61a1b4454783e936a1d330b55e> STL in Linux (file 001.from_dot_stl.file.md)</a>
- - <a href=#60d8ca45752f4ed98e2fd70e2e5bd8c5> STL Book (file 002.from_notebook.file.md)</a>
-   - <a href=#1ef7669d3e5640d9932697fbc6b7365b> Local repo opuses</a>
-     - <a href=#d8452295eea446558a3eca46283cf5ee> NBash Opus </a>
+ - <a href=#20269edb56e24d4789fae0d2aa385ca2> STL REPO OPUS</a>
+ - <a href=#11923cf59f9749468568d4df2052ef07> INFO</a>
+ - <a href=#1b4d7e84da8143609c2945e880d5fe89> STL in Linux (file 001.from_dot_stl.file.md)</a>
+ - <a href=#3259707db040408ea97cffe2d91238f7> STL Book (file 002.from_notebook.file.md)</a>
+   - <a href=#2280a4dfd5f54229891971510fca98af> Local repo opuses</a>
+     - <a href=#d05e8e07efe44d6eb7f8df0da9a77e4d> NBash Opus </a>
 
 <!-- /TOC toc2f_stl0 -->
 
@@ -79,9 +79,9 @@ PPWD: /home/st/REPOBARE/_repo/stl/.d/.opus/readme.opus
 
 FLOW: /home/st/REPOBARE/_repo/sta/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/009_dr2m
 
-DATE: 1732463523_24112024225203
+DATE: 1732464447_24112024230727
 
-DATX: 1732463523
+DATX: 1732464447
 -->
 
 
@@ -89,7 +89,7 @@ DATX: 1732463523
 
 
 
- <a id="c81a90ade7644e06a6fb5d568c851a61"></a>
+ <a id="20269edb56e24d4789fae0d2aa385ca2"></a>
 # STL REPO OPUS
  
 
@@ -97,7 +97,7 @@ DATX: 1732463523
 
 
 
- <a id="b5b66ca8cc6746aca1efbf52473a0187"></a>
+ <a id="11923cf59f9749468568d4df2052ef07"></a>
 # INFO
 
 - cli after install
@@ -114,7 +114,7 @@ DATX: 1732463523
 
 
 
- <a id="543ffa61a1b4454783e936a1d330b55e"></a>
+ <a id="1b4d7e84da8143609c2945e880d5fe89"></a>
 # STL in Linux (file 001.from_dot_stl.file.md)
 
 [001.from_dot_stl.file.md](.d/.opus/readme.opus/cntx.ins.d/099.stl_in_linux.d/001.from_dot_stl.file.md)
@@ -124,7 +124,7 @@ DATX: 1732463523
 
 
 
- <a id="60d8ca45752f4ed98e2fd70e2e5bd8c5"></a>
+ <a id="3259707db040408ea97cffe2d91238f7"></a>
 # STL Book (file 002.from_notebook.file.md)
 
 
@@ -135,7 +135,7 @@ DATX: 1732463523
 
 
 
- <a id="1ef7669d3e5640d9932697fbc6b7365b"></a>
+ <a id="2280a4dfd5f54229891971510fca98af"></a>
 ## Local repo opuses
 
 
@@ -143,7 +143,7 @@ DATX: 1732463523
 
 
 
- <a id="d8452295eea446558a3eca46283cf5ee"></a>
+ <a id="d05e8e07efe44d6eb7f8df0da9a77e4d"></a>
 ### NBash Opus 
 
 
