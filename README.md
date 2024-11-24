@@ -61,10 +61,10 @@ h6 {
 Start Contents Menu
 
 <!-- TOC toc2f_stl0 --> 
- - <a href=#b7e8e554a25744e88d40c154d67e64ef> STL REPO OPUS</a>
- - <a href=#40e6f71b04434a62b485de5c7b1535d0> INFO</a>
- - <a href=#53597d5953004cbc8e169d5724de4574> STL in Linux (file 001.from_dot_stl.file.md)</a>
- - <a href=#62eba60a1e674cec8fbad36a2e18cc6e> Note Book (file 002.from_notebook.file.md)</a>
+ - <a href=#e6a7e50ed3834f4c9c6264cfcfa3af90> STL REPO OPUS</a>
+ - <a href=#c727d85814ef426385384c85589540e4> INFO</a>
+ - <a href=#15be966f74a94859989cfa37bc9d9eda> STL in Linux (file 001.from_dot_stl.file.md)</a>
+ - <a href=#5e74321ce9d0416b9beb235c4aee0e1c> Note Book (file 002.from_notebook.file.md)</a>
 
 <!-- /TOC toc2f_stl0 -->
 
@@ -77,9 +77,9 @@ PPWD: /home/st/REPOBARE/_repo/stl/.d/.opus/readme.opus
 
 FLOW: /home/st/REPOBARE/_repo/sta/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/009_dr2m
 
-DATE: 1732443311_24112024171511
+DATE: 1732446779_24112024181259
 
-DATX: 1732443311
+DATX: 1732446779
 -->
 
 
@@ -87,7 +87,7 @@ DATX: 1732443311
 
 
 
- <a id="b7e8e554a25744e88d40c154d67e64ef"></a>
+ <a id="e6a7e50ed3834f4c9c6264cfcfa3af90"></a>
 # STL REPO OPUS
  
 
@@ -95,7 +95,7 @@ DATX: 1732443311
 
 
 
- <a id="40e6f71b04434a62b485de5c7b1535d0"></a>
+ <a id="c727d85814ef426385384c85589540e4"></a>
 # INFO
 
 - cli after install
@@ -108,21 +108,21 @@ DATX: 1732443311
         
 
 
-[001.a.L1.txt.md](.d/.opus/readme.opus/cntx.ins.d/099.from_dot_stl.d.ax/001.a.L1.txt.md)
+[001.a.L1.txt.md](.d/.opus/readme.opus/cntx.ins.d/099.stl_in_linux.d/001.a.L1.txt.md)
 
 
 
- <a id="53597d5953004cbc8e169d5724de4574"></a>
+ <a id="15be966f74a94859989cfa37bc9d9eda"></a>
 # STL in Linux (file 001.from_dot_stl.file.md)
 
-[001.from_dot_stl.file.md](.d/.opus/readme.opus/cntx.ins.d/099.from_dot_stl.d.ax/001.from_dot_stl.file.md)
+[001.from_dot_stl.file.md](.d/.opus/readme.opus/cntx.ins.d/099.stl_in_linux.d/001.from_dot_stl.file.md)
 
 
 [001.L1.txt.md](.d/.opus/readme.opus/cntx.ins.d/100.notebook.d/001.L1.txt.md)
 
 
 
- <a id="62eba60a1e674cec8fbad36a2e18cc6e"></a>
+ <a id="5e74321ce9d0416b9beb235c4aee0e1c"></a>
 # Note Book (file 002.from_notebook.file.md)
 
 

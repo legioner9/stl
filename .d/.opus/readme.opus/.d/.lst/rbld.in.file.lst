@@ -1,2 +1,14 @@
-# dir in this
+# 1. in first rbld cnx=[cntx.ins.d] 
+# 2. use cnx : rbld readme.opus/cntx.ins.d/name.d/_001.name.file.md_ufl9 <- [cntx.ins.d]
+
+# rbld notebook.opus -> notebook.opus/cntx.ins.d
+${REPO_PATH}/stl/.d/.opus/notebook.opus/_rbld_res_md.sh
+
+# rbld _002.from_notebook.file.md_ufl9 <- notebook.opus/cntx.ins.d
 ${REPO_PATH}/stl/.d/.opus/readme.opus/cntx.ins.d/100.notebook.d/_002.from_notebook.file.md_ufl9
+
+# rbld stl_in_linux.opus -> stl_in_linux.opus/cntx.ins.d
+${REPO_PATH}/stl/.d/.opus/stl_in_linux.opus/_rbld_res_md.sh
+
+# rbld _001.from_dot_stl.file.md_ufl9 <- stl_in_linux.opus/cntx.ins.d
+${REPO_PATH}/stl/.d/.opus/readme.opus/cntx.ins.d/099.stl_in_linux.d/_001.from_dot_stl.file.md_ufl9

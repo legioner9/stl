@@ -61,186 +61,243 @@ h6 {
 Start Contents Menu
 
 <!-- TOC toc2f_stl0 --> 
+ - <a href=#72d88ad43f1142918f8174b9f9da4390> STL in Linux</a>
+   - <a href=#b9680c6b444a4c6db1fb8a82b581a9f5> General </a>
+     - <a href=#2be8d9ac1a9a4dc3bef57ab08a721aa2> Using data</a>
+   - <a href=#711e8ed09c99476a8db94c8385de7be9> Processes</a>
+     - <a href=#23dcd7f256a2408aa6a4884bdbb9fd35> Download</a>
+     - <a href=#d48587197099432180abcbaecfc98b77> Boot</a>
+       - <a href=#a4701d7eff5044389220dc01ecd2ca46> Up to memory - function</a>
+       - <a href=#b19195df369b49568d0bb9546bb3a6cc> Test </a>
+     - <a href=#4c8b76d2bb4642038b54cb283f7d2d6a> Update</a>
+     - <a href=#a04eaa59d9d04256935b80c7d7880851> Delete </a>
+     - <a href=#74bf75182b784800b0f3b46a420fe3f3> Common</a>
+     - <a href=#fa10315c4bfa4758bb992afb8ca8c81e> Save ~/.stl.d</a>
+   - <a href=#73155b099a464e18b5af3f40fdfc369e> Files :: `~/.stl.d`</a>
+     - <a href=#4b7989edfca1420992b4fcd707e43eb6> Download </a>
+     - <a href=#2fcdc65cb1f94804a1985fb588202df5> Boot</a>
+       - <a href=#844ce51bf2974b03823884e7f3632659> `~/.stl.d/prc.d/boot_stl_const.d` :: define const for all stl (felf start fn)</a>
+       - <a href=#ddc4c9c88ed14480baa3663d2fd21957> `~/.stl.d/prc.d/boot_stl_fn.d` :: define fn for use for boot stl</a>
+     - <a href=#5754d15a30434b25b2893fb5f81eb266> Delete</a>
+     - <a href=#e8876b411eeb4a94bf45e4c5efe70bb2> Common</a>
+       - <a href=#d01d3733f8a344dcbc96d953cf0e3c47> `~/.stl.d/prc.d/stl_util.d` :: define fn for temporary maintenace - NOT STABLE </a>
+   - <a href=#6b50d10c4fee4b67b0244eb27ace56b4> Lexicon </a>
+     - <a href=#8a53547566d148a9a24c4242e47c4a28> Extend name entety</a>
+       - <a href=#ed4d5d7f01fc4f3b9616e9d393e27c3b> From content file or directory</a>
+       - <a href=#6552f8f5cfc04ff8bb95423a12b2f174> From function extend - informaiton</a>
+     - <a href=#80ef00968dde494eb871d18c892138bb> Error name </a>
+     - <a href=#4d7df1b9e2ea42628b67b9313231da4b> Abbriviations</a>
+       - <a href=#15a0f558044a43d0ab53a96726480366> in value </a>
+       - <a href=#b6e60fcf59ad4c7eb8f3b4b59db65686> In Latin</a>
+   - <a href=#08a2bc3720344b88aad507baea430a4a> Data</a>
+     - <a href=#db2aa11056674937a0c6971b9af936b0> Flags</a>
+       - <a href=#cdcc706e5ace424db76b5786ddc0e1a2> Global in dr: `~/`</a>
+       - <a href=#b659cdd5132a4b8096d10738a8d02b37> Local in dr: `~/.stl.d/data.d/flag.d`</a>
+   - <a href=#c95e338221624504941338d0ada8d50f> Structures</a>
+     - <a href=#4c835e082b4a4e5cab152bd0b52c6e08> .arb </a>
 
 <!-- /TOC toc2f_stl0 -->
 
 End Contents Menu
 
 <!--
-CMND: ufl_stl0 9 /home/st/REPOBARE/_repo/stl/.d/.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d /home/st/REPOBARE/_repo/stl/.d/.opus/readme.opus/cntx.ins.d/099.from_dot_stl.d.ax/001.from_dot_stl.file.md 2
+CMND: ufl_stl0 9 /home/st/REPOBARE/_repo/stl/.d/.opus/stl_in_linux.opus/cntx.ins.d /home/st/REPOBARE/_repo/stl/.d/.opus/stl_in_linux.opus/cntx.res.md 2
 
-PPWD: /home/st/REPOBARE/_repo/stl/.d/.opus/readme.opus/cntx.ins.d/099.from_dot_stl.d.ax
+PPWD: /home/st/REPOBARE/_repo/stl/.d/.opus/stl_in_linux.opus
 
 FLOW: /home/st/REPOBARE/_repo/sta/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/009_dr2m
 
-DATE: 1732443301_24112024171501
+DATE: 1732443780_24112024172300
 
-DATX: 1732443301
+DATX: 1732443780
 -->
 
 
-[001.001.first_head.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/001.001.first_head.txt.md)
+[001.001.first_head.txt.md](cntx.ins.d/001.001.first_head.txt.md)
 
 
 
+ <a id="72d88ad43f1142918f8174b9f9da4390"></a>
 # STL in Linux
 
-[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/002.general.d/001.txt.md)
+[001.txt.md](cntx.ins.d/002.general.d/001.txt.md)
 
 
 
+ <a id="b9680c6b444a4c6db1fb8a82b581a9f5"></a>
 ## General 
 
 
-[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/002.general.d/003.use_data.d/001.txt.md)
+[001.txt.md](cntx.ins.d/002.general.d/003.use_data.d/001.txt.md)
 
 
 
+ <a id="2be8d9ac1a9a4dc3bef57ab08a721aa2"></a>
 ### Using data
 
 - BOOT_REPO_PATH определяется при установе STL и используется для дальнейшего определения путей 
     c.e. STL_PATH  
 
 
-[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/003.processes.d/001.txt.md)
+[001.txt.md](cntx.ins.d/003.processes.d/001.txt.md)
 
 
 
+ <a id="711e8ed09c99476a8db94c8385de7be9"></a>
 ## Processes
 
 
-[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/003.processes.d/002.inst.d/001.txt.md)
+[001.txt.md](cntx.ins.d/003.processes.d/002.inst.d/001.txt.md)
 
 
 
+ <a id="23dcd7f256a2408aa6a4884bdbb9fd35"></a>
 ### Download
  
 
-[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/003.processes.d/003.boot.d/001.txt.md)
+[001.txt.md](cntx.ins.d/003.processes.d/003.boot.d/001.txt.md)
 
 
 
+ <a id="d48587197099432180abcbaecfc98b77"></a>
 ### Boot
 
 
-[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/003.processes.d/003.boot.d/002.up_to_mem.d/001.txt.md)
+[001.txt.md](cntx.ins.d/003.processes.d/003.boot.d/002.up_to_mem.d/001.txt.md)
 
 
 
+ <a id="a4701d7eff5044389220dc01ecd2ca46"></a>
 #### Up to memory - function
 
 
-[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/003.processes.d/003.boot.d/003.tst.d/001.txt.md)
+[001.txt.md](cntx.ins.d/003.processes.d/003.boot.d/003.tst.d/001.txt.md)
 
 
 
+ <a id="b19195df369b49568d0bb9546bb3a6cc"></a>
 #### Test 
 
 
-[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/003.processes.d/004.upd.d/001.txt.md)
+[001.txt.md](cntx.ins.d/003.processes.d/004.upd.d/001.txt.md)
 
 
 
+ <a id="4c8b76d2bb4642038b54cb283f7d2d6a"></a>
 ### Update
 
 
-[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/003.processes.d/005.dlt.d/001.txt.md)
+[001.txt.md](cntx.ins.d/003.processes.d/005.dlt.d/001.txt.md)
 
 
 
+ <a id="a04eaa59d9d04256935b80c7d7880851"></a>
 ### Delete 
 
 
-[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/003.processes.d/006.comm.d/001.txt.md)
+[001.txt.md](cntx.ins.d/003.processes.d/006.comm.d/001.txt.md)
 
 
 
+ <a id="74bf75182b784800b0f3b46a420fe3f3"></a>
 ### Common
 
 
-[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/003.processes.d/007.save.d/001.txt.md)
+[001.txt.md](cntx.ins.d/003.processes.d/007.save.d/001.txt.md)
 
 
 
+ <a id="fa10315c4bfa4758bb992afb8ca8c81e"></a>
 ### Save ~/.stl.d
 
 
-[001.1L.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/004.files.d/001.1L.txt.md)
+[001.1L.txt.md](cntx.ins.d/004.files.d/001.1L.txt.md)
 
 
 
+ <a id="73155b099a464e18b5af3f40fdfc369e"></a>
 ## Files :: `~/.stl.d`
 
 
 
 
-[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/004.files.d/002.inst.d/001.txt.md)
+[001.txt.md](cntx.ins.d/004.files.d/002.inst.d/001.txt.md)
 
 
 
+ <a id="4b7989edfca1420992b4fcd707e43eb6"></a>
 ### Download 
 
 
-[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/004.files.d/003.boot.d/001.txt.md)
+[001.txt.md](cntx.ins.d/004.files.d/003.boot.d/001.txt.md)
 
 
 
+ <a id="2fcdc65cb1f94804a1985fb588202df5"></a>
 ### Boot
  
 
 
-[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/004.files.d/003.boot.d/002.const.d/001.txt.md)
+[001.txt.md](cntx.ins.d/004.files.d/003.boot.d/002.const.d/001.txt.md)
 
 
 
+ <a id="844ce51bf2974b03823884e7f3632659"></a>
 #### `~/.stl.d/prc.d/boot_stl_const.d` :: define const for all stl (felf start fn)
 
 
-[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/004.files.d/003.boot.d/003.fn.d/001.txt.md)
+[001.txt.md](cntx.ins.d/004.files.d/003.boot.d/003.fn.d/001.txt.md)
 
 
 
+ <a id="ddc4c9c88ed14480baa3663d2fd21957"></a>
 #### `~/.stl.d/prc.d/boot_stl_fn.d` :: define fn for use for boot stl
 
 
-[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/004.files.d/004.dlt.d/001.txt.md)
+[001.txt.md](cntx.ins.d/004.files.d/004.dlt.d/001.txt.md)
 
 
 
+ <a id="5754d15a30434b25b2893fb5f81eb266"></a>
 ### Delete
 
 
-[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/004.files.d/005.comm.d/001.txt.md)
+[001.txt.md](cntx.ins.d/004.files.d/005.comm.d/001.txt.md)
 
 
 
+ <a id="e8876b411eeb4a94bf45e4c5efe70bb2"></a>
 ### Common
 
 
-[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/004.files.d/005.comm.d/004.util.d/001.txt.md)
+[001.txt.md](cntx.ins.d/004.files.d/005.comm.d/004.util.d/001.txt.md)
 
 
 
+ <a id="d01d3733f8a344dcbc96d953cf0e3c47"></a>
 #### `~/.stl.d/prc.d/stl_util.d` :: define fn for temporary maintenace - NOT STABLE 
 
 
-[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/005.lexicon.d/001.txt.md)
+[001.txt.md](cntx.ins.d/005.lexicon.d/001.txt.md)
 
 
 
+ <a id="6b50d10c4fee4b67b0244eb27ace56b4"></a>
 ## Lexicon 
 
 
-[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/005.lexicon.d/002.ext.d/001.txt.md)
+[001.txt.md](cntx.ins.d/005.lexicon.d/002.ext.d/001.txt.md)
 
 
 
+ <a id="8a53547566d148a9a24c4242e47c4a28"></a>
 ### Extend name entety
 
-[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/005.lexicon.d/002.ext.d/002.from_content.d/001.txt.md)
+[001.txt.md](cntx.ins.d/005.lexicon.d/002.ext.d/002.from_content.d/001.txt.md)
 
 
 
+ <a id="ed4d5d7f01fc4f3b9616e9d393e27c3b"></a>
 #### From content file or directory
 
 - `wnext`
@@ -268,10 +325,11 @@ DATX: 1732443301
   - `.anc` файл с сылками
 
 
-[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/005.lexicon.d/002.ext.d/003.from_function.d/001.txt.md)
+[001.txt.md](cntx.ins.d/005.lexicon.d/002.ext.d/003.from_function.d/001.txt.md)
 
 
 
+ <a id="6552f8f5cfc04ff8bb95423a12b2f174"></a>
 #### From function extend - informaiton
 
 - `.ln_src.` - src of `ln srs dist` 
@@ -279,10 +337,11 @@ DATX: 1732443301
 - `.ln_dst.` - dist of `ln src dist` 
 
 
-[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/005.lexicon.d/003.err_name.d/001.txt.md)
+[001.txt.md](cntx.ins.d/005.lexicon.d/003.err_name.d/001.txt.md)
 
 
 
+ <a id="80ef00968dde494eb871d18c892138bb"></a>
 ### Error name 
 
     NOT_FILE
@@ -291,10 +350,11 @@ DATX: 1732443301
     IS_DIR
 
 
-[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/005.lexicon.d/004.abbrriviatins.d/001.txt.md)
+[001.txt.md](cntx.ins.d/005.lexicon.d/004.abbrriviatins.d/001.txt.md)
 
 
 
+ <a id="4d7df1b9e2ea42628b67b9313231da4b"></a>
 ### Abbriviations
 
     ins -> rcv - в случае вставки entety
@@ -319,10 +379,11 @@ DATX: 1732443301
     cnx - context 
     res - результат вставки context
 
-[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/005.lexicon.d/004.abbrriviatins.d/002.in_value.d/001.txt.md)
+[001.txt.md](cntx.ins.d/005.lexicon.d/004.abbrriviatins.d/002.in_value.d/001.txt.md)
 
 
 
+ <a id="15a0f558044a43d0ab53a96726480366"></a>
 #### in value 
 
     ins -> rcv - в случае вставки entety
@@ -347,10 +408,11 @@ DATX: 1732443301
     cnx - context 
     res - результат вставки context
 
-[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/005.lexicon.d/004.abbrriviatins.d/003.in_latin.d/001.txt.md)
+[001.txt.md](cntx.ins.d/005.lexicon.d/004.abbrriviatins.d/003.in_latin.d/001.txt.md)
 
 
 
+ <a id="b6e60fcf59ad4c7eb8f3b4b59db65686"></a>
 #### In Latin
 
     sup                - избыточный
@@ -526,17 +588,19 @@ DATX: 1732443301
     [exi] eximo         - [выбрать] вынуть
 
 
-[001.L1.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/006.data.d/001.L1.txt.md)
+[001.L1.txt.md](cntx.ins.d/006.data.d/001.L1.txt.md)
 
 
 
+ <a id="08a2bc3720344b88aad507baea430a4a"></a>
 ## Data
 
 
-[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/006.data.d/002.flags.d/001.txt.md)
+[001.txt.md](cntx.ins.d/006.data.d/002.flags.d/001.txt.md)
 
 
 
+ <a id="db2aa11056674937a0c6971b9af936b0"></a>
 ### Flags
 
 Acceptable values:
@@ -544,12 +608,14 @@ Acceptable values:
     0 - false 
     1 - true
 
+ <a id="cdcc706e5ace424db76b5786ddc0e1a2"></a>
 #### Global in dr: `~/`
 
 - `~/.stl.use.flag` :
 
     (1|0) :: (abort|not abort) process : `source ~/.stl.d/flow.d/boot.d/boot.sh` at the begining 
 
+ <a id="b659cdd5132a4b8096d10738a8d02b37"></a>
 #### Local in dr: `~/.stl.d/data.d/flag.d`
 
 
@@ -564,18 +630,20 @@ Acceptable values:
 
     (1|0) :: default 1 ::(reset | not reset) all git diff :: use in git_flow_functions :: protection mode against changes
 
-[001.L1.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/007.structures.d/001.L1.txt.md)
+[001.L1.txt.md](cntx.ins.d/007.structures.d/001.L1.txt.md)
 
 
 
+ <a id="c95e338221624504941338d0ada8d50f"></a>
 ## Structures
 
 
 
-[001.txt.md](../../../../.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d/007.structures.d/002.d/001.txt.md)
+[001.txt.md](cntx.ins.d/007.structures.d/002.d/001.txt.md)
 
 
 
+ <a id="4c835e082b4a4e5cab152bd0b52c6e08"></a>
 ### .arb 
 
 
