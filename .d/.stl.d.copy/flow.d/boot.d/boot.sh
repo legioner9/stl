@@ -57,9 +57,9 @@ ${NORMAL}"
 
     echo "START BODY FN : ${FNN}() $*"
 
-
-
     #{{body_fn}}
+
+    return 1
 
     #! END BODY FN ---------------------------------------
 

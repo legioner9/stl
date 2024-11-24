@@ -93,7 +93,7 @@ dotstlrc_boot_stl() {
 
     local stl_boot_file=${HOME}/.stl.d/flow.d/boot.d/boot.sh
     [[ 0 -eq $log_flag ]] && {
-        source ${stl_boot_file} || {
+        source ${stl_boot_file} 1>/dev/null || {
             err_boot_stl_fn "EXEC_FAIL 'source ${stl_boot_file}' :: return 1"
             cd ${PPWD}
             return 1
