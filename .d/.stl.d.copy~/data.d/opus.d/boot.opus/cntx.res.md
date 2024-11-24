@@ -61,64 +61,44 @@ h6 {
 Start Contents Menu
 
 <!-- TOC toc2f_stl0 --> 
+ - <a href=#86d8a2f8594e42bb9ccacf37f9faa0dd> First Head</a>
+   - <a href=#565a82a45fd741a9a9b32a1031bb0005> Second Head (file: 002.file_cntx_opus.file.md)</a>
 
 <!-- /TOC toc2f_stl0 -->
 
 End Contents Menu
 
 <!--
-CMND: ufl_stl0 9 /home/st/REPOBARE/_repo/stl/.d/.opus/readme.opus/cntx.ins.d /home/st/REPOBARE/_repo/stl/README.md 2
+CMND: ufl_stl0 9 /home/st/.stl.d/data.d/opus.d/boot.opus/cntx.ins.d /home/st/.stl.d/data.d/opus.d/boot.opus/cntx.res.md 2
 
-PPWD: /home/st/REPOBARE/_repo/stl/.d/.opus/readme.opus
+PPWD: /home/st/.stl.d/data.d/opus.d/boot.opus
 
 FLOW: /home/st/REPOBARE/_repo/sta/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/009_dr2m
 
-DATE: 1732448870_24112024184750
+DATE: 1732447107_24112024181827
 
-DATX: 1732448870
+DATX: 1732447107
 -->
 
 
-[001.001.first_head.txt.md](.d/.opus/readme.opus/cntx.ins.d/001.001.first_head.txt.md)
+[001.001.first_head.txt.md](cntx.ins.d/001.001.first_head.txt.md)
 
 
 
-# STL REPO OPUS
- 
-
-[001.txt.md](.d/.opus/readme.opus/cntx.ins.d/002.info.d/001.txt.md)
+ <a id="86d8a2f8594e42bb9ccacf37f9faa0dd"></a>
+# First Head
 
 
-
-# INFO
-
-- cli after install
-    - help stl lib
     
-        $ s_ -h 
-    - start stl [ source ]
-    
-        $ s_ ~/.stl.d/.stlrc
-        
 
-
-[001.a.L1.txt.md](.d/.opus/readme.opus/cntx.ins.d/099.stl_in_linux.d/001.a.L1.txt.md)
+[001.L1.txt.md](cntx.ins.d/099.in_this.d/001.L1.txt.md)
 
 
 
-# STL in Linux (file 001.from_dot_stl.file.md)
+ <a id="565a82a45fd741a9a9b32a1031bb0005"></a>
+## Second Head (file: 002.file_cntx_opus.file.md)
 
-[001.from_dot_stl.file.md](.d/.opus/readme.opus/cntx.ins.d/099.stl_in_linux.d/001.from_dot_stl.file.md)
-
-
-[001.L1.txt.md](.d/.opus/readme.opus/cntx.ins.d/100.notebook.d/001.L1.txt.md)
-
-
-
-# Note Book (file 002.from_notebook.file.md)
-
-
-[002.from_notebook.file.md](.d/.opus/readme.opus/cntx.ins.d/100.notebook.d/002.from_notebook.file.md)
+[002.file_cntx_opus.file.md](cntx.ins.d/099.in_this.d/002.file_cntx_opus.file.md)
 
 
 

@@ -61,10 +61,10 @@ h6 {
 Start Contents Menu
 
 <!-- TOC toc2f_stl0 --> 
- - <a href=#e6a7e50ed3834f4c9c6264cfcfa3af90> STL REPO OPUS</a>
- - <a href=#c727d85814ef426385384c85589540e4> INFO</a>
- - <a href=#15be966f74a94859989cfa37bc9d9eda> STL in Linux (file 001.from_dot_stl.file.md)</a>
- - <a href=#5e74321ce9d0416b9beb235c4aee0e1c> Note Book (file 002.from_notebook.file.md)</a>
+ - <a href=#56270e4054634b67ab7ea63e0378fdf5> STL REPO OPUS</a>
+ - <a href=#41b9d639ab7f4f14ab725bf2447741d6> INFO</a>
+ - <a href=#4a1cd51dffa241e3a8b7a01e72c02aec> STL in Linux (file 001.from_dot_stl.file.md)</a>
+ - <a href=#4ab5b542b2484f008faadab233d547b9> Note Book (file 002.from_notebook.file.md)</a>
 
 <!-- /TOC toc2f_stl0 -->
 
@@ -77,9 +77,9 @@ PPWD: /home/st/REPOBARE/_repo/stl/.d/.opus/readme.opus
 
 FLOW: /home/st/REPOBARE/_repo/sta/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/009_dr2m
 
-DATE: 1732446779_24112024181259
+DATE: 1732448870_24112024184750
 
-DATX: 1732446779
+DATX: 1732448870
 -->
 
 
@@ -87,7 +87,7 @@ DATX: 1732446779
 
 
 
- <a id="e6a7e50ed3834f4c9c6264cfcfa3af90"></a>
+ <a id="56270e4054634b67ab7ea63e0378fdf5"></a>
 # STL REPO OPUS
  
 
@@ -95,7 +95,7 @@ DATX: 1732446779
 
 
 
- <a id="c727d85814ef426385384c85589540e4"></a>
+ <a id="41b9d639ab7f4f14ab725bf2447741d6"></a>
 # INFO
 
 - cli after install
@@ -112,7 +112,7 @@ DATX: 1732446779
 
 
 
- <a id="15be966f74a94859989cfa37bc9d9eda"></a>
+ <a id="4a1cd51dffa241e3a8b7a01e72c02aec"></a>
 # STL in Linux (file 001.from_dot_stl.file.md)
 
 [001.from_dot_stl.file.md](.d/.opus/readme.opus/cntx.ins.d/099.stl_in_linux.d/001.from_dot_stl.file.md)
@@ -122,7 +122,7 @@ DATX: 1732446779
 
 
 
- <a id="5e74321ce9d0416b9beb235c4aee0e1c"></a>
+ <a id="4ab5b542b2484f008faadab233d547b9"></a>
 # Note Book (file 002.from_notebook.file.md)
 
 

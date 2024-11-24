@@ -73,9 +73,9 @@ PPWD: /home/st/REPOBARE/_repo/stl/.d/.opus/stl_in_linux.opus
 
 FLOW: /home/st/REPOBARE/_repo/sta/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/009_dr2m
 
-DATE: 1732443780_24112024172300
+DATE: 1732448855_24112024184735
 
-DATX: 1732443780
+DATX: 1732448855
 -->
 
 
@@ -123,18 +123,7 @@ DATX: 1732443780
 ### Boot
 
 
-[001.txt.md](cntx.ins.d/003.processes.d/003.boot.d/002.up_to_mem.d/001.txt.md)
-
-
-
-#### Up to memory - function
-
-
-[001.txt.md](cntx.ins.d/003.processes.d/003.boot.d/003.tst.d/001.txt.md)
-
-
-
-#### Test 
+[002.boot_from_dot_stl.file.md](cntx.ins.d/003.processes.d/003.boot.d/002.boot_from_dot_stl.file.md)
 
 
 [001.txt.md](cntx.ins.d/003.processes.d/004.upd.d/001.txt.md)
@@ -291,7 +280,7 @@ DATX: 1732443780
     IS_DIR
 
 
-[001.txt.md](cntx.ins.d/005.lexicon.d/004.abbrriviatins.d/001.txt.md)
+[001.txt.md](cntx.ins.d/005.lexicon.d/004.abbriviatins.d/001.txt.md)
 
 
 
@@ -319,7 +308,7 @@ DATX: 1732443780
     cnx - context 
     res - результат вставки context
 
-[001.txt.md](cntx.ins.d/005.lexicon.d/004.abbrriviatins.d/002.in_value.d/001.txt.md)
+[001.txt.md](cntx.ins.d/005.lexicon.d/004.abbriviatins.d/002.in_value.d/001.txt.md)
 
 
 
@@ -347,7 +336,7 @@ DATX: 1732443780
     cnx - context 
     res - результат вставки context
 
-[001.txt.md](cntx.ins.d/005.lexicon.d/004.abbrriviatins.d/003.in_latin.d/001.txt.md)
+[001.txt.md](cntx.ins.d/005.lexicon.d/004.abbriviatins.d/003.in_latin.d/001.txt.md)
 
 
 

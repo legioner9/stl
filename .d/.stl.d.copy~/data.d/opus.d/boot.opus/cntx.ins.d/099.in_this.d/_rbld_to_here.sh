@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo -e "${CYAN}--- _cntx.res_rnd7_ddd36b1() $* in file://${REPO_PATH}/stl/.d/.opus/stl_in_linux.opus/_cntx.res.md_ufl9 ---${NORMAL}" #started functions
+echo -e "${CYAN}--- _rbld_to_here_rnd7_e605dba() $* in file://${HOME}/.stl.d/data.d/opus.d/boot.opus/cntx.ins.d/099.in_this.d/_rbld_to_here.sh ---${NORMAL}" #started functions
 
-_cntx.res_rnd7_ddd36b1() {
+_rbld_to_here_rnd7_e605dba() {
 
     # gig from file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/ufl_stl0.ram/.grot/ufl_stl0.sh
 
@@ -10,7 +10,7 @@ _cntx.res_rnd7_ddd36b1() {
     local ARGS=("$@")
     local NARGS=$#
     local PPWD=$PWD
-    local path_file="${REPO_PATH}/stl/.d/.opus/stl_in_linux.opus/_cntx.res.md_ufl9"
+    local path_file="${HOME}/.stl.d/data.d/opus.d/boot.opus/cntx.ins.d/099.in_this.d/_rbld_to_here.sh"
     local path_dir="$(dirname "$path_file")"
 
     # echo -e "${CYAN}--- $FNN() $* in file://${path_file}---${NORMAL}" #started functions
@@ -58,10 +58,9 @@ ${NORMAL}"
     echo "START BODY FN : ${FNN}() $*"
 
     #{{body_fn}}
-
-echo | ufl_stl0 9 ${REPO_PATH}/stl/.d/.opus/stl_in_linux.opus/cntx.ins.d ${REPO_PATH}/stl/.d/.opus/stl_in_linux.opus/cntx.res.md 2
-
-
+    ufl_stl0_9_glar_force="-force"
+    echo | ufl_stl0 9 _099.opus/cntx.d 002.file_cntx_opus.file.md 2
+    ufl_stl0_9_glar_force=
     #! END BODY FN ---------------------------------------
     
     cd $PPWD
@@ -69,4 +68,4 @@ echo | ufl_stl0 9 ${REPO_PATH}/stl/.d/.opus/stl_in_linux.opus/cntx.ins.d ${REPO_
 
 }
 
-_cntx.res_rnd7_ddd36b1 "$@"
+_rbld_to_here_rnd7_e605dba "$@"

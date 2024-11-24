@@ -61,40 +61,38 @@ h6 {
 Start Contents Menu
 
 <!-- TOC toc2f_stl0 --> 
- - <a href=#72d88ad43f1142918f8174b9f9da4390> STL in Linux</a>
-   - <a href=#b9680c6b444a4c6db1fb8a82b581a9f5> General </a>
-     - <a href=#2be8d9ac1a9a4dc3bef57ab08a721aa2> Using data</a>
-   - <a href=#711e8ed09c99476a8db94c8385de7be9> Processes</a>
-     - <a href=#23dcd7f256a2408aa6a4884bdbb9fd35> Download</a>
-     - <a href=#d48587197099432180abcbaecfc98b77> Boot</a>
-       - <a href=#a4701d7eff5044389220dc01ecd2ca46> Up to memory - function</a>
-       - <a href=#b19195df369b49568d0bb9546bb3a6cc> Test </a>
-     - <a href=#4c8b76d2bb4642038b54cb283f7d2d6a> Update</a>
-     - <a href=#a04eaa59d9d04256935b80c7d7880851> Delete </a>
-     - <a href=#74bf75182b784800b0f3b46a420fe3f3> Common</a>
-     - <a href=#fa10315c4bfa4758bb992afb8ca8c81e> Save ~/.stl.d</a>
-   - <a href=#73155b099a464e18b5af3f40fdfc369e> Files :: `~/.stl.d`</a>
-     - <a href=#4b7989edfca1420992b4fcd707e43eb6> Download </a>
-     - <a href=#2fcdc65cb1f94804a1985fb588202df5> Boot</a>
-       - <a href=#844ce51bf2974b03823884e7f3632659> `~/.stl.d/prc.d/boot_stl_const.d` :: define const for all stl (felf start fn)</a>
-       - <a href=#ddc4c9c88ed14480baa3663d2fd21957> `~/.stl.d/prc.d/boot_stl_fn.d` :: define fn for use for boot stl</a>
-     - <a href=#5754d15a30434b25b2893fb5f81eb266> Delete</a>
-     - <a href=#e8876b411eeb4a94bf45e4c5efe70bb2> Common</a>
-       - <a href=#d01d3733f8a344dcbc96d953cf0e3c47> `~/.stl.d/prc.d/stl_util.d` :: define fn for temporary maintenace - NOT STABLE </a>
-   - <a href=#6b50d10c4fee4b67b0244eb27ace56b4> Lexicon </a>
-     - <a href=#8a53547566d148a9a24c4242e47c4a28> Extend name entety</a>
-       - <a href=#ed4d5d7f01fc4f3b9616e9d393e27c3b> From content file or directory</a>
-       - <a href=#6552f8f5cfc04ff8bb95423a12b2f174> From function extend - informaiton</a>
-     - <a href=#80ef00968dde494eb871d18c892138bb> Error name </a>
-     - <a href=#4d7df1b9e2ea42628b67b9313231da4b> Abbriviations</a>
-       - <a href=#15a0f558044a43d0ab53a96726480366> in value </a>
-       - <a href=#b6e60fcf59ad4c7eb8f3b4b59db65686> In Latin</a>
-   - <a href=#08a2bc3720344b88aad507baea430a4a> Data</a>
-     - <a href=#db2aa11056674937a0c6971b9af936b0> Flags</a>
-       - <a href=#cdcc706e5ace424db76b5786ddc0e1a2> Global in dr: `~/`</a>
-       - <a href=#b659cdd5132a4b8096d10738a8d02b37> Local in dr: `~/.stl.d/data.d/flag.d`</a>
-   - <a href=#c95e338221624504941338d0ada8d50f> Structures</a>
-     - <a href=#4c835e082b4a4e5cab152bd0b52c6e08> .arb </a>
+ - <a href=#0d5b347cadb2432f9634ddeb344f4ee3> STL in Linux</a>
+   - <a href=#12301703a7824f0782f5e1765c3fe354> General </a>
+     - <a href=#75841bb30b2f4ae7bddaee7d186fdcca> Using data</a>
+   - <a href=#e3c5c35d161e4e63b4b2c258e8d26855> Processes</a>
+     - <a href=#5aa7629c09ea4ca0908380e0766a66fb> Download</a>
+     - <a href=#4a21df9d8b0844fdb96c1509fb3f5562> Boot</a>
+     - <a href=#17ebc9a00bed4858a9510f9407a7280c> Update</a>
+     - <a href=#da7c8fd240274f47b2b9c5c59d10f359> Delete </a>
+     - <a href=#57e124fe918943fe9d7ecc19987b9894> Common</a>
+     - <a href=#560827131bf94260ab428909518967fa> Save ~/.stl.d</a>
+   - <a href=#623f0f12ff76437cbc72e43d5b087242> Files :: `~/.stl.d`</a>
+     - <a href=#6c7fe369ba624418b96c045535b6747f> Download </a>
+     - <a href=#4c026c1faf0f4d84823e039d92b6e415> Boot</a>
+       - <a href=#7be15d846f874659a7e2b7a9f93e00a8> `~/.stl.d/prc.d/boot_stl_const.d` :: define const for all stl (felf start fn)</a>
+       - <a href=#5bee56697d59426da7217f4c246dd1b0> `~/.stl.d/prc.d/boot_stl_fn.d` :: define fn for use for boot stl</a>
+     - <a href=#389689bde1b3471b8762d1aa89bd440a> Delete</a>
+     - <a href=#f7b79ed20a444e0194d688c42fbce062> Common</a>
+       - <a href=#cd1de1d9d0384d99a36753a7e614c687> `~/.stl.d/prc.d/stl_util.d` :: define fn for temporary maintenace - NOT STABLE </a>
+   - <a href=#8996ad9ce5dd4f368662c0242d13dd32> Lexicon </a>
+     - <a href=#b319770cb92745cfb21e03272924f1ff> Extend name entety</a>
+       - <a href=#a7b11bd994254106aaee14cdbecb7ca6> From content file or directory</a>
+       - <a href=#17b02cb380c5401e9c2520b039c1ccd5> From function extend - informaiton</a>
+     - <a href=#81c3008378ea4c3ebaeee64cb325b33b> Error name </a>
+     - <a href=#7c0f7366a04640599cab0d1b22953e7a> Abbriviations</a>
+       - <a href=#c46fc8837f514717ad02d6a38793d55b> in value </a>
+       - <a href=#c2239d2349e4442387e04b64f06127b7> In Latin</a>
+   - <a href=#8b2544f2acce4400a48ee8f21da6ab81> Data</a>
+     - <a href=#5bbcfbfb434944019aaf425084ae52fd> Flags</a>
+       - <a href=#36bc8234b77a4d899886790bcc4c01b1> Global in dr: `~/`</a>
+       - <a href=#ae5fc8225f284ff6a3eb8a7acbc6c9c3> Local in dr: `~/.stl.d/data.d/flag.d`</a>
+   - <a href=#424ff6e3e2ef42a8923957e3d3968264> Structures</a>
+     - <a href=#a3d477af4336486085507384f3ad15aa> .arb </a>
 
 <!-- /TOC toc2f_stl0 -->
 
@@ -107,9 +105,9 @@ PPWD: /home/st/REPOBARE/_repo/stl/.d/.opus/stl_in_linux.opus
 
 FLOW: /home/st/REPOBARE/_repo/sta/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/009_dr2m
 
-DATE: 1732443780_24112024172300
+DATE: 1732448855_24112024184735
 
-DATX: 1732443780
+DATX: 1732448855
 -->
 
 
@@ -117,14 +115,14 @@ DATX: 1732443780
 
 
 
- <a id="72d88ad43f1142918f8174b9f9da4390"></a>
+ <a id="0d5b347cadb2432f9634ddeb344f4ee3"></a>
 # STL in Linux
 
 [001.txt.md](cntx.ins.d/002.general.d/001.txt.md)
 
 
 
- <a id="b9680c6b444a4c6db1fb8a82b581a9f5"></a>
+ <a id="12301703a7824f0782f5e1765c3fe354"></a>
 ## General 
 
 
@@ -132,7 +130,7 @@ DATX: 1732443780
 
 
 
- <a id="2be8d9ac1a9a4dc3bef57ab08a721aa2"></a>
+ <a id="75841bb30b2f4ae7bddaee7d186fdcca"></a>
 ### Using data
 
 - BOOT_REPO_PATH определяется при установе STL и используется для дальнейшего определения путей 
@@ -143,7 +141,7 @@ DATX: 1732443780
 
 
 
- <a id="711e8ed09c99476a8db94c8385de7be9"></a>
+ <a id="e3c5c35d161e4e63b4b2c258e8d26855"></a>
 ## Processes
 
 
@@ -151,7 +149,7 @@ DATX: 1732443780
 
 
 
- <a id="23dcd7f256a2408aa6a4884bdbb9fd35"></a>
+ <a id="5aa7629c09ea4ca0908380e0766a66fb"></a>
 ### Download
  
 
@@ -159,31 +157,18 @@ DATX: 1732443780
 
 
 
- <a id="d48587197099432180abcbaecfc98b77"></a>
+ <a id="4a21df9d8b0844fdb96c1509fb3f5562"></a>
 ### Boot
 
 
-[001.txt.md](cntx.ins.d/003.processes.d/003.boot.d/002.up_to_mem.d/001.txt.md)
-
-
-
- <a id="a4701d7eff5044389220dc01ecd2ca46"></a>
-#### Up to memory - function
-
-
-[001.txt.md](cntx.ins.d/003.processes.d/003.boot.d/003.tst.d/001.txt.md)
-
-
-
- <a id="b19195df369b49568d0bb9546bb3a6cc"></a>
-#### Test 
+[002.boot_from_dot_stl.file.md](cntx.ins.d/003.processes.d/003.boot.d/002.boot_from_dot_stl.file.md)
 
 
 [001.txt.md](cntx.ins.d/003.processes.d/004.upd.d/001.txt.md)
 
 
 
- <a id="4c8b76d2bb4642038b54cb283f7d2d6a"></a>
+ <a id="17ebc9a00bed4858a9510f9407a7280c"></a>
 ### Update
 
 
@@ -191,7 +176,7 @@ DATX: 1732443780
 
 
 
- <a id="a04eaa59d9d04256935b80c7d7880851"></a>
+ <a id="da7c8fd240274f47b2b9c5c59d10f359"></a>
 ### Delete 
 
 
@@ -199,7 +184,7 @@ DATX: 1732443780
 
 
 
- <a id="74bf75182b784800b0f3b46a420fe3f3"></a>
+ <a id="57e124fe918943fe9d7ecc19987b9894"></a>
 ### Common
 
 
@@ -207,7 +192,7 @@ DATX: 1732443780
 
 
 
- <a id="fa10315c4bfa4758bb992afb8ca8c81e"></a>
+ <a id="560827131bf94260ab428909518967fa"></a>
 ### Save ~/.stl.d
 
 
@@ -215,7 +200,7 @@ DATX: 1732443780
 
 
 
- <a id="73155b099a464e18b5af3f40fdfc369e"></a>
+ <a id="623f0f12ff76437cbc72e43d5b087242"></a>
 ## Files :: `~/.stl.d`
 
 
@@ -225,7 +210,7 @@ DATX: 1732443780
 
 
 
- <a id="4b7989edfca1420992b4fcd707e43eb6"></a>
+ <a id="6c7fe369ba624418b96c045535b6747f"></a>
 ### Download 
 
 
@@ -233,7 +218,7 @@ DATX: 1732443780
 
 
 
- <a id="2fcdc65cb1f94804a1985fb588202df5"></a>
+ <a id="4c026c1faf0f4d84823e039d92b6e415"></a>
 ### Boot
  
 
@@ -242,7 +227,7 @@ DATX: 1732443780
 
 
 
- <a id="844ce51bf2974b03823884e7f3632659"></a>
+ <a id="7be15d846f874659a7e2b7a9f93e00a8"></a>
 #### `~/.stl.d/prc.d/boot_stl_const.d` :: define const for all stl (felf start fn)
 
 
@@ -250,7 +235,7 @@ DATX: 1732443780
 
 
 
- <a id="ddc4c9c88ed14480baa3663d2fd21957"></a>
+ <a id="5bee56697d59426da7217f4c246dd1b0"></a>
 #### `~/.stl.d/prc.d/boot_stl_fn.d` :: define fn for use for boot stl
 
 
@@ -258,7 +243,7 @@ DATX: 1732443780
 
 
 
- <a id="5754d15a30434b25b2893fb5f81eb266"></a>
+ <a id="389689bde1b3471b8762d1aa89bd440a"></a>
 ### Delete
 
 
@@ -266,7 +251,7 @@ DATX: 1732443780
 
 
 
- <a id="e8876b411eeb4a94bf45e4c5efe70bb2"></a>
+ <a id="f7b79ed20a444e0194d688c42fbce062"></a>
 ### Common
 
 
@@ -274,7 +259,7 @@ DATX: 1732443780
 
 
 
- <a id="d01d3733f8a344dcbc96d953cf0e3c47"></a>
+ <a id="cd1de1d9d0384d99a36753a7e614c687"></a>
 #### `~/.stl.d/prc.d/stl_util.d` :: define fn for temporary maintenace - NOT STABLE 
 
 
@@ -282,7 +267,7 @@ DATX: 1732443780
 
 
 
- <a id="6b50d10c4fee4b67b0244eb27ace56b4"></a>
+ <a id="8996ad9ce5dd4f368662c0242d13dd32"></a>
 ## Lexicon 
 
 
@@ -290,14 +275,14 @@ DATX: 1732443780
 
 
 
- <a id="8a53547566d148a9a24c4242e47c4a28"></a>
+ <a id="b319770cb92745cfb21e03272924f1ff"></a>
 ### Extend name entety
 
 [001.txt.md](cntx.ins.d/005.lexicon.d/002.ext.d/002.from_content.d/001.txt.md)
 
 
 
- <a id="ed4d5d7f01fc4f3b9616e9d393e27c3b"></a>
+ <a id="a7b11bd994254106aaee14cdbecb7ca6"></a>
 #### From content file or directory
 
 - `wnext`
@@ -329,7 +314,7 @@ DATX: 1732443780
 
 
 
- <a id="6552f8f5cfc04ff8bb95423a12b2f174"></a>
+ <a id="17b02cb380c5401e9c2520b039c1ccd5"></a>
 #### From function extend - informaiton
 
 - `.ln_src.` - src of `ln srs dist` 
@@ -341,7 +326,7 @@ DATX: 1732443780
 
 
 
- <a id="80ef00968dde494eb871d18c892138bb"></a>
+ <a id="81c3008378ea4c3ebaeee64cb325b33b"></a>
 ### Error name 
 
     NOT_FILE
@@ -350,11 +335,11 @@ DATX: 1732443780
     IS_DIR
 
 
-[001.txt.md](cntx.ins.d/005.lexicon.d/004.abbrriviatins.d/001.txt.md)
+[001.txt.md](cntx.ins.d/005.lexicon.d/004.abbriviatins.d/001.txt.md)
 
 
 
- <a id="4d7df1b9e2ea42628b67b9313231da4b"></a>
+ <a id="7c0f7366a04640599cab0d1b22953e7a"></a>
 ### Abbriviations
 
     ins -> rcv - в случае вставки entety
@@ -379,11 +364,11 @@ DATX: 1732443780
     cnx - context 
     res - результат вставки context
 
-[001.txt.md](cntx.ins.d/005.lexicon.d/004.abbrriviatins.d/002.in_value.d/001.txt.md)
+[001.txt.md](cntx.ins.d/005.lexicon.d/004.abbriviatins.d/002.in_value.d/001.txt.md)
 
 
 
- <a id="15a0f558044a43d0ab53a96726480366"></a>
+ <a id="c46fc8837f514717ad02d6a38793d55b"></a>
 #### in value 
 
     ins -> rcv - в случае вставки entety
@@ -408,11 +393,11 @@ DATX: 1732443780
     cnx - context 
     res - результат вставки context
 
-[001.txt.md](cntx.ins.d/005.lexicon.d/004.abbrriviatins.d/003.in_latin.d/001.txt.md)
+[001.txt.md](cntx.ins.d/005.lexicon.d/004.abbriviatins.d/003.in_latin.d/001.txt.md)
 
 
 
- <a id="b6e60fcf59ad4c7eb8f3b4b59db65686"></a>
+ <a id="c2239d2349e4442387e04b64f06127b7"></a>
 #### In Latin
 
     sup                - избыточный
@@ -592,7 +577,7 @@ DATX: 1732443780
 
 
 
- <a id="08a2bc3720344b88aad507baea430a4a"></a>
+ <a id="8b2544f2acce4400a48ee8f21da6ab81"></a>
 ## Data
 
 
@@ -600,7 +585,7 @@ DATX: 1732443780
 
 
 
- <a id="db2aa11056674937a0c6971b9af936b0"></a>
+ <a id="5bbcfbfb434944019aaf425084ae52fd"></a>
 ### Flags
 
 Acceptable values:
@@ -608,14 +593,14 @@ Acceptable values:
     0 - false 
     1 - true
 
- <a id="cdcc706e5ace424db76b5786ddc0e1a2"></a>
+ <a id="36bc8234b77a4d899886790bcc4c01b1"></a>
 #### Global in dr: `~/`
 
 - `~/.stl.use.flag` :
 
     (1|0) :: (abort|not abort) process : `source ~/.stl.d/flow.d/boot.d/boot.sh` at the begining 
 
- <a id="b659cdd5132a4b8096d10738a8d02b37"></a>
+ <a id="ae5fc8225f284ff6a3eb8a7acbc6c9c3"></a>
 #### Local in dr: `~/.stl.d/data.d/flag.d`
 
 
@@ -634,7 +619,7 @@ Acceptable values:
 
 
 
- <a id="c95e338221624504941338d0ada8d50f"></a>
+ <a id="424ff6e3e2ef42a8923957e3d3968264"></a>
 ## Structures
 
 
@@ -643,7 +628,7 @@ Acceptable values:
 
 
 
- <a id="4c835e082b4a4e5cab152bd0b52c6e08"></a>
+ <a id="a3d477af4336486085507384f3ad15aa"></a>
 ### .arb 
 
 
