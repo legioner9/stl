@@ -73,9 +73,9 @@ PPWD: /home/st/.stl.d/data.d/opus.d/boot.opus
 
 FLOW: /home/st/REPOBARE/_repo/sta/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/009_dr2m
 
-DATE: 1732439471_24112024161111
+DATE: 1732441315_24112024164155
 
-DATX: 1732439471
+DATX: 1732441315
 -->
 
 
@@ -91,37 +91,6 @@ DATX: 1732439471
 
 ## General 
 
-
-[001.txt.md](data.d/opus.d/boot.opus/cntx.ins.d/002.general.d/003.flags.d/001.txt.md)
-
-
-
-### Flags
-
-Acceptable values:
-
-    0 - false 
-    1 - true
-
-#### Global in dr: `~/`
-
-- `~/.stl.use.flag` :
-
-    (1|0) :: (abort|not abort) process : `source ~/.stl.d/flow.d/boot.d/boot.sh` at the begining 
-
-#### Local in dr: `~/.stl.d/data.d/flag.d`
-
-
-- `~/.stl.d/data.d/flag.d/stlrc.log.flag` :
-
-
-    (1|0) :: default 0 :: `source ~/.stl.d/flow.d/boot.d/boot.sh` (`&> ~/.stl.d/data.d/log.d/stlrc.log` | `1>/dev/null`)
-     
-
-- `~/.stl.d/data.d/flag.d/git_reset.flag` : 
- 
-
-    (1|0) :: default 1 ::(reset | not reset) all git diff :: use in git_flow_functions :: protection mode against changes
 
 [001.txt.md](data.d/opus.d/boot.opus/cntx.ins.d/002.general.d/003.use_data.d/001.txt.md)
 
@@ -168,21 +137,28 @@ Acceptable values:
 #### Test 
 
 
-[001.txt.md](data.d/opus.d/boot.opus/cntx.ins.d/003.processes.d/004.dlt.d/001.txt.md)
+[001.txt.md](data.d/opus.d/boot.opus/cntx.ins.d/003.processes.d/004.upd.d/001.txt.md)
+
+
+
+### Update
+
+
+[001.txt.md](data.d/opus.d/boot.opus/cntx.ins.d/003.processes.d/005.dlt.d/001.txt.md)
 
 
 
 ### Delete 
 
 
-[001.txt.md](data.d/opus.d/boot.opus/cntx.ins.d/003.processes.d/005.comm.d/001.txt.md)
+[001.txt.md](data.d/opus.d/boot.opus/cntx.ins.d/003.processes.d/006.comm.d/001.txt.md)
 
 
 
 ### Common
 
 
-[001.txt.md](data.d/opus.d/boot.opus/cntx.ins.d/003.processes.d/006.save.d/001.txt.md)
+[001.txt.md](data.d/opus.d/boot.opus/cntx.ins.d/003.processes.d/007.save.d/001.txt.md)
 
 
 
@@ -252,20 +228,20 @@ Acceptable values:
 
 
 
-# Lexicon 
+## Lexicon 
 
 
 [001.txt.md](data.d/opus.d/boot.opus/cntx.ins.d/005.lexicon.d/002.ext.d/001.txt.md)
 
 
 
-## From function extend - informaiton
+### Extend name entety
 
-- `.ln_src.` - src of `ln srs dist` 
+[001.txt.md](data.d/opus.d/boot.opus/cntx.ins.d/005.lexicon.d/002.ext.d/002.from_content.d/001.txt.md)
 
-- `.ln_dst.` - dist of `ln src dist` 
 
-## From content file or directory
+
+#### From content file or directory
 
 - `wnext`
   - `.lst` список
@@ -292,12 +268,22 @@ Acceptable values:
   - `.anc` файл с сылками
 
 
+[001.txt.md](data.d/opus.d/boot.opus/cntx.ins.d/005.lexicon.d/002.ext.d/003.from_function.d/001.txt.md)
+
+
+
+#### From function extend - informaiton
+
+- `.ln_src.` - src of `ln srs dist` 
+
+- `.ln_dst.` - dist of `ln src dist` 
+
 
 [001.txt.md](data.d/opus.d/boot.opus/cntx.ins.d/005.lexicon.d/003.err_name.d/001.txt.md)
 
 
 
-## Error name 
+### Error name 
 
     NOT_FILE
     IS_FILE
@@ -309,7 +295,7 @@ Acceptable values:
 
 
 
-## Abbriviations
+### Abbriviations
 
     ins -> rcv - в случае вставки entety
     cnx -> res - в случае вставки текста в файл
@@ -337,7 +323,7 @@ Acceptable values:
 
 
 
-### in value 
+#### in value 
 
     ins -> rcv - в случае вставки entety
     cnx -> res - в случае вставки текста в файл
@@ -365,7 +351,7 @@ Acceptable values:
 
 
 
-### In Latin
+#### In Latin
 
     sup                - избыточный
     (apn)appon         - прикреп
@@ -544,27 +530,27 @@ Acceptable values:
 
 
 
-# Data
+## Data
 
 
 [001.txt.md](data.d/opus.d/boot.opus/cntx.ins.d/006.data.d/002.flags.d/001.txt.md)
 
 
 
-## Flags
+### Flags
 
 Acceptable values:
 
     0 - false 
     1 - true
 
-### Global in dr: `~/`
+#### Global in dr: `~/`
 
 - `~/.stl.use.flag` :
 
     (1|0) :: (abort|not abort) process : `source ~/.stl.d/flow.d/boot.d/boot.sh` at the begining 
 
-### Local in dr: `~/.stl.d/data.d/flag.d`
+#### Local in dr: `~/.stl.d/data.d/flag.d`
 
 
 - `~/.stl.d/data.d/flag.d/stlrc.log.flag` :
@@ -582,7 +568,7 @@ Acceptable values:
 
 
 
-# Structures
+## Structures
 
 
 

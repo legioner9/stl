@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo -e "${CYAN}--- _README_rnd7_ca2a993() $* in file://${HOME}/.stl.d/_README.md_ufl9 ---${NORMAL}" #started functions
+echo -e "${CYAN}--- _README_rnd7_6afb214() $* in file://${HOME}/.stl.d/_README.md_ufl9 ---${NORMAL}" #started functions
 
-_README_rnd7_ca2a993() {
+_README_rnd7_6afb214() {
 
     # gig from file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/ufl_stl0.ram/.grot/ufl_stl0.sh
 
@@ -69,4 +69,4 @@ echo | ufl_stl0 9 ${HOME}/.stl.d/data.d/opus.d/boot.opus/cntx.ins.d ${HOME}/.stl
 
 }
 
-_README_rnd7_ca2a993 "$@"
+_README_rnd7_6afb214 "$@"

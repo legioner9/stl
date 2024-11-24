@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo -e "${CYAN}--- _001.from_dot_stl.file_rnd7_d73e7bc() $* in file://${REPO_PATH}/stl/.d/.opus/readme.opus/cntx.ins.d/099.from_dot_stl.d.ax/_001.from_dot_stl.file.md_ufl9 ---${NORMAL}" #started functions
+echo -e "${CYAN}--- _001.from_dot_stl.file_rnd7_d7516ae() $* in file://${REPO_PATH}/stl/.d/.opus/readme.opus/cntx.ins.d/099.from_dot_stl.d.ax/_001.from_dot_stl.file.md_ufl9 ---${NORMAL}" #started functions
 
-_001.from_dot_stl.file_rnd7_d73e7bc() {
+_001.from_dot_stl.file_rnd7_d7516ae() {
 
     # gig from file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/ufl_stl0.ram/.grot/ufl_stl0.sh
 
@@ -59,7 +59,7 @@ ${NORMAL}"
 
     #{{body_fn}}
 
-echo | ufl_stl0 9 ${REPO_PATH}/stl/.d/.stl.d.copy/data.d/opus.d/boot.opus/cntx.ins.d ${REPO_PATH}/stl/.d/.opus/readme.opus/cntx.ins.d/099.from_dot_stl.d.ax/001.from_dot_stl.file.md 2
+echo | ufl_stl0 9 ${REPO_PATH}/stl/.d/.stl.d.copy/data.d/opus.d/up_level.opus/cntx.ins.d ${REPO_PATH}/stl/.d/.opus/readme.opus/cntx.ins.d/099.from_dot_stl.d.ax/001.from_dot_stl.file.md 2
 
 
     #! END BODY FN ---------------------------------------
@@ -69,4 +69,4 @@ echo | ufl_stl0 9 ${REPO_PATH}/stl/.d/.stl.d.copy/data.d/opus.d/boot.opus/cntx.i
 
 }
 
-_001.from_dot_stl.file_rnd7_d73e7bc "$@"
+_001.from_dot_stl.file_rnd7_d7516ae "$@"
