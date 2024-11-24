@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo -e "${CYAN}--- _001.from_dot_stl.file_rnd7_b054983() $* in file://${REPO_PATH}/stl/.d/.opus/readme.opus/cntx.ins.d/099.stl_in_linux.d/_001.from_dot_stl.file.md_ufl9 ---${NORMAL}" #started functions
+echo -e "${CYAN}--- _001.from_dot_stl.file_rnd7_a1348d0() $* in file://${REPO_PATH}/stl/.d/.opus/readme.opus/cntx.ins.d/099.stl_in_linux.d/_001.from_dot_stl.file.md_ufl9 ---${NORMAL}" #started functions
 
-_001.from_dot_stl.file_rnd7_b054983() {
+_001.from_dot_stl.file_rnd7_a1348d0() {
 
     # gig from file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/ufl_stl0.ram/.grot/ufl_stl0.sh
 
@@ -69,4 +69,4 @@ echo | ufl_stl0 9 ${REPO_PATH}/stl/.d/.opus/stl_in_linux.opus/cntx.ins.d ${REPO_
 
 }
 
-_001.from_dot_stl.file_rnd7_b054983 "$@"
+_001.from_dot_stl.file_rnd7_a1348d0 "$@"

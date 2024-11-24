@@ -61,8 +61,7 @@ h6 {
 Start Contents Menu
 
 <!-- TOC toc2f_stl0 --> 
- - <a href=#86d8a2f8594e42bb9ccacf37f9faa0dd> First Head</a>
-   - <a href=#565a82a45fd741a9a9b32a1031bb0005> Second Head (file: 002.file_cntx_opus.file.md)</a>
+ - <a href=#ca0e4b4652cb4f128c979beb8d7f0b1d> Boot STL opus</a>
 
 <!-- /TOC toc2f_stl0 -->
 
@@ -75,9 +74,9 @@ PPWD: /home/st/.stl.d/data.d/opus.d/boot.opus
 
 FLOW: /home/st/REPOBARE/_repo/sta/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/009_dr2m
 
-DATE: 1732447107_24112024181827
+DATE: 1732449231_24112024185351
 
-DATX: 1732447107
+DATX: 1732449231
 -->
 
 
@@ -85,21 +84,11 @@ DATX: 1732447107
 
 
 
- <a id="86d8a2f8594e42bb9ccacf37f9faa0dd"></a>
-# First Head
+ <a id="ca0e4b4652cb4f128c979beb8d7f0b1d"></a>
+# Boot STL opus
 
 
     
-
-[001.L1.txt.md](cntx.ins.d/099.in_this.d/001.L1.txt.md)
-
-
-
- <a id="565a82a45fd741a9a9b32a1031bb0005"></a>
-## Second Head (file: 002.file_cntx_opus.file.md)
-
-[002.file_cntx_opus.file.md](cntx.ins.d/099.in_this.d/002.file_cntx_opus.file.md)
-
 
 
 
