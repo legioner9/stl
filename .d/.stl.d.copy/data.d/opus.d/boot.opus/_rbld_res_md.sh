@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo -e "${CYAN}--- _README_rnd7_6afb214() $* in file://${HOME}/.stl.d/_README.md_ufl9 ---${NORMAL}" #started functions
+echo -e "${CYAN}--- _rbld_res_md_rnd7_a1c93f3() $* in file://${HOME}/.stl.d/data.d/opus.d/boot.opus/_rbld_res_md.sh ---${NORMAL}" #started functions
 
-_README_rnd7_6afb214() {
+_rbld_res_md_rnd7_a1c93f3() {
 
     # gig from file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/ufl_stl0.ram/.grot/ufl_stl0.sh
 
@@ -10,7 +10,7 @@ _README_rnd7_6afb214() {
     local ARGS=("$@")
     local NARGS=$#
     local PPWD=$PWD
-    local path_file="${HOME}/.stl.d/_README.md_ufl9"
+    local path_file="${HOME}/.stl.d/data.d/opus.d/boot.opus/_rbld_res_md.sh"
     local path_dir="$(dirname "$path_file")"
 
     # echo -e "${CYAN}--- $FNN() $* in file://${path_file}---${NORMAL}" #started functions
@@ -58,10 +58,32 @@ ${NORMAL}"
     echo "START BODY FN : ${FNN}() $*"
 
     #{{body_fn}}
+    #! rbld in files
+    local in_pth=
+    for in_pth in $(_f2e ${path_dir}/.d/.lst/rbld.in.file.lst); do
+        . ${in_pth} || {
+            echo "in fs= file://$path_file , line=${LINENO}, EXEC: ${FNN} $* : : EXEC_FAIL : '. file://${in_pth}' : ${hint} : return 1" >&2
+            cd "$PPWD" || echo "EXEC_FAIL : 'cd $PPWD' :: return 0|1" >&2
+            return 1
+        }
+    done
+    
+    if [ -d $path_dir/cntx.ins.d ] && [ -f $path_dir/cntx.res.md ]; then
+        echo | ufl_stl0 9 $path_dir/cntx.ins.d $path_dir/cntx.res.md 2
+    fi
 
-echo | ufl_stl0 9 ${HOME}/.stl.d/data.d/opus.d/boot.opus/cntx.ins.d ${HOME}/.stl.d/README.md 2
+    #! rebuild all in .d/.lst/cntx.res.copy.lst
+    local cpy_pth=
+    for cpy_pth in $(_f2e ${path_dir}/.d/.lst/cntx.res.copy.lst); do
+        echo -e "${GREEN}\$cpy_pth = ' file://$cpy_pth'${NORMAL}"
 
+        if [ -d $path_dir/cntx.ins.d ] && [ -f $cpy_pth ]; then
+            echo | ufl_stl0 9 $path_dir/cntx.ins.d $cpy_pth 2
+        fi
 
+    done
+
+    _edit $path_dir/cntx.res.md
     #! END BODY FN ---------------------------------------
     
     cd $PPWD
@@ -69,4 +91,4 @@ echo | ufl_stl0 9 ${HOME}/.stl.d/data.d/opus.d/boot.opus/cntx.ins.d ${HOME}/.stl
 
 }
 
-_README_rnd7_6afb214 "$@"
+_rbld_res_md_rnd7_a1c93f3 "$@"
