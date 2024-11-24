@@ -61,10 +61,12 @@ h6 {
 Start Contents Menu
 
 <!-- TOC toc2f_stl0 --> 
- - <a href=#a555b6f20f03434e93c7e8c5657e2dab> STL REPO OPUS</a>
- - <a href=#d08ae2ac41154fb6a5f9cff9ab8c95ca> INFO</a>
- - <a href=#73d2403d8f034c70ad39370f71bac075> STL in Linux (file 001.from_dot_stl.file.md)</a>
- - <a href=#881eb1f299ec4823bb30bfe066adca05> STL Book (file 002.from_notebook.file.md)</a>
+ - <a href=#dd0df11ac98041f9841a5215f7b6c66b> STL REPO OPUS</a>
+ - <a href=#b7618a61b49e4461a06651cefc06c3b6> INFO</a>
+ - <a href=#29148e40a3c34d8b8dd9740f30dec5ce> STL in Linux (file 001.from_dot_stl.file.md)</a>
+ - <a href=#d3285a2a46424b48a230acbc44f92e35> STL Book (file 002.from_notebook.file.md)</a>
+   - <a href=#755af2221ecf4d39a568031136ca11e5> Local repo opuses</a>
+     - <a href=#f7a50d5ccfaa48c58ffb944bfeb74eeb> NBash Opus </a>
 
 <!-- /TOC toc2f_stl0 -->
 
@@ -77,9 +79,9 @@ PPWD: /home/st/REPOBARE/_repo/stl/.d/.opus/readme.opus
 
 FLOW: /home/st/REPOBARE/_repo/sta/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/009_dr2m
 
-DATE: 1732449856_24112024190416
+DATE: 1732463519_24112024225159
 
-DATX: 1732449856
+DATX: 1732463519
 -->
 
 
@@ -87,7 +89,7 @@ DATX: 1732449856
 
 
 
- <a id="a555b6f20f03434e93c7e8c5657e2dab"></a>
+ <a id="dd0df11ac98041f9841a5215f7b6c66b"></a>
 # STL REPO OPUS
  
 
@@ -95,7 +97,7 @@ DATX: 1732449856
 
 
 
- <a id="d08ae2ac41154fb6a5f9cff9ab8c95ca"></a>
+ <a id="b7618a61b49e4461a06651cefc06c3b6"></a>
 # INFO
 
 - cli after install
@@ -112,7 +114,7 @@ DATX: 1732449856
 
 
 
- <a id="73d2403d8f034c70ad39370f71bac075"></a>
+ <a id="29148e40a3c34d8b8dd9740f30dec5ce"></a>
 # STL in Linux (file 001.from_dot_stl.file.md)
 
 [001.from_dot_stl.file.md](cntx.ins.d/099.stl_in_linux.d/001.from_dot_stl.file.md)
@@ -122,11 +124,30 @@ DATX: 1732449856
 
 
 
- <a id="881eb1f299ec4823bb30bfe066adca05"></a>
+ <a id="d3285a2a46424b48a230acbc44f92e35"></a>
 # STL Book (file 002.from_notebook.file.md)
 
 
 [002.from_notebook.file.md](cntx.ins.d/100.notebook.d/002.from_notebook.file.md)
+
+
+[001.L1.txt.md](cntx.ins.d/101.local_repo.d/001.L1.txt.md)
+
+
+
+ <a id="755af2221ecf4d39a568031136ca11e5"></a>
+## Local repo opuses
+
+
+[001.txt.md](cntx.ins.d/101.local_repo.d/002.nbash_opus.d/001.txt.md)
+
+
+
+ <a id="f7a50d5ccfaa48c58ffb944bfeb74eeb"></a>
+### NBash Opus 
+
+
+[002.nbash_opus.file.md](cntx.ins.d/101.local_repo.d/002.nbash_opus.d/002.nbash_opus.file.md)
 
 
 

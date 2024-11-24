@@ -73,9 +73,9 @@ PPWD: /home/st/REPOBARE/_repo/stl/.d/.opus/readme.opus
 
 FLOW: /home/st/REPOBARE/_repo/sta/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/009_dr2m
 
-DATE: 1732449859_24112024190419
+DATE: 1732463523_24112024225203
 
-DATX: 1732449859
+DATX: 1732463523
 -->
 
 
@@ -119,6 +119,23 @@ DATX: 1732449859
 
 
 [002.from_notebook.file.md](.d/.opus/readme.opus/cntx.ins.d/100.notebook.d/002.from_notebook.file.md)
+
+
+[001.L1.txt.md](.d/.opus/readme.opus/cntx.ins.d/101.local_repo.d/001.L1.txt.md)
+
+
+
+## Local repo opuses
+
+
+[001.txt.md](.d/.opus/readme.opus/cntx.ins.d/101.local_repo.d/002.nbash_opus.d/001.txt.md)
+
+
+
+### NBash Opus 
+
+
+[002.nbash_opus.file.md](.d/.opus/readme.opus/cntx.ins.d/101.local_repo.d/002.nbash_opus.d/002.nbash_opus.file.md)
 
 
 
