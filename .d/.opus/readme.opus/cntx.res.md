@@ -61,12 +61,12 @@ h6 {
 Start Contents Menu
 
 <!-- TOC toc2f_stl0 --> 
- - <a href=#0ddf9d8f11204a9a87ca62e7d6cf3e92> STL REPO OPUS</a>
- - <a href=#89ce610856c04054b2bcba60830251ef> INFO</a>
- - <a href=#a23f4cf16f4543958b541f7addd17929> STL in Linux (file 001.from_dot_stl.file.md)</a>
- - <a href=#2260fe5c424d4b44946a4492d4063a70> STL Book (file 002.from_notebook.file.md)</a>
-   - <a href=#7f375695bd1d4572b3fdb232350c5612> Local repo opuses</a>
-     - <a href=#39117bb839f743d4ab8505cdc5d06011> NBash Opus </a>
+ - <a href=#cb8f6411dd6042bead47578aad278451> STL REPO OPUS</a>
+ - <a href=#5ad715ba9500451a94a85273504365b3> INFO</a>
+ - <a href=#b1f483e0764e43f693291bc0c27baf75> STL in Linux (&darr;clickfile&darr; 001.from_dot_stl.file.md)</a>
+ - <a href=#48847642305f4c8fa74f2aa6d2de7600> STL Book (&darr;clickfile&darr; 002.from_notebook.file.md)</a>
+   - <a href=#2de4a4e8bd01491d9e50354c304871bf> Local repo opuses</a>
+     - <a href=#24ccee7cc65745e8815d0dc4d8f06f94> NBash Opus (&darr;clickfile&darr; 002.nbash_opus.file.md) </a>
 
 <!-- /TOC toc2f_stl0 -->
 
@@ -79,9 +79,9 @@ PPWD: /home/st/REPOBARE/_repo/stl/.d/.opus/readme.opus
 
 FLOW: /home/st/REPOBARE/_repo/sta/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/009_dr2m
 
-DATE: 1732464444_24112024230724
+DATE: 1732598164_26112024121604
 
-DATX: 1732464444
+DATX: 1732598164
 -->
 
 
@@ -89,7 +89,7 @@ DATX: 1732464444
 
 
 
- <a id="0ddf9d8f11204a9a87ca62e7d6cf3e92"></a>
+ <a id="cb8f6411dd6042bead47578aad278451"></a>
 # STL REPO OPUS
  
 
@@ -97,7 +97,7 @@ DATX: 1732464444
 
 
 
- <a id="89ce610856c04054b2bcba60830251ef"></a>
+ <a id="5ad715ba9500451a94a85273504365b3"></a>
 # INFO
 
 - cli after install
@@ -114,8 +114,8 @@ DATX: 1732464444
 
 
 
- <a id="a23f4cf16f4543958b541f7addd17929"></a>
-# STL in Linux (file 001.from_dot_stl.file.md)
+ <a id="b1f483e0764e43f693291bc0c27baf75"></a>
+# STL in Linux (&darr;clickfile&darr; 001.from_dot_stl.file.md)
 
 [001.from_dot_stl.file.md](cntx.ins.d/099.stl_in_linux.d/001.from_dot_stl.file.md)
 
@@ -124,8 +124,8 @@ DATX: 1732464444
 
 
 
- <a id="2260fe5c424d4b44946a4492d4063a70"></a>
-# STL Book (file 002.from_notebook.file.md)
+ <a id="48847642305f4c8fa74f2aa6d2de7600"></a>
+# STL Book (&darr;clickfile&darr; 002.from_notebook.file.md)
 
 
 [002.from_notebook.file.md](cntx.ins.d/100.notebook.d/002.from_notebook.file.md)
@@ -135,7 +135,7 @@ DATX: 1732464444
 
 
 
- <a id="7f375695bd1d4572b3fdb232350c5612"></a>
+ <a id="2de4a4e8bd01491d9e50354c304871bf"></a>
 ## Local repo opuses
 
 
@@ -143,8 +143,8 @@ DATX: 1732464444
 
 
 
- <a id="39117bb839f743d4ab8505cdc5d06011"></a>
-### NBash Opus 
+ <a id="24ccee7cc65745e8815d0dc4d8f06f94"></a>
+### NBash Opus (&darr;clickfile&darr; 002.nbash_opus.file.md) 
 
 
 [002.nbash_opus.file.md](cntx.ins.d/101.local_repo.d/002.nbash_opus.d/002.nbash_opus.file.md)

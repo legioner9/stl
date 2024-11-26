@@ -74,7 +74,7 @@ ${NORMAL}"
 
     done
 
-    _edit $path_dir/cntx.res.md
+    [[ "-edit" == "${ufl_stl0_9_glar_edit}" ]] && _edit $path_dir/cntx.res.md
     #! END BODY FN ---------------------------------------
     
     cd $PPWD
