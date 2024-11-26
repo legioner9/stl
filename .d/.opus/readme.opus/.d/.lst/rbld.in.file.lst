@@ -2,7 +2,7 @@
 # 2. use cnx : rbld readme.opus/cntx.ins.d/name.d/_001.name.file.md_ufl9 <- [cntx.ins.d]
 
 # rbld nbash indir
-${REPO_PATH}/stl/.d/.opus/readme.opus/cntx.ins.d/101.local_repo.d/002.nbash_opus.d/_rbld_res_md.sh
+${REPO_PATH}/stl/.d/.opus/readme.opus/cntx.ins.d/200.local_repo.d/002.nbash_opus.d/_rbld_res_md.sh
 
 # rbld notebook.opus -> notebook.opus/cntx.ins.d
 ${REPO_PATH}/stl/.d/.opus/notebook.opus/_rbld_res_md.sh
