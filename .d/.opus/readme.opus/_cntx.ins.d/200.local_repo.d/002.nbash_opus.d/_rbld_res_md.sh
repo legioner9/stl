@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -e "${CYAN}--- _rbld_res_md_rnd7_d3426cd() $* in file://${REPO_PATH}/stl/.d/.opus/readme.opus/cntx.ins.d/101.local_repo.d/002.nbash_opus.d/_rbld_res_md.sh ---${NORMAL}" #started functions
+echo -e "${CYAN}--- _rbld_res_md_rnd7_d3426cd() $* in file://${REPO_PATH}/stl/.d/.opus/readme.opus/_cntx.ins.d/200.local_repo.d/002.nbash_opus.d/_rbld_res_md.sh ---${NORMAL}" #started functions
 
 _rbld_res_md_rnd7_d3426cd() {
 
@@ -10,7 +10,7 @@ _rbld_res_md_rnd7_d3426cd() {
     local ARGS=("$@")
     local NARGS=$#
     local PPWD=$PWD
-    local path_file="${REPO_PATH}/stl/.d/.opus/readme.opus/cntx.ins.d/101.local_repo.d/002.nbash_opus.d/_rbld_res_md.sh"
+    local path_file="${REPO_PATH}/stl/.d/.opus/readme.opus/_cntx.ins.d/200.local_repo.d/002.nbash_opus.d/_rbld_res_md.sh"
     local path_dir="$(dirname "$path_file")"
 
     # echo -e "${CYAN}--- $FNN() $* in file://${path_file}---${NORMAL}" #started functions
@@ -58,9 +58,9 @@ ${NORMAL}"
     echo "START BODY FN : ${FNN}() $*"
 
     #{{body_fn}}
-    local file_opus_in=${path_dir}/cntx.ins.d/001.002.opus_in.txt.md
-    local file_opus_sd=${path_dir}/cntx.ins.d/001.003.opus_sd.txt.md
-    local file_opus_arb=${path_dir}/cntx.ins.d/001.004.opus_arb.txt.md
+    local file_opus_in=${path_dir}/_cntx.ins.d/001.002.opus_in.txt.md
+    local file_opus_sd=${path_dir}/_cntx.ins.d/001.003.opus_sd.txt.md
+    local file_opus_arb=${path_dir}/_cntx.ins.d/001.004.opus_arb.txt.md
 
     : >${file_opus_in}
     : >${file_opus_sd}
@@ -141,14 +141,14 @@ ${NORMAL}"
 
                 # echo -e "${GREEN}\$opus_arb_pth_pth_pth = ' file://$opus_arb_pth_pth_pth '${NORMAL}"
 
-                anc_to=${opus_arb_pth_pth_pth}/cntx.res.md
+                anc_to=${opus_arb_pth_pth_pth}/_cntx.res.md
                 # anc_from=${file_opus_sd}
                 #! файл file_opus_sd будет копирован в path_file а значит и относительный путь нужно считать от path_file
                 anc_from=${path_file}
                 rel_path=$(_ee2rpth ${anc_from} ${anc_to})
                 echo "### [$(_prs_f -n $(basename ${opus_arb_pth_nm}))](${rel_path})" >>${file_opus_arb}
 
-                # echo "### [$(_prs_f -n $(basename ${opus_arb_pth_nm})) $(_prs_f -n ${opus_arb_pth_pth_nm})](${opus_arb_pth_pth_pth}/cntx.res.md)" >>${file_opus_arb}
+                # echo "### [$(_prs_f -n $(basename ${opus_arb_pth_nm})) $(_prs_f -n ${opus_arb_pth_pth_nm})](${opus_arb_pth_pth_pth}/_cntx.res.md)" >>${file_opus_arb}
 
             done
         done
@@ -169,7 +169,7 @@ ${NORMAL}"
             if [ -d ${opus_d} ]; then
                 for sd_opus_d in $(_dd2e ${opus_d}); do
 
-                    md_ufl9=${opus_d}/${sd_opus_d}/cntx.res.md_ufl9
+                    md_ufl9=${opus_d}/${sd_opus_d}/_cntx.res.md_ufl9
                     md_ufl9_dirname=${opus_d}/${sd_opus_d}
 
                     if [ -f ${md_ufl9_dirname}/_rbld_res_md.sh ]; then
@@ -190,13 +190,9 @@ ${NORMAL}"
         fi
     done
 
-    mkdir $path_dir/cntx.ins.d
-    cp -r $path_dir/_cntx.ins.d/. $path_dir/cntx.ins.d
-    rm -r $path_dir/_cntx.ins.d
-
-    if [ -d $path_dir/cntx.ins.d ] && [ -f $path_dir/cntx.res.md ]; then
-        echo | ufl_stl0 9 $path_dir/cntx.ins.d $path_dir/cntx.res.md 2
-        # echo | ufl_stl0 9 $path_dir/cntx.ins.d $path_dir/002.nbash_opus.file.md 2
+    if [ -d $path_dir/_cntx.ins.d ] && [ -f $path_dir/_cntx.res.md ]; then
+        echo | ufl_stl0 9 $path_dir/_cntx.ins.d $path_dir/_cntx.res.md 2
+        # echo | ufl_stl0 9 $path_dir/_cntx.ins.d $path_dir/002.nbash_opus.file.md 2
     fi
 
     #! rebuild all in .d/.lst/cntx.res.copy.lst
@@ -204,20 +200,16 @@ ${NORMAL}"
     #for cpy_pth in $(_f2e ${path_dir}/.d/.lst/cntx.res.copy.lst); do
     #    echo -e "${GREEN}\$cpy_pth = ' file://$cpy_pth'${NORMAL}"
     #
-    #    if [ -d $path_dir/cntx.ins.d ] && [ -f $cpy_pth ]; then
-    #        echo | ufl_stl0 9 $path_dir/cntx.ins.d $cpy_pth 2
+    #    if [ -d $path_dir/_cntx.ins.d ] && [ -f $cpy_pth ]; then
+    #        echo | ufl_stl0 9 $path_dir/_cntx.ins.d $cpy_pth 2
     #    fi
     #
     #done
 
-    mkdir $path_dir/_cntx.ins.d
-    cp -r $path_dir/cntx.ins.d/. $path_dir/_cntx.ins.d
-    rm -r $path_dir/cntx.ins.d
+    cp -f $path_dir/_cntx.res.md $path_dir/002.nbash_opus.file.md
 
-    cp -f $path_dir/cntx.res.md $path_dir/002.nbash_opus.file.md
-
-    # _edit $path_dir/cntx.res.md
-    [[ "-edit" == "${ufl_stl0_9_glar_edit}" ]] && _edit $path_dir/cntx.res.md
+    # _edit $path_dir/_cntx.res.md
+    [[ "-edit" == "${ufl_stl0_9_glar_edit}" ]] && _edit $path_dir/_cntx.res.md
     #! END BODY FN ---------------------------------------
 
     cd $PPWD

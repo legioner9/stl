@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo -e "${CYAN}--- _002.from_notebook.file_rnd7_c23fb17() $* in file://${REPO_PATH}/stl/.d/.opus/readme.opus/cntx.ins.d/100.notebook.d/_002.from_notebook.file.md_ufl9 ---${NORMAL}" #started functions
+echo -e "${CYAN}--- _002.from_notebook.file_rnd7_c23fb17() $* in file://${REPO_PATH}/stl/.d/.opus/readme.opus/_cntx.ins.d/100.notebook.d/_002.from_notebook.file.md_ufl9 ---${NORMAL}" #started functions
 
 _002.from_notebook.file_rnd7_c23fb17() {
 
@@ -10,7 +10,7 @@ _002.from_notebook.file_rnd7_c23fb17() {
     local ARGS=("$@")
     local NARGS=$#
     local PPWD=$PWD
-    local path_file="${REPO_PATH}/stl/.d/.opus/readme.opus/cntx.ins.d/100.notebook.d/_002.from_notebook.file.md_ufl9"
+    local path_file="${REPO_PATH}/stl/.d/.opus/readme.opus/_cntx.ins.d/100.notebook.d/_002.from_notebook.file.md_ufl9"
     local path_dir="$(dirname "$path_file")"
 
     # echo -e "${CYAN}--- $FNN() $* in file://${path_file}---${NORMAL}" #started functions
@@ -59,7 +59,7 @@ ${NORMAL}"
 
     #{{body_fn}}
 
-echo | ufl_stl0 9 ${REPO_PATH}/stl/.d/.opus/notebook.opus/cntx.ins.d ${REPO_PATH}/stl/.d/.opus/readme.opus/cntx.ins.d/100.notebook.d/002.from_notebook.file.md 2
+echo | ufl_stl0 9 ${REPO_PATH}/stl/.d/.opus/notebook.opus/_cntx.res.md ${REPO_PATH}/stl/.d/.opus/readme.opus/_cntx.res.md/100.notebook.d/002.from_notebook.file.md 2
 
 
     #! END BODY FN ---------------------------------------

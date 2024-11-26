@@ -61,34 +61,30 @@ h6 {
 Start Contents Menu
 
 <!-- TOC toc2f_stl0 --> 
- - <a href=#2ba4bfb05a764ec8a8e9be359a9b8fc4> STL Book</a>
-   - <a href=#9fa8d947b703496480426fffb33d5bfb> second part 1</a>
 
 <!-- /TOC toc2f_stl0 -->
 
 End Contents Menu
 
 <!--
-CMND: ufl_stl0 9 /home/st/REPOBARE/_repo/stl/.d/.opus/notebook.opus/cntx.ins.d /home/st/REPOBARE/_repo/stl/.d/.opus/notebook.opus/cntx.res.md 2
+CMND: ufl_stl0 9 /home/st/REPOBARE/_repo/stl/.d/.opus/notebook.opus/_cntx.ins.d /home/st/REPOBARE/_repo/stl/.d/.opus/notebook.opus/_cntx.res.md 2
 
 PPWD: /home/st/REPOBARE/_repo/stl/.d/.opus/notebook.opus
 
 FLOW: /home/st/REPOBARE/_repo/sta/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/009_dr2m
 
-DATE: 1732449848_24112024190408
+DATE: 1732621444_26112024184404
 
-DATX: 1732449848
+DATX: 1732621444
 -->
 
 
-[001.001.first_head.txt.md](cntx.ins.d/001.001.first_head.txt.md)
+[001.001.first_head.txt.md](_cntx.ins.d/001.001.first_head.txt.md)
 
 
 
- <a id="2ba4bfb05a764ec8a8e9be359a9b8fc4"></a>
-# STL Book
+# STL Book 
 
- <a id="9fa8d947b703496480426fffb33d5bfb"></a>
 ## second part 1
 
 

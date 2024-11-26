@@ -67,26 +67,26 @@ Start Contents Menu
 End Contents Menu
 
 <!--
-CMND: ufl_stl0 9 /home/st/REPOBARE/_repo/stl/.d/.opus/readme.opus/_cntx.ins.d /home/st/REPOBARE/_repo/stl/README.md 2
+CMND: ufl_stl0 9 /home/st/REPOBARE/_repo/stl/.d/.opus/readme.opus/_cntx.ins.d /home/st/REPOBARE/_repo/stl/.d/.opus/readme.opus/_cntx.res.md 2
 
 PPWD: /home/st/REPOBARE/_repo/stl/.d/.opus/readme.opus
 
 FLOW: /home/st/REPOBARE/_repo/sta/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/009_dr2m
 
-DATE: 1732621497_26112024184457
+DATE: 1732621494_26112024184454
 
-DATX: 1732621497
+DATX: 1732621494
 -->
 
 
-[001.001.first_head.txt.md](.d/.opus/readme.opus/_cntx.ins.d/001.001.first_head.txt.md)
+[001.001.first_head.txt.md](_cntx.ins.d/001.001.first_head.txt.md)
 
 
 
 # STL REPO OPUS
  
 
-[001.txt.md](.d/.opus/readme.opus/_cntx.ins.d/002.info.d/001.txt.md)
+[001.txt.md](_cntx.ins.d/002.info.d/001.txt.md)
 
 
 
@@ -105,40 +105,40 @@ DATX: 1732621497
     - https://github.com/legioner9/stl    
 
 
-[001.a.L1.txt.md](.d/.opus/readme.opus/_cntx.ins.d/099.stl_in_linux.d/001.a.L1.txt.md)
+[001.a.L1.txt.md](_cntx.ins.d/099.stl_in_linux.d/001.a.L1.txt.md)
 
 
 
 # STL in Linux (&darr;clickfile&darr; 001.from_dot_stl.file.md)
 
-[001.from_dot_stl.file.md](.d/.opus/readme.opus/_cntx.ins.d/099.stl_in_linux.d/001.from_dot_stl.file.md)
+[001.from_dot_stl.file.md](_cntx.ins.d/099.stl_in_linux.d/001.from_dot_stl.file.md)
 
 
-[001.L1.txt.md](.d/.opus/readme.opus/_cntx.ins.d/100.notebook.d/001.L1.txt.md)
+[001.L1.txt.md](_cntx.ins.d/100.notebook.d/001.L1.txt.md)
 
 
 
 # STL Book (&darr;clickfile&darr; 002.from_notebook.file.md)
 
 
-[002.from_notebook.file.md](.d/.opus/readme.opus/_cntx.ins.d/100.notebook.d/002.from_notebook.file.md)
+[002.from_notebook.file.md](_cntx.ins.d/100.notebook.d/002.from_notebook.file.md)
 
 
-[001.L1.txt.md](.d/.opus/readme.opus/_cntx.ins.d/200.local_repo.d/001.L1.txt.md)
+[001.L1.txt.md](_cntx.ins.d/200.local_repo.d/001.L1.txt.md)
 
 
 
 ## Local repo opuses
 
 
-[001.txt.md](.d/.opus/readme.opus/_cntx.ins.d/200.local_repo.d/002.nbash_opus.d/001.txt.md)
+[001.txt.md](_cntx.ins.d/200.local_repo.d/002.nbash_opus.d/001.txt.md)
 
 
 
 ### NBash Opus (&darr;clickfile&darr; 002.nbash_opus.file.md) 
 
 
-[002.nbash_opus.file.md](.d/.opus/readme.opus/_cntx.ins.d/200.local_repo.d/002.nbash_opus.d/002.nbash_opus.file.md)
+[002.nbash_opus.file.md](_cntx.ins.d/200.local_repo.d/002.nbash_opus.d/002.nbash_opus.file.md)
 
 
 

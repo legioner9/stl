@@ -61,35 +61,43 @@ h6 {
 Start Contents Menu
 
 <!-- TOC toc2f_stl0 --> 
+ - <a href=#98a7d91a774a483aab393765ac8ea2ca> STL REPO OPUS</a>
+ - <a href=#0ff37b62a11c456296c63cc5af38b656> INFO</a>
+ - <a href=#c2cfd54b4bc641b6b3f355ae5e7e65b2> STL in Linux (&darr;clickfile&darr; 001.from_dot_stl.file.md)</a>
+ - <a href=#d0ba503c8dfa422d9fc41c1da1e4424f> STL Book (&darr;clickfile&darr; 002.from_notebook.file.md)</a>
+   - <a href=#fa49814f0a134578b85e51d306d09529> Local repo opuses</a>
+     - <a href=#7dc87276215b472cb632175c1eb61260> NBash Opus (&darr;clickfile&darr; 002.nbash_opus.file.md) </a>
 
 <!-- /TOC toc2f_stl0 -->
 
 End Contents Menu
 
 <!--
-CMND: ufl_stl0 9 /home/st/REPOBARE/_repo/stl/.d/.opus/readme.opus/_cntx.ins.d /home/st/REPOBARE/_repo/stl/README.md 2
+CMND: ufl_stl0 9 /home/st/REPOBARE/_repo/stl/.d/.opus/readme.opus/_cntx.ins.d /home/st/REPOBARE/_repo/stl/.d/.opus/readme.opus/_cntx.res.md 2
 
 PPWD: /home/st/REPOBARE/_repo/stl/.d/.opus/readme.opus
 
 FLOW: /home/st/REPOBARE/_repo/sta/.d/.st_rc_d.data.d/ufl_stl0/.flow.d/009_dr2m
 
-DATE: 1732621497_26112024184457
+DATE: 1732621494_26112024184454
 
-DATX: 1732621497
+DATX: 1732621494
 -->
 
 
-[001.001.first_head.txt.md](.d/.opus/readme.opus/_cntx.ins.d/001.001.first_head.txt.md)
+[001.001.first_head.txt.md](_cntx.ins.d/001.001.first_head.txt.md)
 
 
 
+ <a id="98a7d91a774a483aab393765ac8ea2ca"></a>
 # STL REPO OPUS
  
 
-[001.txt.md](.d/.opus/readme.opus/_cntx.ins.d/002.info.d/001.txt.md)
+[001.txt.md](_cntx.ins.d/002.info.d/001.txt.md)
 
 
 
+ <a id="0ff37b62a11c456296c63cc5af38b656"></a>
 # INFO
 
 - cli after install
@@ -105,40 +113,44 @@ DATX: 1732621497
     - https://github.com/legioner9/stl    
 
 
-[001.a.L1.txt.md](.d/.opus/readme.opus/_cntx.ins.d/099.stl_in_linux.d/001.a.L1.txt.md)
+[001.a.L1.txt.md](_cntx.ins.d/099.stl_in_linux.d/001.a.L1.txt.md)
 
 
 
+ <a id="c2cfd54b4bc641b6b3f355ae5e7e65b2"></a>
 # STL in Linux (&darr;clickfile&darr; 001.from_dot_stl.file.md)
 
-[001.from_dot_stl.file.md](.d/.opus/readme.opus/_cntx.ins.d/099.stl_in_linux.d/001.from_dot_stl.file.md)
+[001.from_dot_stl.file.md](_cntx.ins.d/099.stl_in_linux.d/001.from_dot_stl.file.md)
 
 
-[001.L1.txt.md](.d/.opus/readme.opus/_cntx.ins.d/100.notebook.d/001.L1.txt.md)
+[001.L1.txt.md](_cntx.ins.d/100.notebook.d/001.L1.txt.md)
 
 
 
+ <a id="d0ba503c8dfa422d9fc41c1da1e4424f"></a>
 # STL Book (&darr;clickfile&darr; 002.from_notebook.file.md)
 
 
-[002.from_notebook.file.md](.d/.opus/readme.opus/_cntx.ins.d/100.notebook.d/002.from_notebook.file.md)
+[002.from_notebook.file.md](_cntx.ins.d/100.notebook.d/002.from_notebook.file.md)
 
 
-[001.L1.txt.md](.d/.opus/readme.opus/_cntx.ins.d/200.local_repo.d/001.L1.txt.md)
+[001.L1.txt.md](_cntx.ins.d/200.local_repo.d/001.L1.txt.md)
 
 
 
+ <a id="fa49814f0a134578b85e51d306d09529"></a>
 ## Local repo opuses
 
 
-[001.txt.md](.d/.opus/readme.opus/_cntx.ins.d/200.local_repo.d/002.nbash_opus.d/001.txt.md)
+[001.txt.md](_cntx.ins.d/200.local_repo.d/002.nbash_opus.d/001.txt.md)
 
 
 
+ <a id="7dc87276215b472cb632175c1eb61260"></a>
 ### NBash Opus (&darr;clickfile&darr; 002.nbash_opus.file.md) 
 
 
-[002.nbash_opus.file.md](.d/.opus/readme.opus/_cntx.ins.d/200.local_repo.d/002.nbash_opus.d/002.nbash_opus.file.md)
+[002.nbash_opus.file.md](_cntx.ins.d/200.local_repo.d/002.nbash_opus.d/002.nbash_opus.file.md)
 
 
 

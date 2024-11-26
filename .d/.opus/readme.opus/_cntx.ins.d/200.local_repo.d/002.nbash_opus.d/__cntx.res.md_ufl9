@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo -e "${CYAN}--- _001.from_dot_stl.file_rnd7_2d4c9d9() $* in file://${REPO_PATH}/stl/.d/.opus/readme.opus/cntx.ins.d/099.stl_in_linux.d/_001.from_dot_stl.file.md_ufl9 ---${NORMAL}" #started functions
+echo -e "${CYAN}--- __cntx.res_rnd7_34a7d89() $* in file://${REPO_PATH}/stl/.d/.opus/readme.opus/_cntx.ins.d/200.local_repo.d/002.nbash_opus.d/__cntx.res.md_ufl9 ---${NORMAL}" #started functions
 
-_001.from_dot_stl.file_rnd7_2d4c9d9() {
+__cntx.res_rnd7_34a7d89() {
 
     # gig from file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/ufl_stl0.ram/.grot/ufl_stl0.sh
 
@@ -10,7 +10,7 @@ _001.from_dot_stl.file_rnd7_2d4c9d9() {
     local ARGS=("$@")
     local NARGS=$#
     local PPWD=$PWD
-    local path_file="${REPO_PATH}/stl/.d/.opus/readme.opus/cntx.ins.d/099.stl_in_linux.d/_001.from_dot_stl.file.md_ufl9"
+    local path_file="${REPO_PATH}/stl/.d/.opus/readme.opus/_cntx.ins.d/200.local_repo.d/002.nbash_opus.d/__cntx.res.md_ufl9"
     local path_dir="$(dirname "$path_file")"
 
     # echo -e "${CYAN}--- $FNN() $* in file://${path_file}---${NORMAL}" #started functions
@@ -59,7 +59,7 @@ ${NORMAL}"
 
     #{{body_fn}}
 
-echo | ufl_stl0 9 ${REPO_PATH}/stl/.d/.opus/stl_in_linux.opus/cntx.ins.d ${REPO_PATH}/stl/.d/.opus/readme.opus/cntx.ins.d/099.stl_in_linux.d/001.from_dot_stl.file.md 2
+echo | ufl_stl0 9 ${REPO_PATH}/stl/.d/.opus/readme.opus/_cntx.ins.d/200.local_repo.d/002.nbash_opus.d/_cntx.ins.d ${REPO_PATH}/stl/.d/.opus/readme.opus/_cntx.ins.d/200.local_repo.d/002.nbash_opus.d/_cntx.res.md 2
 
 
     #! END BODY FN ---------------------------------------
@@ -69,4 +69,4 @@ echo | ufl_stl0 9 ${REPO_PATH}/stl/.d/.opus/stl_in_linux.opus/cntx.ins.d ${REPO_
 
 }
 
-_001.from_dot_stl.file_rnd7_2d4c9d9 "$@"
+__cntx.res_rnd7_34a7d89 "$@"

@@ -68,8 +68,8 @@ ${NORMAL}"
         }
     done
     
-    if [ -d $path_dir/cntx.ins.d ] && [ -f $path_dir/cntx.res.md ]; then
-        echo | ufl_stl0 9 $path_dir/cntx.ins.d $path_dir/cntx.res.md 2
+    if [ -d $path_dir/_cntx.ins.d ] && [ -f $path_dir/_cntx.res.md ]; then
+        echo | ufl_stl0 9 $path_dir/_cntx.ins.d $path_dir/_cntx.res.md 2
     fi
 
     #! rebuild all in .d/.lst/cntx.res.copy.lst
@@ -77,13 +77,13 @@ ${NORMAL}"
     for cpy_pth in $(_f2e ${path_dir}/.d/.lst/cntx.res.copy.lst); do
         echo -e "${GREEN}\$cpy_pth = ' file://$cpy_pth'${NORMAL}"
 
-        if [ -d $path_dir/cntx.ins.d ] && [ -f $cpy_pth ]; then
-            echo | ufl_stl0 9 $path_dir/cntx.ins.d $cpy_pth 2
+        if [ -d $path_dir/_cntx.ins.d ] && [ -f $cpy_pth ]; then
+            echo | ufl_stl0 9 $path_dir/_cntx.ins.d $cpy_pth 2
         fi
 
     done
 
-    [[ "-edit" == "${ufl_stl0_9_glar_edit}" ]] && _edit $path_dir/cntx.res.md
+    [[ "-edit" == "${ufl_stl0_9_glar_edit}" ]] && _edit $path_dir/_cntx.res.md
     #! END BODY FN ---------------------------------------
     
     cd $PPWD
