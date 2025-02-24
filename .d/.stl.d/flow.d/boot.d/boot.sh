@@ -10,7 +10,7 @@ stl_boot_sh() {
     local ARGS=("$@")
     local NARGS=$#
     local PPWD=$PWD
-    local path_file="${HOME}/.stl.d/flow.d/boot.d/boot.sh"
+    local path_file="${STL_D_PATH}/flow.d/boot.d/boot.sh"
     local path_dir="$(dirname "$path_file")"
 
     # echo -e "${CYAN}--- $FNN() $* in file://${path_file}---${NORMAL}" #started functions
@@ -59,7 +59,8 @@ ${NORMAL}"
 
     #{{body_fn}}
 
-    return 1
+    #! tst up err
+    # return 1
 
     #! END BODY FN ---------------------------------------
 
