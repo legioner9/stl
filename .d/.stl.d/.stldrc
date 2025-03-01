@@ -8,6 +8,16 @@ dotstldrc_boot_stl() {
     # echo -e "${CYAN}--- $FNN() $* in file://${sh_file} ---${NORMAL}"
     # echo -e "$FNN() in file://${sh_file}"
 
+    # # ${HOME}/.plt.use.flag
+
+    # if [[ -f ${HOME}/.plt.use.flag ]]; then
+
+    # local plt_use_flag_
+
+    # else
+    #     echo "1" >${HOME}/.plt.use.flag
+    # fi
+
     c_up_boot_stl() {
 
         local FNN=${FUNCNAME[0]}
@@ -144,4 +154,3 @@ dotstldrc_boot_stl || {
     cd ${PPWD}
     return 1
 }
-
