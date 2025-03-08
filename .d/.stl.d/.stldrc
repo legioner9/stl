@@ -160,5 +160,5 @@ dotstldrc_boot_stl || {
 }
 
 #! check for err 'return 1'
-echo "check for err 'return 1'" >&2
-return 1
+# echo "check for err 'return 1'" >&2
+# return 1

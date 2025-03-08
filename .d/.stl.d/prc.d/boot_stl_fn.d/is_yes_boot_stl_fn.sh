@@ -8,7 +8,7 @@ is_yes_boot_stl_fn() { # $1 str question
 
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
-    echo "$FNN() $*"
+    # echo "$FNN() $*"
 
     # cd "$PPWD" || return 1
     # return 0
