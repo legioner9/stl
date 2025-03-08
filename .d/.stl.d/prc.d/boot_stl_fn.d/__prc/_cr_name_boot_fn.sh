@@ -22,7 +22,8 @@ in_fn_123rffrhw1() {
         return 1
     fi
 
-    is_yes_boot_stl_fn "cr ${arg1}_boot_stl_fn() in file://${prc_boot_dir}/${arg1}_boot_stl_fn.sh" && {
+    # is_yes_boot_stl_fn "cr ${arg1}_boot_stl_fn() in file://${prc_boot_dir}/${arg1}_boot_stl_fn.sh" && {
+    _is_yes "cr ${arg1}_boot_stl_fn() in file://${prc_boot_dir}/${arg1}_boot_stl_fn.sh" && {
 
         _sf2f _XXX ${arg1}_boot_stl_fn ${prc_boot_dir}/_XXX.sh
 

@@ -22,7 +22,7 @@ MAIN: ${FNN} ::
 TAGS:
 ARGS: [\$1] 
 CNTL: 
-    _go         : edit_boot_stl_fn() body        : edit_boot_stl_fn file://${fn_sh_file}       
+    _go : edit_boot_stl_fn() body : edit_boot_stl_fn file://${fn_sh_file}       
 RETURN: ( result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 ERROR: ( if ... return 0 | if ... return 1 )
 EXAM:
@@ -37,6 +37,12 @@ ${NORMAL}"
         cd "$PPWD" ||
             return 0
     fi
+
+    #?------------ START BODY _XXX ------------
+
+    #{{body_fn}}
+
+    #?------------ END BODY _XXX ------------
 
     cd "$PPWD" ||
         return 0
