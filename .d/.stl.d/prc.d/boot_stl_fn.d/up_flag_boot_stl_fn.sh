@@ -1,5 +1,9 @@
 #!/bin/bash
 
+### Written by Legioner9 for the universe
+### Part of the STL shell subsystem
+### Location .stl.d/prc.d/boot_stl_fn.d
+
 up_flag_boot_stl_fn() { # $1 file with flag $2 name wariable of flag
 
     local FNN=${FUNCNAME[0]}

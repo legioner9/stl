@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#. "${HOME}/.bashrc"
+#* start namespace: STL_D_PATH STL_DATA_D_PATH STL_LIB_D_PATH
 
-filename="${ST_RC_D_PATH}/.d/.arb/stl0.arb/_XXX_YYY.ram/.grot/_XXX_YYY.sh"
+filename="${STL_LIB_D_PATH}/lib.0stl.arb/_XXX_YYY.ram/.grot/_XXX_YYY.sh"
 echo -e "${HLIGHT}---start file://$filename ---${NORMAL}" # start file
 idir=$(pwd)
 # cd "$(prs_f -d $filename)" || qq_exit "$(prs_f -d $filename) not found"
@@ -17,14 +17,20 @@ _XXX_YYY() {
     local verbose=0
     local estat=
 
-    #* local fn_data_dir=${ST_RC_D_DATA_PATH}/.d/.st_rc_d.data.d/_XXX_YYY
+    #* local opt_dir=${STL_DATA_D_PATH}/data.0stl.arb/_XXX_YYY.ram/.grot/.opt
+    #* local depo_dir=${STL_DATA_D_PATH}/data.0stl.arb/_XXX_YYY.ram/.grot/.depo
 
-    local fn_sh_file=${ST_RC_D_PATH}/.d/.arb/stl0.arb/_XXX_YYY.ram/.grot/_XXX_YYY.sh
-    local fn_hie_file=${ST_RC_D_PATH}/.d/.arb/stl0.arb/_XXX_YYY.ram/.grot/_XXX_YYY.hie
+    local fn_sh_grot=${STL_LIB_D_PATH}/lib.0stl.arb/_XXX_YYY.ram/.grot
+
+    local fn_sh_file="${fn_sh_grot}/_XXX_YYY.sh"
+    local fn_hie_file="${fn_sh_grot}/_XXX_YYY.hie"
     local d_name=$(dirname ${fn_sh_file})
 
-    local usr_fn_data_dir=${ST_RC_D_DATA_PATH}/.d/.st_rc_d.data.d/_XXX_YYY
-    local opt_fn_data_dir=${d_name}/.opt
+    local opt_dir=${fn_sh_grot}/.opt
+    local opt_lst_dir=${fn_sh_grot}/.opt/.lst
+    local opt_prc_dir=${fn_sh_grot}/.opt/.prc
+    local opt_tml_dir=${fn_sh_grot}/.opt/.tml
+    local depo_dir=${fn_sh_grot}/.depo
 
     # echo -e "${GREEN}\$usr_fn_data_dir = '$usr_fn_data_dir'${NORMAL}"
     # echo -e "${GREEN}\$opt_fn_data_dir = '$opt_fn_data_dir'${NORMAL}"
@@ -46,11 +52,11 @@ CNTL:
     _tst_e      : _edit tst_dir     : _edit file://${d_name}/_tst
     _flow_1     : . _flow_tst.sh.v1 : . file://${d_name}/_tst/_flow_tst.sh.v1
 
-    _hie_m      : more hie_file     : more file://${hie_file} 
-    _hie_e      : _edit hie_file    : _edit file://${hie_file} 
+    _hie_m      : more hie_file     : more file://${fn_hie_file} 
+    _hie_e      : _edit hie_file    : _edit file://${fn_hie_file} 
 
-    _usr_d_e    : user data : use by ${FNN} : _edit usr_fn_data_dir : _edit file://${usr_fn_data_dir}
-    _opt_d_e    : opt data : use by user : _edit opt_fn_data_dir : _edit file://${opt_fn_data_dir}    
+    _depo_d_e   : depo data : use by ${FNN} : _edit $depo_dir : _edit file://${depo_dir}
+    _opt_d_e    : opt data  : use by user   : _edit $opt_dir : _edit file://${opt_dir}    
     
 RETURN: ( result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 ERROR: ( if ... return 0 | if ... return 1 )

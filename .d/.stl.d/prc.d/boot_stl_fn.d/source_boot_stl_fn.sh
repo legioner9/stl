@@ -1,5 +1,9 @@
 #!/bin/bash
 
+### Written by Legioner9 for the universe
+### Part of the STL shell subsystem
+### Location .stl.d/prc.d/boot_stl_fn.d
+
 source_boot_stl_fn() { # wrap [source $1]
 
     local FNN=${FUNCNAME[0]}

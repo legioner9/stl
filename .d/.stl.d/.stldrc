@@ -1,5 +1,9 @@
 #!/bin/bash
 
+### Written by Legioner9 for the universe
+### Part of the STL shell subsystem
+### Location .stl.d
+
 dotstldrc_boot_stl() {
 
     local FNN=${FUNCNAME[0]}
@@ -154,3 +158,7 @@ dotstldrc_boot_stl || {
     cd ${PPWD}
     return 1
 }
+
+#! check for err 'return 1'
+echo "check for err 'return 1'" >&2
+return 1
