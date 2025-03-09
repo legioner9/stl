@@ -13,11 +13,8 @@ _XXX() {
     local ARGS=("$@")
     local NARGS=$#
 
-    echo -e "${CYAN}--- $FNN() $* ---${NORMAL}"
-
     local fn_sh_file=${STL_D_PATH}/prc.d/boot_stl_fn.d/_XXX.sh
-    local d_name
-    d_name=$(dirname "${fn_sh_file}")
+    local d_name=$(dirname ${fn_sh_file})
 
     if [ -n "$1" ] && [ "-h" == "$1" ]; then
         echo -e "${CYAN} ${FNN}() help: 
@@ -31,15 +28,14 @@ ERROR: ( if ... return 0 | if ... return 1 )
 EXAM:
     ${FNN} 
 ${NORMAL}"
-
-        cd "$PPWD" || echo "in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
-        return 0
+        cd "$PPWD" ||
+            return 0
     fi
 
     if [ -n "$1" ] && [ "_go" == "$1" ]; then
-        edit_boot_stl_fn "${d_name}"
-        cd "$PPWD" || echo "in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
-        return 0
+        edit_boot_stl_fn ${d_name}
+        cd "$PPWD" ||
+            return 0
     fi
 
     #?------------ START BODY _XXX ------------
@@ -48,7 +44,7 @@ ${NORMAL}"
 
     #?------------ END BODY _XXX ------------
 
-    cd "$PPWD" || echo "in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
-    return 0
+    cd "$PPWD" ||
+        return 0
 
 }

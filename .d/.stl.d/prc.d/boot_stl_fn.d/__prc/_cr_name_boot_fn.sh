@@ -18,9 +18,11 @@ in_fn_123rffrhw1() {
 
     if command -v ${arg1}_boot_stl_fn; then
         hint="\$1: name create ${arg1}_boot_stl_fn"
-        echo "EXEC_TRUE : 'command -v ${arg1}_boot_stl_fn' : return 1" >&2
-        return 1
+        echo "EXEC_TRUE : 'command -v ${arg1}_boot_stl_fn' " >&2
+        
+        _is_yes "WARRANTY : continue rewrite define ${arg1}_boot_stl_fn?" || return 1
     fi
+
 
     # is_yes_boot_stl_fn "cr ${arg1}_boot_stl_fn() in file://${prc_boot_dir}/${arg1}_boot_stl_fn.sh" && {
     _is_yes "cr ${arg1}_boot_stl_fn() in file://${prc_boot_dir}/${arg1}_boot_stl_fn.sh" && {
