@@ -23,8 +23,9 @@ _XXX() {
         echo -e "${CYAN} ${FNN}() help: 
 MAIN: ${FNN} :: 
 TAGS:
-ARGS: [\$1] 
+ARGS: [\$1 :] 
 CNTL: 
+    -h  : help for ${FNN}
     _go : edit_boot_stl_fn() body : edit_boot_stl_fn file://${fn_sh_file}       
 RETURN: ( result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 ERROR: ( if ... return 0 | if ... return 1 )

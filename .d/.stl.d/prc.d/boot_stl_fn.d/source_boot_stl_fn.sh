@@ -22,9 +22,10 @@ source_boot_stl_fn() {
     if [ -n "$1" ] && [ "-h" == "$1" ]; then
         echo -e "${CYAN} ${FNN}() help: 
 MAIN: ${FNN} :: 
-TAGS:
+TAGS: @source
 ARGS: [\$1] 
 CNTL: 
+    -h  : help for ${FNN}
     _go : edit_boot_stl_fn() body : edit_boot_stl_fn file://${fn_sh_file}       
 RETURN: ( result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 ERROR: ( if ... return 0 | if ... return 1 )

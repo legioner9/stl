@@ -21,10 +21,12 @@ up_flag_boot_stl_fn() {
 
     if [ -n "$1" ] && [ "-h" == "$1" ]; then
         echo -e "${CYAN} ${FNN}() help: 
-MAIN: ${FNN} :: 
-TAGS:
-ARGS: [\$1] 
+MAIN: ${FNN} :: from file_flag \$1 to variable with name_var_flag \$2 
+TAGS: @flag
+ARGS: \$1 file with flag
+      \$2 name variable for value of flag
 CNTL: 
+    -h  : help for ${FNN}
     _go : edit_boot_stl_fn() body : edit_boot_stl_fn file://${fn_sh_file}       
 RETURN: ( result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 ERROR: ( if ... return 0 | if ... return 1 )
@@ -56,13 +58,13 @@ ${NORMAL}"
 
         [ -z "${var_flag}" ] && {
             echo " file://${file_flag} EXIST bat EMPTY :: return 1" >&2
-            cd $PPWD || return 1
+            cd "$PPWD" || echo "in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
             return 1
         }
 
         [ 0 -ne ${var_flag} ] && [ 1 -ne ${var_flag} ] && {
             echo " file://${file_flag} EXIST bat NOT_CONTANE '1' or '0' :: return 1" >&2
-            cd $PPWD || return 1
+            cd "$PPWD" || echo "in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
             return 1
         }
 

@@ -13,39 +13,28 @@ abs_path_boot_stl_fn() {
     local ARGS=("$@")
     local NARGS=$#
 
-    echo -e "${CYAN}--- $FNN() $* ---${NORMAL}"
-
     local fn_sh_file=${STL_D_PATH}/prc.d/boot_stl_fn.d/abs_path_boot_stl_fn.sh
-    local d_name
-    d_name=$(dirname "${fn_sh_file}")
+    local d_name=$(dirname ${fn_sh_file})
 
     if [ -n "$1" ] && [ "-h" == "$1" ]; then
         echo -e "${CYAN} ${FNN}() help: 
 MAIN: ${FNN} :: 
 TAGS:
-ARGS: [\$1 :] 
+ARGS: [\$1] 
 CNTL: 
-    -h  : help for ${FNN}
-    _go : edit_boot_stl_fn() body : edit_boot_stl_fn file://${fn_sh_file}       
+    _go         : edit_boot_stl_fn() body        : edit_boot_stl_fn file://${d_name}/${FNN}.sh       
 RETURN: ( result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 ERROR: ( if ... return 0 | if ... return 1 )
 EXAM:
     ${FNN} 
 ${NORMAL}"
-
-        cd "$PPWD" || echo "in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
         return 0
     fi
 
     if [ -n "$1" ] && [ "_go" == "$1" ]; then
-        edit_boot_stl_fn "${d_name}"
-        cd "$PPWD" || echo "in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
+        edit_boot_stl_fn file://${d_name}/${FNN}.sh
         return 0
     fi
-
-    #?------------ START BODY abs_path_boot_stl_fn ------------
-
-    #{{body_fn}}
 
     if [[ -z "$2" ]]; then
         echo "_abs_path() : \$2 NOT_DEFINE , hint : '$3' : return 1" 1>&2
@@ -70,10 +59,8 @@ ${NORMAL}"
     else
         echo ${dpwd}/${arg2}
     fi
-
-    #?------------ END BODY abs_path_boot_stl_fn ------------
-
-    cd "$PPWD" || echo "in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
+    
+    cd "$PPWD" ||
     return 0
 
 }
