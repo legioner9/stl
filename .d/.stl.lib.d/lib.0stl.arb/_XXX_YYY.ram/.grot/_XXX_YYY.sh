@@ -1,13 +1,14 @@
 #!/bin/bash
 
-#* start namespace: STL_D_PATH STL_DATA_D_PATH STL_LIB_D_PATH
+### Written by Legioner9 for the universe
+### Part of the STL shell subsystem
+### Location .stl.d/prc.d/boot_stl_fn.d
+
+# ENV: ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 
 filename="${STL_LIB_D_PATH}/lib.0stl.arb/_XXX_YYY.ram/.grot/_XXX_YYY.sh"
 echo -e "${HLIGHT}---start file://$filename ---${NORMAL}" # start file
 idir=$(pwd)
-# cd "$(prs_f -d $filename)" || qq_exit "$(prs_f -d $filename) not found"
-# garg_ $(prs_f -n $filename) $@ 1>/dev/null
-#{pre_fn}
 
 _XXX_YYY() {
     local FNN=${FUNCNAME[0]}

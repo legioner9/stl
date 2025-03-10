@@ -4,6 +4,8 @@
 ### Part of the STL shell subsystem
 ### Location .stl.d
 
+# ENV: ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
+
 dotstldrc_boot_stl() {
 
     local FNN=${FUNCNAME[0]}
@@ -22,7 +24,7 @@ dotstldrc_boot_stl() {
     #     echo "1" >${HOME}/.plt.use.flag
     # fi
 
-    c_up_boot_stl() {
+    dotstldrc_c_up() { # \$1 dir with execuable files
 
         local FNN=${FUNCNAME[0]}
         local PPWD=$PWD
@@ -34,11 +36,11 @@ dotstldrc_boot_stl() {
 
         if [[ -d "$1" ]]; then
             cd "$1" || {
-                echo "FAIL_EXEC :: 'cd $1' :: return 1" >&2
+                echo "dotstldrc_c_up() in file://${STL_D_PATH}/.stldrc :: FAIL_EXEC :: 'cd $1' :: return 1" >&2
                 return 1
             }
         else
-            echo "\$1='$1' is not dir" >&2
+            echo "dotstldrc_c_up() in file://${STL_D_PATH}/.stldrc :: \$1='$1' is not dir" >&2
             return 1
         fi
 
@@ -54,14 +56,14 @@ dotstldrc_boot_stl() {
 
             if [ -f "$item_path" ] && [ "${item:0:1}" != "_" ] && [ "${item##*.}" == "sh" ]; then
                 . "$item_path" || {
-                    echo "EXEC_FAIL '. file://$item_path' :: return 1" >&2
+                    echo "dotstldrc_c_up() in file://${STL_D_PATH}/.stldrc :: EXEC_FAIL '. file://$item_path' :: return 1" >&2
                     cd ${PPWD}
                     return 1
                 }
 
             elif [ -d "$item_path" ] && [ "${item:0:1}" != "_" ]; then
-                c_up_boot_stl "$item_path" || {
-                    echo "EXEC_FAIL 'c_up_boot_stl file://$item_path' :: return 1" >&2
+                dotstldrc_c_up "$item_path" || {
+                    echo "dotstldrc_c_up() in file://${STL_D_PATH}/.stldrc :: EXEC_FAIL 'dotstldrc_c_up file://$item_path' :: return 1" >&2
                     cd ${PPWD}
                     return 1
                 }
@@ -72,6 +74,60 @@ dotstldrc_boot_stl() {
         cd ${PPWD} || return 1
         return 0
     }
+
+    dotstldrc_arb_up() { # \$1 dir with execuable arb
+
+        local FNN=${FUNCNAME[0]}
+        local PPWD=$PWD
+
+        echo "$FNN() $*"
+
+        #! IFS to default value
+        unset IFS
+
+        if [[ -d "$1" ]]; then
+            cd "$1" || {
+                echo "dotstldrc_arb_up() in file://${STL_D_PATH}/.stldrc :: FAIL_EXEC :: 'cd $1' :: return 1" >&2
+                return 1
+            }
+        else
+            echo "dotstldrc_arb_up() in file://${STL_D_PATH}/.stldrc :: \$1='$1' is not dir" >&2
+            return 1
+        fi
+
+        local dir=
+        local item=
+        local item_path=
+
+        dir=$(pwd)
+
+        for item in *; do
+            echo "\$item=$item"
+            # lib.0stl.arb/_XXX_YYY.ram/.grot/_XXX_YYY.sh
+            item_path=$dir/$item
+            item_name="${item%.*}"
+            item_ext="${item##*.}"
+            file_path=${item_path}/.grot/${item_name}.sh
+
+            echo "\$file_path= file://$file_path"
+
+            if [ -f "$file_path" ] && [ "${item_name:0:1}" != "_" ] && [ "${item##*.}" == "ram" ]; then
+                echo ". $file_path"
+                . "$file_path" || {
+                    echo "dotstldrc_arb_up() in file://${STL_D_PATH}/.stldrc :: EXEC_FAIL '. file://$file_path' :: return 1" >&2
+                    cd ${PPWD}
+                    return 1
+                }
+            fi
+        done
+
+        cd ${PPWD} || return 1
+        return 0
+    }
+
+    dotstldrc_arb_up ${STL_LIB_D_PATH}/lib.0stl.arb
+
+    read -p 1
 
     #! up boot util fn and constants
     c_up_boot_stl ${STL_D_PATH}/prc.d >/dev/null || {
