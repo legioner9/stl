@@ -6,8 +6,9 @@ __tst_0stl_TST() {
         echo "TYPE_ERROR : tst_0stl" >&2
         return 1
     fi
-
-    local filename=${ST_RC_D_PATH}/.d/.arb/stl0.arb/tst_0stl.ram/.grot/_tst/exec.tst
+# /home/st/REPOBARE/_repo/stl/.d/.stl.lib.d/lib.0stl.arb/tst_0stl.ram/.grot/_tst/exec.tst
+# ${STL_LIB_D_PATH}/lib.0stl.arb/tst_0stl.ram/.grot/_tst/exec.tst
+    local filename=${STL_LIB_D_PATH}/lib.0stl.arb/tst_0stl.ram/.grot/_tst/exec.tst
 
     local idir=$(pwd)
 
@@ -49,6 +50,6 @@ __tst_0stl_TST() {
 }
 
 if ! __tst_0stl_TST "$@"; then
-    _st_exit "in fs= file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/tst_0stl.ram/.grot/_tst/exec._tst , line=${LINENO}: : EXEC_FAIL : '__tst_0stl_TST ' : ${hint} : return 1"
+    echo "in fs= file://${STL_LIB_D_PATH}/lib.0stl.arb/tst_0stl.ram/.grot/_tst/exec.tst , line=${LINENO}: : EXEC_FAIL : '__tst_0stl_TST ' : ${hint} : return 1"
     return 1
 fi

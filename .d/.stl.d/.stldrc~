@@ -11,7 +11,7 @@ dotstldrc_boot_stl() {
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
     local sh_file=${STL_D_PATH}/.stldrc
-    echo -e "${CYAN}--- $FNN() in file://${sh_file} ---${NORMAL}"
+    # echo -e "${CYAN}--- $FNN() $* in file://${sh_file} ---${NORMAL}"
     # echo -e "$FNN() in file://${sh_file}"
 
     # # ${HOME}/.plt.use.flag
@@ -36,13 +36,11 @@ dotstldrc_boot_stl() {
 
         if [[ -d "$1" ]]; then
             cd "$1" || {
-                echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc :: FAIL_EXEC :: 'cd $1' :: return 1" >&2
-                cd "$PPWD" || echo "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
+                echo "dotstldrc_c_up() in file://${STL_D_PATH}/.stldrc :: FAIL_EXEC :: 'cd $1' :: return 1" >&2
                 return 1
             }
         else
-            echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc :: \$1='$1' is not dir" >&2
-            cd "$PPWD" || echo "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
+            echo "dotstldrc_c_up() in file://${STL_D_PATH}/.stldrc :: \$1='$1' is not dir" >&2
             return 1
         fi
 
@@ -58,26 +56,26 @@ dotstldrc_boot_stl() {
 
             if [ -f "$item_path" ] && [ "${item:0:1}" != "_" ] && [ "${item##*.}" == "sh" ]; then
                 . "$item_path" || {
-                    echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc :: EXEC_FAIL '. file://$item_path' :: return 1" >&2
-                    cd "$PPWD" || echo "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
+                    echo "dotstldrc_c_up() in file://${STL_D_PATH}/.stldrc :: EXEC_FAIL '. file://$item_path' :: return 1" >&2
+                    cd ${PPWD}
                     return 1
                 }
 
             elif [ -d "$item_path" ] && [ "${item:0:1}" != "_" ]; then
                 dotstldrc_c_up "$item_path" || {
-                    echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc :: EXEC_FAIL 'dotstldrc_c_up file://$item_path' :: return 1" >&2
-                    cd "$PPWD" || echo "$FNN() $* in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
+                    echo "dotstldrc_c_up() in file://${STL_D_PATH}/.stldrc :: EXEC_FAIL 'dotstldrc_c_up file://$item_path' :: return 1" >&2
+                    cd ${PPWD}
                     return 1
                 }
             fi
 
         done
 
-        cd "$PPWD" || echo "'$FNN() $* 'in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
+        cd ${PPWD} || return 1
         return 0
     }
 
-    dotstldrc_arb_up() { # \$1 dir with executable arb
+    dotstldrc_arb_up() { # \$1 dir with execuable arb
 
         local FNN=${FUNCNAME[0]}
         local PPWD=$PWD
@@ -89,11 +87,11 @@ dotstldrc_boot_stl() {
 
         if [[ -d "$1" ]]; then
             cd "$1" || {
-                echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc :: FAIL_EXEC :: 'cd $1' :: return 1" >&2
+                echo "dotstldrc_arb_up() in file://${STL_D_PATH}/.stldrc :: FAIL_EXEC :: 'cd $1' :: return 1" >&2
                 return 1
             }
         else
-            echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc :: \$1='$1' is not dir" >&2
+            echo "dotstldrc_arb_up() in file://${STL_D_PATH}/.stldrc :: \$1='$1' is not dir" >&2
             return 1
         fi
 
@@ -104,7 +102,7 @@ dotstldrc_boot_stl() {
         dir=$(pwd)
 
         for item in *; do
-            # echo "\$item=$item"
+            echo "\$item=$item"
             # lib.0stl.arb/_XXX_YYY.ram/.grot/_XXX_YYY.sh
             item_path=$dir/$item
             item_name="${item%.*}"
@@ -114,84 +112,21 @@ dotstldrc_boot_stl() {
             echo "\$file_path= file://$file_path"
 
             if [ -f "$file_path" ] && [ "${item_name:0:1}" != "_" ] && [ "${item##*.}" == "ram" ]; then
-                # echo ". $file_path"
+                echo ". $file_path"
                 . "$file_path" || {
-                    echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc :: EXEC_FAIL '. file://$file_path' :: return 1" >&2
-                    cd "$PPWD" || echo "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
+                    echo "dotstldrc_arb_up() in file://${STL_D_PATH}/.stldrc :: EXEC_FAIL '. file://$file_path' :: return 1" >&2
+                    cd ${PPWD}
                     return 1
                 }
             fi
         done
 
-        cd "$PPWD" || echo "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
+        cd ${PPWD} || return 1
         return 0
     }
 
-    dotstldrc_arb_tst() { # \$1 dir with testable arb
-
-        local FNN=${FUNCNAME[0]}
-        local PPWD=$PWD
-
-        echo "$FNN() $*"
-
-        #! IFS to default value
-        unset IFS
-
-        if [[ -d "$1" ]]; then
-            cd "$1" || {
-                echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc :: FAIL_EXEC :: 'cd $1' :: return 1" >&2
-                return 1
-            }
-        else
-            echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc :: \$1='$1' is not dir" >&2
-            return 1
-        fi
-
-        local dir=
-        local item=
-        local item_path=
-        local err_flag=0
-
-        dir=$(pwd)
-
-        for item in *; do
-            # echo "\$item=$item"
-            [[ "_" == ${item:0:1} ]] && continue
-            # /lib.0stl.arb/_XXX_YYY.ram/.grot/_tst/_exec.tst
-            item_path=$dir/$item
-            item_name="${item%.*}"
-            item_ext="${item##*.}"
-            file_path=${item_path}/.grot/_tst/exec.tst
-
-            echo "\$file_path= file://$file_path"
-
-            if [ -f "$file_path" ]; then
-                # echo ". $file_path"
-                . "$file_path" || {
-                    echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc :: EXEC_FAIL '. file://$file_path' :: err_flag=1" >&2
-                    cd "$PPWD" || echo "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
-                    err_flag=1
-                }
-            fi
-        done
-
-        if [[ 1 -eq ${err_flag} ]]; then
-            echo "in lib_dir= file://$1 FAIL_TST" >&2
-            cd "$PPWD" || echo "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
-            return 1
-        else
-            echo "in lib_dir= file://$1 TRUE_TST"
-            cd "$PPWD" || echo "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
-            return 0
-        fi
-
-    }
-
-    dotstldrc_arb_tst ${STL_LIB_D_PATH}/lib.0stl.arb || {
-        echo "'$FNN()' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'dotstldrc_arb_tst ${STL_LIB_D_PATH}/lib.0stl.arb' : return 1" >&2
-        return 1
-    }
     dotstldrc_arb_up ${STL_LIB_D_PATH}/lib.0stl.arb
+
 
     return 0
 
