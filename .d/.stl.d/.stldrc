@@ -89,11 +89,11 @@ dotstldrc_boot_stl() {
 
         if [[ -d "$1" ]]; then
             cd "$1" || {
-                echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc :: FAIL_EXEC :: 'cd $1' :: return 1" >&2
+                echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: FAIL_EXEC :: 'cd $1' :: return 1" >&2
                 return 1
             }
         else
-            echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc :: \$1='$1' is not dir" >&2
+            echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: \$1='$1' is not dir" >&2
             return 1
         fi
 
@@ -116,7 +116,7 @@ dotstldrc_boot_stl() {
             if [ -f "$file_path" ] && [ "${item_name:0:1}" != "_" ] && [ "${item##*.}" == "ram" ]; then
                 # echo ". $file_path"
                 . "$file_path" || {
-                    echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc :: EXEC_FAIL '. file://$file_path' :: return 1" >&2
+                    echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: EXEC_FAIL '. file://$file_path' :: return 1" >&2
                     cd "$PPWD" || echo "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
                     return 1
                 }
@@ -139,11 +139,11 @@ dotstldrc_boot_stl() {
 
         if [[ -d "$1" ]]; then
             cd "$1" || {
-                echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc :: FAIL_EXEC :: 'cd $1' :: return 1" >&2
+                echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: FAIL_EXEC :: 'cd $1' :: return 1" >&2
                 return 1
             }
         else
-            echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc :: \$1='$1' is not dir" >&2
+            echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: \$1='$1' is not dir" >&2
             return 1
         fi
 
@@ -168,7 +168,7 @@ dotstldrc_boot_stl() {
             if [ -f "$file_path" ]; then
                 # echo ". $file_path"
                 . "$file_path" || {
-                    echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc :: EXEC_FAIL '. file://$file_path' :: err_flag=1" >&2
+                    echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: EXEC_FAIL '. file://$file_path' :: err_flag=1" >&2
                     cd "$PPWD" || echo "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
                     err_flag=1
                 }
@@ -185,6 +185,109 @@ dotstldrc_boot_stl() {
             return 0
         fi
 
+    }
+
+    dotstldrc_is_root() {
+
+        local FNN=${FUNCNAME[0]}
+        local PPWD=$PWD
+
+        local arg1="$1"
+
+        if [[ -z "${arg1}" ]]; then
+            echo "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' : \$1 NOT_DEFINE : return 1" 1>&2
+            return 1
+        fi
+        if [[ "/" == "${arg1:0:1}" ]]; then
+            return 0
+        else
+            return 1
+        fi
+    }
+
+    dotstldrc_abs_path() {
+
+        local FNN=${FUNCNAME[0]}
+        local PPWD=$PWD
+
+        if [[ -z "$2" ]]; then
+            echo "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' : \$2 NOT_DEFINE , hint : '$3' : return 1" 1>&2
+            return 1
+        fi
+        local dpwd="$1"
+        if ! dotstldrc_is_root "${dpwd}"; then
+            echo "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' : '${dpwd}' NOT_ROOT , hint : '$3' : return 1" 1>&2
+            return 1
+        fi
+        eval local arg2=\${$2}
+        if [ "@" == "$arg2" ]; then
+            echo ${dpwd}
+            return 0
+        fi
+        if [[ -z "$arg2" ]]; then
+            echo "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' : \$\$2 => '\$$2' NOT_DEFINE , hint : '$3' : return 1" 1>&2
+            return 1
+        fi
+        if dotstldrc_is_root "${arg2}"; then
+            echo ${arg2}
+        else
+            echo ${dpwd}/${arg2}
+        fi
+
+    }
+
+    dotstldrc_edit() {
+
+        local FNN=${FUNCNAME[0]}
+        local PPWD=$PWD
+
+        if [[ -n "$1" ]]; then
+            echo -e "${ULINE}THIS_ARG1=$1${NORMAL}"
+            ptr_path="$1"
+        else
+            echo -e "${ULINE}THIS_ARG1=$PPWD${NORMAL}"
+            ptr_path="$PPWD"
+
+        fi
+
+        ptr_path=$(dotstldrc_abs_path $PPWD "ptr_path")
+
+        [ -e $ptr_path ] || {
+            err_boot_stl_fn "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' :, EXEC: edit_boot_stl_fn $@ : NOT_ENTETY : 'file://$ptr_path' : return 1"
+            cd $PPWD
+            return 1
+        }
+        if type "codium"; then
+            echo -e "${ULINE} codium $ptr_path${NORMAL}"
+            codium $2 "$ptr_path"
+        else
+            if type "code"; then
+                echo -e "${ULINE} code $ptr_path${NORMAL}"
+                code $2 "$ptr_path"
+            else
+                if type "gvim" && type "mate-terminal" && [ -f $ptr_path ]; then
+                    echo -e "${ULINE}mate-terminal -- sh -c gvim -v +$2 $ptr_path${NORMAL}"
+                    mate-terminal -- sh -c "gvim -v +$2 $ptr_path"
+                else
+                    if type "mc" && type "mate-terminal" && [ -f $ptr_path ]; then
+                        echo -e "${ULINE}mate-terminal -- sh -c mc -e $ptr_path${NORMAL}"
+                        mate-terminal -- sh -c "mc -e $ptr_path"
+                    else
+                        if type "mc" && type "mate-terminal" && [ -d $ptr_path ]; then
+                            echo -e "${ULINE}mate-terminal -- sh -c mc $ptr_path${NORMAL}"
+                            mate-terminal -- sh -c "mc $ptr_path"
+                        else
+                            if type "vim"; then
+                                echo -e "${ULINE}vim $ptr_path${NORMAL}"
+                                gvim -v "$ptr_path"
+                            else
+                                echo "editors: codium, code, gvim, vim, mc not enabled" >&2
+                            fi
+                        fi
+                    fi
+                fi
+            fi
+        fi
     }
 
     dotstldrc_arb_tst ${STL_LIB_D_PATH}/lib.0stl.arb || {
