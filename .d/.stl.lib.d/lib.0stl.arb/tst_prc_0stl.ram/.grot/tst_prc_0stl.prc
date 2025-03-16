@@ -189,7 +189,7 @@ da_421545() {
     echo -e "${CYAN}--- $FNN() $* in file://${fn_sh_file} ---${NORMAL}" #started functions
 
     local hint="hint -> "
-    if [ "-h" == "$2" ]; then
+    if [ -n "$1" ] && [ "-h" == "$1" ]; then
         echo -e "${CYAN} ${FNN}() help: 
 MAIN: ${FNN} :: 
 TAGS:
@@ -221,7 +221,7 @@ ${NORMAL}"
     #? ----- END _XXX body -----
 }
 
-da_421545 @
+da_421545 "$@"
 
 # tst_prc_0stl_before_return
 # cd "$PPWD" || echo "in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2

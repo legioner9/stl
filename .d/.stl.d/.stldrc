@@ -154,44 +154,44 @@ dotstldrc_boot_stl() {
         # echo -e "${GREEN}\$usr_fn_data_dir = '$usr_fn_data_dir'${NORMAL}"
         # echo -e "${GREEN}\$opt_fn_data_dir = '$opt_fn_data_dir'${NORMAL}"
 
-#         echo -e "${CYAN}--- $FNN() $* in file://${fn_sh_file} ---${NORMAL}" #started functions
+        #         echo -e "${CYAN}--- $FNN() $* in file://${fn_sh_file} ---${NORMAL}" #started functions
 
-#         local hint="hint -> "
-#         if [ -n "$2" ] && [ "-h" == "$2" ]; then
-#             echo -e "${CYAN} ${FNN}() help: 
-# MAIN: ${FNN} :: 
-# TAGS:
-# ARGS: [\$1 : ] 
-# [, \$N last arg DEBAG CNTL]
-#     if '_i' debag action, use: [ \$di -eq 1 ] && {debag action} ]
-# GLAR: ${FNN}_glar_[name_glar]    
-# CNTL: 
-#     _go         : _edit body        : _edit file://${d_name}/${FNN}.sh
-#     _tst        : . exec.tst        : . file://${d_name}/_tst/exec.tst
-#     _tst_e      : _edit tst_dir     : _edit file://${d_name}/_tst
-#     _flow_1     : . _flow_tst.sh.v1 : . file://${d_name}/_tst/_flow_tst.sh.v1
+        #         local hint="hint -> "
+        #         if [ -n "$2" ] && [ "-h" == "$2" ]; then
+        #             echo -e "${CYAN} ${FNN}() help:
+        # MAIN: ${FNN} ::
+        # TAGS:
+        # ARGS: [\$1 : ]
+        # [, \$N last arg DEBAG CNTL]
+        #     if '_i' debag action, use: [ \$di -eq 1 ] && {debag action} ]
+        # GLAR: ${FNN}_glar_[name_glar]
+        # CNTL:
+        #     _go         : _edit body        : _edit file://${d_name}/${FNN}.sh
+        #     _tst        : . exec.tst        : . file://${d_name}/_tst/exec.tst
+        #     _tst_e      : _edit tst_dir     : _edit file://${d_name}/_tst
+        #     _flow_1     : . _flow_tst.sh.v1 : . file://${d_name}/_tst/_flow_tst.sh.v1
 
-#     _hie_m      : more hie_file     : more file://${fn_hie_file} 
-#     _hie_e      : _edit hie_file    : _edit file://${fn_hie_file} 
+        #     _hie_m      : more hie_file     : more file://${fn_hie_file}
+        #     _hie_e      : _edit hie_file    : _edit file://${fn_hie_file}
 
-#     _depo_d_e   : depo data : use by ${FNN} : _edit $depo_dir : _edit file://${depo_dir}
-#     _opt_d_e    : opt data  : use by user   : _edit $opt_dir : _edit file://${opt_dir}    
-    
-# RETURN: ( result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
-# ERROR: ( if ... return 0 | if ... return 1 )
-# EXAM:
-#     ${FNN} 
-# ${NORMAL}"
-#             return 0
-        fi
+        #     _depo_d_e   : depo data : use by ${FNN} : _edit $depo_dir : _edit file://${depo_dir}
+        #     _opt_d_e    : opt data  : use by user   : _edit $opt_dir : _edit file://${opt_dir}
+
+        # RETURN: ( result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
+        # ERROR: ( if ... return 0 | if ... return 1 )
+        # EXAM:
+        #     ${FNN}
+        # ${NORMAL}"
+        #             return 0
+        # fi
         #{help_cntl_fn}
 
-        if [ -n "$2" ] &&  [[ "_go" == "$1" ]]; then
+        if [ -n "$2" ] && [[ "_go" == "$2" ]]; then
             _edit "${d_name}/${FNN}".sh
             return 0
         fi
 
-        if [ -n "$2" ] && [[ "_tst" == "$1" ]]; then
+        if [ -n "$2" ] && [[ "_tst" == "$2" ]]; then
             if ! _source_w1_isf ${d_name}/_tst/exec.tst; then
                 _st_exit "in fs= file:// , line=${LINENO}, EXEC: ${FNN} $* : : EXEC_FAIL : '_source_w1_isf ${d_name}/_tst/exec.tst' : ${hint} : return 1"
                 cd $PPWD
@@ -199,22 +199,22 @@ dotstldrc_boot_stl() {
             fi
         fi
 
-        if [ -n "$2" ] && [[ "_tst_e" == "$1" ]]; then
+        if [ -n "$2" ] && [[ "_tst_e" == "$2" ]]; then
             _edit ${d_name}/_tst
             return 0
         fi
 
-        if [ -n "$2" ] && [[ "_usr_d_e" == "$1" ]]; then
+        if [ -n "$2" ] && [[ "_usr_d_e" == "$2" ]]; then
             _edit ${usr_fn_data_dir}
             return 0
         fi
 
-        if [ -n "$2" ] && [[ "_opt_d_e" == "$1" ]]; then
+        if [ -n "$2" ] && [[ "_opt_d_e" == "$2" ]]; then
             _edit ${opt_fn_data_dir}
             return 0
         fi
 
-        if [ -n "$2" ] && [[ "_flow_1" == "$1" ]]; then
+        if [ -n "$2" ] && [[ "_flow_1" == "$2" ]]; then
             if ! _source_w1_isf ${d_name}/_tst/_flow_tst.sh.v1; then
                 _st_exit "in fs= file://${fn_sh_file} , line=${LINENO}, EXEC: ${FNN} $* : : EXEC_FAIL : '_source_w1_isf ${d_name}/_tst/_flow_tst.sh.v1' : ${hint} : return 1"
                 cd $PPWD
@@ -230,13 +230,13 @@ dotstldrc_boot_stl() {
         #     fi
         # fi
 
-        if [ -n "$2" ] && [[ "_hie_m" == "$1" ]]; then
+        if [ -n "$2" ] && [[ "_hie_m" == "$2" ]]; then
             more ${fn_hie_file}
             cd $PPWD
             return 0
         fi
 
-        if [ -n "$2" ] && [[ "_hie_e" == "$1" ]]; then
+        if [ -n "$2" ] && [[ "_hie_e" == "$2" ]]; then
             _edit ${fn_hie_file}
             cd $PPWD
             return 0
@@ -297,8 +297,8 @@ dotstldrc_boot_stl() {
             :
         }
 
-        echo "exec : '. $1'"
-        . "$1"
+        echo "exec : '. ${ARGS[@]}'"
+        . ${ARGS[@]}
 
         tst_prc_0stl_before_return
         cd "$PPWD" || echo "in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
@@ -325,6 +325,8 @@ dotstldrc_boot_stl() {
 
         local FNN=${FUNCNAME[0]}
         local PPWD=$PWD
+        local ARGS=("$@")
+        local NARGS=$#
 
         echo "$FNN() $*"
 
@@ -374,9 +376,9 @@ dotstldrc_boot_stl() {
 
                 # type dotstldrc_wrap_prc_inner
 
-                echo "alias ${name_function}=\"dotstldrc_wrap_prc_inner $file_path\""
+                echo "alias ${name_function}=\"dotstldrc_wrap_prc_inner $file_path ${ARGS[@]:1}\""
 
-                eval "alias ${name_function}=\"dotstldrc_wrap_prc_inner $file_path\""
+                eval "alias ${name_function}=\"dotstldrc_wrap_prc_inner $file_path ${ARGS[@]:1}\""
 
                 # eval "export ${name_function}"
 
