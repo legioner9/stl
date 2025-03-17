@@ -98,10 +98,7 @@ dotstldrc_boot_stl() {
         fi
 
         local dir=
-        local item=
-        local item_path=
-
-        dir=$(pwd)
+        local item=$@
 
         for item in *; do
             # echo "\$item=$item"
@@ -157,7 +154,9 @@ dotstldrc_boot_stl() {
         local sublib_pfx=$(_prs_f -e2 ${sublib_pth})
         local sublib_nm=$(_prs_f -ne ${sublib_pth})
 
-        
+        local d_data=${STL_DATA_D_PATH}/data.${sublib_pfx}.arb/${FNN}.ram
+
+
 
         # echo -e "${GREEN}\$usr_fn_data_dir = '$usr_fn_data_dir'${NORMAL}"
         # echo -e "${GREEN}\$opt_fn_data_dir = '$opt_fn_data_dir'${NORMAL}"

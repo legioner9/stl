@@ -1,5 +1,11 @@
 #!/bin/bash
 
+### Written by Legioner9 for the universe
+### Part of the STL shell subsystem
+### Location .stl.d
+
+# ENV: ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
+
 echo -e "${CYAN}--- _ord_name_prc_ram_rnd7_4418112() $* in file://${REPO_PATH}/stl/.d/.stl.lib.d/lib.0stl.arb/_ord_name_prc_ram.sh ---${NORMAL}" #started functions
 
 _ord_name_prc_ram_rnd7_4418112() {
@@ -11,7 +17,7 @@ _ord_name_prc_ram_rnd7_4418112() {
     local NARGS=$#
     local PPWD=$PWD
 
-    local path_file="${REPO_PATH}/stl/.d/.stl.lib.d/lib.0stl.arb/_ord_name_prc_ram.sh"
+    local path_file="${STL_LIB_D_PATH}/lib.0stl.arb/_ord_name_prc_ram.sh"
     local path_dir="$(dirname "$path_file")"
 
     # echo -e "${CYAN}--- $FNN() $* in file://${path_file}---${NORMAL}" #started functions
@@ -82,12 +88,22 @@ ${NORMAL}"
         return 1
     }
 
-    read -p "DO? : cr ${1}.ram in ${path_dir} : ETR continue or ^C "
+    read -p "DO? : cr ${1}_0stl.ram in ${path_dir} : ETR continue or ^C "
 
-    cd ${HOME}/REPOBARE/_repo/stl/.d/.stl.lib.d/lib.0stl.arb
-    
-    _sd2d  _PRC ${1}_0stl /home/st/REPOBARE/_repo/stl/.d/.stl.lib.d/lib.0stl.arb/_PRC.ram || {
-        echo "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC '_sd2d  _XXX_YYY _PRC ${HOME}/REPOBARE/_repo/stl/.d/.stl.lib.d/lib.0stl.arb/_XXX_YYY.ram_' : ${hint} : return 1"
+    cd ${STL_LIB_D_PATH}/lib.0stl.arb
+
+    _sd2d _PRC ${1}_0stl ${STL_LIB_D_PATH}/lib.0stl.arb/_PRC.ram || {
+        echo "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC '_sd2d _PRC ${1}_0stl ${STL_LIB_D_PATH}/lib.0stl.arb/_PRC.ram' : ${hint} : return 1"
+        return 1
+    }
+
+    cd ${STL_DATA_D_PATH}/data.0stl.arb
+
+    pwd
+    read -p "_sd2d _PRC ${1}_0stl ${STL_DATA_D_PATH}/data.0stl.arb/_PRC.ram"
+
+    _sd2d _PRC ${1}_0stl ${STL_DATA_D_PATH}/data.0stl.arb/_PRC.ram || {
+        echo "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC '_sd2d _PRC ${1}_0stl ${STL_DATA_D_PATH}/lib.0stl.arb/_PRC.ram' : ${hint} : return 1"
         return 1
     }
 
