@@ -129,20 +129,22 @@ dotstldrc_boot_stl() {
     }
 
     dotstldrc_wrap_prc_inner() {
-        local FNN=${FUNCNAME[0]}
+
+        local FNN=$(_prs_f -n ${1})
         local PPWD=$PWD
-        local ARGS=("$@")
-        local NARGS=$#
+        local ARGSW=("$@")
+        local ARGS=("${ARGSW[@]:1}")
+        local NARGS=$(($# - 1))
         local verbose=0
         local estat=
 
         #* local opt_dir=${STL_DATA_D_PATH}/data.0stl.arb/tst_prc_0stl.ram/.grot/.opt
         #* local depo_dir=${STL_DATA_D_PATH}/data.0stl.arb/tst_prc_0stl.ram/.grot/.depo
 
-        local fn_sh_grot=${STL_LIB_D_PATH}/lib.0stl.arb/tst_prc_0stl.ram/.grot
+        local fn_sh_grot=$(dirname "${1}")
 
-        local fn_sh_file="${fn_sh_grot}/tst_prc_0stl.prc"
-        local fn_hie_file="${fn_sh_grot}/tst_prc_0stl.hie"
+        local fn_sh_file="${fn_sh_grot}/${FNN}.prc"
+        local fn_hie_file="${fn_sh_grot}/${FNN}.hie"
         local d_name=$(dirname ${fn_sh_file})
 
         local opt_dir=${fn_sh_grot}/.opt
@@ -150,6 +152,12 @@ dotstldrc_boot_stl() {
         local opt_prc_dir=${fn_sh_grot}/.opt/.prc
         local opt_tml_dir=${fn_sh_grot}/.opt/.tml
         local depo_dir=${fn_sh_grot}/.depo
+
+        local sublib_pth=$(dirname $(dirname ${d_name}))
+        local sublib_pfx=$(_prs_f -e2 ${sublib_pth})
+        local sublib_nm=$(_prs_f -ne ${sublib_pth})
+
+        
 
         # echo -e "${GREEN}\$usr_fn_data_dir = '$usr_fn_data_dir'${NORMAL}"
         # echo -e "${GREEN}\$opt_fn_data_dir = '$opt_fn_data_dir'${NORMAL}"
@@ -192,11 +200,12 @@ dotstldrc_boot_stl() {
         fi
 
         if [ -n "$2" ] && [[ "_tst" == "$2" ]]; then
-            if ! _source_w1_isf ${d_name}/_tst/exec.tst; then
-                _st_exit "in fs= file:// , line=${LINENO}, EXEC: ${FNN} $* : : EXEC_FAIL : '_source_w1_isf ${d_name}/_tst/exec.tst' : ${hint} : return 1"
+            if ! . ${d_name}/_tst/exec.tst; then
+                echo "in fs= file:// , line=${LINENO}, EXEC: ${FNN} $* : : EXEC_FAIL : '. ${d_name}/_tst/exec.tst' : ${hint} : return 1" >&2
                 cd $PPWD
                 return 1
             fi
+            return 0
         fi
 
         if [ -n "$2" ] && [[ "_tst_e" == "$2" ]]; then
@@ -220,6 +229,7 @@ dotstldrc_boot_stl() {
                 cd $PPWD
                 return 1
             fi
+            return 0
         fi
 
         # if [[ "_flow_2" == "$1" ]]; then
@@ -297,8 +307,12 @@ dotstldrc_boot_stl() {
             :
         }
 
-        echo "exec : '. ${ARGS[@]}'"
-        . ${ARGS[@]}
+        echo "\${ARGS[0]} = '${ARGS[0]}'"
+        echo "\${ARGS[1]} = '${ARGS[1]}'"
+        echo "\${ARGS[2]} = '${ARGS[2]}'"
+
+        echo "exec : '. ${ARGSW[@]}'"
+        . ${ARGSW[@]}
 
         tst_prc_0stl_before_return
         cd "$PPWD" || echo "in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
