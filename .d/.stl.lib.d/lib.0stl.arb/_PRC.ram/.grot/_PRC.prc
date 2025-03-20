@@ -6,7 +6,7 @@
 
 # ENV: ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 
-_PRC() {
+__PRC() {
 
     #? ----- START _XXX body_flow -----
 
@@ -61,10 +61,6 @@ _PRC() {
 
     #     #* inname cntl
 
-    #     tst_prc_0stl_before_return() {
-    #         :
-    #     }
-
     #     #* define local variables
 
     #* {{fn_sh_body}}
@@ -88,33 +84,47 @@ CNTL:
     _hie_m      : more hie_file     : more file://${fn_hie_file} 
     _hie_e      : _edit hie_file    : _edit file://${fn_hie_file} 
 
-    _depo_d_e   : depo data : use by ${FNN} : _edit $depo_dir : _edit file://${depo_dir}
-    _opt_d_e    : opt data  : use by user   : _edit $opt_dir : _edit file://${opt_dir}    
+    _depo_d_e   : depo files : use by ${FNN} : _edit $d_lib_grot_depo : _edit file://${d_lib_grot_depo}
+    _opt_d_e    : opt files : use by user   : _edit $d_lib_grot_opt : _edit file://${d_lib_grot_opt}    
+
+    _data_d_e   : 
     
 RETURN: ( result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 ERROR: ( if ... return 0 | if ... return 1 )
 EXAM:
     ${FNN} 
 
+    ENV: 
+    \${STL_D_PATH} = file://${STL_D_PATH}
+    \${STL_DATA_D_PATH} = file://${STL_DATA_D_PATH}
+    \${STL_LIB_D_PATH} = file://${STL_LIB_D_PATH}
+
+    see dotstldrc_wrap_prc_inner() in /.stldrc
+
     \$PPWD= file://$PPWD
     \${ARGS[@]}=${ARGS[@]}
     \${NARGS}=${NARGS}
 
-    fn_hie_file= file://"${fn_sh_grot}/${FNN}.hie"
-    fn_sh_file= file://"${fn_sh_grot}/${FNN}.prc"
+    fn_hie_file= file://${fn_sh_grot}/${FNN}.hie
+    fn_sh_file= file://${fn_sh_grot}/${FNN}.prc
     d_name= file://$(dirname ${fn_sh_file})
 
-    opt_dir= file://${fn_sh_grot}/.opt
-    opt_lst_dir= file://${fn_sh_grot}/.opt/.lst
-    opt_prc_dir= file://${fn_sh_grot}/.opt/.prc
-    opt_tml_dir= file://${fn_sh_grot}/.opt/.tml
-    depo_dir= file://${fn_sh_grot}/.depo
+    d_lib_grot_opt= file://${fn_sh_grot}/.opt
+    d_lib_grot_opt_lst= file://${d_lib_grot_opt}/.lst
+    d_lib_grot_opt_prc= file://${d_lib_grot_opt}/.prc
+    d_lib_grot_opt_tml= file://${d_lib_grot_opt}/.tml
+
+    d_lib_grot_depo= file://${fn_sh_grot}/.depo
 
     sublib_pth= file://${sublib_pth}
     sublib_pfx= ${sublib_pfx}
     sublib_nm= ${sublib_nm}
 
-    d_data= file://${d_data}    
+prc_ram dir for ${FNN}
+    d_lib_ram= file://${d_lib_ram} 
+
+data_ram dir for ${FNN}
+    d_data_ram= file://${d_data_ram}    
 
 ${NORMAL}"
         return 0
@@ -124,7 +134,7 @@ ${NORMAL}"
     #? ----- END _XXX body -----
 }
 
-_PRC "$@"
+__PRC "$@"
 
 # tst_prc_0stl_before_return
 # cd "$PPWD" || echo "in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2

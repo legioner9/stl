@@ -34,12 +34,10 @@ ___PRC_TST() {
     if [ 0 -eq "$flag" ]; then
         echo "ANY in file://$dir fail" >&2
         diff "$dir"/pre "$dir"/res >&2
-
         cd "$idir"
         return 1
     else
         echo "ALL in file://$dir true"
-
         cd "$idir"
         return 0
     fi

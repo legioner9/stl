@@ -1,13 +1,13 @@
 #!/bin/bash
 
-__tst_prc_0stl_TST() {
+__tst_0stl_TST() {
 
-    if ! command -v tst_prc_0stl >/dev/null; then
-        echo "TYPE_ERROR : tst_prc_0stl" >&2
+    if ! command -v tst_0stl >/dev/null; then
+        echo "TYPE_ERROR : tst_0stl" >&2
         return 1
     fi
 
-    local filename=${STL_LIB_D_PATH}/lib.0stl.arb/tst_prc_0stl.ram/.grot/_tst/exec.tst
+    local filename=${STL_LIB_D_PATH}/lib.0stl.arb/tst_0stl.ram/.grot/_tst/exec.tst
 
     local idir=$(pwd)
 
@@ -34,12 +34,10 @@ __tst_prc_0stl_TST() {
     if [ 0 -eq "$flag" ]; then
         echo "ANY in file://$dir fail" >&2
         diff "$dir"/pre "$dir"/res >&2
-
         cd "$idir"
         return 1
     else
         echo "ALL in file://$dir true"
-
         cd "$idir"
         return 0
     fi
@@ -48,7 +46,7 @@ __tst_prc_0stl_TST() {
 
 }
 
-if ! __tst_prc_0stl_TST "$@"; then
-    _st_exit "in fs= file://${STL_LIB_D_PATH}/lib.0stl.arb/tst_prc_0stl.ram/.grot/_tst/exec.tst , line=${LINENO}: : EXEC_FAIL : '__tst_prc_0stl_TST ' : ${hint} : return 1"
+if ! __tst_0stl_TST "$@"; then
+    _st_exit "in fs= file://${STL_LIB_D_PATH}/lib.0stl.arb/tst_0stl.ram/.grot/_tst/exec.tst , line=${LINENO}: : EXEC_FAIL : '__tst_0stl_TST ' : ${hint} : return 1"
     return 1
 fi

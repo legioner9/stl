@@ -6,7 +6,9 @@
 
 # ENV: ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 
-da_421545() {
+_tst_0stl() {
+
+    #? ----- START _XXX body_flow -----
 
     #     # hint="\$1: \$2: "
     #     # if _isn_from ${NARGS} LESS LESS+1 "in fs= file://${fn_sh_file}, line=${LINENO}, ${FNN}() : DEMAND 'LESS LESS+1' ERR_AMOUNT_ARGS entered :'${NARGS}' args : ${hint} : return 1"; then
@@ -65,8 +67,6 @@ da_421545() {
 
     #     #* define local variables
 
-    #? ----- START _XXX body_flow -----
-
     #* {{fn_sh_body}}
     echo -e "${CYAN}--- $FNN() $* in file://${fn_sh_file} ---${NORMAL}" #started functions
 
@@ -114,7 +114,7 @@ EXAM:
     sublib_pfx= ${sublib_pfx}
     sublib_nm= ${sublib_nm}
 
-    d_data= file://${d_data}   
+    d_data= file://${d_data}    
 
 ${NORMAL}"
         return 0
@@ -124,7 +124,7 @@ ${NORMAL}"
     #? ----- END _XXX body -----
 }
 
-da_421545 "$@"
+_tst_0stl "$@"
 
 # tst_prc_0stl_before_return
 # cd "$PPWD" || echo "in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
