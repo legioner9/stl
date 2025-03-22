@@ -9,16 +9,6 @@
 .stldrc.() {
     local stl_prc_d=${STL_D_PATH}/prc.d/
 
-    local l1_d=${stl_prc_d}/boot_stl_fn.d/001_l
-    local l2_d=${stl_prc_d}/boot_stl_fn.d/002_l
-    local l3_d=${stl_prc_d}/boot_stl_fn.d/003_l
-
-    # up_to_mem l1_c_up
-    source ${l1_d}/l1_c_up.sh
-
-    # up_to_mem all in ${stl_prc_d}/boot_stl_fn.d
-    l1_c_up ${stl_prc_d}/boot_stl_fn.d
-
     dotstldrc_prs_f() {
         local path=
         local name_ext=
