@@ -6,9 +6,9 @@
 
 # ENV: ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 
-l2_wrap_prc() {
+l_03_wrap_prc() {
 
-    local FNN=$(dotstldrc_prs_f -n ${1})
+    local FNN=$(l_1_prs_f -n ${1})
     local PPWD=$PWD
     local ARGSW=("$@")
     local ARGS=("${ARGSW[@]:1}")
@@ -26,8 +26,8 @@ l2_wrap_prc() {
     local d_name=$(dirname ${fn_sh_file})
 
     local sublib_pth=$(dirname $(dirname ${d_name}))
-    local sublib_pfx=$(dotstldrc_prs_f -e2 ${sublib_pth})
-    local sublib_nm=$(dotstldrc_prs_f -ne ${sublib_pth})
+    local sublib_pfx=$(l_1_prs_f -e2 ${sublib_pth})
+    local sublib_nm=$(l_1_prs_f -ne ${sublib_pth})
 
     local d_data_ram=${STL_DATA_D_PATH}/data.${sublib_pfx}.arb/${FNN}.ram
     local d_lib_ram=${STL_LIB_D_PATH}/lib.${sublib_pfx}.arb/${FNN}.ram
@@ -43,7 +43,7 @@ l2_wrap_prc() {
     local d_lib_grot_depo=${d_lib_grot}/.depo
 
     if [ -n "$2" ] && [[ "_go" == "$2" ]]; then
-        _edit "${d_name}/${FNN}".sh
+        l2_edit "${fn_sh_file}"
         return 0
     fi
 
@@ -57,17 +57,17 @@ l2_wrap_prc() {
     fi
 
     if [ -n "$2" ] && [[ "_tst_e" == "$2" ]]; then
-        _edit ${d_name}/_tst
+        l.2_edit ${d_name}/_tst
         return 0
     fi
 
     if [ -n "$2" ] && [[ "_depo_d_e" == "$2" ]]; then
-        _edit ${d_lib_grot_depo}
+        l.2_edit ${d_lib_grot_depo}
         return 0
     fi
 
     if [ -n "$2" ] && [[ "_opt_d_e" == "$2" ]]; then
-        _edit $d_lib_grot_opt
+        l.2_edit $d_lib_grot_opt
         return 0
     fi
 
@@ -89,13 +89,13 @@ l2_wrap_prc() {
     # fi
 
     if [ -n "$2" ] && [[ "_hie_m" == "$2" ]]; then
-        more ${fn_hie_file}
+        l.2_edit ${fn_hie_file}
         cd $PPWD
         return 0
     fi
 
     if [ -n "$2" ] && [[ "_hie_e" == "$2" ]]; then
-        _edit ${fn_hie_file}
+        l.2_edit ${fn_hie_file}
         cd $PPWD
         return 0
     fi

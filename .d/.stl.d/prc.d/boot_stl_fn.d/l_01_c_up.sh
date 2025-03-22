@@ -1,6 +1,6 @@
 #!/bin/bash
 
-l1_c_up() { # \$1 dir with execuable files
+l_01_c_up() { # \$1 dir with execuable files
 
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-l2_edit() {
+l_2_edit() {
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
 
@@ -13,7 +13,7 @@ l2_edit() {
 
     fi
 
-    ptr_path=$(l1_abs_path $PPWD "ptr_path")
+    ptr_path=$(l_1_abs_path $PPWD "ptr_path")
 
     [ -e $ptr_path ] || {
         echo "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' :, EXEC: edit_boot_stl_fn $@ : NOT_ENTETY : 'file://$ptr_path' : return 1" >&2

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-l2_arb_tst() { # \$1 dir with testable arb
+l_2_arb_tst() { # \$1 dir with testable arb
 
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD

@@ -1,9 +1,11 @@
 #!/bin/bash
 
-l2_arb_up() { # \$1 dir with executable arb
+l_04_arb_prc_up() { # \$1 dir with executable arb
 
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
+    local NARGS=$#
 
     echo "$FNN() $*"
 
@@ -21,7 +23,10 @@ l2_arb_up() { # \$1 dir with executable arb
     fi
 
     local dir=
-    local item=$@
+    local item=
+    local item_path=
+
+    dir=$(pwd)
 
     for item in *; do
         # echo "\$item=$item"
@@ -29,21 +34,36 @@ l2_arb_up() { # \$1 dir with executable arb
         item_path=$dir/$item
         item_name="${item%.*}"
         item_ext="${item##*.}"
-        file_path=${item_path}/.grot/${item_name}.sh
+        file_path=${item_path}/.grot/${item_name}.prc
 
         # echo "\$file_path= file://$file_path"
 
         if [ -f "$file_path" ] && [ "${item_name:0:1}" != "_" ] && [ "${item##*.}" == "ram" ]; then
             # echo ". $file_path"
+            # dotstldrc_wrap_prc_inner "$file_path" || {
+            #     #? . "$file_path" || {
+            #     echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: EXEC_FAIL 'dotstldrc_wrap_prc $file_path' :: return 1" >&2
+            #     cd "$PPWD" || echo "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
+            #     return 1
+            # }
+
             echo -e "${GREEN}\$file_path = '$file_path'${NORMAL}"
-            . "$file_path" || {
-                echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: EXEC_FAIL '. file://$file_path' :: return 1" >&2
-                cd "$PPWD" || echo "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
-                return 1
-            }
+
+            local name_function=$(l_1_prs_f -n "$file_path")
+
+            echo -e "${GREEN}\$name_function = '$name_function'${NORMAL}"
+
+            # type dotstldrc_wrap_prc_inner
+
+            echo "alias ${name_function}=\"l_3_wrap_prc $file_path ${ARGS[@]:1}\""
+
+            eval "alias ${name_function}=\"l_3_wrap_prc $file_path ${ARGS[@]:1}\""
+
+            # eval "export ${name_function}"
+
+            eval "type ${name_function}"
         fi
     done
-
     cd "$PPWD" || echo "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
     return 0
 }

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-l1_is_root() {
+l_01_is_root() {
 
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD

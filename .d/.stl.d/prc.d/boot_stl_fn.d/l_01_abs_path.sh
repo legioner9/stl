@@ -1,6 +1,6 @@
 #!/bin/bash
 
-l1_abs_path() {
+l_01_abs_path() {
 
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD

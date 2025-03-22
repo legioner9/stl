@@ -1,6 +1,6 @@
 #!/bin/bash
 
-l1_prs_f() {
+l_01_prs_f() {
     local path=
     local name_ext=
     local name_ext2=
@@ -19,14 +19,14 @@ l1_prs_f() {
 MAIN: ${FUNCNAME} ::
 TAGS:
 path=/the/path/_foo.txt        
-\$(l1_prs_f -d $path)   : $(l1_prs_f -d $path) 
-\$(l1_prs_f -ne $path)  : $(l1_prs_f -ne $path)   
-\$(l1_prs_f -n $path)   : $(l1_prs_f -n $path)   
-\$(l1_prs_f -n2 $path)  : $(l1_prs_f -n2 $path)   
-\$(l1_prs_f -e $path)   : $(l1_prs_f -e $path)   
-\$(l1_prs_f -e2 $path)  : $(l1_prs_f -e2 $path) 
-\$(l1_prs_f -pr $path)  : $(l1_prs_f -pr $path)   
-\$(l1_prs_f -po $path)  : $(l1_prs_f -po $path)    
+\$(l_1_prs_f -d $path)   : $(l_1_prs_f -d $path) 
+\$(l_1_prs_f -ne $path)  : $(l_1_prs_f -ne $path)   
+\$(l_1_prs_f -n $path)   : $(l_1_prs_f -n $path)   
+\$(l_1_prs_f -n2 $path)  : $(l_1_prs_f -n2 $path)   
+\$(l_1_prs_f -e $path)   : $(l_1_prs_f -e $path)   
+\$(l_1_prs_f -e2 $path)  : $(l_1_prs_f -e2 $path) 
+\$(l_1_prs_f -pr $path)  : $(l_1_prs_f -pr $path)   
+\$(l_1_prs_f -po $path)  : $(l_1_prs_f -po $path)    
 ----------------------${NORMAL}"
         return 0
     else
