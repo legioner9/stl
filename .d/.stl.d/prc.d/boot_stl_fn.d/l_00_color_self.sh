@@ -63,39 +63,55 @@ TAGS:
     BLACK='\033[0;30m'
     BLK='\033[0;30m'
     FN='\033[0;30m'
-    FN='\033[0;30m'
+    FNL=$FN$LLG
+    FNH=$FN$HLG
 
     RED='\033[0;31m'
     FR='\033[0;31m'
+    FRL=$FR$LLG
+    FRH=$FR$HLG
 
     GREEN='\033[0;32m'
     GRN='\033[0;32m'
     FG='\033[0;32m'
+    FGL=$FG$LLG
+    FGH=$FG$HLG
 
     YELLOW='\033[0;33m'
     YLW='\033[0;33m'
     FY='\033[0;33m'
+    FYL=$FY$LLG
+    FYH=$FY$HLG
 
     BLUE='\033[0;34m'
     BLU='\033[0;34m'
     FB='\033[0;34m'
+    FBL=$FB$LLG
+    FBH=$FB$HLG
 
     MAGENTA='\033[0;35m'
     MGN='\033[0;35m'
     FM='\033[0;35m'
+    FML=$FM$LLG
+    FMH=$FM$HLG
 
     CYAN='\033[0;36m'
     CYN='\033[0;36m'
     FC='\033[0;36m'
+    FCL=$FC$LLG
+    FCH=$FC$HLG
 
     GRAY='\033[0;37m'
     GRY='\033[0;37m'
     FD='\033[0;37m'
-
+    FDL=$FD$LLG
+    FDH=$FD$HLG
 
     WHITE='\033[38m'
     WHT='\033[38m'
     FW='\033[38m'
+    FWL=$FW$LLG
+    FWH=$FW$HLG
 
     #? ALIASE_CUR
     CFYUP='\033[1m'
@@ -149,6 +165,8 @@ TAGS:
     FM_53='\033[53m' # APLINE
 
     FC_0='\033[30m' # black
+    ENL='\033[30m'  # black
+
     FC_1='\033[31m' # red
     FC_2='\033[32m' # green
     FC_3='\033[33m' # yellow
@@ -158,37 +176,60 @@ TAGS:
     FC_7='\033[37m' # white
 
     GCN_0='\033[40m'
+    ENL='\033[40m'
+
     GCN_1='\033[41m'
+    ERL='\033[41m'
+
     GCN_2='\033[42m'
+    EGL='\033[42m'
+
     GCN_3='\033[43m'
+    EYL='\033[43m'
+
     GCN_4='\033[44m'
+    EBL='\033[44m'
+
     GCN_5='\033[45m'
+    EML='\033[45m'
+
     GCN_6='\033[46m'
+    ECL='\033[46m'
+
     GCN_7='\033[47m'
+    EDL='\033[47m'
 
     GCH_0='\033[100m'
     BLKG='\033[100m'
+    ENH='\033[100m'
 
     GCH_1='\033[101m'
     REDG='\033[101m'
+    ERH='\033[101m'
 
     GCH_2='\033[102m'
     GRNG='\033[102m'
+    EGH='\033[102m'
 
     GCH_3='\033[103m'
     YLWG='\033[103m'
+    EYH='\033[103m'
 
     GCH_4='\033[104m'
     BLUG='\033[104m'
+    EBH='\033[104m'
 
     GCH_5='\033[105m'
     MGNG='\033[105m'
+    EMH='\033[105m'
 
     GCH_6='\033[106m'
     CYNG='\033[106m'
+    ECH='\033[106m'
 
     GCH_7='\033[107m'
-    WHTG='\033[107m'
+    DHTG='\033[107m'
+    EDH='\033[107m'
 
     GCZ_0='\033[40m'
     GCZ_1='\033[41m'
