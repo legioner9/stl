@@ -1,6 +1,6 @@
 #!/bin/bash
 
-l_2_edit() {
+l_02_edit() {
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
 
