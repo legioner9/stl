@@ -32,6 +32,8 @@ l_00_color2e() {
     F font
     E ground
     X revece font-ground
+    P delete font
+    
 
 
 
@@ -68,6 +70,8 @@ l_00_color2e() {
     MGNG - purple ground
     CYNG - cyan ground
     WHTG - white ground
+
+    FE - delete chars
 
 
 $FN FN - black $NRM
@@ -156,7 +160,7 @@ $FN$EDH EDH - greyh ground $NRM
 
     for fnt in ${font[@]}; do
         for grn in ${ground[@]}; do
-            eval "echo -e \"\\\$\$fnt\\\$\$grn \$$fnt\$$grn SDFfhn.;90*& \$NRM\""
+            eval "echo -e \"\\\$\$fnt\\\$\$grn \$$fnt\$$grn SDFfhn.;90*&\$NRM\" \"\\\$\$fnt\\\$\$grn\\\$RVC \$$fnt\$$grn\$RVC SDFfhn.;90*&\$NRM\""
         done
     done
     return 0
