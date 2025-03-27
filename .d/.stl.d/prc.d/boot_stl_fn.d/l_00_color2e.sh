@@ -158,12 +158,15 @@ $FN$EDH EDH - greyh ground $NRM
         EDL EDH
     )
 
-    for fnt in ${font[@]}; do
-        for grn in ${ground[@]}; do
-            eval "echo -e \"\\\$\$fnt\\\$\$grn \$$fnt\$$grn SDFfhn.;90*&\$NRM\" \"\\\$\$fnt\\\$\$grn\\\$RVC \$$fnt\$$grn\$RVC SDFfhn.;90*&\$NRM\""
+    unset yes
+    read -r -p "display ALL? only 'y'" yes
+    if [[ "y" == "$yes" ]]; then
+        for fnt in ${font[@]}; do
+            for grn in ${ground[@]}; do
+                eval "echo -e \"\\\$\$fnt\\\$\$grn \$$fnt\$$grn SDFfhn.;90*&\$NRM\" \"\\\$\$fnt\\\$\$grn\\\$RVC \$$fnt\$$grn\$RVC SDFfhn.;90*&\$NRM\""
+            done
         done
-    done
-
+    fi
     echo "------------------------------------------AVESOME:------------------------------------------------"
 
     font=(FN FNL FNH
