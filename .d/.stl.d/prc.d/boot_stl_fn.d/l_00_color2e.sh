@@ -163,5 +163,57 @@ $FN$EDH EDH - greyh ground $NRM
             eval "echo -e \"\\\$\$fnt\\\$\$grn \$$fnt\$$grn SDFfhn.;90*&\$NRM\" \"\\\$\$fnt\\\$\$grn\\\$RVC \$$fnt\$$grn\$RVC SDFfhn.;90*&\$NRM\""
         done
     done
+
+    echo "------------------------------------------AVESOME:------------------------------------------------"
+
+    font=(FN FNL FNH
+        FR FRL FRH
+        FG FGL FGH
+        FY FYL FYH
+        FB FBL FBH
+        FM FML FMH
+        FC FCL FCH
+        FD FDL FDH
+        FW FWL FWH
+    )
+
+    ground=(EDH
+    )
+
+    for fnt in ${font[@]}; do
+        for grn in ${ground[@]}; do
+            eval "echo -e \"\\\$\$fnt\\\$\$grn \$$fnt\$$grn SDFfhn.;90*&\$NRM\" \"\\\$\$fnt\\\$\$grn\\\$RVC \$$fnt\$$grn\$RVC SDFfhn.;90*&\$NRM\""
+        done
+    done
+
+    font=(FNL FBL FML
+    )
+
+    ground=(ENL ENH
+        ERL ERH
+        EGL EGH
+        EYL EYH
+        EBL EBH
+        EML EMH
+        ECL ECH
+        EDL EDH
+    )
+
+    for fnt in ${font[@]}; do
+        for grn in ${ground[@]}; do
+            eval "echo -e \"\\\$\$fnt\\\$\$grn \$$fnt\$$grn SDFfhn.;90*&\$NRM\" \"\\\$\$fnt\\\$\$grn\\\$RVC \$$fnt\$$grn\$RVC SDFfhn.;90*&\$NRM\""
+        done
+    done
+    echo -e "
+
+    l_00_echo_err   : ECHO_ERR =$FNL$ERH$RVC \$FNL\$ERH\$RVC $NRM
+    l_00_echo_warn  : ECHO_WARN=$FNL$EYH$RVC \$FNL\$EYH\$RVC $NRM
+    l_00_echo_info  : ECHO_INFO=$FNL$EGH$RVC \$FNL\$EGH\$RVC $NRM
+    l_00_echo_code  : ECHO_CODE=$FNL$ECH$RVC \$FNL\$ECH\$RVC $NRM
+    l_00_echo_sys   : ECHO_SYS =$FNL$EMH$RVC \$FNL\$EMH\$RVC $NRM
+    l_00_echo_ret1  : ECHO_RET1=$FR$EDH$RVC \$FR\$EDH\$RVC $NRM
+    l_00_echo_ques  : ECHO_QUES=$FC$EDH$RVC \$FC\$EDH\$RVC $NRM
+
+    "
     return 0
 }
