@@ -204,5 +204,16 @@ $FN$EDH EDH - greyh ground $NRM
             eval "echo -e \"\\\$\$fnt\\\$\$grn \$$fnt\$$grn SDFfhn.;90*&\$NRM\" \"\\\$\$fnt\\\$\$grn\\\$RVC \$$fnt\$$grn\$RVC SDFfhn.;90*&\$NRM\""
         done
     done
+    echo -e "
+
+    ECHO_ERR=$FNL$ERH$RVC \$FNL\$ERH\$RVC $NRM
+    ECHO_WARN=$FNL$EYH$RVC \$FNL\$EYH\$RVC $NRM
+    ECHO_INFO=$FNL$EGH$RVC \$FNL\$EGH\$RVC $NRM
+    ECHO_CODE=$FNL$ECH$RVC \$FNL\$ECH\$RVC $NRM
+    ECHO_SYS=$FNL$EMH$RVC \$FNL\$EMH\$RVC $NRM
+    ECHO_RET1=$FR$EDH$RVC \$FR\$EDH\$RVC $NRM
+    ECHO_QUES=$FC$EDH$RVC \$FC\$EDH\$RVC $NRM
+
+    "
     return 0
 }

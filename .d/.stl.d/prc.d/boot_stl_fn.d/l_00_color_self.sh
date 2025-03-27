@@ -270,6 +270,15 @@ TAGS:
     #     done
     # done
 
+    ECHO_ERR=$FNL$ERH$RVC
+    ECHO_WARN=$FNL$EYH$RVC
+    ECHO_INFO=$FNL$EGH$RVC
+    ECHO_CODE=$FNL$ECH$RVC
+    ECHO_SYS=$FNL$EMH$RVC
+    ECHO_RET1=$FR$EDH$RVC
+    ECHO_QUES=$FC$EDH$RVC
+
+
 }
 
 l_00_color_self @
