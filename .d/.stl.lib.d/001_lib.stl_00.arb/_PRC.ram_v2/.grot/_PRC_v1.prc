@@ -6,7 +6,7 @@
 
 # ENV: ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 
-filename="${STL_LIB_D_PATH}/{{lib_name_dir_arb}}/_PRC.ram/.grot/_PRC.prc"
+filename="${STL_LIB_D_PATH}/lib.stl_00.arb/_PRC.ram/.grot/_PRC.prc"
 echo -e "${HLIGHT}---start file://$filename ---${NORMAL}" # start file
 idir=$(pwd)
 
@@ -21,7 +21,7 @@ _PRC() {
     #* local opt_dir=${STL_DATA_D_PATH}/data.stl_00.arb/_PRC.ram/.grot/.opt
     #* local depo_dir=${STL_DATA_D_PATH}/data.stl_00.arb/_PRC.ram/.grot/.depo
 
-    local fn_sh_grot=${STL_LIB_D_PATH}/{{lib_name_dir_arb}}/_PRC.ram/.grot
+    local fn_sh_grot=${STL_LIB_D_PATH}/lib.stl_00.arb/_PRC.ram/.grot
 
     local fn_sh_file="${fn_sh_grot}/_PRC.prc"
     local fn_hie_file="${fn_sh_grot}/_PRC.hie"
@@ -69,44 +69,44 @@ ${NORMAL}"
     #{help_cntl_fn}
 
     if [[ "_go" == "$1" ]]; then
-        l_02_edit "${d_name}/${FNN}".sh
+        _edit "${d_name}/${FNN}".sh
         return 0
     fi
 
     if [[ "_tst" == "$1" ]]; then
-        if ! l_01_source ${d_name}/_tst/exec.tst; then
-            l_00_echo_ret1 "in fs= file:// , line=${LINENO}, EXEC: ${FNN} $* : : EXEC_FAIL : 'l_01_source ${d_name}/_tst/exec.tst' : ${hint} : return 1"
+        if ! _source_w1_isf ${d_name}/_tst/exec.tst; then
+            _st_exit "in fs= file:// , line=${LINENO}, EXEC: ${FNN} $* : : EXEC_FAIL : '_source_w1_isf ${d_name}/_tst/exec.tst' : ${hint} : return 1"
             cd $PPWD
             return 1
         fi
     fi
 
     if [[ "_tst_e" == "$1" ]]; then
-        l_02_edit ${d_name}/_tst
+        _edit ${d_name}/_tst
         return 0
     fi
 
     if [[ "_usr_d_e" == "$1" ]]; then
-        l_02_edit ${usr_fn_data_dir}
+        _edit ${usr_fn_data_dir}
         return 0
     fi
 
     if [[ "_opt_d_e" == "$1" ]]; then
-        l_02_edit ${opt_fn_data_dir}
+        _edit ${opt_fn_data_dir}
         return 0
     fi
 
     if [[ "_flow_1" == "$1" ]]; then
-        if ! l_01_source ${d_name}/_tst/_flow_tst.sh.v1; then
-            l_00_echo_ret1 "in fs= file://${fn_sh_file} , line=${LINENO}, EXEC: ${FNN} $* : : EXEC_FAIL : 'l_01_source ${d_name}/_tst/_flow_tst.sh.v1' : ${hint} : return 1"
+        if ! _source_w1_isf ${d_name}/_tst/_flow_tst.sh.v1; then
+            _st_exit "in fs= file://${fn_sh_file} , line=${LINENO}, EXEC: ${FNN} $* : : EXEC_FAIL : '_source_w1_isf ${d_name}/_tst/_flow_tst.sh.v1' : ${hint} : return 1"
             cd $PPWD
             return 1
         fi
     fi
 
     # if [[ "_flow_2" == "$1" ]]; then
-    #     if ! l_01_source ${d_name}/_tst/_flow_tst.sh.v2; then
-    #         l_00_echo_ret1 "in fs= file://${fn_sh_file} , line=${LINENO}, EXEC: ${FNN} $* : : EXEC_FAIL : 'l_01_source ${d_name}/_tst/_flow_tst.sh.v2' : ${hint} : return 1"
+    #     if ! _source_w1_isf ${d_name}/_tst/_flow_tst.sh.v2; then
+    #         _st_exit "in fs= file://${fn_sh_file} , line=${LINENO}, EXEC: ${FNN} $* : : EXEC_FAIL : '_source_w1_isf ${d_name}/_tst/_flow_tst.sh.v2' : ${hint} : return 1"
     #         cd $PPWD
     #         return 1
     #     fi
@@ -119,7 +119,7 @@ ${NORMAL}"
     fi
 
     if [[ "_hie_e" == "$1" ]]; then
-        l_02_edit ${fn_hie_file}
+        _edit ${fn_hie_file}
         cd $PPWD
         return 0
     fi

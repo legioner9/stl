@@ -7,7 +7,7 @@ ___PRC_FLOW() {
         return 1
     fi
 
-    local filename=${STL_LIB_D_PATH}/lib.stl_00.arb/_PRC.ram/.grot/_tst/_flow_tst.sh
+    local filename=${STL_LIB_D_PATH}/{{lib_name_dir_arb}}.arb/_PRC.ram/.grot/_tst/_flow_tst.sh
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"

@@ -7,7 +7,7 @@ ___PRC_TST() {
         return 1
     fi
 
-    local filename=${STL_LIB_D_PATH}/{{lib_name_dir_arb}}/_PRC.ram/.grot/_tst/exec.tst
+    local filename=${STL_LIB_D_PATH}/lib.stl_00.arb/_PRC.ram/.grot/_tst/exec.tst
 
     local idir=$(pwd)
 
@@ -47,6 +47,6 @@ ___PRC_TST() {
 }
 
 if ! ___PRC_TST "$@"; then
-    _st_exit "in fs= file://${STL_LIB_D_PATH}/{{lib_name_dir_arb}}/_PRC.ram/.grot/_tst/exec.tst , line=${LINENO}: : EXEC_FAIL : '___PRC_TST ' : ${hint} : return 1"
+    _st_exit "in fs= file://${STL_LIB_D_PATH}/lib.stl_00.arb/_PRC.ram/.grot/_tst/exec.tst , line=${LINENO}: : EXEC_FAIL : '___PRC_TST ' : ${hint} : return 1"
     return 1
 fi

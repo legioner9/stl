@@ -8,7 +8,7 @@
 
 echo -e "${CYAN}--- _ord_name_prc_ram_rnd7_4418112() $* in file://${REPO_PATH}/stl/.d/.stl.lib.d/lib.0stl.arb/_ord_name_prc_ram.sh ---${NORMAL}" #started functions
 
-_ord_name_prc_ram_rnd7_4418112() {
+_rm_name_prc_ram_rnd7_4418112() {
 
     # HST :: gig command :: [ufl_stl0 1 1 _ord_name_prc_ram.sh in file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/ufl_stl0.ram/.grot/ufl_stl0.sh] in file://${REPO_PATH}/stl/.d/.stl.lib.d/lib.0stl.arb/_ord.prc
 
@@ -17,7 +17,8 @@ _ord_name_prc_ram_rnd7_4418112() {
     local NARGS=$#
     local PPWD=$PWD
 
-    local path_file="${STL_LIB_D_PATH}/001_lib.stl_00.arb/_ord_name_prc_ram.sh"
+    local path_file=${STL_LIB_D_PATH}/001_lib.stl_00.arb/_rm_name_prc_ram.sh
+
     local path_dir="$(dirname "$path_file")"
 
     # echo -e "${CYAN}--- $FNN() $* in file://${path_file}---${NORMAL}" #started functions
@@ -104,7 +105,7 @@ ${NORMAL}"
 
     cd ${STL_LIB_D_PATH}/${lib_name_dir_arb} || return 1
 
-    _sd2d "{{lib_name_dir_arb}}" ${lib_name_dir_arb} ${STL_LIB_D_PATH}/${lib_name_dir_arb}/${lib_name}_${1}.ram || {
+    _s2d "{{lib_name_dir_arb}}" ${lib_name_dir_arb} ${STL_LIB_D_PATH}/${lib_name_dir_arb}/${lib_name}_${1}.ram || {
         l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC '_s2d {{lib_name_dir_arb}} ${lib_name_dir_arb} ${STL_LIB_D_PATH}/${lib_name_dir_arb}/${lib_name}_${1}.ram' : ${hint} : return 1"
         return 1
     }
@@ -121,7 +122,7 @@ ${NORMAL}"
 
     cd ${STL_DATA_D_PATH}/${lib_name_dir_arb} || return 1
 
-    _sd2d "{{lib_name_dir_arb}}" ${lib_name_dir_arb} ${STL_DATA_D_PATH}/${lib_name_dir_arb}/${lib_name}_${1}.ram || {
+    _s2d "{{lib_name_dir_arb}}" ${lib_name_dir_arb} ${STL_DATA_D_PATH}/${lib_name_dir_arb}/${lib_name}_${1}.ram || {
         l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC '_s2d {{lib_name_dir_arb}} ${lib_name_dir_arb} ${STL_DATA_D_PATH}/${lib_name_dir_arb}/${lib_name}_${1}.ram' : ${hint} : return 1"
         return 1
     }
@@ -133,4 +134,4 @@ ${NORMAL}"
 
 }
 
-_ord_name_prc_ram_rnd7_4418112 "$@"
+_rm_name_prc_ram_rnd7_4418112 "$@"
