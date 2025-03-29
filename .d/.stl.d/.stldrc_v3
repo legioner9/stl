@@ -9,24 +9,26 @@
 .stldrc.() {
     local stl_boot_prc_d=${STL_D_PATH}/prc.d/boot_stl_fn.d
 
+
     # up_to_mem l1_c_up
     source ${stl_boot_prc_d}/l_01_c_up.sh
 
     # up_to_mem all in ${stl_prc_d}/boot_stl_fn.d
     l_01_c_up ${stl_boot_prc_d}
 
+
     dotstldrc_boot_stl() {
 
         local FNN=${FUNCNAME[0]}
         local PPWD=$PWD
         local sh_file=${STL_D_PATH}/.stldrc
-        l_00_echo_exec "${FNN}()"
+        echo -e "${CYAN}--- $FNN() in file://${sh_file} ---${NORMAL}"
 
-        l_02_arb_up ${STL_LIB_D_PATH}/lib.0stl.arb
-        l_04_arb_prc_up ${STL_LIB_D_PATH}/lib.0stl.arb
+        l2_arb_up ${STL_LIB_D_PATH}/lib.0stl.arb
+        l2_arb_prc_up ${STL_LIB_D_PATH}/lib.0stl.arb
 
-        l_02_arb_tst ${STL_LIB_D_PATH}/lib.0stl.arb || {
-            l_00_echo_ret1 "'$FNN()' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'dotstldrc_arb_tst ${STL_LIB_D_PATH}/lib.0stl.arb' : return 1" >&2
+        l2_arb_tst ${STL_LIB_D_PATH}/lib.0stl.arb || {
+            echo "'$FNN()' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'dotstldrc_arb_tst ${STL_LIB_D_PATH}/lib.0stl.arb' : return 1" >&2
             return 1
         }
 
@@ -113,7 +115,7 @@
     }
 
     dotstldrc_boot_stl || {
-        l_00_echo_ret1 "in file://${STL_D_PATH}/.stldrc :: EXEC_FAIL 'dotstlrc_boot_stl' :: return 1" >&2
+        echo "in file://${STL_D_PATH}/.stldrc :: EXEC_FAIL 'dotstlrc_boot_stl ' :: return 1" >&2
         cd ${PPWD}
         return 1
     }

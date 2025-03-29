@@ -7,7 +7,7 @@
 # ENV: ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 
 l_00_color_self() {
-    echo -e "${CYAN}--- start : ${FUNCNAME}() $@ ---${NORMAL}"
+    # echo -e "${CYAN}--- start : ${FUNCNAME}() $@ ---${NORMAL}"
 
     if [ "-h" == "$1" ]; then
         echo -e "
@@ -274,8 +274,9 @@ TAGS:
     ECHO_WARN=$FNL$EYH$RVC
     ECHO_INFO=$FNL$EGH$RVC
     ECHO_CODE=$FNL$ECH$RVC
+    ECHO_EXEC=$FNL$EBH$RVC
     ECHO_SYS=$FNL$EMH$RVC
-    ECHO_RET1=$FR$EDH$RVC
+    ECHO_RET1=$FRL$EDH$RVC
     ECHO_QUES=$FC$EDH$RVC
 
 

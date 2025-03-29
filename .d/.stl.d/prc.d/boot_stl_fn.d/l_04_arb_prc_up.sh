@@ -1,5 +1,12 @@
 #!/bin/bash
 
+### Written by Legioner9 for the universe
+### Part of the STL shell subsystem
+### Location ${STL_D_PATH}/prc.d/boot_stl_fn.d
+
+# ENV: ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
+# "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
+
 l_04_arb_prc_up() { # \$1 dir with executable arb
 
     local FNN=${FUNCNAME[0]}
@@ -7,18 +14,18 @@ l_04_arb_prc_up() { # \$1 dir with executable arb
     local ARGS=("$@")
     local NARGS=$#
 
-    echo "$FNN() $*"
+    l_00_echo_exec "${FNN}() $*" "${FNN}() $*"
 
     #! IFS to default value
     unset IFS
 
     if [[ -d "$1" ]]; then
         cd "$1" || {
-            echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: FAIL_EXEC :: 'cd $1' :: return 1" >&2
+            l_00_echo_ret1 "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: FAIL_EXEC :: 'cd $1' :: return 1" >&2
             return 1
         }
     else
-        echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: \$1='$1' is not dir" >&2
+        l_00_echo_ret1 "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: \$1='$1' is not dir" >&2
         return 1
     fi
 
@@ -49,21 +56,21 @@ l_04_arb_prc_up() { # \$1 dir with executable arb
 
             echo -e "${GREEN}\$file_path = '$file_path'${NORMAL}"
 
-            local name_function=$(l_1_prs_f -n "$file_path")
+            local name_function=$(l_01_prs_f -n "$file_path")
 
             echo -e "${GREEN}\$name_function = '$name_function'${NORMAL}"
 
             # type dotstldrc_wrap_prc_inner
 
-            echo "alias ${name_function}=\"l_3_wrap_prc $file_path ${ARGS[@]:1}\""
+            l_00_echo_code "alias ${name_function}=\"l_03_wrap_prc $file_path ${ARGS[@]:1}\""
 
-            eval "alias ${name_function}=\"l_3_wrap_prc $file_path ${ARGS[@]:1}\""
+            eval "alias ${name_function}=\"l_03_wrap_prc $file_path ${ARGS[@]:1}\""
 
             # eval "export ${name_function}"
 
             eval "type ${name_function}"
         fi
     done
-    cd "$PPWD" || echo "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
+    cd "$PPWD" || l_00_echo_err "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
     return 0
 }

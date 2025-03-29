@@ -8,6 +8,6 @@
 
 l_00_echo_ret1() {
     
-    echo -e "$FR$EDH$RVC$*$NRM"
+    echo -e "$FRL$EDH$RVC$*$NRM"
 
 }

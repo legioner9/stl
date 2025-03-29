@@ -16,6 +16,8 @@ l_03_wrap_prc() {
     local verbose=0
     local estat=
 
+    # l_00_echo_exec "${FNN}() $*"
+
     #* local opt_dir=${STL_DATA_D_PATH}/data.0stl.arb/tst_prc_0stl.ram/.grot/.opt
     #* local depo_dir=${STL_DATA_D_PATH}/data.0stl.arb/tst_prc_0stl.ram/.grot/.depo
 
@@ -26,8 +28,8 @@ l_03_wrap_prc() {
     local d_name=$(dirname ${fn_sh_file})
 
     local sublib_pth=$(dirname $(dirname ${d_name}))
-    local sublib_pfx=$(l_1_prs_f -e2 ${sublib_pth})
-    local sublib_nm=$(l_1_prs_f -ne ${sublib_pth})
+    local sublib_pfx=$(l_01_prs_f -e2 ${sublib_pth})
+    local sublib_nm=$(l_01_prs_f -ne ${sublib_pth})
 
     local d_data_ram=${STL_DATA_D_PATH}/data.${sublib_pfx}.arb/${FNN}.ram
     local d_lib_ram=${STL_LIB_D_PATH}/lib.${sublib_pfx}.arb/${FNN}.ram
@@ -43,13 +45,13 @@ l_03_wrap_prc() {
     local d_lib_grot_depo=${d_lib_grot}/.depo
 
     if [ -n "$2" ] && [[ "_go" == "$2" ]]; then
-        l2_edit "${fn_sh_file}"
+        l_02_edit "${fn_sh_file}"
         return 0
     fi
 
     if [ -n "$2" ] && [[ "_tst" == "$2" ]]; then
         if ! . ${d_name}/_tst/exec.tst; then
-            echo "in fs= file:// , line=${LINENO}, EXEC: ${FNN} $* : : EXEC_FAIL : '. ${d_name}/_tst/exec.tst' : ${hint} : return 1" >&2
+            l_00_echo_ret1 "in fs= file:// , line=${LINENO}, EXEC: ${FNN} $* : : EXEC_FAIL : '. ${d_name}/_tst/exec.tst' : ${hint} : return 1" >&2
             cd $PPWD
             return 1
         fi
@@ -57,23 +59,23 @@ l_03_wrap_prc() {
     fi
 
     if [ -n "$2" ] && [[ "_tst_e" == "$2" ]]; then
-        l.2_edit ${d_name}/_tst
+        l_02_edit ${d_name}/_tst
         return 0
     fi
 
     if [ -n "$2" ] && [[ "_depo_d_e" == "$2" ]]; then
-        l.2_edit ${d_lib_grot_depo}
+        l_02_edit ${d_lib_grot_depo}
         return 0
     fi
 
     if [ -n "$2" ] && [[ "_opt_d_e" == "$2" ]]; then
-        l.2_edit $d_lib_grot_opt
+        l_02_edit $d_lib_grot_opt
         return 0
     fi
 
     if [ -n "$2" ] && [[ "_flow_1" == "$2" ]]; then
         if ! . ${d_name}/_tst/_flow_tst.sh.v1; then
-            echo "in fs= file://${fn_sh_file} , line=${LINENO}, EXEC: ${FNN} $* : : EXEC_FAIL : '_source_w1_isf ${d_name}/_tst/_flow_tst.sh.v1' : ${hint} : return 1" >&2
+            l_00_echo_ret1 "in fs= file://${fn_sh_file} , line=${LINENO}, EXEC: ${FNN} $* : : EXEC_FAIL : '_source_w1_isf ${d_name}/_tst/_flow_tst.sh.v1' : ${hint} : return 1" >&2
             cd $PPWD
             return 1
         fi
@@ -89,13 +91,13 @@ l_03_wrap_prc() {
     # fi
 
     if [ -n "$2" ] && [[ "_hie_m" == "$2" ]]; then
-        l.2_edit ${fn_hie_file}
+        l_02_edit ${fn_hie_file}
         cd $PPWD
         return 0
     fi
 
     if [ -n "$2" ] && [[ "_hie_e" == "$2" ]]; then
-        l.2_edit ${fn_hie_file}
+        l_02_edit ${fn_hie_file}
         cd $PPWD
         return 0
     fi
@@ -158,7 +160,7 @@ l_03_wrap_prc() {
     # echo "exec : '. ${ARGSW[@]}'"
     . ${ARGSW[@]}
 
-    cd "$PPWD" || echo "in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
+    cd "$PPWD" || l_02_echo_err "in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
     return 0
 
     #* define local variables

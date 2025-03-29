@@ -1,11 +1,19 @@
 #!/bin/bash
 
+### Written by Legioner9 for the universe
+### Part of the STL shell subsystem
+### Location ${STL_D_PATH}/prc.d/boot_stl_fn.d
+
+# ENV: ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
+# "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
+
 l_02_arb_up() { # \$1 dir with executable arb
 
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local file_name=${STL_D_PATH}/prc.d/boot_stl_fn.d/${FNN}.sh
 
-    echo "$FNN() $*"
+    l_00_echo_exec "${FNN}() $*"
 
     #! IFS to default value
     unset IFS
@@ -37,7 +45,7 @@ l_02_arb_up() { # \$1 dir with executable arb
             # echo ". $file_path"
             echo -e "${GREEN}\$file_path = '$file_path'${NORMAL}"
             . "$file_path" || {
-                echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: EXEC_FAIL '. file://$file_path' :: return 1" >&2
+                l_00_echo_ret1 "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: EXEC_FAIL '. file://$file_path' :: return 1" >&2
                 cd "$PPWD" || echo "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
                 return 1
             }

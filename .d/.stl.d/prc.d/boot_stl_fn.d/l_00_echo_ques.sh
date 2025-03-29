@@ -8,6 +8,6 @@
 
 l_00_echo_ques() {
     
-    echo -e "$FC$EDH$RVC$*$NRM"
+    echo -e "$FCL$EDH$RVC$*$NRM"
 
 }

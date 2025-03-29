@@ -6,6 +6,9 @@
 
 # ENV: ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 
-l_00_echo_err() {    
-    echo -e "$FNL$ERH$RVC$*$NRM"
+l_00_err_p_r0() {
+    echo -e "${ECHO_ERR}$*${NRM}
+${ECHO_INFO}ETR - continue, ^C - exit shell process${NRM}"
+    read -r
+    return 0
 }

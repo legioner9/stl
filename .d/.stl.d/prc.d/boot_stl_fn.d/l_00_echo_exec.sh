@@ -6,6 +6,6 @@
 
 # ENV: ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 
-l_00_echo_err() {    
-    echo -e "$FNL$ERH$RVC$*$NRM"
+l_00_echo_exec() {    
+    echo -e "$FNL$EBH$RVC$*$NRM"
 }

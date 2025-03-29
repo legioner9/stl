@@ -213,9 +213,10 @@ $FN$EDH EDH - greyh ground $NRM
     l_00_echo_warn  : ECHO_WARN=$FNL$EYH$RVC \$FNL\$EYH\$RVC $NRM
     l_00_echo_info  : ECHO_INFO=$FNL$EGH$RVC \$FNL\$EGH\$RVC $NRM
     l_00_echo_code  : ECHO_CODE=$FNL$ECH$RVC \$FNL\$ECH\$RVC $NRM
+    l_00_echo_code  : ECHO_EXEC=$FNL$EBH$RVC \$FNL\$EBH\$RVC $NRM
     l_00_echo_sys   : ECHO_SYS =$FNL$EMH$RVC \$FNL\$EMH\$RVC $NRM
-    l_00_echo_ret1  : ECHO_RET1=$FR$EDH$RVC \$FR\$EDH\$RVC $NRM
-    l_00_echo_ques  : ECHO_QUES=$FC$EDH$RVC \$FC\$EDH\$RVC $NRM
+    l_00_echo_ret1  : ECHO_RET1=$FRL$EDH$RVC \$FRL\$EDH\$RVC $NRM
+    l_00_echo_ques  : ECHO_QUES=$FCL$EDH$RVC \$FCL\$EDH\$RVC $NRM
 
     "
     return 0
