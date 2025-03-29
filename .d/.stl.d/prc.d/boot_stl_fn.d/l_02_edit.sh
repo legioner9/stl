@@ -16,46 +16,46 @@ l_02_edit() {
     l_00_echo_exec "${FNN}() $*"
 
     if [[ -n "$1" ]]; then
-        echo -e "${ULINE}THIS_ARG1=$1${NORMAL}"
+        l_00_echo_code "THIS_ARG1=$1"
         ptr_path="$1"
     else
-        echo -e "${ULINE}THIS_ARG1=$PPWD${NORMAL}"
+        l_00_echo_code "THIS_ARG1=$PPWD"
         ptr_path="$PPWD"
 
     fi
 
-    ptr_path=$(l_1_abs_path $PPWD "ptr_path")
+    ptr_path=$(l_01_abs_path $PPWD "ptr_path")
 
     [ -e $ptr_path ] || {
-        echo "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' :, EXEC: edit_boot_stl_fn $@ : NOT_ENTETY : 'file://$ptr_path' : return 1" >&2
+        l_00_echo_ret1 "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' :, EXEC: edit_boot_stl_fn $@ : NOT_ENTETY : 'file://$ptr_path' : return 1" >&2
         cd $PPWD
         return 1
     }
-    if type "codium"; then
-        echo -e "${ULINE} codium $ptr_path${NORMAL}"
+    if type "codium" 2>/dev/null; then
+        l_00_echo_code "codium $ptr_path"
         codium $2 "$ptr_path"
     else
-        if type "code"; then
-            echo -e "${ULINE} code $ptr_path${NORMAL}"
+        if type "code" 2>/dev/null; then
+            l_00_echo_code "code $ptr_path${NORMAL}"
             code $2 "$ptr_path"
         else
-            if type "gvim" && type "mate-terminal" && [ -f $ptr_path ]; then
-                echo -e "${ULINE}mate-terminal -- sh -c gvim -v +$2 $ptr_path${NORMAL}"
+            if type "gvim" 2>/dev/null && type "mate-terminal" 2>/dev/null && [ -f $ptr_path ]; then
+                l_00_echo_code "mate-terminal -- sh -c gvim -v +$2 $ptr_path${NORMAL}"
                 mate-terminal -- sh -c "gvim -v +$2 $ptr_path"
             else
-                if type "mc" && type "mate-terminal" && [ -f $ptr_path ]; then
-                    echo -e "${ULINE}mate-terminal -- sh -c mc -e $ptr_path${NORMAL}"
+                if type "mc" 2>/dev/null && type "mate-terminal" 2>/dev/null && [ -f $ptr_path ]; then
+                    l_00_echo_code "mate-terminal -- sh -c mc -e $ptr_path${NORMAL}"
                     mate-terminal -- sh -c "mc -e $ptr_path"
                 else
-                    if type "mc" && type "mate-terminal" && [ -d $ptr_path ]; then
-                        echo -e "${ULINE}mate-terminal -- sh -c mc $ptr_path${NORMAL}"
+                    if type "mc" 2>/dev/null && type "mate-terminal" 2>/dev/null && [ -d $ptr_path ]; then
+                        l_00_echo_code "mate-terminal -- sh -c mc $ptr_path${NORMAL}"
                         mate-terminal -- sh -c "mc $ptr_path"
                     else
-                        if type "vim"; then
-                            echo -e "${ULINE}vim $ptr_path${NORMAL}"
+                        if type "vim" 2>/dev/null; then
+                            l_00_echo_code "vim $ptr_path${NORMAL}"
                             vim "$ptr_path"
                         else
-                            echo "editors: codium, code, gvim, vim, mc not enabled" >&2
+                            l_00_echo_err "editors: codium, code, gvim, vim, mc not enabled" >&2
                         fi
                     fi
                 fi

@@ -16,11 +16,11 @@ l_01_source() { # source $1
     l_00_echo_exec "${FNN}() $*"
 
     [ -n "$1" ] || {
-        echo -e "exec:'${FNN} $*' in file://${STL_D_PATH}/prc.d/${FNN} , line=${LINENO} 
+        l_00_echo_ret1 -e "exec:'${FNN} $*' in file://${STL_D_PATH}/prc.d/${FNN} , line=${LINENO} 
 expl: \$1 EMPTY
 evnt: FAIL_EXEC :: '[ -n \"$1\" ]'
 actn: return 1" >&2
-        cd "${PWD}" || echo "'${FNN} $*' in file://${STL_D_PATH}/prc.d/${FNN} , line=${LINENO} :: FAIL_EXEC :: 'cd \"${PWD}\"' :: return 1" >&2
+        cd "${PWD}" || l_00_echo_err "'${FNN} $*' in file://${STL_D_PATH}/prc.d/${FNN} , line=${LINENO} :: FAIL_EXEC :: 'cd \"${PWD}\"' :: return 1" >&2
         return 1
     }
 

@@ -22,13 +22,30 @@
         local sh_file=${STL_D_PATH}/.stldrc
         l_00_echo_exec "${FNN}()"
 
-        l_02_arb_up ${STL_LIB_D_PATH}/lib.0stl.arb
-        l_04_arb_prc_up ${STL_LIB_D_PATH}/lib.0stl.arb
+        dotstldrc_upper() { # $1 lib_dir_name
+            l_02_arb_up ${STL_LIB_D_PATH}/"${1}"
+            l_04_arb_prc_up ${STL_LIB_D_PATH}/"${1}"
 
-        l_02_arb_tst ${STL_LIB_D_PATH}/lib.0stl.arb || {
-            l_00_echo_ret1 "'$FNN()' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'dotstldrc_arb_tst ${STL_LIB_D_PATH}/lib.0stl.arb' : return 1" >&2
-            return 1
+            l_02_arb_tst ${STL_LIB_D_PATH}/"${1}" || {
+                l_00_echo_ret1 "'$FNN()' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'dotstldrc_arb_tst ${STL_LIB_D_PATH}/${1}' : return 1" >&2
+                return 1
+            }
         }
+        local return1=0
+        local item=
+
+        for item in $(ls "${STL_LIB_D_PATH}"); do
+            if [[ -d "${STL_LIB_D_PATH}/${item}" ]] && ! [[ "_" == "${item:0:1}" ]] && [[ "arb" == "$(l_01_prs_f -e ${STL_LIB_D_PATH}/${item})" ]]; then
+                echo -e "${GREEN}\$item = '$item'${NORMAL}"
+                if ! dotstldrc_upper "$item"; then
+                    return1=1
+                fi
+            fi
+        done
+
+        if [[ 1 -eq "$return1" ]]; then
+            return 1
+        fi
 
         return 0
 

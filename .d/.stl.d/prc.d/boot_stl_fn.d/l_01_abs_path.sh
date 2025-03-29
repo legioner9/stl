@@ -13,7 +13,7 @@ l_01_abs_path() {
     local PPWD=$PWD
     local file_name=${STL_D_PATH}/prc.d/boot_stl_fn.d/${FNN}.sh
 
-    l_00_echo_exec "${FNN}() $*"
+    # l_00_echo_exec "${FNN}() $*"
 
     if [[ -z "$2" ]]; then
         l_00_echo_ret1 "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' : \$2 NOT_DEFINE , hint : '$3' : return 1" 1>&2
