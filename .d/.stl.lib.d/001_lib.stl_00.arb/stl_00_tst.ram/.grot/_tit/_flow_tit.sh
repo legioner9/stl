@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
 
-___PRC_FLOW() {
+___XXX_tit_YYY_FLOW() {
 
-    if ! command -v _PRC >/dev/null; then
-        echo "TYPE_ERROR : _PRC" >&2
+    if ! command -v stl_00_tst >/dev/null; then
+        echo "TYPE_ERROR : stl_00_tst" >&2
         return 1
     fi
 
-    # local filename=${STL_LIB_D_PATH}/{{lib_name_dir_arb}}.arb/_PRC.ram/.grot/_tst/_flow_tst.sh
-    local filename=${STL_LIB_D_PATH}/001_lib.stl_00.arb/_PRC.ram/.grot/_tst/_flow_tst.sh
+    filename=${ST_RC_D_PATH}/.d/.arb/stl0.arb/stl_00_tst.ram/.grot/_tit/_flow_tit.sh
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -27,14 +26,8 @@ ___PRC_FLOW() {
 
     #?----------------------------------------------------
     #?-------------------------------------
-    # echo "start file://$filename"
-    # : >res
 
-    # cd _dir_tst || {
-    #     hint="\$1: \$2: "
-    #     _st_exit "in fs= file://${filename} , line=${LINENO}, ${FNN}() : NOT_DIR : 'file://${idir}/_dir_tst' : ${hint} : return 1"
-    #     return 1
-    # }
+    # : >res
 
     #?-------------------------------------
     #?----------------------------------------------------
@@ -46,4 +39,4 @@ ___PRC_FLOW() {
 
 }
 
-___PRC_FLOW "$@"
+___XXX_tit_YYY_FLOW "$@"

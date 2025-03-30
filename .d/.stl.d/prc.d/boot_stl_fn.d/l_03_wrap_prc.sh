@@ -8,7 +8,7 @@
 
 l_03_wrap_prc() {
 
-    local FNN=$(l_1_prs_f -n ${1})
+    local FNN=$(l_01_prs_f -n ${1})
     local PPWD=$PWD
     local ARGSW=("$@")
     local ARGS=("${ARGSW[@]:1}")
@@ -29,10 +29,13 @@ l_03_wrap_prc() {
 
     local sublib_pth=$(dirname $(dirname ${d_name}))
     local sublib_pfx=$(l_01_prs_f -e2 ${sublib_pth})
+    local sublib_num=$(l_01_prs_f -n2 ${sublib_pth})
     local sublib_nm=$(l_01_prs_f -ne ${sublib_pth})
 
-    local d_data_ram=${STL_DATA_D_PATH}/data.${sublib_pfx}.arb/${FNN}.ram
-    local d_lib_ram=${STL_LIB_D_PATH}/lib.${sublib_pfx}.arb/${FNN}.ram
+    # echo -e "${GREEN}\$sublib_num = '$sublib_num'${NORMAL}"
+
+    local d_data_ram=${STL_DATA_D_PATH}/${sublib_num}.${sublib_pfx}.arb/${FNN}.ram
+    local d_lib_ram=${STL_LIB_D_PATH}/${sublib_num}.${sublib_pfx}.arb/${FNN}.ram
 
     local d_data_grot=${d_data_ram}/.grot
     local d_lib_grot=${d_lib_ram}/.grot

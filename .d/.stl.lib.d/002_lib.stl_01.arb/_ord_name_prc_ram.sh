@@ -8,7 +8,7 @@
 
 echo -e "${CYAN}--- _ord_name_prc_ram_rnd7_4418112() $* in file://${REPO_PATH}/stl/.d/.stl.lib.d/lib.0stl.arb/_ord_name_prc_ram.sh ---${NORMAL}" #started functions
 
-_ord_name_prc_ram_rnd7_4418112() {
+_ord_name_prc_ram_rnd7_4418143() {
 
     # HST :: gig command :: [ufl_stl0 1 1 _ord_name_prc_ram.sh in file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/ufl_stl0.ram/.grot/ufl_stl0.sh] in file://${REPO_PATH}/stl/.d/.stl.lib.d/lib.0stl.arb/_ord.prc
 
@@ -17,7 +17,8 @@ _ord_name_prc_ram_rnd7_4418112() {
     local NARGS=$#
     local PPWD=$PWD
 
-    local path_file="${STL_LIB_D_PATH}/001_lib.stl_00.arb/_ord_name_prc_ram.sh"
+    #! local path_file="${STL_LIB_D_PATH}/002_lib.stl_01.arb/_ord_name_prc_ram.sh"
+    local path_file="${STL_LIB_D_PATH}/002_lib.stl_01.arb/_ord_name_prc_ram.sh"
     local path_dir="$(dirname "$path_file")"
 
     # echo -e "${CYAN}--- $FNN() $* in file://${path_file}---${NORMAL}" #started functions
@@ -87,10 +88,10 @@ ${NORMAL}"
         l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : \$1 NOT_DEFINE : ${hint} : return 1"
         return 1
     }
-
+    # 002_lib.stl_01
     #! get lib_name from args
-    local lib_name="stl_00"
-    local pre_lib="001_lib"
+    local lib_name="stl_01"
+    local pre_lib="002_lib"
     local lib_name_dir_arb=${pre_lib}.${lib_name}.arb
 
     read -p "DO? : cr ${lib_name}_${1}.ram in ${path_dir} : ETR continue or ^C "
@@ -133,4 +134,4 @@ ${NORMAL}"
 
 }
 
-_ord_name_prc_ram_rnd7_4418112 "$@"
+_ord_name_prc_ram_rnd7_4418143 "$@"

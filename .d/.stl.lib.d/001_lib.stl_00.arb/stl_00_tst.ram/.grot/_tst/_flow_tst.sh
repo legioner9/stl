@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
-___PRC_FLOW() {
+__stl_00_tst_FLOW() {
 
-    if ! command -v _PRC >/dev/null; then
-        echo "TYPE_ERROR : _PRC" >&2
+    if ! command -v stl_00_tst >/dev/null; then
+        echo "TYPE_ERROR : stl_00_tst" >&2
         return 1
     fi
 
-    # local filename=${STL_LIB_D_PATH}/{{lib_name_dir_arb}}.arb/_PRC.ram/.grot/_tst/_flow_tst.sh
-    local filename=${STL_LIB_D_PATH}/001_lib.stl_00.arb/_PRC.ram/.grot/_tst/_flow_tst.sh
+    # local filename=${STL_LIB_D_PATH}/{{lib_name_dir_arb}}.arb/stl_00_tst.ram/.grot/_tst/_flow_tst.sh
+    local filename=${STL_LIB_D_PATH}/001_lib.stl_00.arb/stl_00_tst.ram/.grot/_tst/_flow_tst.sh
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -46,4 +46,4 @@ ___PRC_FLOW() {
 
 }
 
-___PRC_FLOW "$@"
+__stl_00_tst_FLOW "$@"
