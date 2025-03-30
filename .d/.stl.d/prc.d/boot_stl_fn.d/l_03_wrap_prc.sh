@@ -94,7 +94,7 @@ l_03_wrap_prc() {
     # fi
 
     if [ -n "$2" ] && [[ "_hie_m" == "$2" ]]; then
-        l_02_edit ${fn_hie_file}
+        more ${fn_hie_file}
         cd $PPWD
         return 0
     fi
