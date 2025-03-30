@@ -13,6 +13,11 @@ l_01_source() { # source $1
     local PPWD=$PWD
     local file_name=${STL_D_PATH}/prc.d/boot_stl_fn.d/${FNN}.sh
 
+    if [[ "_e" == "$1" ]]; then
+        vim ${file_name}
+        return 0
+    fi
+
     l_00_echo_exec "${FNN}() $*"
 
     [ -n "$1" ] || {

@@ -13,6 +13,12 @@ l_01_c_up() { # \$1 dir with execuable files
     local PPWD=$PWD
     local file_name=${STL_D_PATH}/prc.d/boot_stl_fn.d/${FNN}.sh
 
+    if [[ "_e" == "$1" ]]; then
+        vim ${file_name}
+        return 0
+    fi
+
+
     if type l_00_echo_exec &>/dev/null; then
         l_00_echo_exec "${FNN}() $*"
     else

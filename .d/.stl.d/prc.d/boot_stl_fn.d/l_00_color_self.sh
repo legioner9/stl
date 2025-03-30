@@ -8,13 +8,26 @@
 
 l_00_color_self() {
     # echo -e "${CYAN}--- start : ${FUNCNAME}() $@ ---${NORMAL}"
+    local FNN=${FUNCNAME[0]}
+    local PPWD=$PWD
+    local file_name=${STL_D_PATH}/prc.d/boot_stl_fn.d/${FNN}.sh
 
-    if [ "-h" == "$1" ]; then
+    if [[ "_e" == "$1" ]]; then
+        vim ${file_name}
+        return 0
+    fi
+
+    if [[ "-h" == "$1" ]]; then
         echo -e "
-MAIN: ${FUNCNAME} :: 
+MAIN: ${FNN} :: up to mem color constants
 TAGS:
 \$1 
 [, \$2]
+CNTL: 
+    -h : help
+    _e : _edit body      : vim ${sh_file}
+EXAM: 
+    ${FNN}
 "
         return 0
     fi
@@ -278,7 +291,6 @@ TAGS:
     ECHO_SYS=$FNL$EMH$RVC
     ECHO_RET1=$FRL$EDH$RVC
     ECHO_QUES=$FC$EDH$RVC
-
 
 }
 

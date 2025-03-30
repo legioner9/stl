@@ -15,6 +15,12 @@ l_03_wrap_prc() {
     local NARGS=$(($# - 1))
     local verbose=0
     local estat=
+    local file_name=${STL_D_PATH}/prc.d/boot_stl_fn.d/${FNN}.sh
+    
+    if [[ "_e" == "$1" ]]; then
+        l_02_edit ${file_name}
+        return 0
+    fi
 
     # l_00_echo_exec "${FNN}() $*"
 

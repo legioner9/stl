@@ -6,7 +6,12 @@ l_01_is_root() {
     local PPWD=$PWD
     local file_name=${STL_D_PATH}/prc.d/boot_stl_fn.d/${FNN}.sh
 
-    l_00_echo_exec "${FNN}() $*"
+    if [[ "_e" == "$1" ]]; then
+        vim ${file_name}
+        return 0
+    fi
+
+    # l_00_echo_exec "${FNN}() $*"
 
     local arg1="$1"
 

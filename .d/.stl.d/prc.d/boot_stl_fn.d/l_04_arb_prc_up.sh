@@ -14,6 +14,13 @@ l_04_arb_prc_up() { # \$1 dir with executable arb
     local ARGS=("$@")
     local NARGS=$#
 
+    local file_name=${STL_D_PATH}/prc.d/boot_stl_fn.d/${FNN}.sh
+
+    if [[ "_e" == "$1" ]]; then
+        l_02_edit ${file_name}
+        return 0
+    fi
+
     l_00_echo_exec "${FNN}() $*" "${FNN}() $*"
 
     #! IFS to default value
