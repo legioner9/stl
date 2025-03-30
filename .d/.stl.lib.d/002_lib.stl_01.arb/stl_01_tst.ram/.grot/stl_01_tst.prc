@@ -6,7 +6,7 @@
 
 # ENV: ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 
-__PRC() {
+_stl_01_tst() {
 
     #? ----- START _XXX body_flow -----
 
@@ -64,9 +64,7 @@ __PRC() {
     #     #* define local variables
 
     #* {{fn_sh_body}}
-
-    l_00_echo_exec "$FNN() $* in file://${fn_sh_file}" #started functions
-    
+    echo -e "${CYAN}--- $FNN() $* in file://${fn_sh_file} ---${NORMAL}" #started functions
 
     local hint="hint -> "
     if [ -n "$1" ] && [ "-h" == "$1" ]; then
@@ -136,7 +134,7 @@ ${NORMAL}"
     #? ----- END _XXX body -----
 }
 
-__PRC "$@"
+_stl_01_tst "$@"
 
 # tst_prc_stl_00_before_return
 # cd "$PPWD" || echo "in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2

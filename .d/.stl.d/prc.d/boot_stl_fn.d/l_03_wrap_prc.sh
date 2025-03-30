@@ -8,7 +8,7 @@
 
 l_03_wrap_prc() {
 
-    local FNN=$(l_01_prs_f -n ${1})
+    local FNN=$(l_01_prs_f -n "${1}")
     local PPWD=$PWD
     local ARGSW=("$@")
     local ARGS=("${ARGSW[@]:1}")
@@ -17,6 +17,11 @@ l_03_wrap_prc() {
     local estat=
 
     # l_00_echo_exec "${FNN}() $*"
+
+    if ! [[ -d ${PPWD} ]]; then
+        l_00_echo_ret1 "in fs= file://${sh_file} , line=${LINENO}, ${FNN}() : \${PWD} NOT_DIR : 'file://${PPWD}' : ${hint} : return 1"
+        return 1
+    fi
 
     #* local opt_dir=${STL_DATA_D_PATH}/data.0stl.arb/tst_prc_0stl.ram/.grot/.opt
     #* local depo_dir=${STL_DATA_D_PATH}/data.0stl.arb/tst_prc_0stl.ram/.grot/.depo

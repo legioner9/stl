@@ -11,7 +11,7 @@ l_01_is_root() {
     local arg1="$1"
 
     if [[ -z "${arg1}" ]]; then
-        echo "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' : \$1 NOT_DEFINE : return 1" 1>&2
+        l_00_echo_ret1 "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' : \$1 NOT_DEFINE : return 1" 1>&2
         return 1
     fi
     if [[ "/" == "${arg1:0:1}" ]]; then
