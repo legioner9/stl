@@ -4,7 +4,7 @@
 ### Part of the STL shell subsystem
 ### Location ${STL_D_PATH}/prc.d/boot_stl_fn.d
 
-# ENV: ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
+# ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
 l_01_abs_path() {
@@ -18,15 +18,30 @@ l_01_abs_path() {
         return 0
     fi
 
+    if [[ "-h" == "$1" ]]; then
+        echo -e "
+MAIN: ${FNN} :: echo abs_path if \$1 PWD \$2 ptr to upath or @ instead empty \$2
+TAGS:
+\$1 
+[, \$2]
+CNTL: 
+    -h : help
+    _e : _edit body      : vim ${sh_file}
+EXAM: 
+    ${FNN}
+"
+        return 0
+    fi
+
     # l_00_echo_exec "${FNN}() $*"
 
     if [[ -z "$2" ]]; then
-        l_00_echo_ret1 "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' : \$2 NOT_DEFINE , hint : '$3' : return 1" 1>&2
+        l_00_echo_err "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' : \$2 NOT_DEFINE , hint : '$3' : return 1" 
         return 1
     fi
     local dpwd="$1"
     if ! [[ "/" == "${dpwd:0:1}" ]]; then
-        l_00_echo_ret1 "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' : '${dpwd}' NOT_ROOT , hint : '$3' : return 1" 1>&2
+        l_00_echo_err "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' : '${dpwd}' NOT_ROOT , hint : '$3' : return 1" 
         return 1
     fi
     eval local arg2=\${$2}
@@ -35,7 +50,7 @@ l_01_abs_path() {
         return 0
     fi
     if [[ -z "$arg2" ]]; then
-        l_00_echo_ret1 "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' : \$\$2 => '\$$2' NOT_DEFINE , hint : '$3' : return 1" 1>&2
+        l_00_echo_err "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' : \$\$2 => '\$$2' NOT_DEFINE , hint : '$3' : return 1" 
         return 1
     fi
 

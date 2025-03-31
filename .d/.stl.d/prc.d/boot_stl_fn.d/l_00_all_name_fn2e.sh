@@ -1,5 +1,12 @@
 #!/bin/bash
 
+### Written by Legioner9 for the universe
+### Part of the STL shell subsystem
+### Location ${STL_D_PATH}/prc.d/boot_stl_fn.d
+
+# ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
+# "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
+
 l_00_all_name_fn2e() {
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
@@ -26,4 +33,5 @@ EXAM:
     fi
 
     declare -F -p | cut -d " " -f 3
+    alias
 }

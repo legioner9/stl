@@ -4,7 +4,7 @@
 ### Part of the STL shell subsystem
 ### Location ${STL_D_PATH}/prc.d/boot_stl_fn.d
 
-# ENV: ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
+# ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
 l_04_arb_prc_up() { # \$1 dir with executable arb
@@ -28,11 +28,11 @@ l_04_arb_prc_up() { # \$1 dir with executable arb
 
     if [[ -d "$1" ]]; then
         cd "$1" || {
-            l_00_echo_ret1 "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: FAIL_EXEC :: 'cd $1' :: return 1" >&2
+            l_00_echo_err "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: FAIL_EXEC :: 'cd $1' :: return 1"
             return 1
         }
     else
-        l_00_echo_ret1 "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: \$1='$1' is not dir" >&2
+        l_00_echo_err "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: \$1='$1' is not dir"
         return 1
     fi
 
@@ -78,6 +78,6 @@ l_04_arb_prc_up() { # \$1 dir with executable arb
             eval "type ${name_function}"
         fi
     done
-    cd "$PPWD" || l_00_echo_err "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
+    cd "$PPWD" || l_00_echo_err "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue"
     return 0
 }

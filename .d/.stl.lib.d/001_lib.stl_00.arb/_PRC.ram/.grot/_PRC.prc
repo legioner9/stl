@@ -65,8 +65,11 @@ __PRC() {
 
     #* {{fn_sh_body}}
 
+    #     #! ptr_path
+    #     # local ptr_path="$1"
+    #     # ptr_path="$(_abs_path "${PPWD}" "ptr_path")"
+
     l_00_echo_exec "$FNN() $* in file://${fn_sh_file}" #started functions
-    
 
     local hint="hint -> "
     if [ -n "$1" ] && [ "-h" == "$1" ]; then

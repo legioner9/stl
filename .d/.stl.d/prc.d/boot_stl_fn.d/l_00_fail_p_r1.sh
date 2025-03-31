@@ -4,7 +4,8 @@
 ### Part of the STL shell subsystem
 ### Location ${STL_D_PATH}/prc.d/boot_stl_fn.d
 
-# ENV: ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
+# ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
+# "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
 # nuntius lat. - весть
 
@@ -35,7 +36,7 @@ EXAM:
     fi
 
     echo -e "${ECHO_RET1}$*${NRM}
-${ECHO_ERR}ETR - continue with 'return 1', ^C - exit shell process${NRM}"
+${ECHO_ERR}ETR - continue with 'return 1', ^C - exit shell process${NRM}" >&2
     read -r
     return 1
 }

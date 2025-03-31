@@ -4,7 +4,7 @@
 ### Part of the STL shell subsystem
 ### Location ${STL_D_PATH}/prc.d/boot_stl_fn.d
 
-# ENV: ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
+# ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
 l_01_c_up() { # \$1 dir with execuable files
@@ -18,6 +18,20 @@ l_01_c_up() { # \$1 dir with execuable files
         return 0
     fi
 
+    if [[ "-h" == "$1" ]]; then
+        echo -e "
+MAIN: ${FNN} :: exec (source) recurce in dir \$1 stl_files with ext=.sh
+TAGS:
+\$1 
+[, \$2]
+CNTL: 
+    -h : help
+    _e : _edit body      : vim ${sh_file}
+EXAM: 
+    ${FNN}
+"
+        return 0
+    fi
 
     if type l_00_echo_exec &>/dev/null; then
         l_00_echo_exec "${FNN}() $*"
@@ -30,13 +44,13 @@ l_01_c_up() { # \$1 dir with execuable files
 
     if [[ -d "$1" ]]; then
         cd "$1" || {
-            l_00_echo_ret1 "'$FNN() $*' in file://${STL_D_PATH}/.stldrc :: FAIL_EXEC :: 'cd $1' :: return 1" >&2
-            cd "$PPWD" || l_00_echo_err "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
+            l_00_echo_err "'$FNN() $*' in file://${STL_D_PATH}/.stldrc :: FAIL_EXEC :: 'cd $1' :: return 1"
+            cd "$PPWD" || l_00_echo_err "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue"
             return 1
         }
     else
-        l_00_echo_ret1 "'$FNN() $*' in file://${STL_D_PATH}/.stldrc :: \$1='$1' is not dir" >&2
-        cd "$PPWD" || l_00_echo_err "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
+        l_00_echo_err "'$FNN() $*' in file://${STL_D_PATH}/.stldrc :: \$1='$1' is not dir"
+        cd "$PPWD" || l_00_echo_err "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue"
         return 1
     fi
 

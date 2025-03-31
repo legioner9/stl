@@ -4,7 +4,8 @@
 ### Part of the STL shell subsystem
 ### Location ${STL_D_PATH}/prc.d/boot_stl_fn.d
 
-# ENV: ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
+# ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
+# "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
 l_00_echo_ret1() {
 
@@ -17,7 +18,7 @@ l_00_echo_ret1() {
         return 0
     fi
 
-        if [[ "-h" == "$1" ]]; then
+    if [[ "-h" == "$1" ]]; then
         echo -e "
 MAIN: ${FNN} :: stdout \$1 like fail and return 1
 TAGS:
@@ -32,6 +33,6 @@ EXAM:
         return 0
     fi
 
-    echo -e "$FRL$EDH$RVC$*$NRM"
+    echo -e "$FRL$EDH$RVC$*$NRM" >&2
 
 }
