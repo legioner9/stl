@@ -15,12 +15,17 @@ l_00_fail_p_r1() {
     local PPWD=$PWD
     local file_name=${STL_D_PATH}/prc.d/boot_stl_fn.d/${FNN}.sh
 
+    if ! [[ -d "${PPWD}" ]]; then
+        echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+        return 1
+    fi
+
     if [[ "_e" == "$1" ]]; then
         vim ${file_name}
         return 0
     fi
 
-        if [[ "-h" == "$1" ]]; then
+    if [[ "-h" == "$1" ]]; then
         echo -e "
 MAIN: ${FNN} :: stdout \$1 like return 1 with pause
 TAGS:
@@ -32,11 +37,22 @@ CNTL:
 EXAM: 
     ${FNN}
 "
+        cd "${PPWD}" || {
+            echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+            return 1
+        }
+
         return 0
     fi
 
     echo -e "${ECHO_RET1}$*${NRM}
 ${ECHO_ERR}ETR - continue with 'return 1', ^C - exit shell process${NRM}" >&2
     read -r
+
+    cd "${PPWD}" || {
+        echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+        return 1
+    }
+
     return 1
 }

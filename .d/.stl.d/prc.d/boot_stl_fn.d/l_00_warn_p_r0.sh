@@ -13,6 +13,11 @@ l_00_warn_p_r0() {
     local PPWD=$PWD
     local file_name=${STL_D_PATH}/prc.d/boot_stl_fn.d/${FNN}.sh
 
+    if ! [[ -d "${PPWD}" ]]; then
+        echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+        return 1
+    fi
+
     if [[ "_e" == "$1" ]]; then
         vim ${file_name}
         return 0
@@ -30,11 +35,22 @@ CNTL:
 EXAM: 
     ${FNN}
 "
+        cd "${PPWD}" || {
+            echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+            return 1
+        }
+
         return 0
     fi
 
     echo -e "${ECHO_WARN}$*${NRM}
 ${ECHO_INFO}ETR - continue, ^C - exit process${NRM}"
     read -r
+
+    cd "${PPWD}" || {
+        echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+        return 1
+    }
+
     return 0
 }

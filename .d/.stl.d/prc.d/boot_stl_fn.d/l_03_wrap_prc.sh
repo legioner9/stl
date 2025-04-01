@@ -17,7 +17,12 @@ l_03_wrap_prc() {
     local verbose=0
     local estat=
     local file_name=${STL_D_PATH}/prc.d/boot_stl_fn.d/${FNN}.sh
-    
+
+    if ! [[ -d "${PPWD}" ]]; then
+        echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+        return 1
+    fi
+
     if [[ "_e" == "$1" ]]; then
         l_02_edit ${file_name}
         return 0

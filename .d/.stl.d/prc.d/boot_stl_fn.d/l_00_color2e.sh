@@ -18,6 +18,11 @@ l_00_color2e() {
     local PPWD=$PWD
     local file_name=${STL_D_PATH}/prc.d/boot_stl_fn.d/${FNN}.sh
 
+    if ! [[ -d "${PPWD}" ]]; then
+        echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+        return 1
+    fi
+
     if [[ "_e" == "$1" ]]; then
         vim ${file_name}
         return 0

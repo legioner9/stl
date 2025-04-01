@@ -5,10 +5,11 @@
 ### Location ${STL_D_PATH}/prc.d/boot_stl_fn.d
 
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
-# "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
+# "${ECHO_ERR}$FNN() $*' in file://${file_name} , line=${LINENO} :: CAUS_NAME [VAR] 'code' :: return 1${NRM}" >&2
+# cd ${PPWD} || echo -e "${ECHO_WAR}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [\${PPWD}] '${PPWD}' return 1${NRM}" >&2
 
-l_00_echo_sys() {
-
+l_00_date() {
+    #* START init block ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
     local file_name=${STL_D_PATH}/prc.d/boot_stl_fn.d/${FNN}.sh
@@ -20,12 +21,16 @@ l_00_echo_sys() {
 
     if [[ "_e" == "$1" ]]; then
         vim ${file_name}
+        cd "${PPWD}" || {
+            echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+            return 1
+        }
         return 0
     fi
 
     if [[ "-h" == "$1" ]]; then
         echo -e "
-MAIN: ${FNN} :: stdout \$1 like system 
+MAIN: ${FNN} :: stdout %s_%d%m%Y%H%M%S
 TAGS:
 \$1 
 [, \$2]
@@ -39,17 +44,22 @@ EXAM:
             echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
             return 1
         }
-
         return 0
     fi
+    echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+        #* END init block ------------------
+        
+    local dt=
+    local st=
 
-    echo -e "$FNL$EMH$RVC$*$NRM"
+    dt=$(date +%d%m%Y%H%M%S)
+    st=$(date +%s)
+    echo "${st}_${dt}"
 
     cd "${PPWD}" || {
         echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
         return 1
     }
-
     return 0
 
 }

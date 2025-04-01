@@ -13,6 +13,11 @@ l_00_err_name2e() {
     local PPWD=$PWD
     local file_name=${STL_D_PATH}/prc.d/boot_stl_fn.d/${FNN}.sh
 
+    if ! [[ -d "${PPWD}" ]]; then
+        echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+        return 1
+    fi
+
     if [[ "_e" == "$1" ]]; then
         vim ${file_name}
         return 0
@@ -30,6 +35,11 @@ CNTL:
 EXAM: 
     ${FNN}
 "
+        cd "${PPWD}" || {
+            echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+            return 1
+        }
+
         return 0
     fi
 
@@ -43,5 +53,13 @@ DIR_NOT_EXIST
 ARGS_NUBER
 FAIL_EXEC
 TRUE_EXEC        
+
 "
+
+    cd "${PPWD}" || {
+        echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+        return 1
+    }
+
+    return 0
 }

@@ -13,6 +13,11 @@ l_01_abs_path() {
     local PPWD=$PWD
     local file_name=${STL_D_PATH}/prc.d/boot_stl_fn.d/${FNN}.sh
 
+    if ! [[ -d "${PPWD}" ]]; then
+        echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+        return 1
+    fi
+
     if [[ "_e" == "$1" ]]; then
         vim ${file_name}
         return 0
@@ -30,18 +35,23 @@ CNTL:
 EXAM: 
     ${FNN}
 "
+        cd "${PPWD}" || {
+            echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+            return 1
+        }
+
         return 0
     fi
 
     # l_00_echo_exec "${FNN}() $*"
 
     if [[ -z "$2" ]]; then
-        l_00_echo_err "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' : \$2 NOT_DEFINE , hint : '$3' : return 1" 
+        l_00_echo_ret1 "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' : \$2 NOT_DEFINE , hint : '$3' : return 1"
         return 1
     fi
     local dpwd="$1"
     if ! [[ "/" == "${dpwd:0:1}" ]]; then
-        l_00_echo_err "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' : '${dpwd}' NOT_ROOT , hint : '$3' : return 1" 
+        l_00_echo_ret1 "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' : '${dpwd}' NOT_ROOT , hint : '$3' : return 1"
         return 1
     fi
     eval local arg2=\${$2}
@@ -50,7 +60,7 @@ EXAM:
         return 0
     fi
     if [[ -z "$arg2" ]]; then
-        l_00_echo_err "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' : \$\$2 => '\$$2' NOT_DEFINE , hint : '$3' : return 1" 
+        l_00_echo_ret1 "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' : \$\$2 => '\$$2' NOT_DEFINE , hint : '$3' : return 1"
         return 1
     fi
 
@@ -60,5 +70,12 @@ EXAM:
     else
         echo ${dpwd}/${arg2}
     fi
+
+    cd "${PPWD}" || {
+        echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+        return 1
+    }
+
+    return 0
 
 }

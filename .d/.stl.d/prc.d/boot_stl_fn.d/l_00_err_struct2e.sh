@@ -13,12 +13,17 @@ l_00_err_struct2e() {
     local PPWD=$PWD
     local file_name=${STL_D_PATH}/prc.d/boot_stl_fn.d/${FNN}.sh
 
+    if ! [[ -d "${PPWD}" ]]; then
+        echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+        return 1
+    fi
+
     if [[ "_e" == "$1" ]]; then
         vim ${file_name}
         return 0
     fi
 
-        if [[ "-h" == "$1" ]]; then
+    if [[ "-h" == "$1" ]]; then
         echo -e "
 MAIN: ${FNN} :: stdout error string standart
 TAGS:
@@ -30,6 +35,11 @@ CNTL:
 EXAM: 
     ${FNN}
 "
+        cd "${PPWD}" || {
+            echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+            return 1
+        }
+
         return 0
     fi
 
@@ -37,5 +47,12 @@ EXAM:
 expl: str_expl
 evnt: nm_err :: 'bdy_err'
 actn: return num_ret >&2"
+
+    cd "${PPWD}" || {
+        echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+        return 1
+    }
+
+    return 0
 
 }

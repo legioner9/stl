@@ -13,6 +13,11 @@ l_01_prs_f() {
     local PPWD=$PWD
     local file_name=${STL_D_PATH}/prc.d/boot_stl_fn.d/${FNN}.sh
 
+    if ! [[ -d "${PPWD}" ]]; then
+        echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+        return 1
+    fi
+
     if [[ "_e" == "$1" ]]; then
         vim ${file_name}
         return 0
@@ -40,10 +45,14 @@ path=/the/path/_foo.txt
 \$(l_01_prs_f -pr $path)  : $(l_01_prs_f -pr $path)   
 \$(l_01_prs_f -po $path)  : $(l_01_prs_f -po $path)    
 ----------------------${NORMAL}"
+        cd "${PPWD}" || {
+            echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+            return 1
+        }
         return 0
     else
         if [ $# -ne 2 ]; then
-            l_00_echo_err "_prs_f() mast be 2 parameters : illegal number of parameters : return 1"
+            l_00_echo_ret1 "_prs_f() mast be 2 parameters : illegal number of parameters : return 1"
             return 1
         fi
         name_ext="${2##*/}"
@@ -73,7 +82,7 @@ path=/the/path/_foo.txt
                                     if [ "$1" = "-po" ]; then
                                         echo "${name_ext:1}"
                                     else
-                                        l_00_echo_err "$1: parameter mastby: -d -ne -n -n2 -e -e2 -pr -po : return 1"
+                                        l_00_echo_ret1 "$1: parameter mastby: -d -ne -n -n2 -e -e2 -pr -po : return 1"
                                         return 1
                                     fi
                                 fi
@@ -84,4 +93,11 @@ path=/the/path/_foo.txt
             fi
         fi
     fi
+
+    cd "${PPWD}" || {
+        echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+        return 1
+    }
+    
+    return 0
 }
