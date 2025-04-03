@@ -32,5 +32,5 @@ l_01_stl_init() { # source .stldrc
         echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
         return 1
     }
-    return N
+    return 0
 }
