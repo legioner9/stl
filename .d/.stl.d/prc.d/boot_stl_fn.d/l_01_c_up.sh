@@ -72,7 +72,7 @@ EXAM:
         item_path=$dir/$item
 
         if [ -f "$item_path" ] && [ "${item:0:1}" != "_" ] && [ "${item##*.}" == "sh" ]; then
-
+            l_00_echo_code ". file://$item_path"
             . "$item_path" || {
                 fail_flag=1
                 l_00_echo_err "'$FNN() $*' :: EXEC_FAIL '. file://$item_path' :: fail_flag=1 :: continue"

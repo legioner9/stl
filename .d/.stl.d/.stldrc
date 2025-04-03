@@ -8,18 +8,22 @@
 
 .stldrc.() {
     local stl_boot_prc_d=${STL_D_PATH}/prc.d/boot_stl_fn.d
+    local return1=0
 
     # up_to_mem l1_c_up
     source ${stl_boot_prc_d}/l_01_c_up.sh
 
     # up_to_mem all in ${stl_prc_d}/boot_stl_fn.d
-    l_01_c_up ${stl_boot_prc_d}
+    l_01_c_up ${stl_boot_prc_d} || {
+        return1=1
+    }
 
     dotstldrc_boot_stl() {
 
         local FNN=${FUNCNAME[0]}
         local PPWD=$PWD
         local sh_file=${STL_D_PATH}/.stldrc
+        
         l_00_echo_exec "${FNN}()"
 
         dotstldrc_upper() { # $1 lib_dir_name
@@ -31,7 +35,7 @@
                 return 1
             }
         }
-        local return1=0
+
         local item=
 
         for item in $(ls "${STL_LIB_D_PATH}"); do
@@ -130,7 +134,7 @@
     }
 
     dotstldrc_boot_stl || {
-        l_00_echo_ret1 "in file://${STL_D_PATH}/.stldrc :: EXEC_FAIL 'dotstlrc_boot_stl' :: return 1" >&2
+        l_00_echo_ret1 "in file://${STL_D_PATH}/.stldrc :: EXEC_FAIL 'dotstlrc_boot_stl' :: return 1"
         cd ${PPWD}
         return 1
     }
