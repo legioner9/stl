@@ -8,7 +8,7 @@
 # "${ECHO_ERR}$FNN() $*' in file://${file_name} , line=${LINENO} :: CAUS_NAME [VAR] 'code' :: return 1${NRM}" >&2
 # cd ${PPWD} || echo -e "${ECHO_WAR}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [\${PPWD}] '${PPWD}' return 1${NRM}" >&2
 
-l_00_date() {
+_XXX() {
     #* START init block ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
@@ -32,7 +32,7 @@ l_00_date() {
 
     if [[ "-h" == "$1" ]]; then
         echo -e "
-MAIN: ${FNN} :: stdout %s_%d%m%Y%H%M%S
+MAIN: ${FNN} :: 
 TAGS:
 \$1 
 [, \$2]
@@ -49,16 +49,12 @@ EXAM:
         return 0
     fi
 
-    #* END init block ------------------    
+    #* END init block ------------------
+
+    #* START fn block ------------------
     echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
-
-    local dt=
-    local st=
-
-    dt=$(date +%d%m%Y%H%M%S)
-    st=$(date +%s)
-    echo "${st}_${dt}"
+    #* END fn block ------------------
 
     cd "${PPWD}" || {
         echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
