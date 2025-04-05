@@ -5,6 +5,7 @@
 ### Location ${STL_D_PATH}/prc.d/boot_stl_fn.d
 
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
+# "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
 __XXX() {
 
@@ -21,7 +22,6 @@ __XXX() {
     l_00_echo_info "test XXX in file://${filename}"
 
     # cd "$(prs_f -d $filename)" || qq_exit "$(prs_f -d filename) not found"
-
 
     cd "${idir}" || {
         echo "${idir} not dir" >&2
@@ -55,6 +55,6 @@ __XXX() {
 }
 
 if ! __XXX "$@"; then
-    _st_exit "in fs= file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/utl2dfn_stl0.ram/.grot/_tst/exec._tst , line=${LINENO}: : EXEC_FAIL : '__utl2dfn_stl0_TST ' : ${hint} : return 1"
+    l_00_echo_ret1 "in fs= file://${filename} , line=${LINENO}: : EXEC_FAIL : '__XXX ' : return 1"
     return 1
 fi

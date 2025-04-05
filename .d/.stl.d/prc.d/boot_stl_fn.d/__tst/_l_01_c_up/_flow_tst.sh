@@ -18,6 +18,8 @@ _l_01_c_up() {
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
+    local tst_dir=${idir}/tst_dir
+    local res=${idir}/res
 
     local ARGS0="$1"
     local ARGS1="$2"
@@ -27,14 +29,16 @@ _l_01_c_up() {
     local NARGS=$#
 
     cd "${idir}" || {
-        echo "${idir} not dir" >&2
+        l_00_echo_ret1 "${idir} not dir"
         return 1
     }
 
     #?----------------------------------------------------
     #?-------------------------------------
-    # echo "start file://$filename"
-    # : >res
+    l_00_echo_exec "source file://$filename"
+    : >"${res}"
+
+    l_01_c_up "${tst_dir}" &>"${res}"
 
     # cd _dir_tst || {
     #     hint="\$1: \$2: "
@@ -46,7 +50,7 @@ _l_01_c_up() {
     #?----------------------------------------------------
 
     cd "${PW}" || {
-        echo "${PW} not dir" >&2
+        l_00_echo_ret1 "${PW} not dir"
         return 1
     }
 

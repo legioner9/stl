@@ -244,10 +244,27 @@ $FN$EDH EDH - greyh ground $NRM
     l_00_echo_warn  : ECHO_WARN=$FNL$EYH$RVC \$FNL\$EYH\$RVC $NRM
     l_00_echo_info  : ECHO_INFO=$FNL$EGH$RVC \$FNL\$EGH\$RVC $NRM
     l_00_echo_code  : ECHO_CODE=$FNL$ECH$RVC \$FNL\$ECH\$RVC $NRM
-    l_00_echo_code  : ECHO_EXEC=$FNL$EBH$RVC \$FNL\$EBH\$RVC $NRM
+    l_00_echo_exec  : ECHO_EXEC=$FNL$EBH$RVC \$FNL\$EBH\$RVC $NRM
     l_00_echo_sys   : ECHO_SYS =$FNL$EMH$RVC \$FNL\$EMH\$RVC $NRM
     l_00_echo_ret1  : ECHO_RET1=$FRL$EDH$RVC \$FRL\$EDH\$RVC $NRM
     l_00_echo_ques  : ECHO_QUES=$FCL$EDH$RVC \$FCL\$EDH\$RVC $NRM
+    l_00_echo_succ  : ECHO_SUCC=$FML$EGH$RVC \$FML\$EGH\$RVC $NRM
+    l_00_echo_fail  : ECHO_FAIL=$FML$ERH$RVC \$FML\$ERH\$RVC $NRM
+    l_00_echo_yes   : ECHO_YES=$FBL$EGH$RVC \$FBL\$EGH\$RVC $NRM
+    l_00_echo_no    : ECHO_NO=$FBL$ERH$RVC \$FBL\$ERH\$RVC $NRM
+
+    $FNL$ERH \$FNL\$ERH $NRM
+    $FNL$EGH \$FNL\$EGH $NRM
+
+    $FRL$EDH$RVC \$FRL\$EDH\$RVC $NRM
+    $FGL$EDH$RVC \$FGL\$EDH\$RVC $NRM
+    $FYL$EDH$RVC \$FYL\$EDH\$RVC $NRM
+    $FBL$EDH$RVC \$FBL\$EDH\$RVC $NRM
+    $FML$EDH$RVC \$FML\$EDH\$RVC $NRM
+    $FCL$EDH$RVC \$FCL\$EDH\$RVC $NRM
+    $FDL$EDH$RVC \$FDL\$EDH\$RVC $NRM
+    $FWL$EDH$RVC \$FWL\$EDH\$RVC $NRM
+
 
     "
     return 0
