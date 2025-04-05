@@ -7,14 +7,14 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_XXX() {
+_l_99_tst_l() {
 
-    if ! command -v XXX >/dev/null; then
-        l_00_echo_ret1 "TYPE_ERROR : XXX"
+    if ! command -v l_99_tst_l >/dev/null; then
+        l_00_echo_ret1 "TYPE_ERROR : l_99_tst_l"
         return 1
     fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/_XXX/_flow_tst.sh
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/_l_99_tst_l/_flow_tst.sh
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -38,7 +38,7 @@ _XXX() {
     l_00_echo_exec "source file://$filename"
     : >"${res}"
 
-    # XXX "${tst_dir}" &>"${res}"
+    # l_99_tst_l "${tst_dir}" &>"${res}"
 
     # cd _dir_tst || {
     #     hint="\$1: \$2: "
@@ -56,4 +56,4 @@ _XXX() {
 
 }
 
-_XXX "$@"
+_l_99_tst_l "$@"
