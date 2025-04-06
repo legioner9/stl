@@ -52,7 +52,7 @@ EXAM:
     #* END init block ------------------
 
     #* START fn block ------------------
-    echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+    #{{fn_body}}
 
     #* END fn block ------------------
 

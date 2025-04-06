@@ -8,7 +8,7 @@
 # "${ECHO_ERR}$FNN() $*' in file://${file_name} , line=${LINENO} :: CAUS_NAME [VAR] 'code' :: return 1${NRM}" >&2
 # cd ${PPWD} || echo -e "${ECHO_WAR}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [\${PPWD}] '${PPWD}' return 1${NRM}" >&2
 
-l_99_tst_l() {
+tst() {
     #* START init block ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
@@ -52,13 +52,21 @@ EXAM:
     #* END init block ------------------
 
     #* START fn block ------------------
-    #? for copy to help block
-    # MAIN: ${FNN} ::
-    # TAGS:
-    # \$1
-    # [, \$2]
-    echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+    #[[fn_body]]
 
+#? for copy to help block
+# MAIN: ${FNN} :: 
+# TAGS:
+# \$1 
+# [, \$2]
+# CNTL: 
+#     -h : help
+#     _e : _edit body      : vim ${sh_file}
+# EXAM: 
+#     ${FNN}
+echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+
+echo "true 2"
     #* END fn block ------------------
 
     cd "${PPWD}" || {
