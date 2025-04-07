@@ -14,15 +14,22 @@ _XXX() {
     local PPWD=$PWD
     local NARGS=$#
 
-    local file_name=${STL_D_PATH}/prc.d/boot_stl_fn.d/${FNN}.sh
+    local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
+    local prc_dr=${fn_dir}/__prc
+    local tst_dr=${fn_dir}/__tst
+
+    local fn_fl=${fn_dir}/${FNN}.sh
+    local prc_fl=${prc_dr}/_${FNN}.prc
+    local fn_fl=${fn_dir}/${FNN}.sh
+
 
     if ! [[ -d "${PPWD}" ]]; then
         echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
         return 1
     fi
 
-    if [[ "_e" == "$1" ]]; then
-        vim ${file_name}
+    if [[ "_go" == "$1" ]]; then
+        l_02_edit ${file_name}
         cd "${PPWD}" || {
             echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
             return 1
@@ -38,7 +45,10 @@ TAGS:
 [, \$2]
 CNTL: 
     -h : help
-    _e : _edit body      : vim ${sh_file}
+    _go : edit body      : l_02_edit ${sh_file}
+    _t_e : edit tst dir  : l_02_edit  
+    _t_x : exec tst file : . 
+    _p_e : edit prc file : l_02_edit ${prc_dir}/_
 EXAM: 
     ${FNN}
 "
