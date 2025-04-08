@@ -38,7 +38,7 @@ _l_01_c_up() {
     l_00_echo_exec "source file://$filename"
     : >"${res}"
 
-    l_01_c_up "${tst_dir}" &>"${res}"
+    # l_01_c_up "${tst_dir}" &>"${res}"
 
     # cd _dir_tst || {
     #     hint="\$1: \$2: "

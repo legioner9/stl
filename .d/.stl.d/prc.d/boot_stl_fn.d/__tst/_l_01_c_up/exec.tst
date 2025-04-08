@@ -19,7 +19,7 @@ __l_01_c_up() {
     local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/_l_01_c_up/exec.tst
     local idir="$(dirname ${filename})"
 
-    l_00_echo_info "test l_01_c_up in file://${filename}"
+    l_00_echo_info "test function l_01_c_up in file://${filename}"
 
     # cd "$(prs_f -d $filename)" || qq_exit "$(prs_f -d filename) not found"
 
