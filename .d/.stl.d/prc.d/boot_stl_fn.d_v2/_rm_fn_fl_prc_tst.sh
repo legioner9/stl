@@ -1,17 +1,17 @@
 #!/bin/bash
 
-echo -e "${CYAN}--- _ord_sh_prc_tst_for_l_xx_rnd7_7260537() $* in file://${REPO_PATH}/stl/.d/.stl.d/prc.d/boot_stl_fn.d/_ord_sh_prc_tst_for_l_xx.sh ---${NORMAL}" #started functions
+echo -e "${CYAN}--- _rm_fn_fl_prc_tst_rnd7_f3391bd() $* in file://${REPO_PATH}/stl/.d/.stl.d/prc.d/boot_stl_fn.d/_rm_fn_fl_prc_tst.sh ---${NORMAL}" #started functions
 
-_ord_sh_prc_tst_for_l_xx_rnd7_7260537() {
+_rm_fn_fl_prc_tst_rnd7_f3391bd() {
 
-    # HST :: gig command :: [ufl_stl0 1 1 _ord_sh_prc_tst_for_l_xx.sh in file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/ufl_stl0.ram/.grot/ufl_stl0.sh] in file://${REPO_PATH}/stl/.d/.stl.d/prc.d/boot_stl_fn.d
+    # HST :: gig command :: [ufl_stl0 1 1 _rm_fn_fl_prc_tst.sh in file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/ufl_stl0.ram/.grot/ufl_stl0.sh] in file://${REPO_PATH}/stl/.d/.stl.d/prc.d/boot_stl_fn.d
 
     local FNN=${FUNCNAME[0]}
     local ARGS=("$@")
     local NARGS=$#
     local PPWD=$PWD
 
-    local path_file="${REPO_PATH}/stl/.d/.stl.d/prc.d/boot_stl_fn.d/_ord_sh_prc_tst_for_l_xx.sh"
+    local path_file="${REPO_PATH}/stl/.d/.stl.d/prc.d/boot_stl_fn.d/_rm_fn_fl_prc_tst.sh"
     local path_dir="$(dirname "$path_file")"
 
     # echo -e "${CYAN}--- $FNN() $* in file://${path_file}---${NORMAL}" #started functions
@@ -75,31 +75,32 @@ ${NORMAL}"
 
     echo "START BODY FN : ${FNN}() $*"
 
-    local fn_dir=${STL_D_PATH}/prc.d/boot_stl_fn.d
-
     [[ -n "$1" ]] || {
         l_00_echo_ret1 "\$1 EMPTY {fn_name like 'l_04_eee'} :: return 1"
         return 1
     }
 
-    local ret1=
+    local fn_name="$1"
 
-    . ${fn_dir}/_ord_file_with_l_xx.sh || ret1=1
-    . ${fn_dir}/__tst/_ord_tst_dir_for_l_xx.sh || ret1=1
-    . ${fn_dir}/__prc/_ord_prc_fl_for_l_xx.sh || ret1=1
+    cd ${path_dir} || return 1
+
+    # [[ -f "${path_dir}/${fn_name}.sh" ]] || {
+    #     l_00_echo_ret1 "NOT_FILE :: ${path_dir}/${fn_name}.sh return 1"
+
+    #     return 1
+    # }
+
+    rm "${path_dir}/${fn_name}.sh"
+    rm "${path_dir}/__prc/_${fn_name}.prc"
+    rm -r "${path_dir}/__tst/_${fn_name}"
 
     #{{body_fn}}
 
     #! END BODY FN ---------------------------------------
-
-    [[ 1 -eq "$ret1" ]] && {
-        cd $PPWD
-        return 1
-    }
 
     cd $PPWD
     return 0
 
 }
 
-_ord_sh_prc_tst_for_l_xx_rnd7_7260537 "$@"
+_rm_fn_fl_prc_tst_rnd7_f3391bd "$@"

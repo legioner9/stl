@@ -7,19 +7,19 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-__tst() {
+__l_01_c_up() {
 
     local PW=$(pwd)
 
-    if ! command -v tst >/dev/null; then
-        echo "TYPE_ERROR : tst" >&2
+    if ! command -v l_01_c_up >/dev/null; then
+        echo "TYPE_ERROR : l_01_c_up" >&2
         return 1
     fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/_tst/exec.tst
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/_l_01_c_up/exec.tst
     local idir="$(dirname ${filename})"
 
-    l_00_echo_info "test function tst in file://${filename}"
+    l_00_echo_info "test l_01_c_up in file://${filename}"
 
     # cd "$(prs_f -d $filename)" || qq_exit "$(prs_f -d filename) not found"
 
@@ -54,7 +54,7 @@ __tst() {
 
 }
 
-if ! __tst "$@"; then
-    l_00_echo_ret1 "EXEC_FAIL for fuction : 'tst' : GOTO file://${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/_tst : return 1"
+if ! __l_01_c_up "$@"; then
+    l_00_echo_ret1 "EXEC_FAIL for fuction : 'l_01_c_up' : GOTO file://${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/_l_01_c_up : return 1"
     return 1
 fi
