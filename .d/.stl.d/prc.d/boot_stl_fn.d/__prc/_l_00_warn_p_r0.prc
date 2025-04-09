@@ -1,7 +1,7 @@
 #? for copy to help block
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: stdout STL like warning and wait ETR or ^C
 TAGS:
 \$1 
 [, \$2]
@@ -17,4 +17,8 @@ CNTL:
     return 0
 fi
 
-echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+
+echo -e "${ECHO_WARN}$*${NRM}
+${ECHO_INFO}ETR - continue, ^C - exit process${NRM}"
+read -r

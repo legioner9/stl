@@ -1,7 +1,7 @@
 #? for copy to help block
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: if \$1 is absolut path return 0 else return 1
 TAGS:
 \$1 
 [, \$2]
@@ -17,4 +17,16 @@ CNTL:
     return 0
 fi
 
-echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+
+local arg1="$1"
+
+if [[ -z "${arg1}" ]]; then
+    l_00_echo_ret1 "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' : \$1 NOT_DEFINE : return 1"
+    return 1
+fi
+if [[ "/" == "${arg1:0:1}" ]]; then
+    return 0
+else
+    return 1
+fi

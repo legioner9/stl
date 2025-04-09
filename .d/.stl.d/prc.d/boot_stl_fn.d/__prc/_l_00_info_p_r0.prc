@@ -1,7 +1,7 @@
 #? for copy to help block
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: stdout STL like info and wait ETR or ^C
 TAGS:
 \$1 
 [, \$2]

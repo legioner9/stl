@@ -1,7 +1,7 @@
 #? for copy to help block
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: stdout STL errors name 
 TAGS:
 \$1 
 [, \$2]
@@ -18,3 +18,15 @@ CNTL:
 fi
 
 echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+
+echo -e "STL list standart name of error
+EMPTY
+NOT_EMPTY
+FILE_EXIST
+FILE_NOT_EXIST
+DIR_EXIST
+DIR_NOT_EXIST
+ARGS_NUBER
+FAIL_EXEC
+SUCC_EXEC        
+"

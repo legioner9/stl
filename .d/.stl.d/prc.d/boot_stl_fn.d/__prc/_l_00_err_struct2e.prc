@@ -1,7 +1,7 @@
 #? for copy to help block
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: stdout template of error message for stack
 TAGS:
 \$1 
 [, \$2]
@@ -17,4 +17,9 @@ CNTL:
     return 0
 fi
 
-echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+
+echo -e "exec:'\${FNN} \$*' in file://\${STL_D_PATH}/prc.d/\${FNN} , line=\${LINENO} 
+expl: str_expl
+evnt: nm_err :: 'bdy_err'
+actn: return num_ret >&2"

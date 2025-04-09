@@ -18,3 +18,6 @@ CNTL:
 fi
 
 echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+
+l_00_echo_code "source ${STL_D_PATH}/.stldrc"
+source "${STL_D_PATH}/.stldrc"

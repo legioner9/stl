@@ -1,7 +1,7 @@
 #? for copy to help block
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: stderr \$1 like ret1 and wait ETR or ^C
 TAGS:
 \$1 
 [, \$2]
@@ -17,4 +17,8 @@ CNTL:
     return 0
 fi
 
-echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+
+echo -e "${ECHO_RET1}$*${NRM}
+${ECHO_ERR}ETR - continue with 'return 1', ^C - exit shell process${NRM}" >&2
+read -r

@@ -1,7 +1,7 @@
 #? for copy to help block
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: stderr \$1 like 'return 1'
 TAGS:
 \$1 
 [, \$2]
@@ -17,4 +17,6 @@ CNTL:
     return 0
 fi
 
-echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+
+echo -e "$FRL$EDH$RVC$*$NRM" >&2

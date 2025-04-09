@@ -1,9 +1,9 @@
 #? for copy to help block
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: stdout all function and alias in shell
 TAGS:
-\$1 
+\$1 NON
 [, \$2]
 CNTL: 
     -h : help
@@ -18,3 +18,6 @@ CNTL:
 fi
 
 echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+
+declare -F -p | cut -d " " -f 3
+alias
