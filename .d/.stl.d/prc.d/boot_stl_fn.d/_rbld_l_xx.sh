@@ -106,8 +106,8 @@ ${NORMAL}"
             fi
         fi
 
-        _f2f ${fn_dir}/__prc/_${fn_name}.prc {{fn_body}} ${fn_dir}/${fn_name}.sh || {
-            l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC '_f2f ${fn_dir}/__prc/_${fn_name}.prc {{fn_body}} ${fn_dir}/${fn_name}.sh' : ${hint} : return 1"
+        _f2f ${fn_dir}/__prc/${fn_name}.prc {{fn_body}} ${fn_dir}/${fn_name}.sh || {
+            l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC '_f2f ${fn_dir}/__prc/${fn_name}.prc {{fn_body}} ${fn_dir}/${fn_name}.sh' : ${hint} : return 1"
             return 1
         }
         _s2f "{{fn_body}}" "[[fn_body]]" ${fn_dir}/${fn_name}.sh || {

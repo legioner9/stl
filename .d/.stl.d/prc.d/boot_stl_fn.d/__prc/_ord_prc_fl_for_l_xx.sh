@@ -90,7 +90,7 @@ ${NORMAL}"
 
     _is_yes "ord _${fn_name} in ${prc_dir}?" && {
 
-        _sf2f XXX ${fn_name} ${prc_dir}/_XXX.prc || {
+        _sf2f _XXX ${fn_name} ${prc_dir}/_XXX.prc || {
             l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC '_sd2d XXX ${fn_name} ${tst_dir}/_XXX' : ${hint} : return 1"
             return 1
         }

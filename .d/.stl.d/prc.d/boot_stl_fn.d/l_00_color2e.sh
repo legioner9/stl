@@ -25,7 +25,6 @@ l_00_color2e() {
     local tst_nm_fw_=${tst_nm_dr}/_flow_tst.sh
     local tst_nm_fw1_=${tst_nm_dr}/_flow_tst_v1.sh
 
-
     if ! [[ -d "${PPWD}" ]]; then
         echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
         return 1
@@ -44,9 +43,9 @@ l_00_color2e() {
 
     #* START fn block ------------------
     #[[fn_body]]
-#? for copy to help block
-if [[ "-h" == "$1" ]]; then
-    echo -e "
+    #? for copy to help block
+    if [[ "-h" == "$1" ]]; then
+        echo -e "
 MAIN: ${FNN} :: stdout stl color
 TAGS: 
 \$1 
@@ -56,14 +55,14 @@ CNTL:
     _go : edit body      : l_02_edit ${fn_nm}
     ${FNN}
 "
-    cd "${PPWD}" || {
-        echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
-        return 1
-    }
-    return 0
-fi
+        cd "${PPWD}" || {
+            echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+            return 1
+        }
+        return 0
+    fi
 
-echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+    echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
     echo -e "
 
@@ -275,8 +274,8 @@ $FN$EDH EDH - greyh ground $NRM
     l_00_echo_yes   : ECHO_YES=$FBL$EGH$RVC \$FBL\$EGH\$RVC $NRM
     l_00_echo_no    : ECHO_NO=$FBL$ERH$RVC \$FBL\$ERH\$RVC $NRM
 
-    $FNL$ERH \$FNL\$ERH $NRM
-    $FNL$EGH \$FNL\$EGH $NRM
+    l_00_echo_true : ECHO_TRUE=$FGL$EBH \$FGL\$EBH $NRM
+    l_00_echo_fls  : ECHO_FLS=$FRL$EBH \$FRL\$EBH $NRM
 
     $FRL$EDH$RVC \$FRL\$EDH\$RVC $NRM
     $FGL$EDH$RVC \$FGL\$EDH\$RVC $NRM

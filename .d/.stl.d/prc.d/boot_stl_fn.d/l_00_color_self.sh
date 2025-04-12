@@ -301,6 +301,9 @@ ECHO_FAIL=$FML$ERH$RVC
 ECHO_YES=$FBL$EGH$RVC
 ECHO_NO=$FBL$ERH$RVC
 
+ECHO_TRUE=$FGL$EBH
+ECHO_FLS=$FRL$EBH
+
     #* END fn block ------------------
 
     cd "${PPWD}" || {
