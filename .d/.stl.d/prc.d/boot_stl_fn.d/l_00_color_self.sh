@@ -9,7 +9,8 @@
 # cd ${PPWD} || echo -e "${ECHO_WAR}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [\${PPWD}] '${PPWD}' return 1${NRM}" >&2
 
 l_00_color_self() {
-    #* START init block ------------------
+
+    #* START init block from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
     local NARGS=$#
@@ -19,30 +20,57 @@ l_00_color_self() {
     local tst_dr=${fn_dir}/__tst
 
     local fn_nm=${fn_dir}/${FNN}.sh
-    local prc_nm=${prc_dr}/_${FNN}.prc
-    local tst_nm_dr=${tst_dr}/_${FNN}
+    local prc_nm=${prc_dr}/${FNN}.prc
+    local tst_nm_dr=${tst_dr}/${FNN}
     local tst_nm_ex_=${tst_nm_dr}/exec.tst
     local tst_nm_fw_=${tst_nm_dr}/_flow_tst.sh
     local tst_nm_fw1_=${tst_nm_dr}/_flow_tst_v1.sh
 
-
     if ! [[ -d "${PPWD}" ]]; then
-        echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+        echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
         return 1
     fi
 
     if [[ "_go" == "$1" ]]; then
-        l_02_edit ${file_name}
+        l_02_edit ${fn_nm}
         cd "${PPWD}" || {
-            echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+            echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
             return 1
         }
         return 0
     fi
 
-    #* END init block ------------------
+    if [[ "_e_prc" == "$1" ]]; then
+        l_02_edit ${prc_nm}
+        cd "${PPWD}" || {
+            echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+            return 1
+        }
+        return 0
+    fi
 
-    #* START fn block ------------------
+    if [[ "_e_tst_dr" == "$1" ]]; then
+        l_02_edit ${tst_nm_dr}
+        cd "${PPWD}" || {
+            echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+            return 1
+        }
+        return 0
+    fi
+
+    if [[ "_rbld" == "$1" ]]; then
+        #! rebuild fn : bcp && ord fn.sh from l_00_color_self.sh , cp fn.prc into fn.sh
+        . ${fn_dr}/_rbld_l_xx.sh $1
+        #! up to mem fn
+        . ${fn_dr}/$1.sh
+        cd "${PPWD}" || {
+            echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+            return 1
+        }
+        return 0
+    fi
+
+    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_00_color_self.prc ------------------
     #[[fn_body]]
 #? for copy to help block
 if [[ "-h" == "$1" ]]; then
@@ -301,15 +329,15 @@ ECHO_FAIL=$FML$ERH$RVC
 ECHO_YES=$FBL$EGH$RVC
 ECHO_NO=$FBL$ERH$RVC
 
-ECHO_TRUE=$FGL$EBH
-ECHO_FLS=$FRL$EBH
-
     #* END fn block ------------------
 
     cd "${PPWD}" || {
-        echo -e "${ECHO_RET1}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+        echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
         return 1
     }
     return 0
-
+    #* END init block ------------------
 }
+
+#! SELF EXEC
+l_00_color_self @

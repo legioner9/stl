@@ -31,7 +31,7 @@ EXAM:
 EXEC: 
 CNTL: 
     _go  : _edit ${path_file}
-RETURN: ( result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
+RETURN: ( result>stdout, return 0 | data | change to ptr | fs_structure | ...)
 ERROR: ( return 1 | ... )
     ${FNN} 
 ${NORMAL}"
