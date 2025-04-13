@@ -27,4 +27,4 @@ EXAM:   ${FNN} [, [, ]]
 fi
 
 #! stdout fn introduction
-echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
