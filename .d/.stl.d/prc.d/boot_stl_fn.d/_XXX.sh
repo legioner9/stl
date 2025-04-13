@@ -20,10 +20,10 @@ _XXX() {
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
-    local prc_dr=${fn_dir}/__prc
-    local tst_dr=${fn_dir}/__tst
+    local prc_dr=${fn_dr}/__prc
+    local tst_dr=${fn_dr}/__tst
 
-    local fn_nm=${fn_dir}/${FNN}.sh
+    local fn_nm=${fn_dr}/${FNN}.sh
     local prc_nm=${prc_dr}/${FNN}.prc
     local tst_nm_dr=${tst_dr}/${FNN}
     local tst_nm_ex_=${tst_nm_dr}/exec.tst
@@ -66,6 +66,21 @@ _XXX() {
 
     if [[ "_e_tst_dr" == "$1" ]]; then
         l_02_edit ${tst_nm_dr}
+        cd "${PPWD}" || {
+            echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+            return 1
+        }
+        return 0
+    fi
+
+    if [[ "_tst" == "$1" ]]; then
+        . ${tst_nm_dr}/exec.tst || {
+            cd "${PPWD}" || {
+                echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FAIL '. ${tst_nm_dr}/${FNN}/exec.tst' return 1${NRM}" >&2
+                return 1
+            }
+            return 1
+        }
         cd "${PPWD}" || {
             echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
             return 1

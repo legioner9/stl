@@ -91,8 +91,8 @@ ${NORMAL}"
     # }
 
     rm "${path_dir}/${fn_name}.sh"
-    rm "${path_dir}/__prc/_${fn_name}.prc"
-    rm -r "${path_dir}/__tst/_${fn_name}"
+    rm "${path_dir}/__prc/${fn_name}.prc"
+    rm -r "${path_dir}/__tst/${fn_name}"
 
     #{{body_fn}}
 

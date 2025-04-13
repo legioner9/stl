@@ -9,8 +9,8 @@
 
 _XXX() {
 
-    if ! command -v XXX >/dev/null; then
-        l_00_echo_ret1 "TYPE_ERROR : XXX"
+    if ! command -v _XXX >/dev/null; then
+        l_00_echo_ret1 "TYPE_ERROR : _XXX"
         return 1
     fi
 

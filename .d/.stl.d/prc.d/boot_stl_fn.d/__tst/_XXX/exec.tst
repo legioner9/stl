@@ -11,15 +11,15 @@ __XXX() {
 
     local PW=$(pwd)
 
-    if ! command -v XXX >/dev/null; then
-        echo "TYPE_ERROR : XXX" >&2
+    if ! command -v _XXX >/dev/null; then
+        echo "TYPE_ERROR : _XXX" >&2
         return 1
     fi
 
     local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/_XXX/exec.tst
     local idir="$(dirname ${filename})"
 
-    l_00_echo_info "test function XXX in file://${filename}"
+    l_00_echo_info "test function _XXX in file://${filename}"
 
     # cd "$(prs_f -d $filename)" || qq_exit "$(prs_f -d filename) not found"
 
