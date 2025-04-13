@@ -144,7 +144,7 @@ for exec_tst_fl_pth in $(find ${tst_dir} -name exec.tst); do
     }
 done
 
-[[ 1 -eq "${ret1}" ]] || {
+[[ 0 -eq "${ret1}" ]] || {
      l_00_echo_ret1 "$FNN() $*' in file://${file_name} , line=${LINENO} :: ANY_FAIL [ret1] 'code' :: return 1" 
      cd "$PPWD" || l_00_echo_err "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue"
      return 1
@@ -161,4 +161,4 @@ done
 }
 
 #! SELF EXEC
-# l_99_tst_l @
+l_99_tst_l @
