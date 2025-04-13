@@ -1,7 +1,7 @@
 #? for copy to help block
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: \`source \${STL_D_PATH}/.stldrc\`
 TAGS:
 \$1 
 [, \$2]
