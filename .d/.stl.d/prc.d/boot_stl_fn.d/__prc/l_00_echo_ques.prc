@@ -12,6 +12,9 @@ CNTL:
     _rbld       : rebuild fn    : . ${fn_dr}/_rbld_l_xx.sh ${FNN}
     _tst        : tst fn        : l_02_edit ${tst_nm_dr}/${FNN}/exec.tst
 
+    _flow       : tst _flow     : . ${tst_nm_dr}/${FNN}/_flow_tst.sh
+    _flow_1     : tst _flow_1   : . ${tst_nm_dr}/${FNN}/_flow_tst_v1.sh
+    
     _e_prc      : edit fn.prc   : l_02_edit ${prc_nm}
     _e_tst_dr   : edit tst_nm_dr: l_02_edit ${tst_nm_dr}
     _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/l_00_echo_ques

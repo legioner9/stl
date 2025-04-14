@@ -101,6 +101,47 @@ l_01_c_up() {
         return 0
     fi
 
+    #     #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
+    #     local di=
+    #     if [ -n "$N" ]; then
+    #         if [ "$N" == "_i" ]; then
+    #             di=1
+    #         else
+    #             di=0
+    #         fi
+    #     else
+    #         di=0
+    #     fi
+
+    #* greeting
+    # [ $di -eq 1 ] && echo -e "${CYAN}--- $FNN() $* in file://${fn_sh_file} ---${NORMAL}" #started functions
+
+    #* errno
+    # cmd arg
+    # errno=$?
+    # return ${errno}
+
+    #* rename args
+
+    #* check cntl
+
+    #* inname cntl
+
+    #* define local variables
+
+    # _f2d :: insert $1 file after str $2 in ALL (without prevent) file from dir $3
+    # _s2d :: into str $1 insert $2 str in (with prevent) file from dir $3
+    # _s2f :: reciver_string: $1 inserter_string: $2 in reciver_result_file: $3
+
+    # hint="\$1: \$2: "
+    # if _isn_from ${NARGS} LESS LESS+1 "in fs= file://${fn_sh_file}, line=${LINENO}, ${FNN}() : DEMAND 'LESS LESS+1' ERR_AMOUNT_ARGS entered :'${NARGS}' args : ${hint} : return 1"; then
+    #     return 1
+    # fi
+
+    #! ptr_path
+    # local ptr_path="$1"
+    # ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
+
     #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_01_c_up.prc ------------------
     #[[fn_body]]
 #? for copy to help block
@@ -123,6 +164,7 @@ CNTL:
 
 RETU: (any {0} | if: [...] {0} | if [...] {1})
 EXAM:   ${FNN} [, [, ]]
+
 "
     cd "${PPWD}" || {
         echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
@@ -134,24 +176,22 @@ fi
 #! stdout fn introduction
 echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
-if type l_00_echo_exec &>/dev/null; then
-    l_00_echo_exec "${FNN}() $*"
-else
-    echo -e "${FNN}() $*"
-fi
-
 #! IFS to default value
 unset IFS
 
 if [[ -d "$1" ]]; then
     cd "$1" || {
-        l_00_echo_ret1 "'$FNN() $*' :: FAIL_EXEC :: 'cd $1' :: return 1"
-        cd "$PPWD" || l_00_echo_ret1 "'$FNN() $*' EXEC_FAIL : 'cd $PPWD' : continue"
+        # l_00_echo_ret1 "'$FNN() $*' :: FAIL_EXEC :: 'cd $1' :: return 1"
+        # cd "$PPWD" || l_00_echo_ret1 "'$FNN() $*' EXEC_FAIL : 'cd $PPWD' : continue"
+        echo -e "${ECHO_RET1}'$FNN() $*' :: FAIL_EXEC :: 'cd $1' :: return 1${NRM}"
+        cd "$PPWD" || echo -e "${ECHO_RET1}'$FNN() $*' EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
         return 1
     }
 else
-    l_00_echo_ret1 "'$FNN() $*' :: \$1='$1' is not dir"
-    cd "$PPWD" || l_00_echo_ret1 "'$FNN() $*' EXEC_FAIL : 'cd $PPWD' : continue"
+    # l_00_echo_ret1 "'$FNN() $*' :: \$1='$1' is not dir"
+    # cd "$PPWD" || l_00_echo_ret1 "'$FNN() $*' EXEC_FAIL : 'cd $PPWD' : continue"
+    echo -e "${ECHO_RET1}'$FNN() $*' :: \$1='$1' is not dir${NRM}"
+    cd "$PPWD" || echo -e "${ECHO_RET1}'$FNN() $*' EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 fi
 
@@ -168,31 +208,37 @@ for item in *; do
     item_path=$dir/$item
 
     if [ -f "$item_path" ] && [ "${item:0:1}" != "_" ] && [ "${item##*.}" == "sh" ]; then
-        l_00_echo_code ". file://$item_path"
+        # l_00_echo_code ". file://$item_path"
+        echo -e "${ECHO_CODE}. file://$item_path${NRM}"
         . "$item_path" || {
             fail_flag=1
-            l_00_echo_err "'$FNN() $*' :: EXEC_FAIL '. file://$item_path' :: fail_flag=1 :: continue"
-            cd "$PPWD" || l_00_echo_err "'$FNN() $*' EXEC_FAIL : 'cd $PPWD' : continue"
+            # l_00_echo_err "'$FNN() $*' :: EXEC_FAIL '. file://$item_path' :: fail_flag=1 :: continue"
+            # cd "$PPWD" || l_00_echo_err "'$FNN() $*' EXEC_FAIL : 'cd $PPWD' : continue"
+            echo -e "${ECHO_ERR}'$FNN() $*' :: EXEC_FAIL '. file://$item_path' :: fail_flag=1 :: continue${NRM}"
+            cd "$PPWD" || echo -e "${ECHO_ERR}'$FNN() $*' EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
         }
 
     elif [ -d "$item_path" ] && [ "${item:0:1}" != "_" ]; then
 
         l_01_c_up "$item_path" || {
             fail_flag=1
-            l_00_echo_err "'$FNN() $*' :: EXEC_FAIL 'l_01_c_up file://$item_path' :: fail_flag=1 :: continue"
-            cd "$PPWD" || l_00_echo_err "'$FNN() $*' EXEC_FAIL : 'cd $PPWD' : continue"
+            # l_00_echo_err "'$FNN() $*' :: EXEC_FAIL 'l_01_c_up file://$item_path' :: fail_flag=1 :: continue"
+            # cd "$PPWD" || l_00_echo_err "'$FNN() $*' EXEC_FAIL : 'cd $PPWD' : continue"
+            echo -e "${ECHO_ERR}'$FNN() $*' :: EXEC_FAIL 'l_01_c_up file://$item_path' :: fail_flag=1 :: continue${NRM}"
+            cd "$PPWD" || echo -e "${ECHO_ERR}'$FNN() $*' EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
         }
     fi
 
 done
 
 if [[ 1 -eq ${fail_flag} ]]; then
-    l_00_echo_ret1 "'$FNN() $*' ANY_FAIL"
+    # l_00_echo_ret1 "'$FNN() $*' ANY_FAIL"
+    echo -e "${ECHO_RET1}'$FNN() $*' ANY_FAIL${NRM}"
     return 1
 else
-    l_00_echo_info "'$FNN() $*' ALL_TRUE"
+    # l_00_echo_info "'$FNN() $*' ALL_TRUE"
+    echo -e "${ECHO_INFO}'$FNN() $*' ALL_TRUE${NRM}"
 fi
-
 
     #* END fn block ------------------
 

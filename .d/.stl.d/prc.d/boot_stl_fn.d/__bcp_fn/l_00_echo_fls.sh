@@ -134,7 +134,7 @@ fi
 #! stdout fn introduction
 # echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
-echo -e "$FNL$EGH$*${NRM}"
+echo -e "$FNL$ERH$*${NRM}"
 
     #* END fn block ------------------
 

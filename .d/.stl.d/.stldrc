@@ -10,6 +10,8 @@
     local stl_boot_prc_d=${STL_D_PATH}/prc.d/boot_stl_fn.d
     local return1=0
 
+    cat ${stl_boot_prc_d}/_comment.man
+
     # up_to_mem l1_c_up
     source ${stl_boot_prc_d}/l_01_c_up.sh
 

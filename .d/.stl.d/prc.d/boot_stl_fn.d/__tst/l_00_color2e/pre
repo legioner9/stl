@@ -649,11 +649,8 @@ $FML$EDH [0;35m[2m[107m SDFfhn.;90*&[0m $FML$EDH$RVC [0;35m[2m[107m[7m S
     l_00_echo_yes   : ECHO_YES=[0;34m[2m[102m[7m $FBL$EGH$RVC [0m
     l_00_echo_no    : ECHO_NO=[0;34m[2m[101m[7m $FBL$ERH$RVC [0m
 
-    l_00_echo_fls   : ECHO_FLS=[0;30m[2m[101m $FNL$ERH [0m
     l_00_echo_true  : ECHO_TRUE=[0;30m[2m[102m $FNL$EGH [0m
-
-    [0;30m[2m[101m $FNL$ERH [0m
-    [0;30m[2m[102m $FNL$EGH [0m
+    l_00_echo_fls   : ECHO_FLS=[0;30m[2m[101m $FNL$ERH [0m
 
     [0;31m[2m[107m[7m $FRL$EDH$RVC [0m
     [0;32m[2m[107m[7m $FGL$EDH$RVC [0m
@@ -663,6 +660,5 @@ $FML$EDH [0;35m[2m[107m SDFfhn.;90*&[0m $FML$EDH$RVC [0;35m[2m[107m[7m S
     [0;36m[2m[107m[7m $FCL$EDH$RVC [0m
     [0;37m[2m[107m[7m $FDL$EDH$RVC [0m
     [38m[2m[107m[7m $FWL$EDH$RVC [0m
-
-
+    
     

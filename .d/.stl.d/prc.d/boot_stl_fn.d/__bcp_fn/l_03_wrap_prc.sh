@@ -56,7 +56,8 @@ l_03_wrap_prc() {
     if [[ "_e_xxx" == "$1" ]]; then
 
         l_00_warn_p_r0 "You want change \"init block\" in ALL l_xx functions?"
-        l_02_edit ${fn_dr}/l_03_wrap_prc
+        l_02_edit ${fn_dr}
+        l_00_warn_p_r0 "Change _\XXX.sh"
         cd "${PPWD}" || {
             echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
             return 1
@@ -74,7 +75,7 @@ l_03_wrap_prc() {
     fi
 
     if [[ "_tst" == "$1" ]]; then
-        . ${tst_nm_dr}/${FNN}/exec.tst || {
+        . ${tst_nm_dr}/exec.tst || {
             cd "${PPWD}" || {
                 echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FAIL '. ${tst_nm_dr}/${FNN}/exec.tst' return 1${NRM}" >&2
                 return 1
@@ -90,7 +91,7 @@ l_03_wrap_prc() {
 
     if [[ "_rbld" == "$1" ]]; then
         #! rebuild fn : bcp && ord fn.sh from l_03_wrap_prc.sh , cp fn.prc into fn.sh
-        . ${fn_dr}/_rbld_l_xx.sh $1
+        . ${fn_dr}/_rbld_l_xx.sh ${FNN}
         #! up to mem fn
         . ${fn_dr}/$1.sh
         cd "${PPWD}" || {
@@ -295,6 +296,7 @@ fi
 
 # echo "exec : '. ${ARGSW[@]}'"
 . ${ARGSW[@]}
+
     #* END fn block ------------------
 
     cd "${PPWD}" || {

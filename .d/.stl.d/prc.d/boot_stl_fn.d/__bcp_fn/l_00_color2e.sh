@@ -101,6 +101,47 @@ l_00_color2e() {
         return 0
     fi
 
+    #     #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
+    #     local di=
+    #     if [ -n "$N" ]; then
+    #         if [ "$N" == "_i" ]; then
+    #             di=1
+    #         else
+    #             di=0
+    #         fi
+    #     else
+    #         di=0
+    #     fi
+
+    #* greeting
+    # [ $di -eq 1 ] && echo -e "${CYAN}--- $FNN() $* in file://${fn_sh_file} ---${NORMAL}" #started functions
+
+    #* errno
+    # cmd arg
+    # errno=$?
+    # return ${errno}
+
+    #* rename args
+
+    #* check cntl
+
+    #* inname cntl
+
+    #* define local variables
+
+    # _f2d :: insert $1 file after str $2 in ALL (without prevent) file from dir $3
+    # _s2d :: into str $1 insert $2 str in (with prevent) file from dir $3
+    # _s2f :: reciver_string: $1 inserter_string: $2 in reciver_result_file: $3
+
+    # hint="\$1: \$2: "
+    # if _isn_from ${NARGS} LESS LESS+1 "in fs= file://${fn_sh_file}, line=${LINENO}, ${FNN}() : DEMAND 'LESS LESS+1' ERR_AMOUNT_ARGS entered :'${NARGS}' args : ${hint} : return 1"; then
+    #     return 1
+    # fi
+
+    #! ptr_path
+    # local ptr_path="$1"
+    # ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
+
     #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_00_color2e.prc ------------------
     #[[fn_body]]
 #? for copy to help block
@@ -280,15 +321,15 @@ local ground=(ENL ENH
     EDL EDH
 )
 
-unset yes
-read -r -p "display ALL? only 'y'" yes
-if [[ "y" == "$yes" ]]; then
-    for fnt in ${font[@]}; do
-        for grn in ${ground[@]}; do
-            eval "echo -e \"\\\$\$fnt\\\$\$grn \$$fnt\$$grn SDFfhn.;90*&\$NRM\" \"\\\$\$fnt\\\$\$grn\\\$RVC \$$fnt\$$grn\$RVC SDFfhn.;90*&\$NRM\""
-        done
+# unset yes
+# read -r -p "display ALL? only 'y'" yes
+# if [[ "y" == "$yes" ]]; then
+for fnt in ${font[@]}; do
+    for grn in ${ground[@]}; do
+        eval "echo -e \"\\\$\$fnt\\\$\$grn \$$fnt\$$grn SDFfhn.;90*&\$NRM\" \"\\\$\$fnt\\\$\$grn\\\$RVC \$$fnt\$$grn\$RVC SDFfhn.;90*&\$NRM\""
     done
-fi
+done
+# fi
 echo "------------------------------------------AVESOME:------------------------------------------------"
 
 font=(FN FNL FNH
@@ -337,15 +378,18 @@ echo -e "
     l_00_echo_code  : ECHO_CODE=$FNL$ECH$RVC \$FNL\$ECH\$RVC $NRM
     l_00_echo_exec  : ECHO_EXEC=$FNL$EBH$RVC \$FNL\$EBH\$RVC $NRM
     l_00_echo_sys   : ECHO_SYS =$FNL$EMH$RVC \$FNL\$EMH\$RVC $NRM
+
     l_00_echo_ret1  : ECHO_RET1=$FRL$EDH$RVC \$FRL\$EDH\$RVC $NRM
     l_00_echo_ques  : ECHO_QUES=$FCL$EDH$RVC \$FCL\$EDH\$RVC $NRM
+
     l_00_echo_succ  : ECHO_SUCC=$FML$EGH$RVC \$FML\$EGH\$RVC $NRM
     l_00_echo_fail  : ECHO_FAIL=$FML$ERH$RVC \$FML\$ERH\$RVC $NRM
+
     l_00_echo_yes   : ECHO_YES=$FBL$EGH$RVC \$FBL\$EGH\$RVC $NRM
     l_00_echo_no    : ECHO_NO=$FBL$ERH$RVC \$FBL\$ERH\$RVC $NRM
 
-    $FNL$ERH \$FNL\$ERH $NRM
-    $FNL$EGH \$FNL\$EGH $NRM
+    l_00_echo_fls   : ECHO_FLS=$FNL$ERH \$FNL\$ERH $NRM
+    l_00_echo_true  : ECHO_TRUE=$FNL$EGH \$FNL\$EGH $NRM
 
     $FRL$EDH$RVC \$FRL\$EDH\$RVC $NRM
     $FGL$EDH$RVC \$FGL\$EDH\$RVC $NRM

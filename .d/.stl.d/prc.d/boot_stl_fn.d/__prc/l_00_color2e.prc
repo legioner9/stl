@@ -12,6 +12,9 @@ CNTL:
     _rbld       : rebuild fn    : . ${fn_dr}/_rbld_l_xx.sh ${FNN}
     _tst        : tst fn        : l_02_edit ${tst_nm_dr}/${FNN}/exec.tst
 
+    _flow       : tst _flow     : . ${tst_nm_dr}/${FNN}/_flow_tst.sh
+    _flow_1     : tst _flow_1   : . ${tst_nm_dr}/${FNN}/_flow_tst_v1.sh
+
     _e_prc      : edit fn.prc   : l_02_edit ${prc_nm}
     _e_tst_dr   : edit tst_nm_dr: l_02_edit ${tst_nm_dr}
     _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/l_00_color2e
@@ -148,20 +151,8 @@ $FN$EMH EMH - purpleh ground $NRM
 
 $FN$ECL ECL - cyanl ground $NRM
 $FN$ECH ECH - cyanh ground $NRM
-
-$FN$EDL EDL - greyl ground $NRM
-$FN$EDH EDH - greyh ground $NRM
-
-"
-
-local font=(FN FNL FNH
-    FR FRL FRH
-    FG FGL FGH
-    FY FYL FYH
-    FB FBL FBH
-    FM FML FMH
-    FC FCL FCH
-    FD FDL FDH
+    _flow       : tst _flow     : . ${tst_nm_dr}/${FNN}/_flow_tst.sh
+    _flow_1     : tst _flow_1   : . ${tst_nm_dr}/${FNN}/_flow_tst_v1.sh
     FW FWL FWH
 )
 
@@ -232,15 +223,18 @@ echo -e "
     l_00_echo_code  : ECHO_CODE=$FNL$ECH$RVC \$FNL\$ECH\$RVC $NRM
     l_00_echo_exec  : ECHO_EXEC=$FNL$EBH$RVC \$FNL\$EBH\$RVC $NRM
     l_00_echo_sys   : ECHO_SYS =$FNL$EMH$RVC \$FNL\$EMH\$RVC $NRM
+
     l_00_echo_ret1  : ECHO_RET1=$FRL$EDH$RVC \$FRL\$EDH\$RVC $NRM
     l_00_echo_ques  : ECHO_QUES=$FCL$EDH$RVC \$FCL\$EDH\$RVC $NRM
+
     l_00_echo_succ  : ECHO_SUCC=$FML$EGH$RVC \$FML\$EGH\$RVC $NRM
     l_00_echo_fail  : ECHO_FAIL=$FML$ERH$RVC \$FML\$ERH\$RVC $NRM
+
     l_00_echo_yes   : ECHO_YES=$FBL$EGH$RVC \$FBL\$EGH\$RVC $NRM
     l_00_echo_no    : ECHO_NO=$FBL$ERH$RVC \$FBL\$ERH\$RVC $NRM
 
-    $FNL$ERH \$FNL\$ERH $NRM
-    $FNL$EGH \$FNL\$EGH $NRM
+    l_00_echo_true  : ECHO_TRUE=$FNL$EGH \$FNL\$EGH $NRM
+    l_00_echo_fls   : ECHO_FLS=$FNL$ERH \$FNL\$ERH $NRM
 
     $FRL$EDH$RVC \$FRL\$EDH\$RVC $NRM
     $FGL$EDH$RVC \$FGL\$EDH\$RVC $NRM
@@ -250,6 +244,5 @@ echo -e "
     $FCL$EDH$RVC \$FCL\$EDH\$RVC $NRM
     $FDL$EDH$RVC \$FDL\$EDH\$RVC $NRM
     $FWL$EDH$RVC \$FWL\$EDH\$RVC $NRM
-
 
     "

@@ -56,7 +56,8 @@ l_01_is_root() {
     if [[ "_e_xxx" == "$1" ]]; then
 
         l_00_warn_p_r0 "You want change \"init block\" in ALL l_xx functions?"
-        l_02_edit ${fn_dr}/l_01_is_root
+        l_02_edit ${fn_dr}
+        l_00_warn_p_r0 "Change _\XXX.sh"
         cd "${PPWD}" || {
             echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
             return 1
@@ -74,7 +75,7 @@ l_01_is_root() {
     fi
 
     if [[ "_tst" == "$1" ]]; then
-        . ${tst_nm_dr}/${FNN}/exec.tst || {
+        . ${tst_nm_dr}/exec.tst || {
             cd "${PPWD}" || {
                 echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FAIL '. ${tst_nm_dr}/${FNN}/exec.tst' return 1${NRM}" >&2
                 return 1
@@ -90,7 +91,7 @@ l_01_is_root() {
 
     if [[ "_rbld" == "$1" ]]; then
         #! rebuild fn : bcp && ord fn.sh from l_01_is_root.sh , cp fn.prc into fn.sh
-        . ${fn_dr}/_rbld_l_xx.sh $1
+        . ${fn_dr}/_rbld_l_xx.sh ${FNN}
         #! up to mem fn
         . ${fn_dr}/$1.sh
         cd "${PPWD}" || {
@@ -113,7 +114,9 @@ CNTL:
 
     -h          : help
     _go         : edit body     : l_02_edit ${fn_nm}
-    _rbld       : rebuild fn    : . ${fn_dr}/_rbld_l_xx.sh $1
+    _rbld       : rebuild fn    : . ${fn_dr}/_rbld_l_xx.sh ${FNN}
+    _tst        : tst fn        : l_02_edit ${tst_nm_dr}/${FNN}/exec.tst
+
     _e_prc      : edit fn.prc   : l_02_edit ${prc_nm}
     _e_tst_dr   : edit tst_nm_dr: l_02_edit ${tst_nm_dr}
     _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/l_01_is_root
@@ -142,6 +145,7 @@ if [[ "/" == "${arg1:0:1}" ]]; then
 else
     return 1
 fi
+
     #* END fn block ------------------
 
     cd "${PPWD}" || {
