@@ -280,15 +280,15 @@ local ground=(ENL ENH
     EDL EDH
 )
 
-unset yes
-read -r -p "display ALL? only 'y'" yes
-if [[ "y" == "$yes" ]]; then
-    for fnt in ${font[@]}; do
-        for grn in ${ground[@]}; do
-            eval "echo -e \"\\\$\$fnt\\\$\$grn \$$fnt\$$grn SDFfhn.;90*&\$NRM\" \"\\\$\$fnt\\\$\$grn\\\$RVC \$$fnt\$$grn\$RVC SDFfhn.;90*&\$NRM\""
-        done
+# unset yes
+# read -r -p "display ALL? only 'y'" yes
+# if [[ "y" == "$yes" ]]; then
+for fnt in ${font[@]}; do
+    for grn in ${ground[@]}; do
+        eval "echo -e \"\\\$\$fnt\\\$\$grn \$$fnt\$$grn SDFfhn.;90*&\$NRM\" \"\\\$\$fnt\\\$\$grn\\\$RVC \$$fnt\$$grn\$RVC SDFfhn.;90*&\$NRM\""
     done
-fi
+done
+# fi
 echo "------------------------------------------AVESOME:------------------------------------------------"
 
 font=(FN FNL FNH
@@ -337,12 +337,18 @@ echo -e "
     l_00_echo_code  : ECHO_CODE=$FNL$ECH$RVC \$FNL\$ECH\$RVC $NRM
     l_00_echo_exec  : ECHO_EXEC=$FNL$EBH$RVC \$FNL\$EBH\$RVC $NRM
     l_00_echo_sys   : ECHO_SYS =$FNL$EMH$RVC \$FNL\$EMH\$RVC $NRM
+
     l_00_echo_ret1  : ECHO_RET1=$FRL$EDH$RVC \$FRL\$EDH\$RVC $NRM
     l_00_echo_ques  : ECHO_QUES=$FCL$EDH$RVC \$FCL\$EDH\$RVC $NRM
+
     l_00_echo_succ  : ECHO_SUCC=$FML$EGH$RVC \$FML\$EGH\$RVC $NRM
     l_00_echo_fail  : ECHO_FAIL=$FML$ERH$RVC \$FML\$ERH\$RVC $NRM
+
     l_00_echo_yes   : ECHO_YES=$FBL$EGH$RVC \$FBL\$EGH\$RVC $NRM
     l_00_echo_no    : ECHO_NO=$FBL$ERH$RVC \$FBL\$ERH\$RVC $NRM
+
+    l_00_echo_fls   : ECHO_FLS=$FNL$ERH \$FNL\$ERH $NRM
+    l_00_echo_true  : ECHO_TRUE=$FNL$EGH \$FNL\$EGH $NRM
 
     $FNL$ERH \$FNL\$ERH $NRM
     $FNL$EGH \$FNL\$EGH $NRM

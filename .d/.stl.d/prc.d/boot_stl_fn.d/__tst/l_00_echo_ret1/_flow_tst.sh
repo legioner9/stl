@@ -44,7 +44,7 @@ _l_00_echo_ret1_25418c8_flow() {
         return 1
     }
 
-    # l_00_echo_ret1 "${tst_dir}" &>"${res}"
+    l_00_echo_ret1 "${tst_dir}" &>"${res}"
 
 
     #?-------------------------------------

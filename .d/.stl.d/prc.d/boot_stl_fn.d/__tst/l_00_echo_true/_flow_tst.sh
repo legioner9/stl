@@ -44,7 +44,7 @@ _l_00_echo_true_a3f95a1_flow() {
         return 1
     }
 
-    # l_00_echo_true "${tst_dir}" &>"${res}"
+    l_00_echo_true "${tst_dir}" &>"${res}"
 
 
     #?-------------------------------------

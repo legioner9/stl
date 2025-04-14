@@ -29,4 +29,4 @@ fi
 #! stdout fn introduction
 # echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
-echo -e "$FML$EGH$RVC$*$NRM"
+echo -e "$FNL$EGH$*$NRM"

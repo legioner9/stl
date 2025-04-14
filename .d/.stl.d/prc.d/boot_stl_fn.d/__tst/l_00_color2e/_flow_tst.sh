@@ -44,7 +44,7 @@ _l_00_color2e_329af71_flow() {
         return 1
     }
 
-    # l_00_color2e "${tst_dir}" &>"${res}"
+    l_00_color2e "${tst_dir}" &>"${res}"
 
 
     #?-------------------------------------

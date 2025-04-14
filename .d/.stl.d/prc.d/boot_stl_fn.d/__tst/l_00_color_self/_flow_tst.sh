@@ -45,6 +45,7 @@ _l_00_color_self_5413b9c_flow() {
     }
 
     # l_00_color_self "${tst_dir}" &>"${res}"
+    l_00_color_self &>"${res}"
 
 
     #?-------------------------------------

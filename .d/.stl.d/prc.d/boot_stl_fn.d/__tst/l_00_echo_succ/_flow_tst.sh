@@ -44,7 +44,7 @@ _l_00_echo_succ_74a0899_flow() {
         return 1
     }
 
-    # l_00_echo_succ "${tst_dir}" &>"${res}"
+    l_00_echo_succ "${tst_dir}" &>"${res}"
 
 
     #?-------------------------------------

@@ -44,7 +44,7 @@ _l_00_echo_ques_f55c9d0_flow() {
         return 1
     }
 
-    # l_00_echo_ques "${tst_dir}" &>"${res}"
+    l_00_echo_ques "${tst_dir}" &>"${res}"
 
 
     #?-------------------------------------

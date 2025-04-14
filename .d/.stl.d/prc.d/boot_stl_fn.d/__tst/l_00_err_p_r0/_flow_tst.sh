@@ -44,7 +44,7 @@ _l_00_err_p_r0_0b62ac1_flow() {
         return 1
     }
 
-    # l_00_err_p_r0 "${tst_dir}" &>"${res}"
+    echo | l_00_err_p_r0 "${tst_dir}" &>"${res}"
 
 
     #?-------------------------------------

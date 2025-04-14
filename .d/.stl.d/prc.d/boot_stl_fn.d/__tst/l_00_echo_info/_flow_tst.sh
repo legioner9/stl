@@ -44,7 +44,7 @@ _l_00_echo_info_e1d1e32_flow() {
         return 1
     }
 
-    # l_00_echo_info "${tst_dir}" &>"${res}"
+    l_00_echo_info "${tst_dir}" &>"${res}"
 
 
     #?-------------------------------------

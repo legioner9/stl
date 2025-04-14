@@ -44,7 +44,7 @@ _l_00_echo_fail_43f70f7_flow() {
         return 1
     }
 
-    # l_00_echo_fail "${tst_dir}" &>"${res}"
+    l_00_echo_fail "${tst_dir}" &>"${res}"
 
 
     #?-------------------------------------
