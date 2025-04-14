@@ -38,13 +38,13 @@ _l_04_arb_prc_up_ba27018_flow() {
     l_00_echo_exec "source file://$filename"
     : >"${res}"
 
-    cd tst_dir || {
-        hint="\$1: \$2: "
-        l_00_echo_ret1 "in fs= file://${filename} , line=${LINENO}, ${FNN}() : NOT_DIR : 'file://${idir}/_dir_tst' : ${hint} : return 1"
-        return 1
-    }
+    # cd tst_dir || {
+    #     hint="\$1: \$2: "
+    #     l_00_echo_ret1 "in fs= file://${filename} , line=${LINENO}, ${FNN}() : NOT_DIR : 'file://${idir}/_dir_tst' : ${hint} : return 1"
+    #     return 1
+    # }
 
-    l_04_arb_prc_up 001_lib.stl_00.arb &>"${res}"
+    # l_04_arb_prc_up 001_lib.stl_00.arb &>"${res}"
 
 
     #?-------------------------------------

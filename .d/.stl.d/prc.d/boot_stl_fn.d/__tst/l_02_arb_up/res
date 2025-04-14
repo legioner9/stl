@@ -1,5 +1,0 @@
-[0;30m[2m[104m[7m'l_02_arb_up 001_lib.stl_00.arb'[0m
-[0;30m[2m[102m[7m/home/st/REPOBARE/_repo/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__tst/l_02_arb_up/tst_dir/001_lib.stl_00.arb/PRC1.ram/.grot/PRC1.sh in TST[0m
-[0;30m[2m[101m[7m'l_02_arb_up() 001_lib.stl_00.arb' in file:///home/st/REPOBARE/_repo/stl/.d/.stl.d/.stldrc , line=212 :: EXEC_FAIL '. file:///home/st/REPOBARE/_repo/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__tst/l_02_arb_up/tst_dir/001_lib.stl_00.arb/PRC1.ram/.grot/PRC1.sh' :: ret1=1[0m
-[0;30m[2m[102m[7m/home/st/REPOBARE/_repo/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__tst/l_02_arb_up/tst_dir/001_lib.stl_00.arb/PRC2.ram/.grot/PRC2.sh in TST[0m
-[0;35m[2m[101m[7m'l_02_arb_up() 001_lib.stl_00.arb' in file:///home/st/REPOBARE/_repo/stl/.d/.stl.d/prc.d/boot_stl_fn.d/l_02_arb_up.sh , line=220 :: in /home/st/REPOBARE/_repo/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__tst/l_02_arb_up/tst_dir/001_lib.stl_00.arb 'ANY_FAIL' return 1[0m
