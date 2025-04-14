@@ -7,7 +7,7 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_l_01_source_ed3aee3_flow() {
+_l_01_source_f516c0c_flow() {
 
     if ! command -v l_01_source >/dev/null; then
         l_00_echo_ret1 "TYPE_ERROR : l_01_source"
@@ -38,13 +38,14 @@ _l_01_source_ed3aee3_flow() {
     l_00_echo_exec "source file://$filename"
     : >"${res}"
 
-    # XXX "${tst_dir}" &>"${res}"
+    cd tst_dir || {
+        hint="\$1: \$2: "
+        l_00_echo_ret1 "in fs= file://${filename} , line=${LINENO}, ${FNN}() : NOT_DIR : 'file://${idir}/_dir_tst' : ${hint} : return 1"
+        return 1
+    }
 
-    # cd _dir_tst || {
-    #     hint="\$1: \$2: "
-    #     _st_exit "in fs= file://${filename} , line=${LINENO}, ${FNN}() : NOT_DIR : 'file://${idir}/_dir_tst' : ${hint} : return 1"
-    #     return 1
-    # }
+    # l_01_source "${tst_dir}" &>"${res}"
+
 
     #?-------------------------------------
     #?----------------------------------------------------
@@ -56,4 +57,4 @@ _l_01_source_ed3aee3_flow() {
 
 }
 
-_l_01_source_ed3aee3_flow "$@"
+_l_01_source_f516c0c_flow "$@"

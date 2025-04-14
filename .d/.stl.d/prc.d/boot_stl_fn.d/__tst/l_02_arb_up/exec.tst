@@ -7,7 +7,7 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_l_02_arb_up_35c679c_exec() {
+_l_02_arb_up_e198604_exec() {
 
     local PW=$(pwd)
 
@@ -41,6 +41,7 @@ _l_02_arb_up_35c679c_exec() {
 
     if [ 0 -eq "$flag" ]; then
         l_00_echo_fail "in file://$filename FAIL"
+        l_00_echo_code "diff file://$idir/pre file://$idir/res"
         diff "$idir"/pre "$idir"/res >&2
 
         cd "$PW"
@@ -54,7 +55,7 @@ _l_02_arb_up_35c679c_exec() {
 
 }
 
-if ! _l_02_arb_up_35c679c_exec  "$@"; then
+if ! _l_02_arb_up_e198604_exec  "$@"; then
     l_00_echo_ret1 "EXEC_FAIL for fuction : 'XXX' : GOTO file://${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_02_arb_up : return 1"
     return 1
 fi
