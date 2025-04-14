@@ -44,7 +44,7 @@ _l_00_warn_p_r0_1f92f02_flow() {
         return 1
     }
 
-    # l_00_warn_p_r0 "${tst_dir}" &>"${res}"
+    echo | l_00_warn_p_r0 "${tst_dir}" &>"${res}"
 
 
     #?-------------------------------------

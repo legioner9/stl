@@ -29,15 +29,19 @@ fi
 #! stdout fn introduction
 echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
+#! ptr_path
+local ptr_path="$1"
+ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
+
 unset IFS
 
-if [[ -d "$1" ]]; then
-    cd "$1" || {
-        l_00_echo_err "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: FAIL_EXEC :: 'cd $1' :: return 1"
+if [[ -d "$ptr_path" ]]; then
+    cd "$ptr_path" || {
+        l_00_echo_ret1 "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: FAIL_EXEC :: 'cd $ptr_path' :: return 1" >&2
         return 1
     }
 else
-    l_00_echo_err "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: \$1='$1' is not dir"
+    echo "'$FNN() $*' in file://${STL_D_PATH}/.stldrc , line=${LINENO} :: \$ptr_path='$ptr_path' is not dir" >&2
     return 1
 fi
 
@@ -47,7 +51,7 @@ local item_path=
 
 dir=$(pwd)
 
-for item in *; do
+for item in $(ls "$ptr_path"); do
     # echo "\$item=$item"
     # lib.0stl.arb/_XXX_YYY.ram/.grot/_XXX_YYY.sh
     item_path=$dir/$item

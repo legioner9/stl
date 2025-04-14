@@ -44,7 +44,11 @@ _l_01_is_root_65d19d6_flow() {
         return 1
     }
 
-    # l_01_is_root "${tst_dir}" &>"${res}"
+    l_01_is_root "${tst_dir}" 
+    echo $? &>>"${res}"
+
+    l_01_is_root erf/cew/
+    echo $? &>>"${res}"
 
 
     #?-------------------------------------

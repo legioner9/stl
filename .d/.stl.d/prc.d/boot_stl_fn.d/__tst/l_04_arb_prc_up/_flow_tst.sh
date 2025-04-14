@@ -44,7 +44,7 @@ _l_04_arb_prc_up_ba27018_flow() {
         return 1
     }
 
-    # l_04_arb_prc_up "${tst_dir}" &>"${res}"
+    l_04_arb_prc_up 001_lib.stl_00.arb &>"${res}"
 
 
     #?-------------------------------------

@@ -44,7 +44,7 @@ _l_00_fail_p_r1_5f8046a_flow() {
         return 1
     }
 
-    # l_00_fail_p_r1 "${tst_dir}" &>"${res}"
+    echo | l_00_fail_p_r1 "${tst_dir}" &>"${res}"
 
 
     #?-------------------------------------

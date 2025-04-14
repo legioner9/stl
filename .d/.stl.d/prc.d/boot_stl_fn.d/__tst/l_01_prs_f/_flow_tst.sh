@@ -46,6 +46,24 @@ _l_01_prs_f_e6df947_flow() {
 
     # l_01_prs_f "${tst_dir}" &>"${res}"
 
+    path=/the/path/_foo.bar.ext.txt
+    # $(l_01_prs_f -d /the/path/_foo.txt)   : /the/path
+    # $(l_01_prs_f -ne /the/path/_foo.txt)  : _foo.txt
+    # $(l_01_prs_f -n /the/path/_foo.txt)   : _foo
+    # $(l_01_prs_f -n2 /the/path/_foo.txt)  : _foo
+    # $(l_01_prs_f -e /the/path/_foo.txt)   : txt
+    # $(l_01_prs_f -e2 /the/path/_foo.txt)  : _foo
+    # $(l_01_prs_f -pr /the/path/_foo.txt)  : _
+    # $(l_01_prs_f -po /the/path/_foo.txt)  : foo.txt
+
+    l_01_prs_f -d ${path} &>>"${res}"
+    l_01_prs_f -ne ${path} &>>"${res}"
+    l_01_prs_f -n ${path} &>>"${res}"
+    l_01_prs_f -n2 ${path} &>>"${res}"
+    l_01_prs_f -e ${path} &>>"${res}"
+    l_01_prs_f -e2 ${path} &>>"${res}"
+    l_01_prs_f -pr ${path} &>>"${res}"
+    l_01_prs_f -po ${path} &>>"${res}"
 
     #?-------------------------------------
     #?----------------------------------------------------

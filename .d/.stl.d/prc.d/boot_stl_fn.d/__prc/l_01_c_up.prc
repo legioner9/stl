@@ -18,6 +18,7 @@ CNTL:
 
 RETU: (any {0} | if: [...] {0} | if [...] {1})
 EXAM:   ${FNN} [, [, ]]
+
 "
     cd "${PPWD}" || {
         echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2

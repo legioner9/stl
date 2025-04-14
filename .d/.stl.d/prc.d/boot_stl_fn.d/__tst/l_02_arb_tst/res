@@ -1,0 +1,6 @@
+[0;30m[2m[104m[7m'l_02_arb_tst /home/st/REPOBARE/_repo/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__tst/l_02_arb_tst/tst_dir/001_lib.stl_00.arb'[0m
+[0;32m$file_path= file:///home/st/REPOBARE/_repo/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__tst/l_02_arb_tst/tst_dir/001_lib.stl_00.arb/PRC1.ram/.grot/_tst/exec.tst[0m
+[0;32m$file_path= file:///home/st/REPOBARE/_repo/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__tst/l_02_arb_tst/tst_dir/001_lib.stl_00.arb/PRC2.ram/.grot/_tst/exec.tst[0m
+[0;30m[2m[101m[7min fs= file:///home/st/REPOBARE/_repo/stl/.d/.stl.lib.d/{{lib_name_dir_arb}}/_PRC.ram/.grot/_tst/exec.tst , line=53: : EXEC_FAIL : '___PRC_TST ' : insert $1 str into str $2 in ALL (without prevent) file from dir $3 : return 1[0m
+[0;30m[2m[101m[7m'l_02_arb_tst() /home/st/REPOBARE/_repo/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__tst/l_02_arb_tst/tst_dir/001_lib.stl_00.arb' in file:///home/st/REPOBARE/_repo/stl/.d/.stl.d/.stldrc , line=170 :: EXEC_FAIL '. file:///home/st/REPOBARE/_repo/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__tst/l_02_arb_tst/tst_dir/001_lib.stl_00.arb/PRC2.ram/.grot/_tst/exec.tst' :: err_flag=1[0m
+[0;31m[2m[107m[7min lib_dir= file:///home/st/REPOBARE/_repo/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__tst/l_02_arb_tst/tst_dir/001_lib.stl_00.arb FAIL_TST[0m

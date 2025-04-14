@@ -44,8 +44,27 @@ _l_01_source_f516c0c_flow() {
         return 1
     }
 
-    # l_01_source "${tst_dir}" &>"${res}"
+    if l_01_source "${tst_dir}/d3/ret1.sh" &>>"${res}"; then
+        echo 0 &>>"${res}"
+    else
+        echo 1 &>>"${res}"
+    fi
 
+    if l_01_source "${tst_dir}/d2/ret0.sh" &>>"${res}"; then
+        echo 0 &>>"${res}"
+    else
+        echo 1 &>>"${res}"
+    fi
+
+    if l_01_source "${tst_dir}/d2/ret0.shx" &>>"${res}"; then
+        echo 0 &>>"${res}"
+    else
+        echo 1 &>>"${res}"
+    fi
+
+    # {
+    #     # l_01_source "${tst_dir}/d2/ret0.shx" && echo 0 || echo 1 &>>"${res}"
+    # }
 
     #?-------------------------------------
     #?----------------------------------------------------
