@@ -10,11 +10,15 @@
 
 _XXX() {
 
-    #! THIS FILE WILL BE CREATED `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh _XXX`
+    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh _XXX`
     #! All changes will be lost after rebuilding
-    #! To change this file use the following commands `_XXX _e_prc` to edit "fn block", `_XXX _e_xxx` to edit "init block"
+    #! To change this file use the following commands:
 
-    #* START init block from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
+    #! _XXX _e_prc to edit/change 'fn block', 
+    #! _XXX _rbld to rebuild fn with changed 'fn block'
+    #! _XXX _e_xxx` to edit 'init block'
+
+    #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
     local NARGS=$#
