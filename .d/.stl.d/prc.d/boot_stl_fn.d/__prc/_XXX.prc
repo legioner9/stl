@@ -1,4 +1,5 @@
 #? for copy to help block
+
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: 
@@ -30,3 +31,53 @@ fi
 
 #! stdout fn introduction
 # echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+
+#     #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
+#     local di=
+#     if [ -n "$N" ]; then
+#         if [ "$N" == "_i" ]; then
+#             di=1
+#         else
+#             di=0
+#         fi
+#     else
+#         di=0
+#     fi
+
+#* greeting
+# [ $di -eq 1 ] && echo -e "${CYAN}--- $FNN() $* in file://${fn_sh_file} ---${NORMAL}" #started functions
+
+#* errno
+# cmd arg
+# errno=$?
+# return ${errno}
+
+#* rename args
+
+#* check cntl
+
+#* inname cntl
+
+#* define local variables
+
+# _f2d :: insert $1 file after str $2 in ALL (without prevent) file from dir $3
+# _s2d :: into str $1 insert $2 str in (with prevent) file from dir $3
+# _s2f :: reciver_string: $1 inserter_string: $2 in reciver_result_file: $3
+
+# hint="\$1: \$2: "
+# if _isn_from ${NARGS} LESS LESS+1 "in fs= file://${fn_sh_file}, line=${LINENO}, ${FNN}() : DEMAND 'LESS LESS+1' ERR_AMOUNT_ARGS entered :'${NARGS}' args : ${hint} : return 1"; then
+#     return 1
+# fi
+
+# [[ -n "$1" ]] || {
+#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
+#     cd "${PPWD}" || {
+#         echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+#         return 1
+#     }
+#     return 1
+# }
+
+#! ptr_path
+# local ptr_path="$1"
+# ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
