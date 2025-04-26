@@ -26,6 +26,9 @@ _XXX() {
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
     local prc_dr=${fn_dr}/__prc
     local tst_dr=${fn_dr}/__tst
+    local ext_dr=${fn_dr}/__ext
+    local ext_dt_dr=${ext_dr}/_dt
+    local ext_dr_prc=${ext_dr}/_prc
 
     local fn_nm=${fn_dr}/${FNN}.sh
     local prc_nm=${prc_dr}/${FNN}.prc

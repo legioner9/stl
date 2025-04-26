@@ -33,11 +33,7 @@ fi
 
 [[ -n "$1" ]] || {
     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
-    cd "${PPWD}" || {
-        echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
-        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-        return 1
-    }
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }
 
@@ -79,7 +75,7 @@ else
         else
             local _d2e_ext
             _d2e_ext=$(_prs_f -e "$item")
-            if { [ -d "$1/$item" ] || [ -f "$1/$item" ]; } && [ "${item:0:1}" != "_" ] && [ "${_d2e_ext}" == "$2" ]; then
+            if { [ -d "$ptr_path/$item" ] || [ -f "$ptr_path/$item" ]; } && [ "${item:0:1}" != "_" ] && [ "${_d2e_ext}" == "$2" ]; then
                 echo "$item"
             fi
         fi

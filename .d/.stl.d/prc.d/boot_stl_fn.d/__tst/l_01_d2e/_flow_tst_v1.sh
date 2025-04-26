@@ -44,6 +44,12 @@ _l_01_d2e_f54902a_flow_1() {
         return 1
     }
 
+    cd ${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt || return 1
+
+    l_01_d2e d2
+
+
+
     # l_01_d2e "${tst_dir}" &>"${res}"
 
     #?-------------------------------------

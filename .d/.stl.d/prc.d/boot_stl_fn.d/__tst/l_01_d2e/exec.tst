@@ -30,8 +30,6 @@ _l_01_d2e_f54902a_exec() {
 
     . "$idir"/_flow_tst.sh &>/dev/null
 
-    # . "$dir"/_flow_tst.sh &>res
-
     #? if res, pre dirs -> diff -qr | diff -r
 
     local flag=1
@@ -55,7 +53,7 @@ _l_01_d2e_f54902a_exec() {
 
 }
 
-if ! _l_01_d2e_f54902a_exec  "$@"; then
+if ! _l_01_d2e_f54902a_exec "$@"; then
     l_00_echo_ret1 "EXEC_FAIL for fuction : 'XXX' : GOTO file://${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_01_d2e : return 1"
     return 1
 fi
