@@ -7,14 +7,14 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_l_01_d2e_f54902a_flow() {
+_l_01_d2ae_850bbcb_flow_1() {
 
-    if ! command -v l_01_d2e >/dev/null; then
-        l_00_echo_ret1 "TYPE_ERROR : l_01_d2e"
+    if ! command -v l_01_d2ae >/dev/null; then
+        l_00_echo_ret1 "TYPE_ERROR : l_01_d2ae"
         return 1
     fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_01_d2e/_flow_tst.sh
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_01_d2ae/_flow_tst_v1.sh
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -44,11 +44,7 @@ _l_01_d2e_f54902a_flow() {
         return 1
     }
 
-    cd ${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt || return 1
-
-    l_01_d2e d2 yes &>"${res}"
-
-    # l_01_d2e "${tst_dir}" &>"${res}"
+    # l_01_d2ae "${tst_dir}" &>"${res}"
 
     #?-------------------------------------
     #?----------------------------------------------------
@@ -60,4 +56,4 @@ _l_01_d2e_f54902a_flow() {
 
 }
 
-_l_01_d2e_f54902a_flow "$@"
+_l_01_d2ae_850bbcb_flow_1 "$@"
