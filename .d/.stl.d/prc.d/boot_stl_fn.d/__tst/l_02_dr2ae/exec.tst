@@ -7,19 +7,19 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_l_01_dr2e_74e9736_exec() {
+_l_02_dr2ae_3a57203_exec() {
 
     local PW=$(pwd)
 
-    if ! command -v l_01_dr2e >/dev/null; then
-        echo "TYPE_ERROR : l_01_dr2e" >&2
+    if ! command -v l_02_dr2ae >/dev/null; then
+        echo "TYPE_ERROR : l_02_dr2ae" >&2
         return 1
     fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_01_dr2e/exec.tst
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_02_dr2ae/exec.tst
     local idir="$(dirname ${filename})"
 
-    l_00_echo_info "test function l_01_dr2e in file://${filename}"
+    l_00_echo_info "test function l_02_dr2ae in file://${filename}"
 
     # cd "$(prs_f -d $filename)" || qq_exit "$(prs_f -d filename) not found"
 
@@ -53,7 +53,7 @@ _l_01_dr2e_74e9736_exec() {
 
 }
 
-if ! _l_01_dr2e_74e9736_exec "$@"; then
-    l_00_echo_ret1 "EXEC_FAIL for fuction : 'XXX' : GOTO file://${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_01_dr2e : return 1"
+if ! _l_02_dr2ae_3a57203_exec "$@"; then
+    l_00_echo_ret1 "EXEC_FAIL for fuction : 'XXX' : GOTO file://${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_02_dr2ae : return 1"
     return 1
 fi

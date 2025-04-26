@@ -2,7 +2,7 @@
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: recuce l_01_d2e , stdout stl_full_path_ent
+MAIN: ${FNN} :: recuce l_02_d2e , stdout stl_full_path_ent
 TAGS:
 \$1 
 [, \$2]
@@ -17,7 +17,7 @@ CNTL:
 
     _e_prc      : edit fn.prc   : l_02_edit ${prc_nm}
     _e_tst_dr   : edit tst_nm_dr: l_02_edit ${tst_nm_dr}
-    _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/l_01_dr2e
+    _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/l_02_dr2e
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
@@ -98,7 +98,7 @@ if [[ "$1" == "@" ]]; then
                 echo "$item"
             fi
             if [ -d "$item" ] && [ "${item:0:1}" != "_" ]; then
-                l_01_dr2e "$item"
+                l_02_dr2e "$item"
             fi
         else
             local _dr2e_ext=
@@ -107,7 +107,7 @@ if [[ "$1" == "@" ]]; then
                 echo "$item"
             fi
             if [ -d "$item" ] && [ "${item:0:1}" != "_" ]; then
-                l_01_dr2e "$item" "$2"
+                l_02_dr2e "$item" "$2"
             fi
         fi
     done
@@ -124,7 +124,7 @@ else
                 echo "$ptr_path/$item"
             fi
             if [ -d "$ptr_path/$item" ] && [ "${item:0:1}" != "_" ]; then
-                l_01_dr2e "$ptr_path/$item"
+                l_02_dr2e "$ptr_path/$item"
             fi
         else
             local _dr2e_ext=
@@ -133,7 +133,7 @@ else
                 echo "$ptr_path/$item"
             fi
             if [ -d "$ptr_path/$item" ] && [ "${item:0:1}" != "_" ]; then
-                l_01_dr2e "$ptr_path/$item" "$2"
+                l_02_dr2e "$ptr_path/$item" "$2"
             fi
         fi
     done

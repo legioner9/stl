@@ -7,14 +7,14 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_l_01_dr2e_74e9736_flow_1() {
+_l_02_dr2e_4aed326_flow() {
 
-    if ! command -v l_01_dr2e >/dev/null; then
-        l_00_echo_ret1 "TYPE_ERROR : l_01_dr2e"
+    if ! command -v l_02_dr2e >/dev/null; then
+        l_00_echo_ret1 "TYPE_ERROR : l_02_dr2e"
         return 1
     fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_01_dr2e/_flow_tst_v1.sh
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_02_dr2e/_flow_tst.sh
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -36,6 +36,7 @@ _l_01_dr2e_74e9736_flow_1() {
     #?----------------------------------------------------
     #?-------------------------------------
     l_00_echo_exec "source file://$filename"
+    #! if stdout to ${res} only in this file - NOT in exec.tst
     : >"${res}"
 
     cd tst_dir || {
@@ -44,7 +45,14 @@ _l_01_dr2e_74e9736_flow_1() {
         return 1
     }
 
-    # l_01_dr2e "${tst_dir}" &>"${res}"
+    cd ${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt || return 1
+
+    l_02_dr2e d2 yes &>"${res}"
+
+    # TODO _s2f -> l_0x_s2f
+    _s2f ${STL_D_PATH} @ "${res}"
+
+    # l_02_dr2e "${tst_dir}" &>"${res}"
 
     #?-------------------------------------
     #?----------------------------------------------------
@@ -56,4 +64,4 @@ _l_01_dr2e_74e9736_flow_1() {
 
 }
 
-_l_01_dr2e_74e9736_flow_1 "$@"
+_l_02_dr2e_4aed326_flow "$@"
