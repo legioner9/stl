@@ -2,7 +2,7 @@
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: stdout stl_name [,with \$2 .ext] - like 'ls \$1' - if in root_dir mst \$1=@
 TAGS:
 \$1 
 [, \$2]
@@ -17,7 +17,7 @@ CNTL:
 
     _e_prc      : edit fn.prc   : l_02_edit ${prc_nm}
     _e_tst_dr   : edit tst_nm_dr: l_02_edit ${tst_nm_dr}
-    _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/l_01_d2Ae
+    _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/l_02_d2e
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
@@ -92,15 +92,15 @@ local item=
 if [[ "$1" == "@" ]]; then
     # ls
 
-    for item in $(ls -A); do
+    for item in $(ls); do
         if [ -z "$2" ]; then
-            if { [ -d "$item" ] || [ -f "$item" ]; }; then
+            if { [ -d "$item" ] || [ -f "$item" ]; } && [ "${item:0:1}" != "_" ]; then
                 echo "$item"
             fi
         else
             local _d2e_ext
             _d2e_ext=$(l_01_prs_f -e "$item")
-            if { [ -d "$item" ] || [ -f "$item" ]; } && [ "${_d2e_ext}" == "$2" ]; then
+            if { [ -d "$item" ] || [ -f "$item" ]; } && [ "${item:0:1}" != "_" ] && [ "${_d2e_ext}" == "$2" ]; then
                 echo "$item"
             fi
         fi
@@ -113,15 +113,15 @@ else
         return 1
     }
 
-    for item in $(ls -A "$ptr_path"); do
+    for item in $(ls "$ptr_path"); do
         if [ -z "$2" ]; then
-            if { [ -d "$ptr_path/$item" ] || [ -f "$1/$item" ]; } ; then
+            if { [ -d "$ptr_path/$item" ] || [ -f "$1/$item" ]; } && [ "${item:0:1}" != "_" ]; then
                 echo "$item"
             fi
         else
             local _d2e_ext
             _d2e_ext=$(l_01_prs_f -e "$item")
-            if { [ -d "$ptr_path/$item" ] || [ -f "$ptr_path/$item" ]; } && [ "${_d2e_ext}" == "$2" ]; then
+            if { [ -d "$ptr_path/$item" ] || [ -f "$ptr_path/$item" ]; } && [ "${item:0:1}" != "_" ] && [ "${_d2e_ext}" == "$2" ]; then
                 echo "$item"
             fi
         fi

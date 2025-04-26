@@ -53,7 +53,7 @@ if [[ "$1" == "@" ]]; then
             fi
         else
             local _d2e_ext
-            _d2e_ext=$(_prs_f -e "$item")
+            _d2e_ext=$(l_01_prs_f -e "$item")
             if { [ -d "$item" ] || [ -f "$item" ]; } && [ "${item:0:1}" != "_" ] && [ "${_d2e_ext}" == "$2" ]; then
                 echo "$item"
             fi
@@ -74,7 +74,7 @@ else
             fi
         else
             local _d2e_ext
-            _d2e_ext=$(_prs_f -e "$item")
+            _d2e_ext=$(l_01_prs_f -e "$item")
             if { [ -d "$ptr_path/$item" ] || [ -f "$ptr_path/$item" ]; } && [ "${item:0:1}" != "_" ] && [ "${_d2e_ext}" == "$2" ]; then
                 echo "$item"
             fi
