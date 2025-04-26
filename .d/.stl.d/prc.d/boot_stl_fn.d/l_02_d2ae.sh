@@ -8,15 +8,15 @@
 # "${ECHO_ERR}$FNN() $*' in file://${file_name} , line=${LINENO} :: CAUS_NAME [VAR] 'code' :: return 1${NRM}" >&2
 # cd ${PPWD} || echo -e "${ECHO_WAR}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [\${PPWD}] '${PPWD}' return 1${NRM}" >&2
 
-l_01_d2Ae() {
+l_02_d2ae() {
 
-    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_01_d2Ae`
+    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_02_d2ae`
     #! All changes will be lost after rebuilding
     #! To change this file use the following commands:
 
-    #! l_01_d2Ae _e_prc to edit/change 'fn block',
-    #! l_01_d2Ae _rbld to rebuild fn with changed 'fn block'
-    #! l_01_d2Ae _e_xxx` to edit 'init block'
+    #! l_02_d2ae _e_prc to edit/change 'fn block',
+    #! l_02_d2ae _rbld to rebuild fn with changed 'fn block'
+    #! l_02_d2ae _e_xxx` to edit 'init block'
 
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
@@ -101,7 +101,7 @@ l_01_d2Ae() {
     fi
 
     if [[ "_rbld" == "$1" ]]; then
-        #! rebuild fn : bcp && ord fn.sh from l_01_d2Ae.sh , cp fn.prc into fn.sh
+        #! rebuild fn : bcp && ord fn.sh from l_02_d2ae.sh , cp fn.prc into fn.sh
         . ${fn_dr}/_rbld_l_xx.sh ${FNN}
         #! up to mem fn
         . ${fn_dr}/$1.sh
@@ -109,7 +109,7 @@ l_01_d2Ae() {
         return 0
     fi
 
-    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_01_d2Ae.prc ------------------
+    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_02_d2ae.prc ------------------
     #[[fn_body]]
 #? for copy to help block
 
@@ -130,7 +130,7 @@ CNTL:
 
     _e_prc      : edit fn.prc   : l_02_edit ${prc_nm}
     _e_tst_dr   : edit tst_nm_dr: l_02_edit ${tst_nm_dr}
-    _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/l_01_d2Ae
+    _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/l_02_d2ae
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
@@ -205,14 +205,14 @@ local item=
 if [[ "$1" == "@" ]]; then
     # ls
 
-    for item in $(ls -A); do
+    for item in $(ls); do
         if [ -z "$2" ]; then
             if { [ -d "$item" ] || [ -f "$item" ]; }; then
                 echo "$item"
             fi
         else
             local _d2e_ext
-            _d2e_ext=$(_prs_f -e "$item")
+            _d2e_ext=$(l_01_prs_f -e "$item")
             if { [ -d "$item" ] || [ -f "$item" ]; } && [ "${_d2e_ext}" == "$2" ]; then
                 echo "$item"
             fi
@@ -226,14 +226,14 @@ else
         return 1
     }
 
-    for item in $(ls -A "$ptr_path"); do
+    for item in $(ls "$ptr_path"); do
         if [ -z "$2" ]; then
-            if { [ -d "$ptr_path/$item" ] || [ -f "$1/$item" ]; } ; then
+            if { [ -d "$ptr_path/$item" ] || [ -f "$1/$item" ]; }; then
                 echo "$item"
             fi
         else
             local _d2e_ext
-            _d2e_ext=$(_prs_f -e "$item")
+            _d2e_ext=$(l_01_prs_f -e "$item")
             if { [ -d "$ptr_path/$item" ] || [ -f "$ptr_path/$item" ]; } && [ "${_d2e_ext}" == "$2" ]; then
                 echo "$item"
             fi
@@ -241,6 +241,7 @@ else
     done
 
 fi
+
     #* END fn block ------------------
 
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
@@ -249,4 +250,4 @@ fi
 }
 
 #! SELF EXEC
-# l_01_d2Ae @
+# l_02_d2ae @

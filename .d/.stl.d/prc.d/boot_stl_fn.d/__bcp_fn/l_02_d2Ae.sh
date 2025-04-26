@@ -8,15 +8,15 @@
 # "${ECHO_ERR}$FNN() $*' in file://${file_name} , line=${LINENO} :: CAUS_NAME [VAR] 'code' :: return 1${NRM}" >&2
 # cd ${PPWD} || echo -e "${ECHO_WAR}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [\${PPWD}] '${PPWD}' return 1${NRM}" >&2
 
-l_01_d2e() {
+l_02_d2Ae() {
 
-    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_01_d2e`
+    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_02_d2Ae`
     #! All changes will be lost after rebuilding
     #! To change this file use the following commands:
 
-    #! l_01_d2e _e_prc to edit/change 'fn block',
-    #! l_01_d2e _rbld to rebuild fn with changed 'fn block'
-    #! l_01_d2e _e_xxx` to edit 'init block'
+    #! l_02_d2Ae _e_prc to edit/change 'fn block',
+    #! l_02_d2Ae _rbld to rebuild fn with changed 'fn block'
+    #! l_02_d2Ae _e_xxx` to edit 'init block'
 
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
@@ -26,6 +26,9 @@ l_01_d2e() {
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
     local prc_dr=${fn_dr}/__prc
     local tst_dr=${fn_dr}/__tst
+    local ext_dr=${fn_dr}/__ext
+    local ext_dt_dr=${ext_dr}/_dt
+    local ext_dr_prc=${ext_dr}/_prc
 
     local fn_nm=${fn_dr}/${FNN}.sh
     local prc_nm=${prc_dr}/${FNN}.prc
@@ -98,7 +101,7 @@ l_01_d2e() {
     fi
 
     if [[ "_rbld" == "$1" ]]; then
-        #! rebuild fn : bcp && ord fn.sh from l_01_d2e.sh , cp fn.prc into fn.sh
+        #! rebuild fn : bcp && ord fn.sh from l_02_d2Ae.sh , cp fn.prc into fn.sh
         . ${fn_dr}/_rbld_l_xx.sh ${FNN}
         #! up to mem fn
         . ${fn_dr}/$1.sh
@@ -106,12 +109,13 @@ l_01_d2e() {
         return 0
     fi
 
-    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_01_d2e.prc ------------------
+    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_02_d2Ae.prc ------------------
     #[[fn_body]]
 #? for copy to help block
+
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: stdout stl_name [,with \$2 .ext] - like 'ls \$1' - if in root_dir mst \$1=@
+MAIN: ${FNN} :: 
 TAGS:
 \$1 
 [, \$2]
@@ -126,76 +130,65 @@ CNTL:
 
     _e_prc      : edit fn.prc   : l_02_edit ${prc_nm}
     _e_tst_dr   : edit tst_nm_dr: l_02_edit ${tst_nm_dr}
-    _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/l_01_d2e
+    _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/l_02_d2Ae
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
 "
-    cd "${PPWD}" || {
-        echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
-        return 1
-    }
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0
 fi
 
 #! stdout fn introduction
 # echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
-[[ -n "$1" ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
-    cd "${PPWD}" || {
-        echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
-        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-        return 1
-    }
-    return 1
-}
+#     #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
+#     local di=
+#     if [ -n "$N" ]; then
+#         if [ "$N" == "_i" ]; then
+#             di=1
+#         else
+#             di=0
+#         fi
+#     else
+#         di=0
+#     fi
+
+#* greeting
+# [ $di -eq 1 ] && echo -e "${CYAN}--- $FNN() $* in file://${fn_sh_file} ---${NORMAL}" #started functions
+
+#* errno
+# cmd arg
+# errno=$?
+# return ${errno}
+
+#* rename args
+
+#* check cntl
+
+#* inname cntl
+
+#* define local variables
+
+# _f2d :: insert $1 file after str $2 in ALL (without prevent) file from dir $3
+# _s2d :: into str $1 insert $2 str in (with prevent) file from dir $3
+# _s2f :: reciver_string: $1 inserter_string: $2 in reciver_result_file: $3
+
+# hint="\$1: \$2: "
+# if _isn_from ${NARGS} LESS LESS+1 "in fs= file://${fn_sh_file}, line=${LINENO}, ${FNN}() : DEMAND 'LESS LESS+1' ERR_AMOUNT_ARGS entered :'${NARGS}' args : ${hint} : return 1"; then
+#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+#     return 1
+# fi
+
+# [[ -n "$1" ]] || {
+#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
+#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+#     return 1
+# }
 
 #! ptr_path
-local ptr_path="$1"
-ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
-
-local item=
-
-if [[ "$1" == "@" ]]; then
-    # ls
-
-    for item in $(ls); do
-        if [ -z "$2" ]; then
-            if { [ -d "$item" ] || [ -f "$item" ]; } && [ "${item:0:1}" != "_" ]; then
-                echo "$item"
-            fi
-        else
-            local _d2e_ext
-            _d2e_ext=$(_prs_f -e "$item")
-            if { [ -d "$item" ] || [ -f "$item" ]; } && [ "${item:0:1}" != "_" ] && [ "${_d2e_ext}" == "$2" ]; then
-                echo "$item"
-            fi
-        fi
-    done
-
-else
-    ls $ptr_path >/dev/null || {
-        l_00_echo_ret1 "in fs= file://${fn_nm} , line=${LINENO}, ${FNN}() : : EXEC_FAIL : 'ls $ptr_path >/dev/null' : return 1"
-        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-        return 1
-    }
-
-    for item in $(ls "$ptr_path"); do
-        if [ -z "$2" ]; then
-            if { [ -d "$ptr_path/$item" ] || [ -f "$1/$item" ]; } && [ "${item:0:1}" != "_" ]; then
-                echo "$item"
-            fi
-        else
-            local _d2e_ext
-            _d2e_ext=$(_prs_f -e "$item")
-            if { [ -d "$1/$item" ] || [ -f "$1/$item" ]; } && [ "${item:0:1}" != "_" ] && [ "${_d2e_ext}" == "$2" ]; then
-                echo "$item"
-            fi
-        fi
-    done
-
-fi
+# local ptr_path="$1"
+# ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
 
     #* END fn block ------------------
 
@@ -205,4 +198,4 @@ fi
 }
 
 #! SELF EXEC
-# l_01_d2e @
+# l_02_d2Ae @

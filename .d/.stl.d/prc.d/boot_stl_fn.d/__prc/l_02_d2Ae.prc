@@ -2,7 +2,7 @@
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: stdout name [,with \$2 .ext] - like 'ls \$1' - if in root_dir mst \$1=@
+MAIN: ${FNN} :: stdout ALL_name [,with \$2 .ext] - like 'ls \$1' - if in root_dir mst \$1=@
 TAGS:
 \$1 
 [, \$2]
@@ -17,7 +17,7 @@ CNTL:
 
     _e_prc      : edit fn.prc   : l_02_edit ${prc_nm}
     _e_tst_dr   : edit tst_nm_dr: l_02_edit ${tst_nm_dr}
-    _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/l_01_d2ae
+    _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/l_02_d2Ae
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
@@ -92,7 +92,7 @@ local item=
 if [[ "$1" == "@" ]]; then
     # ls
 
-    for item in $(ls); do
+    for item in $(ls -A); do
         if [ -z "$2" ]; then
             if { [ -d "$item" ] || [ -f "$item" ]; }; then
                 echo "$item"
@@ -113,9 +113,9 @@ else
         return 1
     }
 
-    for item in $(ls "$ptr_path"); do
+    for item in $(ls -A "$ptr_path"); do
         if [ -z "$2" ]; then
-            if { [ -d "$ptr_path/$item" ] || [ -f "$1/$item" ]; } ; then
+            if { [ -d "$ptr_path/$item" ] || [ -f "$1/$item" ]; }; then
                 echo "$item"
             fi
         else
