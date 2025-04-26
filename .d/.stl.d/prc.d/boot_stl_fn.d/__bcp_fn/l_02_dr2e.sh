@@ -211,7 +211,7 @@ if [[ "$1" == "@" ]]; then
                 echo "$item"
             fi
             if [ -d "$item" ] && [ "${item:0:1}" != "_" ]; then
-                l_01_dr2e "$item"
+                l_02_dr2e "$item"
             fi
         else
             local _dr2e_ext=
@@ -220,7 +220,7 @@ if [[ "$1" == "@" ]]; then
                 echo "$item"
             fi
             if [ -d "$item" ] && [ "${item:0:1}" != "_" ]; then
-                l_01_dr2e "$item" "$2"
+                l_02_dr2e "$item" "$2"
             fi
         fi
     done
@@ -237,7 +237,7 @@ else
                 echo "$ptr_path/$item"
             fi
             if [ -d "$ptr_path/$item" ] && [ "${item:0:1}" != "_" ]; then
-                l_01_dr2e "$ptr_path/$item"
+                l_02_dr2e "$ptr_path/$item"
             fi
         else
             local _dr2e_ext=
@@ -246,7 +246,7 @@ else
                 echo "$ptr_path/$item"
             fi
             if [ -d "$ptr_path/$item" ] && [ "${item:0:1}" != "_" ]; then
-                l_01_dr2e "$ptr_path/$item" "$2"
+                l_02_dr2e "$ptr_path/$item" "$2"
             fi
         fi
     done

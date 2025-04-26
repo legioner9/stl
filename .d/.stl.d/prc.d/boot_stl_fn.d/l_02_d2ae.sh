@@ -115,7 +115,7 @@ l_02_d2ae() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: prevent stl_dir (_) stdout name [,with \$2 .ext] - like 'ls \$1' - if in root_dir mst \$1=@
 TAGS:
 \$1 
 [, \$2]

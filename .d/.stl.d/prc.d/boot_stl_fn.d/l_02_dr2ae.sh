@@ -115,7 +115,7 @@ l_02_dr2ae() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} ::  prevent stl_dir (_) recuce l_02_d2ae , stdout full_path_ent
 TAGS:
 \$1 
 [, \$2]
@@ -189,6 +189,68 @@ fi
 #! ptr_path
 # local ptr_path="$1"
 # ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
+
+[[ -n "$1" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
+
+#! ptr_path
+local ptr_path="$1"
+ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
+
+local item=
+
+if [[ "$1" == "@" ]]; then
+    # ls
+    for item in $(ls); do
+        if [ -z "$2" ]; then
+            # echo -e "${HLIGHT}--- [ -d /$item ] || [ -f /$item ] ---${NORMAL}" #start files
+            if { [ -d "$item" ] || [ -f "$item" ]; }; then
+                echo "$item"
+            fi
+            if [ -d "$item" ] && [ "${item:0:1}" != "_" ]; then
+                l_02_dr2ae "$item"
+            fi
+        else
+            local _dr2e_ext=
+            _dr2e_ext=$(l_01_prs_f -e "$item")
+            if { [ -d "$item" ] || [ -f "$item" ]; }  && [ "${_dr2e_ext}" == "$2" ]; then
+                echo "$item"
+            fi
+            if [ -d "$item" ] && [ "${item:0:1}" != "_" ]; then
+                l_02_dr2ae "$item" "$2"
+            fi
+        fi
+    done
+
+else
+    ls $ptr_path >/dev/null || {
+        l_00_echo_ret1 "in fs= file://${fn_nm} , line=${LINENO}, ${FNN}() : : EXEC_FAIL : 'ls $ptr_path >/dev/null' : return 1"
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        return 1
+    }
+    for item in $(ls $ptr_path); do
+        if [ -z "$2" ]; then
+            if { [ -d "$ptr_path/$item" ] || [ -f "$ptr_path/$item" ]; }; then
+                echo "$ptr_path/$item"
+            fi
+            if [ -d "$ptr_path/$item" ] && [ "${item:0:1}" != "_" ]; then
+                l_02_dr2ae "$ptr_path/$item"
+            fi
+        else
+            local _dr2e_ext=
+            _dr2e_ext=$(l_01_prs_f -e "$item")
+            if { [ -d "$ptr_path/$item" ] || [ -f "$ptr_path/$item" ]; } && [ "${_dr2e_ext}" == "$2" ]; then
+                echo "$ptr_path/$item"
+            fi
+            if [ -d "$ptr_path/$item" ] && [ "${item:0:1}" != "_" ]; then
+                l_02_dr2ae "$ptr_path/$item" "$2"
+            fi
+        fi
+    done
+fi
 
     #* END fn block ------------------
 

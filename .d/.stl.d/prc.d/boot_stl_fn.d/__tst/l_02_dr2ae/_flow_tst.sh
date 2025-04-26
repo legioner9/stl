@@ -37,7 +37,7 @@ _l_02_dr2ae_3a57203_flow() {
     #?-------------------------------------
     l_00_echo_exec "source file://$filename"
     #! if stdout to ${res} only in this file - NOT in exec.tst
-    : >"${res}" 
+    : >"${res}"
 
     cd tst_dir || {
         hint="\$1: \$2: "
@@ -45,8 +45,14 @@ _l_02_dr2ae_3a57203_flow() {
         return 1
     }
 
-    # l_02_dr2ae "${tst_dir}" &>"${res}"
+    cd ${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt || return 1
 
+    l_02_dr2ae d2 yes &>"${res}"
+
+    # TODO _s2f -> l_0x_s2f
+    _s2f ${STL_D_PATH} @ "${res}"
+
+    # l_02_dr2ae "${tst_dir}" &>"${res}"
 
     #?-------------------------------------
     #?----------------------------------------------------

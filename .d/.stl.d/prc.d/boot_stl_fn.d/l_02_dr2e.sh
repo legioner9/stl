@@ -115,7 +115,7 @@ l_02_dr2e() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: recuce l_02_d2e , stdout stl_full_path_ent
+MAIN: ${FNN} :: prevent stl_dir (_) recuce l_02_d2e , stdout stl_full_path_ent
 TAGS:
 \$1 
 [, \$2]
