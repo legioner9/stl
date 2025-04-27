@@ -7,14 +7,14 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_l_01_abs_path_0c1cb9e_flow() {
+_l_02_mc_27e54a3_flow() {
 
-    if ! command -v l_01_abs_path >/dev/null; then
-        l_00_echo_ret1 "TYPE_ERROR : l_01_abs_path"
+    if ! command -v l_02_mc >/dev/null; then
+        l_00_echo_ret1 "TYPE_ERROR : l_02_mc"
         return 1
     fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_01_abs_path/_flow_tst.sh
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_02_mc/_flow_tst.sh
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -36,7 +36,8 @@ _l_01_abs_path_0c1cb9e_flow() {
     #?----------------------------------------------------
     #?-------------------------------------
     l_00_echo_exec "source file://$filename"
-    : >"${res}"
+    #! if stdout to ${res} only in this file - NOT in exec.tst
+    : >"${res}" 
 
     cd tst_dir || {
         hint="\$1: \$2: "
@@ -44,14 +45,8 @@ _l_01_abs_path_0c1cb9e_flow() {
         return 1
     }
 
-    ert=ERT
+    # l_02_mc "${tst_dir}" &>"${res}"
 
-    l_01_abs_path /vdfs ert &>"${res}"
-    l_01_abs_path /vdfs &>>"${res}"
-    l_01_abs_path &>>"${res}"
-
-    # TODO _s2f -> l_0x_s2f
-    _s2f "${STL_D_PATH}" @ "${res}"
 
     #?-------------------------------------
     #?----------------------------------------------------
@@ -63,4 +58,4 @@ _l_01_abs_path_0c1cb9e_flow() {
 
 }
 
-_l_01_abs_path_0c1cb9e_flow "$@"
+_l_02_mc_27e54a3_flow "$@"

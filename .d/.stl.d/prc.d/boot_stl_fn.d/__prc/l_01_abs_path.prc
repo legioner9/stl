@@ -1,8 +1,47 @@
 #? for copy to help block
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: echo abs_path if \$1 PWD \$2 ptr to upath or @ instead empty \$2
+MAIN: ${FNN} :: echo abs_path (-h)
 TAGS:
+ARGS:
+\$1 
+[, \$2]
+FLOW:   if \$1 is empty
+            - echo \$PPWD
+        if {\$arg1:0:1} = '/' else return 1
+            if \$2 empty
+                - echo \$arg1
+            else 
+                cace : val_ptr [from (eval val_ptr=\\\$\$2 )] 
+                    is empty                : echo \$arg1
+                    {\$val_ptr:0:1} = '/'   : echo \$val_ptr
+                    {\$val_ptr:0:1} != '/'  : echo \$arg1/\$val_ptr
+# HIE _PRC 
+
+## CAUSA:
+ПРИЧИНА создания:
+<!-- {{fn_hie_body_CAUSA}} -->
+
+
+## FORMULA:
+СХЕМА решения:
+<!-- {{fn_hie_body_FORMULA}} -->
+
+
+
+## DOGMA:
+РЕШЕНИЕ задачи:
+<!-- {{fn_hie_body_DOGMA}} -->
+
+
+### TST
+<!-- {{fn_hie_body_TST}} -->
+
+
+### FLOW_1
+<!-- {{fn_hie_body_FLOW_1}} -->
+TAGS:
+
 \$1 
 [, \$2]
 CNTL: 
@@ -32,28 +71,35 @@ fi
 #! stdout fn introduction
 # echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
-if [[ -z "$2" ]]; then
-    l_00_echo_ret1 "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' : \$2 NOT_DEFINE , hint : '$3' : return 1"
-    return 1
-fi
-local dpwd="$1"
-if ! [[ "/" == "${dpwd:0:1}" ]]; then
-    l_00_echo_ret1 "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' : '${dpwd}' NOT_ROOT , hint : '$3' : return 1"
-    return 1
-fi
-eval local arg2=\${$2}
-if [ "@" == "$arg2" ]; then
-    echo ${dpwd}
+local dpwd
+
+if [[ -n "$1" ]]; then
+    dpwd="$1"
+    if ! [[ "/" == "${dpwd:0:1}" ]]; then
+        l_00_echo_ret1 "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' : '${dpwd}' NOT_ROOT , hint : '$3' : return 1"
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        return 1
+    fi
+
+else
+    echo "$PPWD"
     return 0
 fi
-if [[ -z "$arg2" ]]; then
-    l_00_echo_ret1 "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' : \$\$2 => '\$$2' NOT_DEFINE , hint : '$3' : return 1"
-    return 1
+
+if [[ -z "$2" ]]; then
+    echo "$dpwd"
+    return 0
+else
+    eval "local arg2=\${$2}"
 fi
 
-# [[ "/" == "${arg1:0:1}" ]]
-if [[ "/" == "${arg2:0:1}" ]]; then
-    echo ${arg2}
+if [[ -n "${arg2}" ]]; then
+
+    if [[ "/" == "${arg2:0:1}" ]]; then
+        echo "${arg2}"
+    else
+        echo "${dpwd}/${arg2}"
+    fi
 else
-    echo ${dpwd}/${arg2}
+    echo "${dpwd}"
 fi

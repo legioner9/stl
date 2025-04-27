@@ -114,19 +114,7 @@ l_01_abs_path() {
 #? for copy to help block
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: echo abs_path (-h)
-
-    if \$1 is empty
-        - echo \$PPWD
-    if {\$arg1:0:1} = '/' else return 1
-        if \$2 empty
-            - echo \$arg1
-        else 
-            cace : val_ptr [from (eval val_ptr=\\\$\$2 )] 
-                is empty                : echo \$arg1
-                {\$val_ptr:0:1} = '/'   : echo \$val_ptr
-                {\$val_ptr:0:1} != '/'  : echo \$arg1/\$val_ptr
-
+MAIN: ${FNN} :: echo abs_path if \$1 PWD \$2 ptr to upath [, if \$2 empty echo \$1]
 TAGS:
 \$1 
 [, \$2]
@@ -166,28 +154,22 @@ if [[ -n "$1" ]]; then
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
         return 1
     fi
-
 else
-    echo "$PPWD"
-    return 0
+    dpwd="$PPWD"
 fi
 
-if [[ -z "$2" ]]; then
-    echo "$dpwd"
-    return 0
-else
+if [[ -n "$2" ]]; then
     eval "local arg2=\${$2}"
 fi
 
-if [[ -n "${arg2}" ]]; then
-
+if [[ -z "$arg2" ]]; then
+    echo "${dpwd}"
+else
     if [[ "/" == "${arg2:0:1}" ]]; then
         echo "${arg2}"
     else
         echo "${dpwd}/${arg2}"
     fi
-else
-    echo "${dpwd}"
 fi
 
     #* END fn block ------------------

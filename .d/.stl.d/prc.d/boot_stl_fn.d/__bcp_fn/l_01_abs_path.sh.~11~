@@ -114,19 +114,7 @@ l_01_abs_path() {
 #? for copy to help block
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: echo abs_path (-h)
-
-    if \$1 is empty
-        - echo \$PPWD
-    if {\$arg1:0:1} = '/' else return 1
-        if \$2 empty
-            - echo \$arg1
-        else 
-            cace : val_ptr [from (eval val_ptr=\\\$\$2 )] 
-                is empty                : echo \$arg1
-                {\$val_ptr:0:1} = '/'   : echo \$val_ptr
-                {\$val_ptr:0:1} != '/'  : echo \$arg1/\$val_ptr
-
+MAIN: ${FNN} :: echo abs_path if \$1 PWD \$2 ptr to upath [, if \$2 empty echo \$1]
 TAGS:
 \$1 
 [, \$2]
@@ -156,6 +144,8 @@ fi
 
 #! stdout fn introduction
 # echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+
+echo -e "${GREEN}\$PPWD = '$PPWD'${NORMAL}"
 
 local dpwd
 

@@ -8,15 +8,15 @@
 # "${ECHO_ERR}$FNN() $*' in file://${file_name} , line=${LINENO} :: CAUS_NAME [VAR] 'code' :: return 1${NRM}" >&2
 # cd ${PPWD} || echo -e "${ECHO_WAR}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [\${PPWD}] '${PPWD}' return 1${NRM}" >&2
 
-l_01_abs_path() {
+l_02_f2e() {
 
-    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_01_abs_path`
+    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_02_f2e`
     #! All changes will be lost after rebuilding
     #! To change this file use the following commands:
 
-    #! l_01_abs_path _e_prc to edit/change 'fn block',
-    #! l_01_abs_path _rbld to rebuild fn with changed 'fn block'
-    #! l_01_abs_path _e_xxx` to edit 'init block'
+    #! l_02_f2e _e_prc to edit/change 'fn block',
+    #! l_02_f2e _rbld to rebuild fn with changed 'fn block'
+    #! l_02_f2e _e_xxx` to edit 'init block'
 
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
@@ -101,7 +101,7 @@ l_01_abs_path() {
     fi
 
     if [[ "_rbld" == "$1" ]]; then
-        #! rebuild fn : bcp && ord fn.sh from l_01_abs_path.sh , cp fn.prc into fn.sh
+        #! rebuild fn : bcp && ord fn.sh from l_02_f2e.sh , cp fn.prc into fn.sh
         . ${fn_dr}/_rbld_l_xx.sh ${FNN}
         #! up to mem fn
         . ${fn_dr}/$1.sh
@@ -109,24 +109,13 @@ l_01_abs_path() {
         return 0
     fi
 
-    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_01_abs_path.prc ------------------
+    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_02_f2e.prc ------------------
     #[[fn_body]]
 #? for copy to help block
+
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: echo abs_path (-h)
-
-    if \$1 is empty
-        - echo \$PPWD
-    if {\$arg1:0:1} = '/' else return 1
-        if \$2 empty
-            - echo \$arg1
-        else 
-            cace : val_ptr [from (eval val_ptr=\\\$\$2 )] 
-                is empty                : echo \$arg1
-                {\$val_ptr:0:1} = '/'   : echo \$val_ptr
-                {\$val_ptr:0:1} != '/'  : echo \$arg1/\$val_ptr
-
+MAIN: ${FNN} :: 
 TAGS:
 \$1 
 [, \$2]
@@ -135,60 +124,71 @@ CNTL:
     -h          : help
     _go         : edit body     : l_02_edit ${fn_nm}
     _rbld       : rebuild fn    : . ${fn_dr}/_rbld_l_xx.sh ${FNN}
-    _tst        : tst fn        : l_02_edit ${tst_nm_dr}/${FNN}/exec.tst
-
+    _tst        : tst fn        : . ${tst_nm_dr}/${FNN}/exec.tst
     _flow       : tst _flow     : . ${tst_nm_dr}/${FNN}/_flow_tst.sh
     _flow_1     : tst _flow_1   : . ${tst_nm_dr}/${FNN}/_flow_tst_v1.sh
-    
+
     _e_prc      : edit fn.prc   : l_02_edit ${prc_nm}
     _e_tst_dr   : edit tst_nm_dr: l_02_edit ${tst_nm_dr}
-    _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/l_01_abs_path
+    _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/l_02_f2e
 
-RETU: (any {0} | if: [...] {0} | if [...] {1})
+RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
 "
-    cd "${PPWD}" || {
-        echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
-        return 1
-    }
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0
 fi
 
 #! stdout fn introduction
 # echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
-local dpwd
+#     #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
+#     local di=
+#     if [ -n "$N" ]; then
+#         if [ "$N" == "_i" ]; then
+#             di=1
+#         else
+#             di=0
+#         fi
+#     else
+#         di=0
+#     fi
 
-if [[ -n "$1" ]]; then
-    dpwd="$1"
-    if ! [[ "/" == "${dpwd:0:1}" ]]; then
-        l_00_echo_ret1 "in fs= file://${STL_D_PATH}/.stldrc  , line=${LINENO} : '$FNN() $*' : '${dpwd}' NOT_ROOT , hint : '$3' : return 1"
-        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-        return 1
-    fi
+#* greeting
+# [ $di -eq 1 ] && echo -e "${CYAN}--- $FNN() $* in file://${fn_sh_file} ---${NORMAL}" #started functions
 
-else
-    echo "$PPWD"
-    return 0
-fi
+#* errno
+# cmd arg
+# errno=$?
+# return ${errno}
 
-if [[ -z "$2" ]]; then
-    echo "$dpwd"
-    return 0
-else
-    eval "local arg2=\${$2}"
-fi
+#* rename args
 
-if [[ -n "${arg2}" ]]; then
+#* check cntl
 
-    if [[ "/" == "${arg2:0:1}" ]]; then
-        echo "${arg2}"
-    else
-        echo "${dpwd}/${arg2}"
-    fi
-else
-    echo "${dpwd}"
-fi
+#* inname cntl
+
+#* define local variables
+
+# _f2d :: insert $1 file after str $2 in ALL (without prevent) file from dir $3
+# _s2d :: into str $1 insert $2 str in (with prevent) file from dir $3
+# _s2f :: reciver_string: $1 inserter_string: $2 in reciver_result_file: $3
+
+# hint="\$1: \$2: "
+# if _isn_from ${NARGS} LESS LESS+1 "in fs= file://${fn_sh_file}, line=${LINENO}, ${FNN}() : DEMAND 'LESS LESS+1' ERR_AMOUNT_ARGS entered :'${NARGS}' args : ${hint} : return 1"; then
+#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+#     return 1
+# fi
+
+# [[ -n "$1" ]] || {
+#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
+#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+#     return 1
+# }
+
+#! ptr_path
+# local ptr_path="$1"
+# ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
 
     #* END fn block ------------------
 
@@ -198,4 +198,4 @@ fi
 }
 
 #! SELF EXEC
-# l_01_abs_path @
+# l_02_f2e @
