@@ -114,10 +114,37 @@ l_01_abs_path() {
 #? for copy to help block
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: echo abs_path if \$1 PWD \$2 ptr to upath [, if \$2 empty echo \$1]
+MAIN: ${FNN} :: echo abs_path [, \$1 abs_path [, \$2 ptr_to_path]] {see FLOW}
 TAGS:
-\$1 
-[, \$2]
+ARGS:
+[, \$1=$PWD
+[, \$2 ptr_to_path
+    ]]
+FLOW:   if \$1 is empty
+            - echo \$PPWD
+        if {\$arg1:0:1} = '/' else return 1
+            if \$2 empty
+                - echo \$arg1
+            else 
+                cace : val_ptr [from (eval val_ptr=\\\$\$2 )] 
+                    is empty                : echo \$arg1
+                    {\$val_ptr:0:1} = '/'   : echo \$val_ptr
+                    {\$val_ptr:0:1} != '/'  : echo \$arg1/\$val_ptr
+
+# HIE ${FNN} 
+## CAUSA:
+ПРИЧИНА создания:
+        Возможность использовать путь относительный к директории PWD
+## FORMULA:
+СХЕМА решения:
+## DOGMA:
+РЕШЕНИЕ задачи:
+### TST
+### FLOW_1
+    - call with args: abs_path, rel_path -> echo abs_path/rel_path
+    - call with abs_path -> echo abs_path
+    - call without args -> echo PWD
+
 CNTL: 
 
     -h          : help

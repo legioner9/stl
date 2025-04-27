@@ -1,11 +1,12 @@
 #? for copy to help block
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: echo abs_path (-h)
+MAIN: ${FNN} :: echo abs_path [, \$1 abs_path [, \$2 ptr_to_path]] {see FLOW}
 TAGS:
 ARGS:
-\$1 
-[, \$2]
+[, \$1 abs_path
+[, \$2 ptr_to_path
+    ]]
 FLOW:   if \$1 is empty
             - echo \$PPWD
         if {\$arg1:0:1} = '/' else return 1
@@ -16,34 +17,21 @@ FLOW:   if \$1 is empty
                     is empty                : echo \$arg1
                     {\$val_ptr:0:1} = '/'   : echo \$val_ptr
                     {\$val_ptr:0:1} != '/'  : echo \$arg1/\$val_ptr
-# HIE _PRC 
 
+# HIE ${FNN} 
 ## CAUSA:
 ПРИЧИНА создания:
-<!-- {{fn_hie_body_CAUSA}} -->
-
-
+        Возможность использовать путь относительный к директории PWD
 ## FORMULA:
 СХЕМА решения:
-<!-- {{fn_hie_body_FORMULA}} -->
-
-
-
 ## DOGMA:
 РЕШЕНИЕ задачи:
-<!-- {{fn_hie_body_DOGMA}} -->
-
-
 ### TST
-<!-- {{fn_hie_body_TST}} -->
-
-
 ### FLOW_1
-<!-- {{fn_hie_body_FLOW_1}} -->
-TAGS:
+    - call with args: abs_path, rel_path -> echo abs_path/rel_path
+    - call with abs_path -> echo abs_path
+    - call without args -> echo PWD
 
-\$1 
-[, \$2]
 CNTL: 
 
     -h          : help

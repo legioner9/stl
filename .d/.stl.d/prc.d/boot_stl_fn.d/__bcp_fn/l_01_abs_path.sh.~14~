@@ -114,10 +114,10 @@ l_01_abs_path() {
 #? for copy to help block
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: echo abs_path [, \$1 abs_path [, \$2 ptr_to_path]] {see FLOW}
+MAIN: ${FNN} :: echo abs_path [, \$1=$PWD [, \$2 ptr_to_path]] {see FLOW}
 TAGS:
 ARGS:
-[, \$1 abs_path
+[, \$1=$PWD
 [, \$2 ptr_to_path
     ]]
 FLOW:   if \$1 is empty
@@ -144,7 +144,7 @@ FLOW:   if \$1 is empty
     - call with args: abs_path, rel_path -> echo abs_path/rel_path
     - call with abs_path -> echo abs_path
     - call without args -> echo PWD
-
+    
 CNTL: 
 
     -h          : help
