@@ -191,7 +191,7 @@ local ptr_path="$1"
 ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
 
 [[ -d "$ptr_path" ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR '$ptr_path' from '\$1=$1' return 1"
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR 'file://$ptr_path' from '\$1' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }

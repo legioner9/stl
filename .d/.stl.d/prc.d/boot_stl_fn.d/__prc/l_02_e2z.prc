@@ -2,10 +2,24 @@
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: stdout size b of dir $PWD [, \$1 ]  [arg_ls] 
+MAIN: ${FNN} :: stdout size_b of dir or file $PWD [, \$1 ]  [arg_ls]
 TAGS:
 \$1 
 [, \$2]
+FLOW:   [if 
+            -]
+        
+# HIE ${FNN} 
+## CAUSA:
+ПРИЧИНА создания:
+## FORMULA:
+СХЕМА решения:
+## DOGMA:
+РЕШЕНИЕ задачи:
+### TST [as FLOW_1]
+### FLOW_1
+    - cd tst_dir
+    - call with args: [] -> [true answer in res_file]
 CNTL: 
 
     -h          : help
@@ -17,7 +31,7 @@ CNTL:
 
     _e_prc      : edit fn.prc   : l_02_edit ${prc_nm}
     _e_tst_dr   : edit tst_nm_dr: l_02_edit ${tst_nm_dr}
-    _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/l_02_d2z
+    _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/${FNN}
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
@@ -67,18 +81,22 @@ fi
 #     return 1
 # fi
 
-# [[ -n "$1" && ! -d "$1" ]] || {
-#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXSIST AND NOT_DIR '\$1' return 1"
+# [[ -n "$1" ]] || {
+#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
 #     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
 #     return 1
 # }
+
+#! ptr_path
+# local ptr_path="$1"
+# ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
 
 # ! ptr_path
 local ptr_path="$1"
 ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
 
-[[ -d "$ptr_path" ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR '$ptr_path' from '\$1=$1' return 1"
+[[ ! -d "$ptr_path" && ! -f "$ptr_path" ]] && {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR AND NOT_FILE '$ptr_path' from '\$1=$1' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }
@@ -89,3 +107,8 @@ ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
     return 0
 }
 
+[[ -f "$ptr_path" ]] && {
+    stat -c %s "$ptr_path"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 0
+}

@@ -8,15 +8,15 @@
 # "${ECHO_ERR}$FNN() $*' in file://${file_name} , line=${LINENO} :: CAUS_NAME [VAR] 'code' :: return 1${NRM}" >&2
 # cd ${PPWD} || echo -e "${ECHO_WAR}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [\${PPWD}] '${PPWD}' return 1${NRM}" >&2
 
-l_02_d2z() {
+l_02_e2z() {
 
-    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_02_d2z`
+    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_02_e2z`
     #! All changes will be lost after rebuilding
     #! To change this file use the following commands:
 
-    #! l_02_d2z _e_prc to edit/change 'fn block',
-    #! l_02_d2z _rbld to rebuild fn with changed 'fn block'
-    #! l_02_d2z _e_xxx` to edit 'init block'
+    #! l_02_e2z _e_prc to edit/change 'fn block',
+    #! l_02_e2z _rbld to rebuild fn with changed 'fn block'
+    #! l_02_e2z _e_xxx` to edit 'init block'
 
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
@@ -101,7 +101,7 @@ l_02_d2z() {
     fi
 
     if [[ "_rbld" == "$1" ]]; then
-        #! rebuild fn : bcp && ord fn.sh from l_02_d2z.sh , cp fn.prc into fn.sh
+        #! rebuild fn : bcp && ord fn.sh from l_02_e2z.sh , cp fn.prc into fn.sh
         . ${fn_dr}/_rbld_l_xx.sh ${FNN}
         #! up to mem fn
         . ${fn_dr}/$1.sh
@@ -109,16 +109,30 @@ l_02_d2z() {
         return 0
     fi
 
-    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_02_d2z.prc ------------------
+    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_02_e2z.prc ------------------
     #[[fn_body]]
 #? for copy to help block
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: stdout size Kb of dir $PWD [, \$1 ]  [arg_ls] 
+MAIN: ${FNN} :: stdout size_b of dir or file $PWD [, \$1 ]  [arg_ls]
 TAGS:
 \$1 
 [, \$2]
+FLOW:   [if 
+            -]
+        
+# HIE ${FNN} 
+## CAUSA:
+ПРИЧИНА создания:
+## FORMULA:
+СХЕМА решения:
+## DOGMA:
+РЕШЕНИЕ задачи:
+### TST [as FLOW_1]
+### FLOW_1
+    - cd tst_dir
+    - call with args: [] -> [true answer in res_file]
 CNTL: 
 
     -h          : help
@@ -130,7 +144,7 @@ CNTL:
 
     _e_prc      : edit fn.prc   : l_02_edit ${prc_nm}
     _e_tst_dr   : edit tst_nm_dr: l_02_edit ${tst_nm_dr}
-    _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/l_02_d2z
+    _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/${FNN}
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
@@ -180,24 +194,37 @@ fi
 #     return 1
 # fi
 
-# [[ -n "$1" && ! -d "$1" ]] || {
-#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXSIST AND NOT_DIR '\$1' return 1"
+# [[ -n "$1" ]] || {
+#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
 #     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
 #     return 1
 # }
+
+#! ptr_path
+# local ptr_path="$1"
+# ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
 
 # ! ptr_path
 local ptr_path="$1"
 ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
 
-[[ -d "$ptr_path" ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR '$ptr_path' from '\$1=$1' return 1"
+[[ -d "$ptr_path" && -f "$ptr_path" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR AND NOT_FILE '$ptr_path' from '\$1=$1' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }
 
-du -sk "$ptr_path" | awk '{print $1}'
+[[ -d "$ptr_path" ]] && {
+    du -sk "$ptr_path" | awk '{print $1}'
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 0
+}
 
+[[ -f "$ptr_path" ]] && {
+    stat -c %s "$ptr_path"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 0
+}
     #* END fn block ------------------
 
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
@@ -206,4 +233,4 @@ du -sk "$ptr_path" | awk '{print $1}'
 }
 
 #! SELF EXEC
-# l_02_d2z @
+# l_02_e2z @
