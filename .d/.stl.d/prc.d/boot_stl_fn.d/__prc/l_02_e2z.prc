@@ -2,7 +2,7 @@
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: stdout size_b of dir or file $PWD [, \$1 ]  [arg_ls]
+MAIN: ${FNN} :: stdout [tabout] : 'ent_cls'\t'ent_size'\t'ent_pth of dir or file $PWD [, \$1 ]  [arg_ls]
 TAGS:
 \$1 
 [, \$2]
@@ -92,6 +92,9 @@ fi
 # ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
 
 # ! ptr_path
+local ent_size=
+local ent_cls=
+local ent_pth=
 local ptr_path="$1"
 ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
 
@@ -102,13 +105,14 @@ ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
 }
 
 [[ -d "$ptr_path" ]] && {
-    du -sk "$ptr_path" | awk '{print $1}'
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 0
+    ent_size="$(du -sb "$ptr_path" | awk '{print $1}')"
+    ent_cls="d"
 }
 
 [[ -f "$ptr_path" ]] && {
-    stat -c %s "$ptr_path"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 0
+    ent_size="$(stat -c %s "$ptr_path")"
+    ent_cls="f"
 }
+
+ent_pth="$ptr_path"
+echo -e "${ent_cls}\t${ent_size}\t${ent_pth}"

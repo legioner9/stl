@@ -37,19 +37,18 @@ _l_02_d2z_eb102b5_flow() {
     #?-------------------------------------
     l_00_echo_exec "source file://$filename"
     #! if stdout to ${res} only in this file - NOT in exec.tst
-    : >"${res}" 
+    : >"${res}"
 
     cd tst_dir || {
         hint="\$1: \$2: "
         l_00_echo_ret1 "in fs= file://${filename} , line=${LINENO}, ${FNN}() : NOT_DIR : 'file://${idir}/_dir_tst' : ${hint} : return 1"
         return 1
     }
+    cd ${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/df2z || return 1
 
-
-    l_02_d2z d2 &>"${res}"
+    l_02_d2z 1964_b_d.px &>"${res}"
 
     # l_02_d2z "${tst_dir}" &>"${res}"
-
 
     #?-------------------------------------
     #?----------------------------------------------------

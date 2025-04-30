@@ -115,7 +115,7 @@ l_02_d2z() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: stdout size Kb of dir $PWD [, \$1 ]  [arg_ls] 
+MAIN: ${FNN} :: stdout size b of dir $PWD [, \$1 ]  [arg_ls] 
 TAGS:
 \$1 
 [, \$2]
@@ -196,7 +196,11 @@ ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
     return 1
 }
 
-du -sk "$ptr_path" | awk '{print $1}'
+[[ -d "$ptr_path" ]] && {
+    du -sb "$ptr_path" | awk '{print $1}'
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 0
+}
 
     #* END fn block ------------------
 

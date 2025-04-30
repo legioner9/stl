@@ -78,7 +78,7 @@ l_02_d2z ()
     fi;
     if [[ "-h" == "$1" ]]; then
         echo -e "
-MAIN: ${FNN} :: stdout size Kb of dir $PWD [, \$1 ]  [arg_ls] 
+MAIN: ${FNN} :: stdout size b of dir $PWD [, \$1 ]  [arg_ls] 
 TAGS:
 \$1 
 [, \$2]
@@ -108,7 +108,11 @@ EXAM:   ${FNN} [, [, ]]
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
         return 1
     };
-    du -sk "$ptr_path" | awk '{print $1}';
+    [[ -d "$ptr_path" ]] && { 
+        du -sb "$ptr_path" | awk '{print $1}';
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
+        return 0
+    };
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
     return 0
 }

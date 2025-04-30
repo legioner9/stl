@@ -84,8 +84,7 @@ ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
 }
 
 [[ -d "$ptr_path" ]] && {
-    du -sk "$ptr_path" | awk '{print $1}'
+    du -sb "$ptr_path" | awk '{print $1}'
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0
 }
-

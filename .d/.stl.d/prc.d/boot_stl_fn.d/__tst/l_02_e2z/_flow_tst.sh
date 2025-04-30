@@ -37,7 +37,7 @@ _l_02_e2z_e6353c6_flow() {
     #?-------------------------------------
     l_00_echo_exec "source file://$filename"
     #! if stdout to ${res} only in this file - NOT in exec.tst
-    : >"${res}" 
+    : >"${res}"
 
     cd tst_dir || {
         hint="\$1: \$2: "
@@ -45,8 +45,12 @@ _l_02_e2z_e6353c6_flow() {
         return 1
     }
 
-    # l_02_e2z "${tst_dir}" &>"${res}"
+    cd ${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/df2z || return 1
 
+    l_02_e2z 1964_b_d.px &>>"${res}"
+    l_02_e2z 208_b_file.px &>>"${res}"
+
+    # l_02_e2z "${tst_dir}" &>"${res}"
 
     #?-------------------------------------
     #?----------------------------------------------------

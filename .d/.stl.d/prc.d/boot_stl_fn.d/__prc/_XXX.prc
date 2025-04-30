@@ -87,6 +87,10 @@ fi
 #     return 1
 # }
 
+# while IFS=$'\n' read -r line; do
+#     :
+# done <"${1:-/dev/stdin}"
+
 #! ptr_path
 # local ptr_path="$1"
 # ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
