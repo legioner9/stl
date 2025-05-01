@@ -208,30 +208,32 @@ fi
 # local ptr_path="$1"
 # ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
 
-if [[ "${1}" == "ARGS0" ]]; then
-    l_00_echo_ret1 "in fs= file://${fn_nm} , line=${LINENO}, ${FNN}() : CONFLICT_NAME : '\$1' not be equal 'ARGS0' : return 1"
+local arg_1=$1
+
+if [[ "${arg_1}" == "ARGS0" ]]; then
+    l_00_echo_ret1 "in fs= file://${fn_nm} , line=${LINENO}, ${FNN}() : CONFLICT_NAME : '\$arg_1' not be equal 'ARGS0' : return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 fi
 
 local vlu_arg_0=
-eval vlu_arg_0=\$\{"${1}"[0]\}
+eval vlu_arg_0=\$\{"${arg_1}"[0]\}
 
 # echo -e "${GREEN}\$vlu_arg_0 = $vlu_arg_0${NORMAL}" #print variable
 
 if [[ -z "${vlu_arg_0}" ]]; then
-    l_00_echo_ret1 "in fs= file://${fn_nm} , line=${LINENO}, ${FNN}() : NOT_DEFINE : 'vlu ${1}'"
+    l_00_echo_ret1 "in fs= file://${fn_nm} , line=${LINENO}, ${FNN}() : NOT_DEFINE : 'vlu ${arg_1}'"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 fi
 
 local num=
-eval num=\$\{#"${1}"[@]\}
+eval num=\$\{#"${arg_1}"[@]\}
 
 # echo -e "${GREEN}\$num = $num${NORMAL}" #print variable
 
 for ((i = 0; i < ${num}; i++)); do
-    eval echo "\\\${\${ARGS0}[$i]} = \${${ARGS0}[$i]}"
+    eval echo "\\\${\${arg_1}[$i]} = \${${arg_1}[$i]}"
 done
 
     #* END fn block ------------------

@@ -2,7 +2,7 @@
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: \$1: parr treat echo
+MAIN: ${FNN} :: cp file \$3 to $(dirname \$3) with reciver \$1 inserter \$2 in file and name file
 TAGS:
 \$1 
 [, \$2]
@@ -34,10 +34,7 @@ CNTL:
     _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/${FNN}
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
-EXAM:   $ arr=(dea csda)
-        $ ${FNN} arr
-        $ {arr[0]} = dea
-        $ {arr[1]} = csda
+EXAM:   ${FNN} [, [, ]]
 "
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0
@@ -84,7 +81,7 @@ fi
 #     return 1
 # fi
 
-[[ -n "$1" ]] || {
+[[ -n "$3" ]] || {
     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
@@ -95,33 +92,37 @@ fi
 # done <"${1:-/dev/stdin}"
 
 #! ptr_path
-# local ptr_path="$1"
-# ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
+local init_file="$3"
+init_file="$(l_01_abs_path "${PPWD}" "init_file")"
 
-local arg_1=$1
-
-if [[ "${arg_1}" == "ARGS0" ]]; then
-    l_00_echo_ret1 "in fs= file://${fn_nm} , line=${LINENO}, ${FNN}() : CONFLICT_NAME : '\$arg_1' not be equal 'ARGS0' : return 1"
+if ! [[ -f "$init_file" ]]; then
+l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${init_file}' where '\$3=$3' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 fi
 
-local vlu_arg_0=
-eval vlu_arg_0=\$\{"${arg_1}"[0]\}
+local reciver=${1}
+local inserter=${2}
 
-# echo -e "${GREEN}\$vlu_arg_0 = $vlu_arg_0${NORMAL}" #print variable
+local init_file_name=$(basename $init_file)
+local init_file_base=$(dirname $init_file)
 
-if [[ -z "${vlu_arg_0}" ]]; then
-    l_00_echo_ret1 "in fs= file://${fn_nm} , line=${LINENO}, ${FNN}() : NOT_DEFINE : 'vlu ${arg_1}'"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+echo -e "${HLIGHT}--- exec: _s2se $reciver $inserter $init_file_name ---${NORMAL}" #start files
+l_00_echo_code "l_02_s2se $reciver $inserter $init_file_name"
+local result_file_name=$(l_02_s2se $reciver $inserter $init_file_name)
+
+# echo -e "${HLIGHT}--- exec: cp -r ${init_dir_base}/${init_dir_name}/. ${init_dir_base}/${result_dir_name} ---${NORMAL}" #start files
+if [[ -f ${init_file_base}/${result_file_name} ]]; then
+    echo "in fs= file://${HOME}/.d/.rc.d/.st.rc.d/.st.sh.d/_sf2f.sh , line=${LINENO}, ${FNN}() : FILE_EXIST: 'file://${init_file_base}/${result_file_name}' : ${hint} : return 1" >&2
     return 1
 fi
 
-local num=
-eval num=\$\{#"${arg_1}"[@]\}
+if ! cp ${init_file_base}/${init_file_name} ${init_file_base}/${result_file_name}; then
+    echo "in fs= file://${HOME}/.d/.rc.d/.st.rc.d/.st.sh.d/_sf2f.sh , line=${LINENO}, ${FNN}() : : EXEC_FAIL : 'cp ${init_file_base}/${init_file_name}/. ${init_file_base}/${result_file_name}' : ${hint} : return 1" >&2
+    return 1
+fi
 
-# echo -e "${GREEN}\$num = $num${NORMAL}" #print variable
-
-for ((i = 0; i < ${num}; i++)); do
-    eval echo "\\\${\${arg_1}[$i]} = \${${arg_1}[$i]}"
-done
+if ! _s2f $reciver $inserter ${init_file_base}/${result_file_name}; then
+    echo "in fs= file://${HOME}/.d/.rc.d/.st.rc.d/.st.sh.d/_sf2f.sh , line=${LINENO}, ${FNN}() : : EXEC_FAIL : '_s2f $reciver $inserter ${init_file_base}/${result_file_name}' : ${hint} : return 1" >&2
+    return 1
+fi

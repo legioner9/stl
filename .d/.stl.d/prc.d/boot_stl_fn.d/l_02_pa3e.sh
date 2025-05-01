@@ -115,7 +115,7 @@ l_02_pa3e() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: \$1: parr treat echo
 TAGS:
 \$1 
 [, \$2]
@@ -147,7 +147,10 @@ CNTL:
     _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/${FNN}
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
-EXAM:   ${FNN} [, [, ]]
+EXAM:   $ arr=(dea csda)
+        $ ${FNN} arr
+        $ {arr[0]} = dea
+        $ {arr[1]} = csda
 "
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0

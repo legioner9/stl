@@ -2,7 +2,7 @@
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: \$1: parr treat echo
+MAIN: ${FNN} :: 
 TAGS:
 \$1 
 [, \$2]
@@ -34,10 +34,7 @@ CNTL:
     _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/${FNN}
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
-EXAM:   $ arr=(dea csda)
-        $ ${FNN} arr
-        $ {arr[0]} = dea
-        $ {arr[1]} = csda
+EXAM:   ${FNN} [, [, ]]
 "
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0
@@ -98,30 +95,10 @@ fi
 # local ptr_path="$1"
 # ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
 
-local arg_1=$1
-
-if [[ "${arg_1}" == "ARGS0" ]]; then
-    l_00_echo_ret1 "in fs= file://${fn_nm} , line=${LINENO}, ${FNN}() : CONFLICT_NAME : '\$arg_1' not be equal 'ARGS0' : return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+if [[ "$1" =~ ^[0-9]+$ ]]; then
+    cd "$PPWD"
+    return 0
+else
+    cd "$PPWD"
     return 1
 fi
-
-local vlu_arg_0=
-eval vlu_arg_0=\$\{"${arg_1}"[0]\}
-
-# echo -e "${GREEN}\$vlu_arg_0 = $vlu_arg_0${NORMAL}" #print variable
-
-if [[ -z "${vlu_arg_0}" ]]; then
-    l_00_echo_ret1 "in fs= file://${fn_nm} , line=${LINENO}, ${FNN}() : NOT_DEFINE : 'vlu ${arg_1}'"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-fi
-
-local num=
-eval num=\$\{#"${arg_1}"[@]\}
-
-# echo -e "${GREEN}\$num = $num${NORMAL}" #print variable
-
-for ((i = 0; i < ${num}; i++)); do
-    eval echo "\\\${\${arg_1}[$i]} = \${${arg_1}[$i]}"
-done

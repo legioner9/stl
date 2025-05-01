@@ -128,7 +128,7 @@ EXAM:   ${FNN} [, [, ]]
                     fi;
                 else
                     local _dr2e_ext=;
-                    _dr2e_ext=$(_prs_f -e "$item");
+                    _dr2e_ext=$(l_01_prs_f -e "$item");
                     if { 
                         [ -f "$item" ]
                     } && [ "${item:0:1}" != "_" ] && [ "${_dr2e_ext}" == "$3" ]; then
@@ -158,7 +158,7 @@ EXAM:   ${FNN} [, [, ]]
                     fi;
                 else
                     local _dr2e_ext=;
-                    _dr2e_ext=$(_prs_f -e "$item");
+                    _dr2e_ext=$(l_01_prs_f -e "$item");
                     if { 
                         [ -f "$ptr_path/$item" ]
                     } && [ "${item:0:1}" != "_" ] && [ "${_dr2e_ext}" == "$3" ]; then

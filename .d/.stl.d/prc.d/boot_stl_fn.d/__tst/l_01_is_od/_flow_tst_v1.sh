@@ -7,14 +7,14 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-__XXX_RND_flow() {
+_l_01_is_od_9e036f0_flow_1() {
 
-    if ! command -v _XXX >/dev/null; then
-        l_00_echo_ret1 "TYPE_ERROR : _XXX"
+    if ! command -v l_01_is_od >/dev/null; then
+        l_00_echo_ret1 "TYPE_ERROR : l_01_is_od"
         return 1
     fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/_XXX/_flow_tst.sh
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_01_is_od/_flow_tst_v1.sh
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -36,8 +36,7 @@ __XXX_RND_flow() {
     #?----------------------------------------------------
     #?-------------------------------------
     l_00_echo_exec "source file://$filename"
-    #! if stdout to ${res} only in this file - NOT in exec.tst
-    : >"${res}" 
+    : >"${res}"
 
     cd tst_dir || {
         hint="\$1: \$2: "
@@ -45,8 +44,7 @@ __XXX_RND_flow() {
         return 1
     }
 
-    # _XXX "${tst_dir}" &>>"${res}"
-
+    # l_01_is_od "${tst_dir}" &>"${res}"
 
     #?-------------------------------------
     #?----------------------------------------------------
@@ -58,4 +56,4 @@ __XXX_RND_flow() {
 
 }
 
-__XXX_RND_flow "$@"
+_l_01_is_od_9e036f0_flow_1 "$@"

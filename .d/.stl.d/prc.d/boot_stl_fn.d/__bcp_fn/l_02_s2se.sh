@@ -115,7 +115,7 @@ l_02_s2se() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: stdout: \$1 reciver_string \$2 inserter_string (if \$2 will be emty - \$2=@ ) \$3 reciver_result_string
 TAGS:
 \$1 
 [, \$2]
@@ -147,7 +147,7 @@ CNTL:
     _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/${FNN}
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
-EXAM:   ${FNN} [, [, ]]
+EXAM:   ${FNN} \"{{W}}\" XXXxxx cecqw{{W}}vrtg   
 "
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0
@@ -207,6 +207,19 @@ fi
 #! ptr_path
 # local ptr_path="$1"
 # ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
+
+[ -n "$3" ] || {
+    _st_exit "in fs= file://${fn_nm} , line=${LINENO}, ${FNN}() : NOT_DEFINE : '\$3' : return 1"
+    return 1
+}
+
+if [ "@" == "$2" ]; then
+
+    echo "$3" | sed "s|$1||g"
+
+else
+    echo "$3" | sed "s|$1|$2|g"
+fi
 
     #* END fn block ------------------
 

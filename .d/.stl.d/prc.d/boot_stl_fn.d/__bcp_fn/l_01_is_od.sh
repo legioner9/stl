@@ -8,15 +8,15 @@
 # "${ECHO_ERR}$FNN() $*' in file://${file_name} , line=${LINENO} :: CAUS_NAME [VAR] 'code' :: return 1${NRM}" >&2
 # cd ${PPWD} || echo -e "${ECHO_WAR}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [\${PPWD}] '${PPWD}' return 1${NRM}" >&2
 
-l_02_s2se() {
+l_01_is_od() {
 
-    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_02_s2se`
+    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_01_is_od`
     #! All changes will be lost after rebuilding
     #! To change this file use the following commands:
 
-    #! l_02_s2se _e_prc to edit/change 'fn block',
-    #! l_02_s2se _rbld to rebuild fn with changed 'fn block'
-    #! l_02_s2se _e_xxx` to edit 'init block'
+    #! l_01_is_od _e_prc to edit/change 'fn block',
+    #! l_01_is_od _rbld to rebuild fn with changed 'fn block'
+    #! l_01_is_od _e_xxx` to edit 'init block'
 
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
@@ -101,7 +101,7 @@ l_02_s2se() {
     fi
 
     if [[ "_rbld" == "$1" ]]; then
-        #! rebuild fn : bcp && ord fn.sh from l_02_s2se.sh , cp fn.prc into fn.sh
+        #! rebuild fn : bcp && ord fn.sh from l_01_is_od.sh , cp fn.prc into fn.sh
         . ${fn_dr}/_rbld_l_xx.sh ${FNN}
         #! up to mem fn
         . ${fn_dr}/$1.sh
@@ -109,13 +109,13 @@ l_02_s2se() {
         return 0
     fi
 
-    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_02_s2se.prc ------------------
+    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_01_is_od.prc ------------------
     #[[fn_body]]
 #? for copy to help block
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: stdout: \$1 reciver_string \$2 inserter_string (if \$2 will be emty - \$2=@ ) \$3 reciver_result_string
+MAIN: ${FNN} :: 
 TAGS:
 \$1 
 [, \$2]
@@ -147,7 +147,7 @@ CNTL:
     _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/${FNN}
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
-EXAM:   ${FNN} X Y cadsXcsd -> cadsYcsd
+EXAM:   ${FNN} [, [, ]]
 "
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0
@@ -194,11 +194,11 @@ fi
 #     return 1
 # fi
 
-# [[ -n "$1" ]] || {
-#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
-#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-#     return 1
-# }
+[[ -n "$1" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
 
 # while IFS=$'\n' read -r line; do
 #     :
@@ -208,18 +208,12 @@ fi
 # local ptr_path="$1"
 # ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
 
-[[ -n "$3" ]] || {
-    l_00_echo_ret1 "in fs= file://${fn_nm} , line=${LINENO}, ${FNN}() : NOT_DEFINE : '\$3' : return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+if [[ "$1" =~ ^[0-9]+$ ]]; then
+    cd "$PPWD"
     return 1
-}
-
-if [[ "@" == "$2" ]]; then
-
-    echo "$3" | sed "s|$1||g"
-
 else
-    echo "$3" | sed "s|$1|$2|g"
+    cd "$PPWD"
+    return 0
 fi
 
     #* END fn block ------------------
@@ -230,4 +224,4 @@ fi
 }
 
 #! SELF EXEC
-# l_02_s2se @
+# l_01_is_od @

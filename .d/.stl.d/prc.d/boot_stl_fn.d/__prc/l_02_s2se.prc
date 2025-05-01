@@ -95,12 +95,13 @@ fi
 # local ptr_path="$1"
 # ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
 
-[ -n "$3" ] || {
-    _st_exit "in fs= file://${fn_nm} , line=${LINENO}, ${FNN}() : NOT_DEFINE : '\$3' : return 1"
+[[ -n "$3" ]] || {
+    l_00_echo_ret1 "in fs= file://${fn_nm} , line=${LINENO}, ${FNN}() : NOT_DEFINE : '\$3' : return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }
 
-if [ "@" == "$2" ]; then
+if [[ "@" == "$2" ]]; then
 
     echo "$3" | sed "s|$1||g"
 
