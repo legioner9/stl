@@ -37,7 +37,7 @@ _l_03_sf2f_6b8a3ef_flow() {
     #?-------------------------------------
     l_00_echo_exec "source file://$filename"
     #! if stdout to ${res} only in this file - NOT in exec.tst
-    : >"${res}" 
+    : >"${res}"
 
     cd tst_dir || {
         hint="\$1: \$2: "
@@ -45,8 +45,11 @@ _l_03_sf2f_6b8a3ef_flow() {
         return 1
     }
 
-    # l_03_sf2f "${tst_dir}" &>>"${res}"
+    startXfile <EOF
+    this startXfile
+    EOF
 
+    # l_03_sf2f "${tst_dir}" &>>"${res}"
 
     #?-------------------------------------
     #?----------------------------------------------------
