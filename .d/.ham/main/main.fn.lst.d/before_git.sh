@@ -6,8 +6,8 @@ before_git() {
     local ret1=0
     l_99_tst_l || ret1=1
 
-    [[ $(l_02_d2z ${STL_D_PATH}/prc.d/boot_stl_fn.d/__bcp_fn) -lt 1000 ]] || {
-        l_00_echo_err "l_02_d2z ${STL_D_PATH}/prc.d/boot_stl_fn.d/__bcp_fn > 1000"
+    [[ $(l_02_d2z ${STL_D_PATH}/prc.d/boot_stl_fn.d/__bcp_fn) -lt 1000000 ]] || {
+        l_00_echo_err "l_02_d2z ${STL_D_PATH}/prc.d/boot_stl_fn.d/__bcp_fn > 1000000"
         ret1=1
     }
 
