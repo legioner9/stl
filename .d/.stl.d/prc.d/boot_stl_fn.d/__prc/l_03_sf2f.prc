@@ -34,7 +34,16 @@ CNTL:
     _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/${FNN}
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
-EXAM:   ${FNN} [, [, ]]
+EXAM: $
+: >startXfile
+rm startYfile
+
+    cat >startXfile <<EOF
+    this startXfile
+EOF
+
+    l_03_sf2f X Y startXfile &>>\"\${res}\"
+    cat startYfile &>>\"\${res}\" -> '    this startYfile'
 "
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0

@@ -207,7 +207,8 @@ fi
 # done <"${1:-/dev/stdin}"
 
 if [[ -z "$3" ]]; then
-    echo "in line=${LINENO}, ${FUNCNAME}() : ERR_AMOUNT_ARGS : '{NARGS}=$#' demand: 3 : ${hint} : return 1" >&2
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DEFINE '\$3' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 fi
 
@@ -216,7 +217,8 @@ local ptr_path="$3"
 ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
 
 if ! [[ -f "$ptr_path" ]]; then
-    echo "in line=${LINENO}, ${FUNCNAME}() : NOT_FILE : 'file://$ptr_path' : ${hint} : return 1" >&2
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${init_file}' where '\$3=$3' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 fi
 
