@@ -8,15 +8,15 @@
 # "${ECHO_ERR}$FNN() $*' in file://${file_name} , line=${LINENO} :: CAUS_NAME [VAR] 'code' :: return 1${NRM}" >&2
 # cd ${PPWD} || echo -e "${ECHO_WAR}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [\${PPWD}] '${PPWD}' return 1${NRM}" >&2
 
-l_03_sd2d() {
+l_03_sdd2d() {
 
-    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_03_sd2d`
+    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_03_sdd2d`
     #! All changes will be lost after rebuilding
     #! To change this file use the following commands:
 
-    #! l_03_sd2d _e_prc to edit/change 'fn block',
-    #! l_03_sd2d _rbld to rebuild fn with changed 'fn block'
-    #! l_03_sd2d _e_xxx` to edit 'init block'
+    #! l_03_sdd2d _e_prc to edit/change 'fn block',
+    #! l_03_sdd2d _rbld to rebuild fn with changed 'fn block'
+    #! l_03_sdd2d _e_xxx` to edit 'init block'
 
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
@@ -101,7 +101,7 @@ l_03_sd2d() {
     fi
 
     if [[ "_rbld" == "$1" ]]; then
-        #! rebuild fn : bcp && ord fn.sh from l_03_sd2d.sh , cp fn.prc into fn.sh
+        #! rebuild fn : bcp && ord fn.sh from l_03_sdd2d.sh , cp fn.prc into fn.sh
         . ${fn_dr}/_rbld_l_xx.sh ${FNN}
         #! up to mem fn
         . ${fn_dr}/$1.sh
@@ -109,13 +109,13 @@ l_03_sd2d() {
         return 0
     fi
 
-    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_03_sd2d.prc ------------------
+    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_03_sdd2d.prc ------------------
     #[[fn_body]]
 #? for copy to help block
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: cp dir \${3} to \$(dirname \${3}) with replace \${1} to \${2} in files and name node
+MAIN: ${FNN} :: 
 TAGS:
 \$1 
 [, \$2]
@@ -194,11 +194,11 @@ fi
 #     return 1
 # fi
 
-[[ -n "$3" ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
+# [[ -n "$1" ]] || {
+#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
+#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+#     return 1
+# }
 
 # while IFS=$'\n' read -r line; do
 #     :
@@ -208,105 +208,6 @@ fi
 # local ptr_path="$1"
 # ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
 
-#! ptr_path
-local init_dir="${3}"
-init_dir="$(_abs_path "${PPWD}" "init_dir")"
-#[[ptr_path_s]]
-
-if ! [[ -d "$init_dir" ]]; then
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR 'file://$init_dir' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-fi
-
-local reciver=${1}
-local inserter=${2}
-
-local init_dir_name=$(basename $init_dir)
-local init_dir_base=$(dirname $init_dir)
-
-l_00_echo_code "'l_02_s2se $reciver $inserter $init_dir_name'"
-local result_dir_name=$(l_02_s2se $reciver $inserter $init_dir_name)
-
-# echo -e "${HLIGHT}--- exec: cp -r ${init_dir_base}/${init_dir_name}/. ${init_dir_base}/${result_dir_name} ---${NORMAL}" #start files
-if [[ -d ${init_dir_base}/${result_dir_name} ]]; then
-    echo "in fs= file://${HOME}/.d/.rc.d/.st.rc.d/.st.sh.d/_sd2d.sh , line=${LINENO}, ${FNN}() : DIR_EXIST: 'file://${init_dir_base}/${result_dir_namer}' : ${hint} : return 1" >&2
-    return 1
-fi
-
-# echo -e "${HLIGHT}--- exec: mkdir ${init_dir_base}/${result_dir_name}~ ---${NORMAL}" #start files
-mkdir ${init_dir_base}/${result_dir_name}~
-
-# echo -e "${HLIGHT}--- exec: mv ${init_dir_base}/${init_dir_name}~ ${init_dir_base}/${init_dir_name} ---${NORMAL}" #start files
-mv ${init_dir_base}/${result_dir_name}~ ${init_dir_base}/${result_dir_name}
-
-# echo -e "${HLIGHT}--- exec: cp -rfv ${init_dir_base}/${init_dir_name}/. ${init_dir_base}/${result_dir_name} ---${NORMAL}" #start files
-cp -rf ${init_dir_base}/${init_dir_name}/. ${init_dir_base}/${result_dir_name}
-
-local result_dir=${init_dir_base}/${result_dir_name}
-
-l_00_echo_info "'\$result_dir = $result_dir'"
-
-# return 0
-
-_in_fn_1_sd2d() {
-
-    if ! [[ -d "$1" ]]; then
-        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR 'file://${1}' return 1"
-        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-        return 1
-    fi
-
-    local item
-    for item in $(ls -A "$1"); do
-        l_00_echo_info "'\$item = $item'"
-
-        # echo -e "${HLIGHT}--- exec: echo $item | grep $reciver ---${NORMAL}" #start files
-        # echo $item | grep $reciver
-        if echo $item | grep $reciver >/dev/null; then
-            # echo "--- exec: echo $item | sed \"$reciver | $inserter | g\" "--- #start files
-            # echo $item | sed "s|$reciver|$inserter|g"
-
-            l_00_echo_code "l_02_s2se $reciver $inserter $item"
-            dest_name=$(l_02_s2se $reciver $inserter $item)
-
-            dest_path=$1/$dest_name
-            src_path=$1/$item
-
-            # echo -e "${HLIGHT}--- exec: mv $src_path $dest_path ---${NORMAL}" #start files
-            mv $src_path $dest_path
-        else
-            dest_path=$1/$item
-        fi
-
-        if [[ -f $dest_path ]]; then
-            l_00_echo_code "l_02_s2f $reciver $inserter $dest_path"
-            l_02_s2f $reciver $inserter $dest_path
-        elif [[ -d $dest_path ]]; then
-
-            if ! _in_fn_1_sd2d $dest_path; then
-                l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE '_in_fn_1_sd2d $dest_path' return 1"
-                cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-                return 1
-            fi
-
-        else
-            l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'NOT_DIR or NOT_FILE : 'file://$dest_path'' return 1"
-            cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-            return 1
-        fi
-    done
-
-}
-
-# _in_fn_1_sd2d ${result_dir}
-
-if ! _in_fn_1_sd2d $result_dir; then
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE '_in_fn_1_sd2d $result_dir'' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-fi
-
     #* END fn block ------------------
 
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
@@ -315,4 +216,4 @@ fi
 }
 
 #! SELF EXEC
-# l_03_sd2d @
+# l_03_sdd2d @

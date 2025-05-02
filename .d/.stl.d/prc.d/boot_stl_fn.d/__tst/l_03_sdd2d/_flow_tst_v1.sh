@@ -7,14 +7,14 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_l_03_sd2d_a06d120_flow() {
+_l_03_sdd2d_2fcaee9_flow_1() {
 
-    if ! command -v l_03_sd2d >/dev/null; then
-        l_00_echo_ret1 "TYPE_ERROR : l_03_sd2d"
+    if ! command -v l_03_sdd2d >/dev/null; then
+        l_00_echo_ret1 "TYPE_ERROR : l_03_sdd2d"
         return 1
     fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_03_sd2d/_flow_tst.sh
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_03_sdd2d/_flow_tst_v1.sh
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -36,7 +36,6 @@ _l_03_sd2d_a06d120_flow() {
     #?----------------------------------------------------
     #?-------------------------------------
     l_00_echo_exec "source file://$filename"
-    #! if stdout to ${res} only in this file - NOT in exec.tst
     : >"${res}"
 
     cd tst_dir || {
@@ -45,18 +44,7 @@ _l_03_sd2d_a06d120_flow() {
         return 1
     }
 
-    # l_03_sd2d "${tst_dir}" &>>"${res}"
-
-    rm -r dirX.d
-    rm -r dirY.d
-    mkdir dirX.d
-    mkdir dirX.d/dirXX.d
-    echo "this fileX.f" >dirX.d/fileX.f
-    echo "this fileXX.f" >dirX.d/dirXX.d/fileXX.f
-
-    l_03_sd2d X Y dirX.d &>>"${res}"
-    cat dirY.d/fileY.f &>>"${res}"
-    cat dirY.d/dirYY.d/fileYY.f &>>"${res}"
+    # l_03_sdd2d "${tst_dir}" &>>"${res}"
 
     #?-------------------------------------
     #?----------------------------------------------------
@@ -68,4 +56,4 @@ _l_03_sd2d_a06d120_flow() {
 
 }
 
-_l_03_sd2d_a06d120_flow "$@"
+_l_03_sdd2d_2fcaee9_flow_1 "$@"

@@ -263,7 +263,7 @@ _in_fn_1_sd2d() {
 
         # echo -e "${HLIGHT}--- exec: echo $item | grep $reciver ---${NORMAL}" #start files
         # echo $item | grep $reciver
-        if echo $item | grep $reciver; then
+        if echo $item | grep $reciver >/dev/null; then
             # echo "--- exec: echo $item | sed \"$reciver | $inserter | g\" "--- #start files
             # echo $item | sed "s|$reciver|$inserter|g"
 
