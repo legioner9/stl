@@ -1,0 +1,7 @@
+[0;30m[2m[106m[7m'l_02_pa2mm nm_arr re_arr re 2'[0m
+[0;30m[2m[102m[7m'$re = res_2'[0m
+[0;30m[2m[106m[7m'l_02_pa2mm nm_arr re_arr re 3'[0m
+[0;30m[2m[102m[7m'$re = '[0m
+[0;30m[2m[106m[7m'l_02_pa2mm nm_arr re_arr re 4'[0m
+[0;31m[2m[107m[7m'l_02_pa2mm() nm_arr re_arr re 4' in file:///home/st/REPOBARE/_repo/stl/.d/.stl.d/prc.d/boot_stl_fn.d/l_02_pa2mm.sh , line=325 :: EXEC_FAIL : '[[ $ARGS3 -le ${#arr_name[@]} ]]' return 1[0m
+[0;30m[2m[102m[7m'$re = '[0m
