@@ -78,7 +78,7 @@ l_03_sf2f ()
     fi;
     if [[ "-h" == "$1" ]]; then
         echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: cp file \$3 to $(dirname \$3) with reciver \$1 inserter \$2 in file and name file
 TAGS:
 \$1 
 [, \$2]
@@ -114,6 +114,38 @@ EXAM:   ${FNN} [, [, ]]
 ";
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
         return 0;
+    fi;
+    [[ -n "$3" ]] || { 
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1";
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
+        return 1
+    };
+    local init_file="$3";
+    init_file="$(l_01_abs_path "${PPWD}" "init_file")";
+    if ! [[ -f "$init_file" ]]; then
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${init_file}' where '\$3=$3' return 1";
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
+        return 1;
+    fi;
+    local reciver=${1};
+    local inserter=${2};
+    local init_file_name=$(basename $init_file);
+    local init_file_base=$(dirname $init_file);
+    l_00_echo_code "l_02_s2se $reciver $inserter $init_file_name";
+    local result_file_name=$(l_02_s2se $reciver $inserter $init_file_name);
+    if [[ -f ${init_file_base}/${result_file_name} ]]; then
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXIST_FILE 'file://${init_file}' return 1";
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
+        return 1;
+    fi;
+    if ! cp ${init_file_base}/${init_file_name} ${init_file_base}/${result_file_name}; then
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'cp ${init_file_base}/${init_file_name} ${init_file_base}/${result_file_name}' return 1";
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
+        return 1;
+    fi;
+    if ! l_02_s2f $reciver $inserter ${init_file_base}/${result_file_name}; then
+        echo "in fs= file://${HOME}/.d/.rc.d/.st.rc.d/.st.sh.d/_sf2f.sh , line=${LINENO}, ${FNN}() : : EXEC_FAIL : '_s2f $reciver $inserter ${init_file_base}/${result_file_name}' : ${hint} : return 1" 1>&2;
+        return 1;
     fi;
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
     return 0

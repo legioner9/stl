@@ -45,9 +45,15 @@ _l_03_sf2f_6b8a3ef_flow() {
         return 1
     }
 
-    startXfile <EOF
+    : >startXfile
+    rm startYfile
+
+    cat >startXfile <<EOF
     this startXfile
-    EOF
+EOF
+
+    l_03_sf2f X Y startXfile &>>"${res}"
+    cat startYfile &>>"${res}"
 
     # l_03_sf2f "${tst_dir}" &>>"${res}"
 

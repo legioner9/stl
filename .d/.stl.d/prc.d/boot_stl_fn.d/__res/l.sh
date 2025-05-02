@@ -11234,7 +11234,8 @@ fi
 # done <"${1:-/dev/stdin}"
 
 if [[ -z "$3" ]]; then
-    echo "in line=${LINENO}, ${FUNCNAME}() : ERR_AMOUNT_ARGS : '{NARGS}=$#' demand: 3 : ${hint} : return 1" >&2
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DEFINE '\$3' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 fi
 
@@ -11243,7 +11244,8 @@ local ptr_path="$3"
 ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
 
 if ! [[ -f "$ptr_path" ]]; then
-    echo "in line=${LINENO}, ${FUNCNAME}() : NOT_FILE : 'file://$ptr_path' : ${hint} : return 1" >&2
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${init_file}' where '\$3=$3' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 fi
 
@@ -11624,7 +11626,7 @@ l_03_sf2f() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: cp file \$3 to $(dirname \$3) with reciver \$1 inserter \$2 in file and name file
 TAGS:
 \$1 
 [, \$2]
@@ -11703,19 +11705,54 @@ fi
 #     return 1
 # fi
 
-# [[ -n "$1" ]] || {
-#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
-#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-#     return 1
-# }
+[[ -n "$3" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
 
 # while IFS=$'\n' read -r line; do
 #     :
 # done <"${1:-/dev/stdin}"
 
 #! ptr_path
-# local ptr_path="$1"
-# ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
+local init_file="$3"
+init_file="$(l_01_abs_path "${PPWD}" "init_file")"
+
+if ! [[ -f "$init_file" ]]; then
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${init_file}' where '\$3=$3' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+fi
+
+local reciver=${1}
+local inserter=${2}
+
+local init_file_name=$(basename $init_file)
+local init_file_base=$(dirname $init_file)
+
+l_00_echo_code "l_02_s2se $reciver $inserter $init_file_name"
+local result_file_name=$(l_02_s2se $reciver $inserter $init_file_name)
+
+# echo -e "${HLIGHT}--- exec: cp -r ${init_dir_base}/${init_dir_name}/. ${init_dir_base}/${result_dir_name} ---${NORMAL}" #start files
+if [[ -f ${init_file_base}/${result_file_name} ]]; then
+
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXIST_FILE 'file://${init_file}' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+
+fi
+
+if ! cp ${init_file_base}/${init_file_name} ${init_file_base}/${result_file_name}; then
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'cp ${init_file_base}/${init_file_name} ${init_file_base}/${result_file_name}' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+fi
+
+if ! l_02_s2f $reciver $inserter ${init_file_base}/${result_file_name}; then
+    echo "in fs= file://${HOME}/.d/.rc.d/.st.rc.d/.st.sh.d/_sf2f.sh , line=${LINENO}, ${FNN}() : : EXEC_FAIL : '_s2f $reciver $inserter ${init_file_base}/${result_file_name}' : ${hint} : return 1" >&2
+    return 1
+fi
 
     #* END fn block ------------------
 
