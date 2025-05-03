@@ -2,10 +2,24 @@
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: prevent stl_dir (_) stdout name [,with \$2 .ext] - like 'ls \$1' - if in root_dir mst \$1=@
+MAIN: ${FNN} :: prevent stl_dir (_) stdout stl_name only files [,with \$2 .ext] - like 'ls \$1' - if in root_dir mst \$1=@
 TAGS:
 \$1 
 [, \$2]
+FLOW:   [if 
+            -]
+        
+# HIE ${FNN} 
+## CAUSA:
+ПРИЧИНА создания:
+## FORMULA:
+СХЕМА решения:
+## DOGMA:
+РЕШЕНИЕ задачи:
+### TST [as FLOW_1]
+### FLOW_1
+    - cd tst_dir
+    - call with args: [] -> [true answer in res_file]
 CNTL: 
 
     -h          : help
@@ -17,7 +31,7 @@ CNTL:
 
     _e_prc      : edit fn.prc   : l_02_edit ${prc_nm}
     _e_tst_dr   : edit tst_nm_dr: l_02_edit ${tst_nm_dr}
-    _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/l_02_d2ae
+    _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/${FNN}
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
@@ -54,10 +68,7 @@ tree \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/d2
 └── f1.yes
 
     cd \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt || return 1
-    l_02_d2ae d2 yes ->:
-        _d1.yes
-        d1.yes
-        _f1.yes
+    l_02_df2e d2 yes ->:
         f1.yes
 "
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
@@ -111,6 +122,10 @@ fi
 #     return 1
 # }
 
+# while IFS=$'\n' read -r line; do
+#     :
+# done <"${1:-/dev/stdin}"
+
 #! ptr_path
 # local ptr_path="$1"
 # ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
@@ -131,14 +146,15 @@ if [[ "$1" == "@" ]]; then
     # ls
 
     for item in $(ls); do
+        # l_00_echo_info "'\$item = $item'"
         if [ -z "$2" ]; then
-            if { [ -d "$item" ] || [ -f "$item" ]; }; then
+            if [[ -f "$item" && "${item:0:1}" != "_" ]]; then
                 echo "$item"
             fi
         else
             local _d2e_ext
             _d2e_ext=$(l_01_prs_f -e "$item")
-            if { [ -d "$item" ] || [ -f "$item" ]; } && [ "${_d2e_ext}" == "$2" ]; then
+            if [[ -f "$item" && "${item:0:1}" != "_" && "${_d2e_ext}" == "$2" ]]; then
                 echo "$item"
             fi
         fi
@@ -152,14 +168,15 @@ else
     }
 
     for item in $(ls "$ptr_path"); do
+        # l_00_echo_info "'\$item = $item'"
         if [ -z "$2" ]; then
-            if { [ -d "$ptr_path/$item" ] || [ -f "$1/$item" ]; }; then
+            if [[ -f "$ptr_path/$item" && "${item:0:1}" != "_" ]]; then
                 echo "$item"
             fi
         else
             local _d2e_ext
             _d2e_ext=$(l_01_prs_f -e "$item")
-            if { [ -d "$ptr_path/$item" ] || [ -f "$ptr_path/$item" ]; } && [ "${_d2e_ext}" == "$2" ]; then
+            if [[ -f "$ptr_path/$item" && "${item:0:1}" != "_" && "${_d2e_ext}" == "$2" ]]; then
                 echo "$item"
             fi
         fi

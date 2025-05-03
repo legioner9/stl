@@ -7,14 +7,14 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_l_02_dfr2aewd_9c04741_flow() {
+_l_02_df2e_4a285e2_flow() {
 
-    if ! command -v l_02_dfr2aewd >/dev/null; then
-        l_00_echo_ret1 "TYPE_ERROR : l_02_dfr2aewd"
+    if ! command -v l_02_df2e >/dev/null; then
+        l_00_echo_ret1 "TYPE_ERROR : l_02_df2e"
         return 1
     fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_02_dfr2aewd/_flow_tst.sh
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_02_df2e/_flow_tst.sh
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -45,13 +45,11 @@ _l_02_dfr2aewd_9c04741_flow() {
         return 1
     }
 
+    # l_02_df2e "${tst_dir}" &>>"${res}"
+
     cd ${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt || return 1
 
-    l_02_dfr2aewd d2 yes &>"${res}"
-
-    l_02_s2f ${STL_D_PATH} @ "${res}"
-
-    # l_02_dfr2aewd "${tst_dir}" &>"${res}"
+    l_02_df2e d2 yes &>"${res}"
 
     #?-------------------------------------
     #?----------------------------------------------------
@@ -63,4 +61,4 @@ _l_02_dfr2aewd_9c04741_flow() {
 
 }
 
-_l_02_dfr2aewd_9c04741_flow "$@"
+_l_02_df2e_4a285e2_flow "$@"

@@ -49,8 +49,7 @@ _l_02_dr2ae_3a57203_flow() {
 
     l_02_dr2ae d2 yes &>"${res}"
 
-    # TODO _s2f -> l_0x_s2f
-    _s2f ${STL_D_PATH} @ "${res}"
+    l_02_s2f ${STL_D_PATH} @ "${res}"
 
     # l_02_dr2ae "${tst_dir}" &>"${res}"
 
