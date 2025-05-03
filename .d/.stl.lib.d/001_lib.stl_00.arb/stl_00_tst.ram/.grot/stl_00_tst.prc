@@ -110,29 +110,29 @@ EXAM:
     \${ARGS[@]}=${ARGS[@]}
     \${NARGS}=${NARGS}
 
-    local fn_sh_file="${d_name}/${FNN}.prc"
-    local fn_hie_file="${d_name}/${FNN}.hie"
+    local fn_sh_file= file://${d_name}/${FNN}.prc
+    local fn_hie_file= file://${d_name}/${FNN}.hie
 
-    local sublib_pth=$(dirname $(dirname ${d_name}))
+    local sublib_pth= file://$(dirname $(dirname ${d_name}))
     local sublib_pfx=$(l_01_prs_f -e2 ${sublib_pth})
     local sublib_num=$(l_01_prs_f -n2 ${sublib_pth})
     local sublib_nm=$(l_01_prs_f -ne ${sublib_pth})
 
-    local d_data_arb=${STL_DATA_D_PATH}/${sublib_num}.${sublib_pfx}.arb
-    local d_lib_arb=${STL_LIB_D_PATH}/${sublib_num}.${sublib_pfx}.arb
+    local d_data_arb= file://${STL_DATA_D_PATH}/${sublib_num}.${sublib_pfx}.arb
+    local d_lib_arb= file://${STL_LIB_D_PATH}/${sublib_num}.${sublib_pfx}.arb
 
-    local d_data_ram=${STL_DATA_D_PATH}/${sublib_num}.${sublib_pfx}.arb/${FNN}.ram
-    local d_lib_ram=${STL_LIB_D_PATH}/${sublib_num}.${sublib_pfx}.arb/${FNN}.ram
+    local d_data_ram= file://${STL_DATA_D_PATH}/${sublib_num}.${sublib_pfx}.arb/${FNN}.ram
+    local d_lib_ram= file://${STL_LIB_D_PATH}/${sublib_num}.${sublib_pfx}.arb/${FNN}.ram
 
-    local d_data_grot=${d_data_ram}/.grot
-    local d_lib_grot=${d_lib_ram}/.grot
+    local d_data_grot= file://${d_data_ram}/.grot
+    local d_lib_grot= file://${d_lib_ram}/.grot
 
-    local d_lib_grot_opt=${d_lib_grot}/.opt
-    local d_lib_grot_opt_lst=${d_lib_grot_opt}.lst
-    local d_lib_grot_opt_prc=${d_lib_grot_opt}.prc
-    local d_lib_grot_opt_tml=${d_lib_grot_opt}.tml
+    local d_lib_grot_opt= file://${d_lib_grot}/.opt
+    local d_lib_grot_opt_lst= file://${d_lib_grot_opt}/.lst
+    local d_lib_grot_opt_prc= file://${d_lib_grot_opt}/.prc
+    local d_lib_grot_opt_tml= file://${d_lib_grot_opt}/.tml
 
-    local d_lib_grot_depo=${d_lib_grot}/.depo
+    local d_lib_grot_depo= file://${d_lib_grot}/.depo
 
 ${NORMAL}"
         return 0

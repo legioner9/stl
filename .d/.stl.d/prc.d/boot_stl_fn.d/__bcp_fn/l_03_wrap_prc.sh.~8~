@@ -186,9 +186,9 @@ local d_data_grot=${d_data_ram}/.grot
 local d_lib_grot=${d_lib_ram}/.grot
 
 local d_lib_grot_opt=${d_lib_grot}/.opt
-local d_lib_grot_opt_lst=${d_lib_grot_opt}.lst
-local d_lib_grot_opt_prc=${d_lib_grot_opt}.prc
-local d_lib_grot_opt_tml=${d_lib_grot_opt}.tml
+local d_lib_grot_opt_lst=${d_lib_grot_opt}/.lst
+local d_lib_grot_opt_prc=${d_lib_grot_opt}/.prc
+local d_lib_grot_opt_tml=${d_lib_grot_opt}/.tml
 
 local d_lib_grot_depo=${d_lib_grot}/.depo
 
