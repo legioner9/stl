@@ -115,7 +115,7 @@ l_03_sd2d() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: cp dir \${3} to $(dirname \${3}) with replace \${1} to \${2} in files and name node
+MAIN: ${FNN} :: cp dir \${3} to \$(dirname \${3}) with replace \${1} to \${2} in files and name node
 TAGS:
 \$1 
 [, \$2]

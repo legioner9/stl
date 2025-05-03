@@ -264,7 +264,7 @@ for ((i = 0; i < ${num}; i++)); do
     eval arr_name+=\(\"\${${ARGS0}[$i]}\"\)
 done
 
-l_02_pa3e arr_name
+# l_02_pa3e arr_name
 
 #* ---------- arr_res ----------------
 
@@ -290,7 +290,7 @@ for ((i = 0; i < ${num}; i++)); do
     eval arr_res+=\(\"\${${ARGS1}[$i]}\"\)
 done
 
-# parr3e_ arr_res
+# l_02_pa3e arr_res
 
 eval result=${ARGS2}
 
@@ -312,8 +312,8 @@ local item_arr=
 arr_name+=("exit menu")
 arr_res+=("return 0")
 
-#! _parr3e arr_name
-#! _parr3e arr_res
+#! l_02_pa3e arr_name
+#! l_02_pa3e arr_res
 
 if ! l_01_is_od $ARGS3; then
     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUM : '\$ARGS3 = $ARGS3: 0 or num menu' return 1"

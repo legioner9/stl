@@ -115,7 +115,7 @@ l_02_l2E() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: echo All l_xx 
 TAGS:
 \$1 
 [, \$2]
@@ -207,6 +207,19 @@ fi
 #! ptr_path
 # local ptr_path="$1"
 # ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
+
+local item=
+local dir_sh=${STL_D_PATH}/prc.d/boot_stl_fn.d
+
+local fn_name=
+
+for item in $(l_02_d2e "${dir_sh}"); do
+    fn_name=$(_prs_f -n "$item")
+    echo -e "${RED}--- $fn_name ---${NORMAL}"                         
+    echo -e "${BLUE}PATH : file://${dir_sh}/$item ${NORMAL}"          #sistem info mesage
+    echo -e "${CYAN}$($fn_name -h | grep 'MAIN')${NORMAL}"            #sistem info mesage
+    echo -e "${CYAN}$($fn_name -h | grep 'TAGS')${NORMAL}"            #sistem info mesage
+done
 
     #* END fn block ------------------
 

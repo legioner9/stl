@@ -229,9 +229,9 @@ fi
 
 #! eval "sed -i 's|^'\'' .*||g' ${HOME}/path_file" rm string starting with <' >
 
-echo -e "${GREEN}\$1 = ${1}${NORMAL}"                      #print variable
-echo -e "${GREEN}\$2 = ${2}${NORMAL}"                      #print variable
-echo -e "${GREEN}\$ptr_path = file://${ptr_path}${NORMAL}" #print variable
+l_00_echo_info "'\$1 = $1'"
+l_00_echo_info "'\$2 = $2'"
+l_00_echo_info "'\$ptr_path = file://${ptr_path}'"
 
 # sed -i "s|$1|$2|g" "$3"
 if [ "@" == "${2}" ]; then

@@ -134,6 +134,15 @@ CNTL:
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
+tree -L 1 \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/df2z
+\${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/df2z
+├── 1964_b_d.px
+└── 208_b_file.px
+
+    cd \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/df2z || return 1
+    l_02_d2z 1964_b_d.px ->:
+        1964
+
 "
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0

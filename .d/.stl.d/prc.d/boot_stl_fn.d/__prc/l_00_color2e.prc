@@ -151,8 +151,20 @@ $FN$EMH EMH - purpleh ground $NRM
 
 $FN$ECL ECL - cyanl ground $NRM
 $FN$ECH ECH - cyanh ground $NRM
-    _flow       : tst _flow     : . ${tst_nm_dr}/${FNN}/_flow_tst.sh
-    _flow_1     : tst _flow_1   : . ${tst_nm_dr}/${FNN}/_flow_tst_v1.sh
+
+$FN$EDL EDL - greyl ground $NRM
+$FN$EDH EDH - greyh ground $NRM
+
+"
+
+local font=(FN FNL FNH
+    FR FRL FRH
+    FG FGL FGH
+    FY FYL FYH
+    FB FBL FBH
+    FM FML FMH
+    FC FCL FCH
+    FD FDL FDH
     FW FWL FWH
 )
 

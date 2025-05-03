@@ -148,6 +148,16 @@ CNTL:
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
+    rm -r dirX.d
+    rm -r dirY.d
+    mkdir dirX.d
+    mkdir dirX.d/dirXX.d
+    echo \"this fileX.f\" >dirX.d/fileX.f
+    echo \"this fileXX.f\" >dirX.d/dirXX.d/fileXX.f
+
+    l_03_sd2d X Y dirX.d
+    cat dirY.d/fileY.f -> this fileY.f
+    cat dirY.d/dirYY.d/fileYY.f -> this fileYY.f
 "
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0

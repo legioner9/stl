@@ -97,6 +97,43 @@ CNTL:
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
+tree \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/d2
+├── _d1.no
+│   ├── _f2
+│   ├── f2
+│   ├── _f2.no
+│   ├── f2.no
+│   ├── _f2.yes
+│   └── f2.yes
+├── d1.no
+│   ├── _f2
+│   ├── f2
+│   ├── _f2.no
+│   ├── f2.no
+│   ├── _f2.yes
+│   └── f2.yes
+├── _d1.yes
+│   ├── _f2
+│   ├── f2
+│   ├── _f2.no
+│   ├── f2.no
+│   ├── _f2.yes
+│   └── f2.yes
+├── d1.yes
+│   ├── _f2.no
+│   ├── f2.no
+│   ├── _f2.yes
+│   └── f2.yes 
+├── _f1.no
+├── f1.no
+├── _f1.yes
+└── f1.yes
+
+    cd \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt || return 1
+    l_02_dfr2aewd d2 yes ->:
+        \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/d2/d1.no/f2.yes:1
+        \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/d2/d1.yes/f2.yes:1
+        \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/d2/f1.yes:0
 ";
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
         return 0;
@@ -128,7 +165,7 @@ EXAM:   ${FNN} [, [, ]]
                     fi;
                 else
                     local _dr2e_ext=;
-                    _dr2e_ext=$(l_01_prs_f -e "$item");
+                    _dr2e_ext=$(_prs_f -e "$item");
                     if { 
                         [ -f "$item" ]
                     } && [ "${item:0:1}" != "_" ] && [ "${_dr2e_ext}" == "$3" ]; then
@@ -158,7 +195,7 @@ EXAM:   ${FNN} [, [, ]]
                     fi;
                 else
                     local _dr2e_ext=;
-                    _dr2e_ext=$(l_01_prs_f -e "$item");
+                    _dr2e_ext=$(_prs_f -e "$item");
                     if { 
                         [ -f "$ptr_path/$item" ]
                     } && [ "${item:0:1}" != "_" ] && [ "${_dr2e_ext}" == "$3" ]; then

@@ -210,10 +210,10 @@ fi
 
 if [[ "$1" =~ ^[0-9]+$ ]]; then
     cd "$PPWD"
-    return 1
+    return 0
 else
     cd "$PPWD"
-    return 0
+    return 1
 fi
 
     #* END fn block ------------------

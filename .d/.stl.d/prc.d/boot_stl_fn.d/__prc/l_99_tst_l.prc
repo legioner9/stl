@@ -66,6 +66,18 @@ for exec_tst_fl_pth in $(find ${tst_dir} -name exec.tst); do
 
 done
 
+l_00_echo_sys "gig file ${fn_dr}/__res/l.sh"
+local item=
+local res_fl=${fn_dr}/__res/l.sh
+: >${res_fl}
+# /prc.d/boot_stl_fn.d/__tst
+for item in $(ls ${fn_dr}); do
+    [[ -f ${fn_dr}/${item} && "_" != "${item:0:1}" ]] && {
+        echo -e "${GREEN}\$item = '$item'${NORMAL}"
+        cat "${fn_dr}/${item}" >>"${res_fl}"
+    }
+done
+
 [[ 0 -eq "${ret1}" ]] || {
     l_00_echo_ret1 "$FNN() $*' in file://${file_name} , line=${LINENO} :: ANY_FAIL [ret1] 'code' :: return 1"
     cd "$PPWD" || l_00_echo_err "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue"

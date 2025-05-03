@@ -10,11 +10,15 @@
 
 l_02_edit() {
 
-    #! THIS FILE WILL BE CREATED `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_02_edit`
+    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_02_edit`
     #! All changes will be lost after rebuilding
-    #! To change this file use the following commands `l_02_edit _e_prc` to edit "fn block", `l_02_edit _e_xxx` to edit "init block"
+    #! To change this file use the following commands:
 
-    #* START init block from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
+    #! l_02_edit _e_prc to edit/change 'fn block',
+    #! l_02_edit _rbld to rebuild fn with changed 'fn block'
+    #! l_02_edit _e_xxx` to edit 'init block'
+
+    #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
     local NARGS=$#
@@ -22,6 +26,9 @@ l_02_edit() {
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
     local prc_dr=${fn_dr}/__prc
     local tst_dr=${fn_dr}/__tst
+    local ext_dr=${fn_dr}/__ext
+    local ext_dt_dr=${ext_dr}/_dt
+    local ext_dr_prc=${ext_dr}/_prc
 
     local fn_nm=${fn_dr}/${FNN}.sh
     local prc_nm=${prc_dr}/${FNN}.prc
@@ -32,24 +39,19 @@ l_02_edit() {
 
     if ! [[ -d "${PPWD}" ]]; then
         echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
         return 1
     fi
 
     if [[ "_go" == "$1" ]]; then
         l_02_edit ${fn_nm}
-        cd "${PPWD}" || {
-            echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
-            return 1
-        }
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
         return 0
     fi
 
     if [[ "_e_prc" == "$1" ]]; then
         l_02_edit ${prc_nm}
-        cd "${PPWD}" || {
-            echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
-            return 1
-        }
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
         return 0
     fi
 
@@ -58,19 +60,13 @@ l_02_edit() {
         l_00_warn_p_r0 "You want change \"init block\" in ALL l_xx functions?"
         l_02_edit ${fn_dr}
         l_00_warn_p_r0 "Change _\XXX.sh"
-        cd "${PPWD}" || {
-            echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
-            return 1
-        }
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
         return 0
     fi
 
     if [[ "_e_tst_dr" == "$1" ]]; then
         l_02_edit ${tst_nm_dr}
-        cd "${PPWD}" || {
-            echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
-            return 1
-        }
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
         return 0
     fi
 
@@ -82,10 +78,25 @@ l_02_edit() {
             }
             return 1
         }
-        cd "${PPWD}" || {
-            echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        return 0
+    fi
+
+    if [[ "_flow" == "$1" ]]; then
+        . ${tst_nm_dr}/_flow_tst.sh || {
+            cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
             return 1
         }
+        cd "$PPWD" || l_00_echo_err "in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue"
+        return 0
+    fi
+
+    if [[ "_flow_1" == "$1" ]]; then
+        . ${tst_nm_dr}/_flow_tst_v1.sh || {
+            cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+            return 1
+        }
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
         return 0
     fi
 
@@ -94,10 +105,7 @@ l_02_edit() {
         . ${fn_dr}/_rbld_l_xx.sh ${FNN}
         #! up to mem fn
         . ${fn_dr}/$1.sh
-        cd "${PPWD}" || {
-            echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
-            return 1
-        }
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
         return 0
     fi
 
@@ -117,6 +125,9 @@ CNTL:
     _rbld       : rebuild fn    : . ${fn_dr}/_rbld_l_xx.sh ${FNN}
     _tst        : tst fn        : l_02_edit ${tst_nm_dr}/${FNN}/exec.tst
 
+    _flow       : tst _flow     : . ${tst_nm_dr}/${FNN}/_flow_tst.sh
+    _flow_1     : tst _flow_1   : . ${tst_nm_dr}/${FNN}/_flow_tst_v1.sh
+    
     _e_prc      : edit fn.prc   : l_02_edit ${prc_nm}
     _e_tst_dr   : edit tst_nm_dr: l_02_edit ${tst_nm_dr}
     _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/l_02_edit
@@ -184,10 +195,7 @@ fi
 
     #* END fn block ------------------
 
-    cd "${PPWD}" || {
-        echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
-        return 1
-    }
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0
     #* END init block ------------------
 }
