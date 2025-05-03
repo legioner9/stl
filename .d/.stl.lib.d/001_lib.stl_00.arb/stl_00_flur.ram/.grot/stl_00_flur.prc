@@ -6,7 +6,7 @@
 
 # ENV: ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 
-_stl_01_tst() {
+_stl_00_flur() {
 
     #? ----- START _XXX body_flow -----
 
@@ -64,7 +64,12 @@ _stl_01_tst() {
     #     #* define local variables
 
     #* {{fn_sh_body}}
-    echo -e "${CYAN}--- $FNN() $* in file://${fn_sh_file} ---${NORMAL}" #started functions
+
+    #     #! ptr_path
+    #     # local ptr_path="$1"
+    #     # ptr_path="$(_abs_path "${PPWD}" "ptr_path")"
+
+    l_00_echo_exec "$FNN() $* in file://${fn_sh_file}" #started functions
 
     local hint="hint -> "
     if [ -n "$1" ] && [ "-h" == "$1" ]; then
@@ -84,8 +89,8 @@ CNTL:
     _hie_m      : more hie_file     : more file://${fn_hie_file} 
     _hie_e      : _edit hie_file    : _edit file://${fn_hie_file} 
 
-    _depo_d_e   : depo files : use by ${FNN} : _edit \$d_lib_grot_depo : _edit file://${d_lib_grot_depo}
-    _opt_d_e    : opt files : use by user   : _edit \$d_lib_grot_opt : _edit file://${d_lib_grot_opt}    
+    _depo_d_e   : depo files : use by ${FNN} : _edit $d_lib_grot_depo : _edit file://${d_lib_grot_depo}
+    _opt_d_e    : opt files : use by user   : _edit $d_lib_grot_opt : _edit file://${d_lib_grot_opt}    
 
     _data_d_e   : 
     
@@ -130,11 +135,65 @@ ${NORMAL}"
         return 0
     fi
     :
+    local fn_data_dir=${HOME}/.d/.rc.d/.st.rc.d/.st.d
+    local fn_data_dir=${d_lib_grot_opt_prc}/.d/.rc.d/.st.rc.d/.st.d
+    d_lib_grot_opt_prc
+    local dir_proc_flur=${fn_data_dir}/.proc/_flur.ax
+
+    if [[ "_prc" == "$1" ]]; then
+        _edit ${d_lib_grot_opt_prc}
+        return 0
+    fi
+
+    #* --- START _nr2mm_min ---
+    local _arr_name=()
+    local _arr_result=()
+    local _result=
+    local item=
+
+    IFS=$'\n'
+    _arr_name=($(_df2e ${dir_proc_flur}))
+
+    for item in ${_arr_name[@]}; do
+        _arr_result+=("${dir_proc_flur}/${item}")
+    done
+
+    _arr_name+=("_edit ${dir_proc_flur}")
+    _arr_result+=("_edit ${dir_proc_flur}")
+
+    #     echo -e "
+    # ${RED}--- parr2mm_ message :${BLUE}
+    # GENERATOR_INFO :
+    # name   from :: \$(_df2e ${dir_proc_flur})
+    # result from :: full path \$(GEN_RESULT)
+    # ${RED}---${NORMAL}"
+
+    _nr2mm _arr_name _arr_result _result "$1" >/dev/null
+    # echo -e "${GREEN}\$_result = $_result${NORMAL}" #print variable
+    #* --- END _nr2mm_min ---
+    #[[nr2mm_min]]
+
+    if [[ ${_result} == "_edit ${dir_proc_flur}" ]]; then
+        _edit ${dir_proc_flur}
+        # "${_result}"
+        return 0
+    fi
+
+    while IFS=$'\n' read -r line; do
+        # echo -e "${HLIGHT}--- exec: $line ---${NORMAL}" #start files
+        # if ! eval "$line"; then
+        #     err_flag=1
+        # fi
+        . ${_result}
+
+    done <"${2:-/dev/stdin}"
+
+    unset IFS
 
     #? ----- END _XXX body -----
 }
 
-_stl_01_tst "$@"
+_stl_00_flur "$@"
 
 # tst_prc_stl_00_before_return
 # cd "$PPWD" || echo "in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2

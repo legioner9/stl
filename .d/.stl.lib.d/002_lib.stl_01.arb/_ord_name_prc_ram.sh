@@ -98,7 +98,7 @@ ${NORMAL}"
 
     cd ${STL_LIB_D_PATH}/${lib_name_dir_arb} || return 1
 
-    _sd2d _PRC ${lib_name}_${1} ${STL_LIB_D_PATH}/${lib_name_dir_arb}/_PRC.ram || {
+    l_03_sd2d _PRC ${lib_name}_${1} ${STL_LIB_D_PATH}/${lib_name_dir_arb}/_PRC.ram || {
         l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC '_sd2d _PRC ${lib_name}_${1} ${STL_LIB_D_PATH}/${lib_name_dir_arb}/_PRC.ram' : ${hint} : return 1"
         return 1
     }
@@ -113,16 +113,16 @@ ${NORMAL}"
     cd ${STL_DATA_D_PATH}/${lib_name_dir_arb} || return 1
 
     pwd
-    read -p "_sd2d _PRC ${1}_0stl ${STL_DATA_D_PATH}/${lib_name_dir_arb}/_PRC.ram"
+    read -p "l_03_sd2d _PRC ${1}_0stl ${STL_DATA_D_PATH}/${lib_name_dir_arb}/_PRC.ram"
 
-    _sd2d _PRC ${lib_name}_${1} ${STL_DATA_D_PATH}/${lib_name_dir_arb}/_PRC.ram || {
+    l_03_sd2d _PRC ${lib_name}_${1} ${STL_DATA_D_PATH}/${lib_name_dir_arb}/_PRC.ram || {
         l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC '_sd2d _PRC ${lib_name}_${1} ${STL_DATA_D_PATH}/${lib_name_dir_arb}/_PRC.ram' : ${hint} : return 1"
         return 1
     }
 
     cd ${STL_DATA_D_PATH}/${lib_name_dir_arb} || return 1
 
-    # _sd2d "{{lib_name_dir_arb}}" ${lib_name_dir_arb} ${STL_DATA_D_PATH}/${lib_name_dir_arb}/${lib_name}_${1}.ram || {
+    # l_03_sd2d "{{lib_name_dir_arb}}" ${lib_name_dir_arb} ${STL_DATA_D_PATH}/${lib_name_dir_arb}/${lib_name}_${1}.ram || {
     #     l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC '_s2d {{lib_name_dir_arb}} ${lib_name_dir_arb} ${STL_DATA_D_PATH}/${lib_name_dir_arb}/${lib_name}_${1}.ram' : ${hint} : return 1"
     #     return 1
     # }

@@ -105,6 +105,11 @@ if [ -n "$2" ] && [[ "_opt_d_e" == "$2" ]]; then
     return 0
 fi
 
+if [ -n "$2" ] && [[ "_data_d_e" == "$2" ]]; then
+    l_02_edit $d_data_ram
+    return 0
+fi
+
 if [ -n "$2" ] && [[ "_flow_1" == "$2" ]]; then
     if ! . ${d_name}/_tst/_flow_tst.sh.v1; then
         l_00_echo_ret1 "in fs= file://${fn_sh_file} , line=${LINENO}, EXEC: ${FNN} $* : : EXEC_FAIL : '_source_w1_isf ${d_name}/_tst/_flow_tst.sh.v1' : ${hint} : return 1" >&2
