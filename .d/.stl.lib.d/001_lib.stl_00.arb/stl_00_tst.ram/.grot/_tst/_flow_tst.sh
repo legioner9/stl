@@ -2,16 +2,20 @@
 
 __stl_00_tst_FLOW() {
 
+    local PW=$(pwd)
+
     if ! command -v stl_00_tst >/dev/null; then
-        echo "TYPE_ERROR : stl_00_tst" >&2
+        l_00_echo_ret1 echo "TYPE_ERROR : stl_00_tst"
+        cd $PW
         return 1
     fi
 
-    # local filename=${STL_LIB_D_PATH}/{{lib_name_dir_arb}}.arb/stl_00_tst.ram/.grot/_tst/_flow_tst.sh
     local filename=${STL_LIB_D_PATH}/001_lib.stl_00.arb/stl_00_tst.ram/.grot/_tst/_flow_tst.sh
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
+    local tst_dir=${idir}/tst_dir
+    local res=${idir}/res
 
     local ARGS0="$1"
     local ARGS1="$2"
@@ -21,29 +25,32 @@ __stl_00_tst_FLOW() {
     local NARGS=$#
 
     cd "${idir}" || {
-        echo "${idir} not dir" >&2
+        l_00_echo_ret1 "${idir} not dir" 
+        cd $PW
         return 1
     }
 
     #?----------------------------------------------------
     #?-------------------------------------
+
+    l_00_echo_exec "source file://$filename"
     
-    echo -e "${CYAN}--- $FNN() $* in file://${filename} ---${NORMAL}"
+    #! if stdout to ${res} only in this file - NOT in exec.tst
+    : >"${res}"
 
-    # echo "start file://$filename"
-    # : >res
+    cd tst_dir || {
+        hint="\$1: \$2: "
+        l_00_echo_ret1 "in fs= file://${filename} , line=${LINENO}, ${FNN}() : NOT_DIR : 'file://${idir}/_dir_tst' : ${hint} : return 1"
+        return 1
+    }
 
-    # cd _dir_tst || {
-    #     hint="\$1: \$2: "
-    #     _st_exit "in fs= file://${filename} , line=${LINENO}, ${FNN}() : NOT_DIR : 'file://${idir}/_dir_tst' : ${hint} : return 1"
-    #     return 1
-    # }
+    # stl_00_tst "${tst_dir}" &>>"${res}"
 
     #?-------------------------------------
     #?----------------------------------------------------
 
     cd "${PW}" || {
-        echo "${PW} not dir" >&2
+        l_00_echo_ret1 "${PW} not dir"
         return 1
     }
 

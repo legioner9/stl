@@ -1,19 +1,19 @@
 #!/bin/bash
 
-___PRC_TST() {
+__stl_00_flur_TST() {
 
     local PW=$(pwd)
 
-    if ! command -v _PRC >/dev/null; then
-        l_00_echo_ret1 "TYPE_ERROR : _PRC" 
+    if ! command -v stl_00_flur >/dev/null; then
+        l_00_echo_ret1 "TYPE_ERROR : stl_00_flur" 
         cd "$PW"
         return 1
     fi
 
-    local filename=${STL_LIB_D_PATH}/001_lib.stl_00.arb/_PRC.ram/.grot/_tst/exec.tst
+    local filename=${STL_LIB_D_PATH}/001_lib.stl_00.arb/stl_00_flur.ram/.grot/_tst/exec.tst
     local idir="$(dirname ${filename})"
 
-    l_00_echo_info "test function _PRC in file://${filename}"
+    l_00_echo_info "test function stl_00_flur in file://${filename}"
 
     cd "${idir}" || {
         l_00_echo_ret1 "${idir} not dir"
@@ -48,7 +48,7 @@ ___PRC_TST() {
 
 }
 
-if ! ___PRC_TST "$@"; then
-    l_00_echo_err "in fs= file://${STL_LIB_D_PATH}/{{lib_name_dir_arb}}/_PRC.ram/.grot/_tst/exec.tst , line=${LINENO}: : EXEC_FAIL : '___PRC_TST ' : ${hint} : return 1"
+if ! __stl_00_flur_TST "$@"; then
+    l_00_echo_err "in fs= file://${STL_LIB_D_PATH}/{{lib_name_dir_arb}}/stl_00_flur.ram/.grot/_tst/exec.tst , line=${LINENO}: : EXEC_FAIL : '__stl_00_flur_TST ' : ${hint} : return 1"
     return 1
 fi

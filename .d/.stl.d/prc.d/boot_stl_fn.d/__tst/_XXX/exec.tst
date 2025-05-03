@@ -12,7 +12,7 @@ __XXX_RND_exec() {
     local PW=$(pwd)
 
     if ! command -v _XXX >/dev/null; then
-        echo "TYPE_ERROR : _XXX" >&2
+        l_00_echo_ret1 "TYPE_ERROR : _XXX" >&2
         return 1
     fi
 

@@ -2,48 +2,49 @@
 
 __stl_00_tst_TST() {
 
+    local PW=$(pwd)
+
     if ! command -v stl_00_tst >/dev/null; then
-        l_00_echo_err "TYPE_ERROR : stl_00_tst" >&2
+        l_00_echo_ret1 "TYPE_ERROR : stl_00_tst" 
+        cd "$PW"
         return 1
     fi
 
-    # local filename=${STL_LIB_D_PATH}/{{lib_name_dir_arb}}/stl_00_tst.ram/.grot/_tst/exec.tst
     local filename=${STL_LIB_D_PATH}/001_lib.stl_00.arb/stl_00_tst.ram/.grot/_tst/exec.tst
+    local idir="$(dirname ${filename})"
 
-    local idir=$(pwd)
+    l_00_echo_info "test function stl_00_tst in file://${filename}"
 
-    # cd "$(prs_f -d $filename)" || qq_exit "$(prs_f -d filename) not found"
-
-    local dir=$(_prs_f -d "$filename")
-
-    cd "${dir}" || {
-        l_00_echo_err "${dir} not dir" >&2
+    cd "${idir}" || {
+        l_00_echo_ret1 "${idir} not dir"
+        cd "$PW"
         return 1
     }
 
-    . "$dir"/_flow_tst.sh &>/dev/null
+    . "$idir"/_flow_tst.sh &>/dev/null
 
     # . "$dir"/_flow_tst.sh &>res
 
     #? if res, pre dirs -> diff -qr | diff -r
 
     local flag=1
-    if ! diff -q "$dir"/pre "$dir"/res >/dev/null; then
+    if ! diff -q "$idir"/pre "$idir"/res >/dev/null; then
         flag=0
     fi
 
     if [ 0 -eq "$flag" ]; then
-        l_00_echo_err "ANY in file://$dir fail" >&2
-        diff "$dir"/pre "$dir"/res >&2
-        cd "$idir"
+        l_00_echo_fail "in file://$filename FAIL"
+        l_00_echo_code "diff file://$idir/pre file://$idir/res"
+        diff "$idir"/pre "$idir"/res >&2
+
+        cd "$PW"
         return 1
     else
-        l_00_echo_info "ALL in file://$dir true"
-        cd "$idir"
+        l_00_echo_succ "in file://$filename SUCC"
+
+        cd "$PW"
         return 0
     fi
-
-    cd "$idir"
 
 }
 

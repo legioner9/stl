@@ -9,8 +9,11 @@
 
 __XXX_RND_flow() {
 
+    local PW=$(pwd)
+
     if ! command -v _XXX >/dev/null; then
         l_00_echo_ret1 "TYPE_ERROR : _XXX"
+        cd $PW
         return 1
     fi
 
@@ -35,9 +38,11 @@ __XXX_RND_flow() {
 
     #?----------------------------------------------------
     #?-------------------------------------
+
     l_00_echo_exec "source file://$filename"
+    
     #! if stdout to ${res} only in this file - NOT in exec.tst
-    : >"${res}" 
+    : >"${res}"
 
     cd tst_dir || {
         hint="\$1: \$2: "
@@ -46,7 +51,6 @@ __XXX_RND_flow() {
     }
 
     # _XXX "${tst_dir}" &>>"${res}"
-
 
     #?-------------------------------------
     #?----------------------------------------------------
