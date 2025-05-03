@@ -89,10 +89,10 @@ CNTL:
     _hie_m      : more hie_file     : more file://${fn_hie_file} 
     _hie_e      : _edit hie_file    : _edit file://${fn_hie_file} 
 
-    _depo_d_e   : depo files : use by ${FNN} : _edit $d_lib_grot_depo : _edit file://${d_lib_grot_depo}
-    _opt_d_e    : opt files : use by user   : _edit $d_lib_grot_opt : _edit file://${d_lib_grot_opt}    
+    _depo_d_e   : depo files : use by ${FNN} : _edit \$d_lib_grot_depo : _edit file://${d_lib_grot_depo}
+    _opt_d_e    : opt files : use by ${FNN} : _edit \$d_lib_grot_opt : _edit file://${d_lib_grot_opt}    
 
-    _data_d_e   : 
+    _data_d_e   : data files : use by user : _edit \$d_data_grot : _edit file://$d_data_grot
     
 RETURN: ( result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 ERROR: ( if ... return 0 | if ... return 1 )
@@ -130,6 +130,30 @@ prc_ram dir for ${FNN}
 
 data_ram dir for ${FNN}
     d_data_ram= file://${d_data_ram}    
+
+local fn_sh_file=\"${fn_sh_grot}/${FNN}.prc"
+local fn_hie_file=\"${fn_sh_grot}/${FNN}.hie"
+local d_name=$(dirname ${fn_sh_file})
+
+local sublib_pth=$(dirname $(dirname ${d_name}))
+local sublib_pfx=$(l_01_prs_f -e2 ${sublib_pth})
+local sublib_num=$(l_01_prs_f -n2 ${sublib_pth})
+local sublib_nm=$(l_01_prs_f -ne ${sublib_pth})
+
+# echo -e \"${GREEN}$sublib_num = '$sublib_num'${NORMAL}\"
+
+local d_data_ram=${STL_DATA_D_PATH}/${sublib_num}.${sublib_pfx}.arb/${FNN}.ram
+local d_lib_ram=${STL_LIB_D_PATH}/${sublib_num}.${sublib_pfx}.arb/${FNN}.ram
+
+local d_data_grot=${d_data_ram}/.grot
+local d_lib_grot=${d_lib_ram}/.grot
+
+local d_lib_grot_opt=${d_lib_grot}/.opt
+local d_lib_grot_opt_lst=${d_lib_grot_opt}.lst
+local d_lib_grot_opt_prc=${d_lib_grot_opt}.prc
+local d_lib_grot_opt_tml=${d_lib_grot_opt}.tml
+
+local d_lib_grot_depo=${d_lib_grot}/.depo
 
 ${NORMAL}"
         return 0

@@ -119,7 +119,10 @@ ${NORMAL}"
         return 1
     }
 
+    l_01_stl_init
+
     cd ${STL_DATA_D_PATH}/${lib_name_dir_arb} || return 1
+
 
     # l_03_sd2d "{{lib_name_dir_arb}}" ${lib_name_dir_arb} ${STL_DATA_D_PATH}/${lib_name_dir_arb}/${lib_name}_${1}.ram || {
     #     l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC '_s2d {{lib_name_dir_arb}} ${lib_name_dir_arb} ${STL_DATA_D_PATH}/${lib_name_dir_arb}/${lib_name}_${1}.ram' : ${hint} : return 1"

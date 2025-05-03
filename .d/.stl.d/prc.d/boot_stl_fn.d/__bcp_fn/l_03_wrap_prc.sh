@@ -18,7 +18,7 @@ l_03_wrap_prc() {
     #! l_03_wrap_prc _rbld to rebuild fn with changed 'fn block'
     #! l_03_wrap_prc _e_xxx` to edit 'init block'
 
-    #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
+    # #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
     local NARGS=$#
@@ -218,11 +218,6 @@ if [ -n "$2" ] && [[ "_opt_d_e" == "$2" ]]; then
     return 0
 fi
 
-if [ -n "$2" ] && [[ "_data_d_e" == "$2" ]]; then
-    l_02_edit $d_data_grot
-    return 0
-fi
-
 if [ -n "$2" ] && [[ "_flow_1" == "$2" ]]; then
     if ! . ${d_name}/_tst/_flow_tst.sh.v1; then
         l_00_echo_ret1 "in fs= file://${fn_sh_file} , line=${LINENO}, EXEC: ${FNN} $* : : EXEC_FAIL : '_source_w1_isf ${d_name}/_tst/_flow_tst.sh.v1' : ${hint} : return 1" >&2
@@ -251,8 +246,6 @@ if [ -n "$2" ] && [[ "_hie_e" == "$2" ]]; then
     cd $PPWD
     return 0
 fi
-
-
 
 # hint="\$1: \$2: "
 # if _isn_from ${NARGS} LESS LESS+1 "in fs= file://${fn_sh_file}, line=${LINENO}, ${FNN}() : DEMAND 'LESS LESS+1' ERR_AMOUNT_ARGS entered :'${NARGS}' args : ${hint} : return 1"; then

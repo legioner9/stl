@@ -69,12 +69,12 @@ _stl_00_flur() {
     #     # local ptr_path="$1"
     #     # ptr_path="$(_abs_path "${PPWD}" "ptr_path")"
 
-    l_00_echo_exec "$FNN() $* in file://${fn_sh_file}" #started functions
+    # l_00_echo_exec "$FNN() $* in file://${fn_sh_file}" #started functions
 
     local hint="hint -> "
     if [ -n "$1" ] && [ "-h" == "$1" ]; then
         echo -e "${CYAN} ${FNN}() help: 
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: treat stdin str_by_str accoding menu with treater files
 TAGS:
 ARGS: [\$1 : ] 
 [, \$N last arg DEBAG CNTL]
@@ -89,10 +89,12 @@ CNTL:
     _hie_m      : more hie_file     : more file://${fn_hie_file} 
     _hie_e      : _edit hie_file    : _edit file://${fn_hie_file} 
 
-    _depo_d_e   : depo files : use by ${FNN} : _edit $d_lib_grot_depo : _edit file://${d_lib_grot_depo}
-    _opt_d_e    : opt files : use by user   : _edit $d_lib_grot_opt : _edit file://${d_lib_grot_opt}    
+    _depo_d_e   : depo files : use by ${FNN} : _edit \$d_lib_grot_depo : _edit file://${d_lib_grot_depo}
+    _opt_d_e    : opt files : use by ${FNN} : _edit \$d_lib_grot_opt : _edit file://${d_lib_grot_opt}    
 
-    _data_d_e   : 
+    _data_d_e   : data files : use by user : _edit \$d_data_grot : _edit file://$d_data_grot
+
+
     
 RETURN: ( result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 ERROR: ( if ... return 0 | if ... return 1 )
@@ -135,15 +137,15 @@ ${NORMAL}"
         return 0
     fi
     :
-    local fn_data_dir=${HOME}/.d/.rc.d/.st.rc.d/.st.d
-    local fn_data_dir=${d_lib_grot_opt_prc}/.d/.rc.d/.st.rc.d/.st.d
-    d_lib_grot_opt_prc
-    local dir_proc_flur=${fn_data_dir}/.proc/_flur.ax
 
-    if [[ "_prc" == "$1" ]]; then
-        _edit ${d_lib_grot_opt_prc}
-        return 0
-    fi
+    #* ${HOME}/.d/.rc.d/.st.rc.d/.st.d
+
+    # local dir_proc_flur=${fn_data_dir}/.proc/_flur.ax
+
+    # if [[ "_proc" == "$1" ]]; then
+    #     _edit ${d_lib_grot_opt_prc}
+    #     return 0
+    # fi
 
     #* --- START _nr2mm_min ---
     local _arr_name=()
@@ -151,8 +153,14 @@ ${NORMAL}"
     local _result=
     local item=
 
+    file ${d_lib_grot_opt}/.prc
+
     IFS=$'\n'
-    _arr_name=($(_df2e ${dir_proc_flur}))
+    _arr_name=($(l_02_df2e ${d_lib_grot_opt}/.prc))
+
+    l_02_pa3e _arr_name
+
+    return 0
 
     for item in ${_arr_name[@]}; do
         _arr_result+=("${dir_proc_flur}/${item}")
@@ -187,8 +195,6 @@ ${NORMAL}"
         . ${_result}
 
     done <"${2:-/dev/stdin}"
-
-    unset IFS
 
     #? ----- END _XXX body -----
 }
