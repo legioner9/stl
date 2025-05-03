@@ -18,7 +18,7 @@ l_03_wrap_prc() {
     #! l_03_wrap_prc _rbld to rebuild fn with changed 'fn block'
     #! l_03_wrap_prc _e_xxx` to edit 'init block'
 
-    #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
+    # #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
     local NARGS=$#
@@ -132,7 +132,7 @@ CNTL:
     return 0
 fi
 
-# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 local FNN=$(l_01_prs_f -n "${1}")
 local PPWD=$PWD
@@ -176,9 +176,6 @@ local sublib_nm=$(l_01_prs_f -ne ${sublib_pth})
 
 # echo -e "${GREEN}\$sublib_num = '$sublib_num'${NORMAL}"
 
-local d_data_arb=${STL_DATA_D_PATH}/${sublib_num}.${sublib_pfx}.arb
-local d_lib_arb=${STL_LIB_D_PATH}/${sublib_num}.${sublib_pfx}.arb
-
 local d_data_ram=${STL_DATA_D_PATH}/${sublib_num}.${sublib_pfx}.arb/${FNN}.ram
 local d_lib_ram=${STL_LIB_D_PATH}/${sublib_num}.${sublib_pfx}.arb/${FNN}.ram
 
@@ -192,12 +189,12 @@ local d_lib_grot_opt_tml=${d_lib_grot_opt}.tml
 
 local d_lib_grot_depo=${d_lib_grot}/.depo
 
-if [[ -n "$2" && "_go" == "$2" ]]; then
+if [ -n "$2" ] && [[ "_go" == "$2" ]]; then
     l_02_edit "${fn_sh_file}"
     return 0
 fi
 
-if [[ -n "$2" && "_tst" == "$2" ]]; then
+if [ -n "$2" ] && [[ "_tst" == "$2" ]]; then
     if ! . ${d_name}/_tst/exec.tst; then
         l_00_echo_ret1 "in fs= file:// , line=${LINENO}, EXEC: ${FNN} $* : : EXEC_FAIL : '. ${d_name}/_tst/exec.tst' : ${hint} : return 1" >&2
         cd $PPWD
@@ -206,32 +203,22 @@ if [[ -n "$2" && "_tst" == "$2" ]]; then
     return 0
 fi
 
-if [[ -n "$2" && "_tst_e" == "$2" ]]; then
+if [ -n "$2" ] && [[ "_tst_e" == "$2" ]]; then
     l_02_edit ${d_name}/_tst
     return 0
 fi
 
-if [[ -n "$2" && "_depo_d_e" == "$2" ]]; then
+if [ -n "$2" ] && [[ "_depo_d_e" == "$2" ]]; then
     l_02_edit ${d_lib_grot_depo}
     return 0
 fi
 
-if [[ -n "$2" && "_opt_d_e" == "$2" ]]; then
+if [ -n "$2" ] && [[ "_opt_d_e" == "$2" ]]; then
     l_02_edit $d_lib_grot_opt
     return 0
 fi
 
-if [[ -n "$2" && "_data_d_e" == "$2" ]]; then
-    l_02_edit $d_data_ram
-    return 0
-fi
-
-if [[ -n "$2" && "_lib_d_e" == "$2" ]]; then
-    l_02_edit $d_lib_ram
-    return 0
-fi
-
-if [[ -n "$2" && "_flow_1" == "$2" ]]; then
+if [ -n "$2" ] && [[ "_flow_1" == "$2" ]]; then
     if ! . ${d_name}/_tst/_flow_tst.sh.v1; then
         l_00_echo_ret1 "in fs= file://${fn_sh_file} , line=${LINENO}, EXEC: ${FNN} $* : : EXEC_FAIL : '_source_w1_isf ${d_name}/_tst/_flow_tst.sh.v1' : ${hint} : return 1" >&2
         cd $PPWD
@@ -240,26 +227,30 @@ if [[ -n "$2" && "_flow_1" == "$2" ]]; then
     return 0
 fi
 
-if [[ -n "$2" && "_rbld" == "$2" ]]; then
-    if ! . ${d_lib_arb}/_rbld_name_prc_ram.sh ${FNN}; then
-        l_00_echo_ret1 "in fs= file://${fn_sh_file} , line=${LINENO}, EXEC: ${FNN} $* : : EXEC_FAIL : '. ${d_lib_arb}/_rbld_name_prc_ram.sh ${FNN}' : ${hint} : return 1" >&2
-        cd $PPWD
-        return 1
-    fi
-    return 0
-fi
+# if [[ "_flow_2" == "$1" ]]; then
+#     if ! _source_w1_isf ${d_name}/_tst/_flow_tst.sh.v2; then
+#         _st_exit "in fs= file://${fn_sh_file} , line=${LINENO}, EXEC: ${FNN} $* : : EXEC_FAIL : '_source_w1_isf ${d_name}/_tst/_flow_tst.sh.v2' : ${hint} : return 1"
+#         cd $PPWD
+#         return 1
+#     fi
+# fi
 
-if [[ -n "$2" && "_hie_m" == "$2" ]]; then
+if [ -n "$2" ] && [[ "_hie_m" == "$2" ]]; then
     more ${fn_hie_file}
     cd $PPWD
     return 0
 fi
 
-if [[ -n "$2" && "_hie_e" == "$2" ]]; then
+if [ -n "$2" ] && [[ "_hie_e" == "$2" ]]; then
     l_02_edit ${fn_hie_file}
     cd $PPWD
     return 0
 fi
+
+# hint="\$1: \$2: "
+# if _isn_from ${NARGS} LESS LESS+1 "in fs= file://${fn_sh_file}, line=${LINENO}, ${FNN}() : DEMAND 'LESS LESS+1' ERR_AMOUNT_ARGS entered :'${NARGS}' args : ${hint} : return 1"; then
+#     return 1
+# fi
 
 #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
 local di=

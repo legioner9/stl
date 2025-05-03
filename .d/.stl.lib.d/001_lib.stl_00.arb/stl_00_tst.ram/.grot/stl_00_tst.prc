@@ -6,7 +6,7 @@
 
 # ENV: ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 
-__PRC() {
+_stl_00_tst() {
 
     #? ----- START _XXX body_flow -----
 
@@ -142,7 +142,7 @@ ${NORMAL}"
     #? ----- END _XXX body -----
 }
 
-__PRC "$@"
+_stl_00_tst "$@"
 
 # tst_prc_stl_00_before_return
 # cd "$PPWD" || echo "in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue" >&2
