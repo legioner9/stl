@@ -144,36 +144,37 @@ ${NORMAL}"
     local _result=
     local item=
 
-    file ${d_lib_grot_opt}/.prc
+    # file ${d_lib_grot_opt}/.prc
 
-    # IFS=$'\n'
     _arr_name=($(l_02_df2e ${d_lib_grot_opt}/.prc))
 
-    l_02_pa3e _arr_name
-    IFS=
-    return 0
+    # l_02_pa3e _arr_name
+
+    # return 0
 
     for item in ${_arr_name[@]}; do
-        _arr_result+=("${dir_proc_flur}/${item}")
+        _arr_result+=("${d_lib_grot_opt}/.prc/${item}")
     done
 
-    _arr_name+=("_edit ${dir_proc_flur}")
-    _arr_result+=("_edit ${dir_proc_flur}")
+    _arr_name+=("l_02_edit ${d_lib_grot_opt}/.prc")
+    _arr_result+=("l_02_edit ${d_lib_grot_opt}/.prc")
 
-    #     echo -e "
-    # ${RED}--- parr2mm_ message :${BLUE}
-    # GENERATOR_INFO :
-    # name   from :: \$(_df2e ${dir_proc_flur})
-    # result from :: full path \$(GEN_RESULT)
-    # ${RED}---${NORMAL}"
+    l_02_pa2mm _arr_name _arr_result _result "$1" >/dev/null || {
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: FALSE_EXEC 'l_02_pa2mm _arr_name _arr_result _result "$1"' where '\$3=$3' return 1"
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        return 1
+    }
 
-    _nr2mm _arr_name _arr_result _result "$1" >/dev/null
-    # echo -e "${GREEN}\$_result = $_result${NORMAL}" #print variable
+    # l_00_echo_info "'\$_result = $_result'"
     #* --- END _nr2mm_min ---
     #[[nr2mm_min]]
 
-    if [[ ${_result} == "_edit ${dir_proc_flur}" ]]; then
-        _edit ${dir_proc_flur}
+    if [[ -z ${_result} ]]; then
+        return 0
+    fi
+
+    if [[ ${_result} == "l_02_edit ${d_lib_grot_opt}/.prc" ]]; then
+        l_02_edit ${d_lib_grot_opt}/.prc
         # "${_result}"
         return 0
     fi

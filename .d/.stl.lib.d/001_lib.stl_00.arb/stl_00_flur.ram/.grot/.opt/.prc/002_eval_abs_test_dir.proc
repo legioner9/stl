@@ -9,11 +9,11 @@ if [[ -n "${line}" ]]; then
     # echo -e "${GREEN}\$line = $line${NORMAL}" #print variable
     #! ptr_path
     line_after_eval=$(eval "echo ${line}")
-    line="$(_abs_path "${PPWD}" "line")"
+    line_after_eval="$(l_01_abs_path "${PPWD}" "line_after_eval")"
     # echo -e "${GREEN}\$line = $line${NORMAL}" #print variable
 
-    if [[ -d ${line} ]]; then
-        echo "${line}"
+    if [[ -d ${line_after_eval} ]]; then
+        echo "${line_after_eval}"
     else
         echo "NOT dir ${line_after_eval}" >&2
         err_flag=1

@@ -44,6 +44,10 @@ local PW=$(pwd)
         return 1
     }
 
+    stl_00_flur 1 << EOF
+    echo \"that echo\"
+EOF
+
     # stl_00_flur "${tst_dir}" &>>"${res}"
 
     #?-------------------------------------

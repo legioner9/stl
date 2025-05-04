@@ -1,6 +1,0 @@
-#!/bin/bash
-
-echo -e "${HLIGHT}--- exec: $line ---${NORMAL}" #start files
-if ! eval "$line"; then
-    err_flag=1
-fi

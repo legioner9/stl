@@ -25,7 +25,7 @@ __stl_00_flur_FLOW() {
     local NARGS=$#
 
     cd "${idir}" || {
-        l_00_echo_ret1 "${idir} not dir" 
+        l_00_echo_ret1 "${idir} not dir"
         cd $PW
         return 1
     }
@@ -34,7 +34,7 @@ __stl_00_flur_FLOW() {
     #?-------------------------------------
 
     l_00_echo_exec "source file://$filename"
-    
+
     #! if stdout to ${res} only in this file - NOT in exec.tst
     : >"${res}"
 
@@ -45,6 +45,12 @@ __stl_00_flur_FLOW() {
     }
 
     # stl_00_flur "${tst_dir}" &>>"${res}"
+
+    stl_00_flur 1 <<EOF &>>"${res}"
+    echo "that echo"
+EOF
+
+    #! not work (stl_00_flur 1 <echo.f) &>>"${res}"
 
     #?-------------------------------------
     #?----------------------------------------------------
