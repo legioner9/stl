@@ -148,7 +148,7 @@ ${NORMAL}"
 
     _arr_name=($(l_02_df2e ${d_lib_grot_opt}/.prc))
 
-    # l_02_pa3e _arr_name
+    # l_02_pa3e ARGS
 
     # return 0
 
@@ -159,7 +159,7 @@ ${NORMAL}"
     _arr_name+=("l_02_edit ${d_lib_grot_opt}/.prc")
     _arr_result+=("l_02_edit ${d_lib_grot_opt}/.prc")
 
-    l_02_pa2mm _arr_name _arr_result _result "$1" >/dev/null || {
+    l_02_pa2mm _arr_name _arr_result _result "${ARGS[0]}" >/dev/null || {
         l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: FALSE_EXEC 'l_02_pa2mm _arr_name _arr_result _result "$1"' where '\$3=$3' return 1"
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
         return 1
@@ -179,16 +179,25 @@ ${NORMAL}"
         return 0
     fi
 
-    while IFS=$'\n' read -r line; do
-        # echo -e "${HLIGHT}--- exec: $line ---${NORMAL}" #start files
-        # if ! eval "$line"; then
-        #     err_flag=1
-        # fi
-        . ${_result}
+    local ptr_path="${ARGS[1]}"
+    # ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
 
-    done <"${2:-/dev/stdin}"
+    # [[ -f "$ptr_path" ]] || {
+    #     ptr_path=
+    # }
 
-    #? ----- END _XXX body -----
+    if [[ -f ${ptr_path} ]]; then
+        # l_00_echo_info "'\$ptr_path = file://$ptr_path '"
+        while IFS= read -r line; do
+            l_00_echo_info "'\$line = $line'"
+            . "${_result}"
+        done <${ptr_path}
+    else
+        while IFS= read -r line; do
+            l_00_echo_info "'\$line = $line'"
+            . "${_result}"
+        done
+    fi
 }
 
 _stl_00_flur "$@"

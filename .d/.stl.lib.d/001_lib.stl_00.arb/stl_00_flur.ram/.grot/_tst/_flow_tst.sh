@@ -50,6 +50,9 @@ __stl_00_flur_FLOW() {
     echo "that echo"
 EOF
 
+    stl_00_flur 1 echo.f &>>"${res}"
+    stl_00_flur 1 <echo.f &>>"${res}"
+
     #! not work (stl_00_flur 1 <echo.f) &>>"${res}"
 
     #?-------------------------------------
