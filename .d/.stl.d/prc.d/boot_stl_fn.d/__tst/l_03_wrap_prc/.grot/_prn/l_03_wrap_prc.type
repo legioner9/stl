@@ -113,6 +113,7 @@ CNTL:
         l_00_echo_ret1 "in fs= file://${sh_file} , line=${LINENO}, ${FNN}() : \${PWD} NOT_DIR : 'file://${PPWD}' : ${hint} : return 1";
         return 1;
     fi;
+    unset IFS;
     local fn_sh_grot=$(dirname "${1}");
     local fn_sh_file="${fn_sh_grot}/${FNN}.prc";
     local fn_hie_file="${fn_sh_grot}/${FNN}.hie";

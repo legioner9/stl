@@ -12967,6 +12967,8 @@ fi
 #* local opt_dir=${STL_DATA_D_PATH}/data.0stl.arb/tst_prc_0stl.ram/.grot/.opt
 #* local depo_dir=${STL_DATA_D_PATH}/data.0stl.arb/tst_prc_0stl.ram/.grot/.depo
 
+unset IFS
+
 local fn_sh_grot=$(dirname "${1}")
 
 local fn_sh_file="${fn_sh_grot}/${FNN}.prc"

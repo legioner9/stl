@@ -138,6 +138,54 @@ ${NORMAL}"
         return 0
     fi
     :
+    #* --- START _nr2mm_min ---
+    local _arr_name=()
+    local _arr_result=()
+    local _result=
+    local item=
+
+    file ${d_lib_grot_opt}/.prc
+
+    # IFS=$'\n'
+    _arr_name=($(l_02_df2e ${d_lib_grot_opt}/.prc))
+
+    l_02_pa3e _arr_name
+    IFS=
+    return 0
+
+    for item in ${_arr_name[@]}; do
+        _arr_result+=("${dir_proc_flur}/${item}")
+    done
+
+    _arr_name+=("_edit ${dir_proc_flur}")
+    _arr_result+=("_edit ${dir_proc_flur}")
+
+    #     echo -e "
+    # ${RED}--- parr2mm_ message :${BLUE}
+    # GENERATOR_INFO :
+    # name   from :: \$(_df2e ${dir_proc_flur})
+    # result from :: full path \$(GEN_RESULT)
+    # ${RED}---${NORMAL}"
+
+    _nr2mm _arr_name _arr_result _result "$1" >/dev/null
+    # echo -e "${GREEN}\$_result = $_result${NORMAL}" #print variable
+    #* --- END _nr2mm_min ---
+    #[[nr2mm_min]]
+
+    if [[ ${_result} == "_edit ${dir_proc_flur}" ]]; then
+        _edit ${dir_proc_flur}
+        # "${_result}"
+        return 0
+    fi
+
+    while IFS=$'\n' read -r line; do
+        # echo -e "${HLIGHT}--- exec: $line ---${NORMAL}" #start files
+        # if ! eval "$line"; then
+        #     err_flag=1
+        # fi
+        . ${_result}
+
+    done <"${2:-/dev/stdin}"
 
     #? ----- END _XXX body -----
 }
