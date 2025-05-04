@@ -1,0 +1,1 @@
+tst _zip_to diff -qr tst.d/unzip_init_dir tst.d/src_init_dir : TRUE
