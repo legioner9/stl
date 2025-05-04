@@ -21,6 +21,7 @@ _XXX() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d

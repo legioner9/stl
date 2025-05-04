@@ -209,7 +209,7 @@ fi
 # local ptr_path="$1"
 # ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
 
-[[ -n ${ARGS[0]} ]] && l_02_pa3e ARGS
+l_02_pa3e ARGS
 
 if [[ -z "$2" ]]; then
     echo "in fs= file:// , line=${LINENO}, ${FNN}() : ERR_AMOUNT_ARGS entered : mast 2 args but: '${NARGS}' args : ${hint} : return 1" >&2

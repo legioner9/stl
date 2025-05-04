@@ -3,6 +3,7 @@ l_02_zip2 ()
 { 
     local FNN=${FUNCNAME[0]};
     local PPWD=$PWD;
+    local ARGS=("$@");
     local NARGS=$#;
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d;
     local prc_dr=${fn_dr}/__prc;
@@ -115,6 +116,92 @@ EXAM:   ${FNN} [, [, ]]
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
         return 0;
     fi;
+    [[ -n ${ARGS[0]} ]] && l_02_pa3e ARGS;
+    if [[ -z "$2" ]]; then
+        echo "in fs= file:// , line=${LINENO}, ${FNN}() : ERR_AMOUNT_ARGS entered : mast 2 args but: '${NARGS}' args : ${hint} : return 1" 1>&2;
+        return 1;
+    fi;
+    if ! [[ -f $2 ]] && ! [[ -d $2 ]]; then
+        hint="\$1: node to zip";
+        echo "in fs= file://${HOME}/.d/.rc.d/.st.rc.d/.st.sh.d/_zip_to.sh , line=${LINENO}, ${FNN}() : NOT_DIR or NOT_FILE : 'file://$2' : ${hint} : return 1" 1>&2;
+        return 1;
+    fi;
+    if ! [[ -d $(dirname $1) ]]; then
+        hint="\$2: dir dist";
+        echo "in fs= file://${HOME}/.d/.rc.d/.st.rc.d/.st.sh.d/_zip_to.sh , line=${LINENO}, ${FNN}() : NOT_DIR : 'file://$(dirname $1)' : ${hint} : return 1" 1>&2;
+        return 1;
+    fi;
+    path_dist="${ARGS[0]}";
+    path_dist=$(_abs_path $PPWD "path_dist");
+    if [[ $(_prs_f -e ${path_dist}) != "zip" ]]; then
+        path_dist=${path_dist}.zip;
+    fi;
+    path_src="${ARGS[1]}";
+    path_src=$(_abs_path $PPWD "path_src");
+    dir_src=$(dirname "${path_src}");
+    file_src=$(basename "${path_src}");
+    dir_dist=$(dirname "${path_dist}");
+    file_dist=$(basename "${path_dist}");
+    if [[ -f ${path_dist} ]]; then
+        mv ${path_dist} ${path_dist}~;
+    fi;
+    if ! cd ${dir_src}; then
+        echo "in fs= file://${HOME}/.d/.rc.d/.st.rc.d/.st.sh.d/_zip_to.sh , line=${LINENO}, ${FNN}() : EXEC_FAIL : 'cd ${dir_src}' : ${hint} : return 1" 1>&2;
+        cd $PPWD;
+        return 1;
+    fi;
+    if [[ -f ${path_src} ]]; then
+        zip "${file_dist}" "${file_src}";
+        mv "${file_dist}" "${path_dist}";
+        tmp_dir=${dir_dist}/_zip_to.tmp.d;
+        if ! [[ -d ${tmp_dir} ]]; then
+            mkdir ${tmp_dir};
+        fi;
+        cp ${path_dist} ${tmp_dir};
+        cd ${tmp_dir} || { 
+            echo "NOT_DIR : ${tmp_dir} return 1" 1>&2;
+            cd $PPWD;
+            return 1
+        };
+        unzip -o ${tmp_dir}/${file_dist};
+        if ! diff -q ${tmp_dir}/${file_src} ${path_src}; then
+            diff ${tmp_dir}/${file_src} ${path_src};
+            echo "in fs= file:// , line=${LINENO}, ${FNN}() : : EXEC_FAIL : 'EXEC_EXPERSION' : ${hint} : return 1" 1>&2;
+            rm -r ${tmp_dir};
+            cd $PPWD;
+            return 1;
+        fi;
+        rm -r ${tmp_dir};
+    fi;
+    if ! cd ${dir_src}; then
+        echo "in fs= file://${HOME}/.d/.rc.d/.st.rc.d/.st.sh.d/_zip_to.sh , line=${LINENO}, ${FNN}() : EXEC_FAIL : 'cd ${dir_src}' : ${hint} : return 1" 1>&2;
+        cd $PPWD;
+        return 1;
+    fi;
+    if [[ -d ${path_src} ]]; then
+        zip -vr "${file_dist}" "${file_src}";
+        mv "${file_dist}" "${path_dist}";
+        tmp_dir=${dir_dist}/_zip_to.tmp.d;
+        if ! [[ -d ${tmp_dir} ]]; then
+            mkdir ${tmp_dir};
+        fi;
+        cp ${path_dist} ${tmp_dir};
+        cd ${tmp_dir} || { 
+            echo "NOT_DIR : ${tmp_dir} return 1" 1>&2;
+            cd $PPWD;
+            return 1
+        };
+        unzip -o ${tmp_dir}/${file_dist};
+        if ! diff -qr ${tmp_dir}/${file_src} ${path_src}; then
+            diff -r ${tmp_dir}/${file_src} ${path_src};
+            echo "in fs= file:// , line=${LINENO}, ${FNN}() : : EXEC_FAIL : 'EXEC_EXPERSION' : ${hint} : return 1" 1>&2;
+            rm -r ${tmp_dir};
+            cd $PPWD;
+            return 1;
+        fi;
+        rm -r ${tmp_dir};
+    fi;
+    touch ${path_dist};
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
     return 0
 }

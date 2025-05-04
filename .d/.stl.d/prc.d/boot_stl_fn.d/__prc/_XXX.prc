@@ -71,16 +71,6 @@ fi
 
 #* define local variables
 
-# _f2d :: insert $1 file after str $2 in ALL (without prevent) file from dir $3
-# _s2d :: into str $1 insert $2 str in (with prevent) file from dir $3
-# _s2f :: reciver_string: $1 inserter_string: $2 in reciver_result_file: $3
-
-# hint="\$1: \$2: "
-# if _isn_from ${NARGS} LESS LESS+1 "in fs= file://${fn_sh_file}, line=${LINENO}, ${FNN}() : DEMAND 'LESS LESS+1' ERR_AMOUNT_ARGS entered :'${NARGS}' args : ${hint} : return 1"; then
-#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-#     return 1
-# fi
-
 # [[ -n "$1" ]] || {
 #     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
 #     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
@@ -94,3 +84,6 @@ fi
 #! ptr_path
 # local ptr_path="$1"
 # ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
+
+#! echo ARGS
+# [[ -n ${ARGS[0]} ]] && l_02_pa3e ARGS
