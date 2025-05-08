@@ -44,6 +44,9 @@ _l_02_zip2_b9f57e3_flow_1() {
         return 1
     }
 
+    rm -r dir_src
+    cp -r dir_init dir_src
+
     # l_02_zip2 "${tst_dir}" &>>"${res}"
 
     #?-------------------------------------

@@ -3,7 +3,7 @@
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: if [[ {str0:1} != # ]] ; eval echo str from file \$1 
-TAGS:
+TAGS: @fl
 \$1 
 [, \$2]
 CNTL: 

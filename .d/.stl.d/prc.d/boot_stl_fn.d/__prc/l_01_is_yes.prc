@@ -3,7 +3,7 @@
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: 
-TAGS:
+TAGS: @is
 \$1 
 [, \$2]
 FLOW:   [if 

@@ -2,7 +2,7 @@
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: echo abs_path [, \$1 abs_path [, \$2 ptr_to_path]] {see FLOW}
-TAGS:
+TAGS: @pth
 ARGS:
 [, \$1 abs_path
 [, \$2 ptr_to_path

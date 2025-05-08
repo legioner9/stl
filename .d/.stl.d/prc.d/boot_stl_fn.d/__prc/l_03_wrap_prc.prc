@@ -3,8 +3,8 @@
 #? for copy to help block
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
-TAGS:
+MAIN: ${FNN} :: wrap (const and cntl) l_xx.prc
+TAGS: @wrp @prc
 \$1 
 [, \$2]
 CNTL: 

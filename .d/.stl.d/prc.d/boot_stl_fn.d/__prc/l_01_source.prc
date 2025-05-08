@@ -2,7 +2,7 @@
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: if \$1 is file \`source \$1; return \$?\` else return 1 
-TAGS:
+TAGS: @exec
 \$1 
 [, \$2]
 CNTL: 

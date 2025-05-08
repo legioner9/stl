@@ -2,7 +2,7 @@
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stdout stl color
-TAGS:
+TAGS: @col @2e
 \$1 
 [, \$2]
 CNTL: 

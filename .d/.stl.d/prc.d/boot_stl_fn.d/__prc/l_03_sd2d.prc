@@ -3,7 +3,7 @@
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: cp dir \${3} to \$(dirname \${3}) with replace \${1} to \${2} in files and name node
-TAGS:
+TAGS: @s2 @dr @fl
 \$1 
 [, \$2]
 FLOW:   [if 

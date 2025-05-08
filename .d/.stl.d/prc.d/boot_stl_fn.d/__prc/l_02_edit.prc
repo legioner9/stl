@@ -2,7 +2,7 @@
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: 
-TAGS:
+TAGS: 
 \$1 
 [, \$2]
 CNTL: 

@@ -1,8 +1,8 @@
 #? for copy to help block
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
-TAGS:
+MAIN: ${FNN} :: is fn from l_xx
+TAGS: @no
 \$1 
 [, \$2]
 CNTL: 

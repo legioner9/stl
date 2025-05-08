@@ -2,7 +2,7 @@
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: exec (source) recurce in dir \$1 stl_files with ext=.sh
-TAGS:
+TAGS: @up2mem
 \$1 
 [, \$2]
 CNTL: 

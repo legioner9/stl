@@ -3,7 +3,7 @@
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: echo All l_xx 
-TAGS:
+TAGS: @info 
 \$1 
 [, \$2]
 FLOW:   [if 

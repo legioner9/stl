@@ -2,7 +2,7 @@
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: up to mem color constants
-TAGS:
+TAGS: @col @self
 \$1 
 [, \$2]
 CNTL: 

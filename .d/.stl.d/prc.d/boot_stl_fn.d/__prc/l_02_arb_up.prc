@@ -2,7 +2,7 @@
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: \$1 arb_dr for exec fn.sh (err_flag)
-TAGS:
+TAGS: @up2mem @arb
 \$1 
 [, \$2]
 CNTL: 

@@ -2,7 +2,7 @@
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stdout STL errors name
-TAGS:
+TAGS: @exa
 \$1 
 [, \$2]
 CNTL: 

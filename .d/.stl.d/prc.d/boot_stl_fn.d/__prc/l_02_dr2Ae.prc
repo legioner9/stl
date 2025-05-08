@@ -3,7 +3,7 @@
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} ::  prevent stl_dir (_) recuce l_02_d2Ae , stdout ALL_full_path_ent
-TAGS:
+TAGS: @dr @fl @2e
 \$1 
 [, \$2]
 CNTL: 

@@ -3,7 +3,7 @@
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: reciver_string: \$1 inserter_string: \$2 [@ - empty string] in reciver_result_file: \$3
-TAGS:
+TAGS: @fl @s2
 \$1 
 [, \$2]
 FLOW:   [if 

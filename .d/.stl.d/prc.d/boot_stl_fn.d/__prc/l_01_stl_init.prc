@@ -2,7 +2,7 @@
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: source ${STL_D_PATH}/.stldrc
-TAGS:
+TAGS: @stl
 \$1 
 [, \$2]
 CNTL: 

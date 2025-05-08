@@ -2,7 +2,7 @@
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stderr \$1 like error and wait ETR or ^C
-TAGS:
+TAGS: @2e @pause
 \$1 
 [, \$2]
 CNTL: 

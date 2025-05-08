@@ -3,7 +3,7 @@
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: \$1: parr treat echo
-TAGS:
+TAGS: @pa @3
 \$1 
 [, \$2]
 FLOW:   [if 

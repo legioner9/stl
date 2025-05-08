@@ -2,7 +2,7 @@
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stdout %s_%d%m%Y%H%M%S
-TAGS:
+TAGS: @date @2e
 \$1 
 [, \$2]
 CNTL: 

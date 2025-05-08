@@ -2,7 +2,7 @@
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: arb prc up to mem
-TAGS:
+TAGS: @arb @prc @up2mem
 \$1 
 [, \$2]
 CNTL: 

@@ -3,7 +3,7 @@
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: cp file \$3 to $(dirname \$3) with reciver \$1 inserter \$2 in file and name file
-TAGS:
+TAGS: @fl @rcv
 \$1 
 [, \$2]
 FLOW:   [if 

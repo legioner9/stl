@@ -4,7 +4,7 @@ local path=/the/path/_foo.bar.ext.txt
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: pars \$1 path - stdout part
-TAGS:
+TAGS: @pth
 \$1 
 [, \$2]
 CNTL: 

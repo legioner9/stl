@@ -2,7 +2,7 @@
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stdout all function and alias in shell
-TAGS:
+TAGS: @fn @nm
 \$1 
 [, \$2]
 CNTL: 

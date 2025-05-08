@@ -3,7 +3,7 @@
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: prevent stl_dir (_) stdout stl_name only files [,with \$2 .ext] - like 'ls \$1' - if in root_dir mst \$1=@
-TAGS:
+TAGS: @dr @fl @2e
 \$1 
 [, \$2]
 FLOW:   [if 

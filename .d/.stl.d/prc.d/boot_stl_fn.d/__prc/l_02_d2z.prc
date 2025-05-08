@@ -3,7 +3,7 @@
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stdout size b of dir $PWD [, \$1 ]  [arg_ls] 
-TAGS:
+TAGS: @dr @2e @size
 \$1 
 [, \$2]
 CNTL: 

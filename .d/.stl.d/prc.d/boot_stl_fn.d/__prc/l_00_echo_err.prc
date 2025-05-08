@@ -2,7 +2,7 @@
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stderr \$1 like error
-TAGS:
+TAGS: @col
 \$1 
 [, \$2]
 CNTL: 

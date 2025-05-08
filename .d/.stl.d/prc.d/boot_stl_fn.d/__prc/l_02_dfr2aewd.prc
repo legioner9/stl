@@ -3,7 +3,7 @@
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: like _dfr2ae - {echo \"file_path:depth_dir_contane_file\"} - \$1 dir (non uprev : like ls) (@|path) @ if path='' [, \$2 .ext]
-TAGS:
+TAGS: @dr @fl @2e @dpth
 \$1 
 [, \$2]
 CNTL: 

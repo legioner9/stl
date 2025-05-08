@@ -3,7 +3,7 @@
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: like cat - stdin or file \$2 into \$1 file.tsf with [interface::use variable \$line in as string from stdin]
-TAGS:
+TAGS: @no
 \$1 
 [, \$2]
 FLOW:   [if 

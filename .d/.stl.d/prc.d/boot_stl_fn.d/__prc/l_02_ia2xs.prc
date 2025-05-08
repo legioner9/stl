@@ -3,7 +3,7 @@
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: exec \$1 string with stdin [, ] args 
-TAGS:
+TAGS: @in @args @exec
 \$1 
 [, \$2]
 FLOW:   [if 

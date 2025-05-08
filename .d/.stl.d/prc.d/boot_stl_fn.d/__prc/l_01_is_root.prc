@@ -2,7 +2,7 @@
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: if \$1 is absolut path return 0 else return 1
-TAGS:
+TAGS: @is
 \$1 
 [, \$2]
 CNTL: 
