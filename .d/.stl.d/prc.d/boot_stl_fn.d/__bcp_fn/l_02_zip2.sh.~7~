@@ -155,7 +155,6 @@ tree ${tst_nm_dr}/dir_init
 │   └── file_src_in
 └── file_src
 
-    cd ${tst_nm_dr}
     rm -r dir_src dir_dist
     mkdir dir_dist
     cp -r dir_init dir_src
@@ -167,6 +166,8 @@ tree ${tst_nm_dr}/dir_init
     l_02_zip2 dir_dist/dir_src_in dir_src/dir_src_in
     unzip dir_dist/dir_src_in.zip -d dir_dist
     diff -r dir_dist/dir_src_in dir_src/dir_src_in # true
+"
+
 "
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0

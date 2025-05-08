@@ -40,7 +40,7 @@ _l_02_zip2_b9f57e3_flow() {
     #?-------------------------------------
 
     l_00_echo_exec "source file://$filename"
-    
+
     #! if stdout to ${res} only in this file - NOT in exec.tst
     : >"${res}"
 
@@ -49,6 +49,26 @@ _l_02_zip2_b9f57e3_flow() {
         l_00_echo_ret1 "in fs= file://${filename} , line=${LINENO}, ${FNN}() : NOT_DIR : 'file://${idir}/_dir_tst' : ${hint} : return 1"
         return 1
     }
+    rm -r dir_src dir_dist
+    mkdir dir_dist
+    cp -r dir_init dir_src
+
+    l_02_zip2 dir_dist/file_src dir_src/file_src
+    unzip dir_dist/file_src.zip -d dir_dist
+    # if diff dir_dist/file_src dir_src/file_src; then
+    #     ret1=1
+    # fi
+
+    l_02_zip2 dir_dist/dir_src_in dir_src/dir_src_in
+    unzip dir_dist/dir_src_in.zip -d dir_dist
+    # if diff -r dir_dist/dir_src_in dir_src/dir_src_in; then
+    #     ret1=1
+    # fi
+
+    cat dir_dist/file_src &>>"${res}"
+    echo &>>"${res}"
+    cat dir_dist/dir_src_in/file_src_in &>>"${res}"
+    echo &>>"${res}"
 
     # l_02_zip2 "${tst_dir}" &>>"${res}"
 

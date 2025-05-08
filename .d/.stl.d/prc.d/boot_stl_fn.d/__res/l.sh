@@ -12583,7 +12583,7 @@ l_02_zip2() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: zip \$1 dist file from \$2 src node (-f|-d)
 TAGS: @zip
 \$1 
 [, \$2]
@@ -12616,6 +12616,24 @@ CNTL:
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
+
+tree ${tst_nm_dr}/dir_init
+├── dir_src_in
+│   └── file_src_in
+└── file_src
+
+    cd ${tst_nm_dr}
+    rm -r dir_src dir_dist
+    mkdir dir_dist
+    cp -r dir_init dir_src
+
+    l_02_zip2 dir_dist/file_src dir_src/file_src
+    unzip dir_dist/file_src.zip -d dir_dist
+    diff dir_dist/file_src dir_src/file_src # true
+
+    l_02_zip2 dir_dist/dir_src_in dir_src/dir_src_in
+    unzip dir_dist/dir_src_in.zip -d dir_dist
+    diff -r dir_dist/dir_src_in dir_src/dir_src_in # true
 "
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0
@@ -12723,7 +12741,7 @@ fi
 
 if [[ -d ${path_src} ]]; then
     zip -r "${file_dist}" "${file_src}"
-    mv -r "${file_dist}" "${path_dist}"
+    mv "${file_dist}" "${path_dist}"
 fi
 
     #* END fn block ------------------
