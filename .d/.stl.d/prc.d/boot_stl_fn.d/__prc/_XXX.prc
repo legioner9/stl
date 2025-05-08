@@ -71,6 +71,9 @@ fi
 
 #* define local variables
 
+#! echo ARGS
+# [[ -n ${ARGS[0]} ]] && l_02_pa3e ARGS
+
 # [[ -n "$1" ]] || {
 #     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
 #     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
@@ -84,6 +87,3 @@ fi
 #! ptr_path
 # local ptr_path="$1"
 # ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
-
-#! echo ARGS
-# [[ -n ${ARGS[0]} ]] && l_02_pa3e ARGS
