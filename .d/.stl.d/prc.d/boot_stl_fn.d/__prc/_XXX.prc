@@ -84,6 +84,10 @@ fi
 #     :
 # done <"${1:-/dev/stdin}"
 
-#! ptr_path
-# local ptr_path="$1"
-# ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
+#! ptr_path_1
+# local ptr_path_1="$1"
+# ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
+
+#! ptr_path_2
+# local ptr_path_2="$2"
+# ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
