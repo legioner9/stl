@@ -40,7 +40,7 @@ _l_02_unzipp2_22a864a_flow() {
     #?-------------------------------------
 
     l_00_echo_exec "source file://$filename"
-    
+
     #! if stdout to ${res} only in this file - NOT in exec.tst
     : >"${res}"
 
@@ -49,6 +49,54 @@ _l_02_unzipp2_22a864a_flow() {
         l_00_echo_ret1 "in fs= file://${filename} , line=${LINENO}, ${FNN}() : NOT_DIR : 'file://${idir}/_dir_tst' : ${hint} : return 1"
         return 1
     }
+
+    rm -r dir_src dir_dist
+    mkdir dir_dist
+    cp -r dir_init dir_src
+
+    cd dir_src || return 1
+    zip -P 111 file_src.zip file_src
+
+    cd "${idir}"/tst_dir || return 1
+    echo 111 | l_02_unzipp2 dir_src/file_src.zip dir_dist
+
+    cd dir_src || return 1
+    zip -r -P 111 dir_src_in.zip dir_src_in
+
+    cd "${idir}"/tst_dir || return 1
+    echo 111 | l_02_unzipp2 dir_src/dir_src_in.zip dir_dist
+
+    cat dir_dist/file_src &>>"${res}"
+    echo &>>"${res}"
+    cat dir_dist/dir_src_in/file_src_in &>>"${res}"
+    echo &>>"${res}"
+    # l_02_unzip2 "${tst_dir}" &>>"${res}"
+
+    #! unzip to $PWD
+
+    rm -r dir_src dir_dist
+    mkdir dir_dist
+    cp -r dir_init dir_src
+
+    cd dir_src || return 1
+    zip -P 111 file_src.zip file_src
+
+    cd "${idir}"/tst_dir || return 1
+    mv dir_src/file_src dir_src/file_src~
+
+    echo 111 | l_02_unzipp2 dir_src/file_src.zip
+
+    cd dir_src || return 1
+    zip -r -P 111 dir_src_in.zip dir_src_in
+
+    cd "${idir}"/tst_dir || return 1
+    mv dir_src/dir_src_in dir_src/dir_src_in~
+    echo 111 | l_02_unzipp2 dir_src/dir_src_in.zip
+
+    cat dir_src/file_src &>>"${res}"
+    echo &>>"${res}"
+    cat dir_src/dir_src_in/file_src_in &>>"${res}"
+    echo &>>"${res}"
 
     # l_02_unzipp2 "${tst_dir}" &>>"${res}"
 

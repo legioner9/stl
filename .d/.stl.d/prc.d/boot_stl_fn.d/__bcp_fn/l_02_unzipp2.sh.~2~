@@ -116,7 +116,7 @@ l_02_unzipp2() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: unzip -P str from stdin \$1 [ to \$2 or to \$PWD if \$2 empty] 
+MAIN: ${FNN} :: 
 TAGS:
 \$1 
 [, \$2]
@@ -205,50 +205,6 @@ fi
 #! ptr_path_2
 # local ptr_path_2="$2"
 # ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
-
-[[ -n "$1" ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
-
-#! ptr_path_1
-local ptr_path_1="$1"
-ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
-
-#! ptr_path
-local ptr_path_2="$2"
-ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
-
-[[ -f ${ptr_path_1} ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${ptr_path_1}' where '\$1=$1' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
-
-read -r -p "enter str for ${FNN}" str
-
-if [[ -d "$ptr_path_2" ]]; then
-    if [[ -n "$2" ]]; then
-        # l_00_echo_code "'unzip \"${ptr_path_1}\" -d \"$ptr_path_2\"' in $(pwd) "
-        unzip -P "${str}" "${ptr_path_1}" -d "${ptr_path_2}" || {
-            l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'unzip \"${ptr_path_1}\" -d \"$ptr_path_2\"' where '\$1=$1' '\$2=$2' return 1"
-            cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-            return 1
-        }
-    else
-        # l_00_echo_code "'unzip \"${ptr_path_1}\" -d \"$(dirname ${ptr_path_1})\"' in $(pwd) "
-        unzip -P "${str}" "${ptr_path_1}" -d "$(dirname ${ptr_path_1})" || {
-            l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'unzip \"${ptr_path_1}\" -d \"$ptr_path_2\"' where '\$1=$1' '\$2=$2' return 1"
-            cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-            return 1
-        }
-    fi
-else
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR 'file://${ptr_path_2}' where '\$2=$2' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-fi
 
     #* END fn block ------------------
 

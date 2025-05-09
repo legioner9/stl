@@ -2,7 +2,7 @@
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: zip -P \$1 dist file from \$2 src node (-f|-d) str from stdin
+MAIN: ${FNN} :: zip -P str from stdin \$1 dist file from \$2 src node (-f|-d) 
 TAGS:
 \$1 
 [, \$2]

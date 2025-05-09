@@ -116,7 +116,7 @@ l_02_unzipp2() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: unzip -P str from stdin \$1 [ to \$2 or to \$PWD if \$2 empty] 
+MAIN: ${FNN} :: 
 TAGS:
 \$1 
 [, \$2]
