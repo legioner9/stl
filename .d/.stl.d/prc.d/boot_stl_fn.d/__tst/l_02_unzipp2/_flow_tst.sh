@@ -7,14 +7,17 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_l_02_zipp2_111d96b_flow_1() {
+_l_02_unzipp2_22a864a_flow() {
 
-    if ! command -v l_02_zipp2 >/dev/null; then
-        l_00_echo_ret1 "TYPE_ERROR : l_02_zipp2"
+    local PW=$(pwd)
+
+    if ! command -v l_02_unzipp2 >/dev/null; then
+        l_00_echo_ret1 "TYPE_ERROR : l_02_unzipp2"
+        cd $PW
         return 1
     fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_02_zipp2/_flow_tst_v1.sh
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_02_unzipp2/_flow_tst.sh
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -35,7 +38,10 @@ _l_02_zipp2_111d96b_flow_1() {
 
     #?----------------------------------------------------
     #?-------------------------------------
+
     l_00_echo_exec "source file://$filename"
+    
+    #! if stdout to ${res} only in this file - NOT in exec.tst
     : >"${res}"
 
     cd tst_dir || {
@@ -44,30 +50,7 @@ _l_02_zipp2_111d96b_flow_1() {
         return 1
     }
 
-    
-    rm -r dir_src dir_dist
-    mkdir dir_dist
-    cp -r dir_init dir_src
-
-    echo 111 | l_02_zipp2 dir_dist/file_src dir_src/file_src
-    unzip -P 111 dir_dist/file_src.zip -d dir_dist
-    # if diff dir_dist/file_src dir_src/file_src; then
-    #     ret1=1
-    # fi
-
-    echo 111 | l_02_zipp2 dir_dist/dir_src_in dir_src/dir_src_in
-    unzip -P 111 dir_dist/dir_src_in.zip -d dir_dist
-
-    # if diff -r dir_dist/dir_src_in dir_src/dir_src_in; then
-    #     ret1=1
-    # fi
-
-    cat dir_dist/file_src
-    echo
-    cat dir_dist/dir_src_in/file_src_in
-    echo
-
-    # l_02_zipp2 "${tst_dir}" &>>"${res}"
+    # l_02_unzipp2 "${tst_dir}" &>>"${res}"
 
     #?-------------------------------------
     #?----------------------------------------------------
@@ -79,4 +62,4 @@ _l_02_zipp2_111d96b_flow_1() {
 
 }
 
-_l_02_zipp2_111d96b_flow_1 "$@"
+_l_02_unzipp2_22a864a_flow "$@"
