@@ -10,7 +10,7 @@ sqr_path_HOME() {
         mkdir -p ${sqr_path} || ret1=1
     }
 
-    grep -rl ${REPO_PATH}/${name_repo} > ${sqr_path}/HOME.sqr_pth
+    grep -rl ${REPO_PATH}/${name_repo} ${REPO_PATH}/${name_repo} > ${sqr_path}/HOME.sqr_pth
 
     [[ 0 -eq ${ret1} ]] || return 1
     return 0
