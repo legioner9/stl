@@ -44,8 +44,8 @@ tree -L 1 \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/df2z
     l_02_e2z 1964_b_d.px 
     l_02_e2z 208_b_file.px 
         ->:
-        d	1964	/home/st/REPOBARE/_repo/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__ext/_dt/df2z/1964_b_d.px
-        f	208	/home/st/REPOBARE/_repo/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__ext/_dt/df2z/208_b_file.px
+        d	1964	${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/df2z/1964_b_d.px
+        f	208	${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/df2z/208_b_file.px
 "
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0
