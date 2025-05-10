@@ -2,7 +2,7 @@
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: in \$1 file (in menu)=8 choice string \$2 ptr_result \$3 0 or num_menu['TODO not work' or @ - num_menu from stdin]
+MAIN: ${FNN} :: in \$1 dir (in menu)=8 choice string \$2 ptr_result \$3 0 or num_menu for choice file ['TODO not work' or @ - num_menu from stdin] \$4 for string
 TAGS:
 \$1 
 [, \$2]
@@ -74,11 +74,29 @@ fi
 #! echo ARGS
 # [[ -n ${ARGS[0]} ]] && l_02_pa3e ARGS
 
-[[ -n "$3" ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$2' mast be 0 or num_menu return 1"
+[[ -n "$4" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }
+
+# while IFS=$'\n' read -r line; do
+#     :
+# done <"${1:-/dev/stdin}"
+
+#! use arg_ptr
+# eval "$2=$res_12341c43234rfe"
+
+# ! ptr_path_1
+local ptr_path_1="$1"
+ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
+
+#! ptr_path_2
+# local ptr_path_2="$2"
+# ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
+
+local arg_3=
+local arg_4=
 
 if [[ "@" == "$3" ]]; then
     # TODO don't work this section see ${FNN} _flow_1
@@ -90,19 +108,15 @@ else
     arg_3="$3"
 fi
 
-local arg_2="$2"
-
-# while IFS=$'\n' read -r line; do
-#     :
-# done <"${1:-/dev/stdin}"
-
-#! ptr_path_1
-local ptr_path_1="$1"
-ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
-
-#! ptr_path_2
-# local ptr_path_2="$2"
-# ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
+if [[ "@" == "$4" ]]; then
+    # TODO don't work this section see ${FNN} _flow_1
+    echo "Enter num menu choice dir :"
+    read -r
+    arg_4=$REPLY
+    l_00_echo_info "'\$arg_4 = $arg_4'"
+else
+    arg_4="$4"
+fi
 
 l_01_is_od "$arg_3" || {
     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '\$3=$3' mast be 0 or num_menu return 1"
@@ -110,13 +124,37 @@ l_01_is_od "$arg_3" || {
     return 1
 }
 
-local arr_fery23451ddwf=($(l_02_f2e "${ptr_path_1}"))
+l_01_is_od "$arg_4" || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '\$4=$4' mast be 0 or num_menu return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
 
-local res_erwfw45345gtryh=
+#* choice file in dir
 
-# l_00_echo_code "'l_02_pa2mm arr_fery23451ddwf arr_fery23451ddwf res_erwfw45345gtryh $arg_3'"
-l_02_pa2mm arr_fery23451ddwf arr_fery23451ddwf res_erwfw45345gtryh "$arg_3"
+local arr_file_dsae123444=()
+local item=
 
-# l_00_echo_info "'\$res_erwfw45345gtryh = $res_erwfw45345gtryh'"
-# l_00_echo_code "'$arg_2=$res_erwfw45345gtryh'"
-eval "$arg_2=$res_erwfw45345gtryh"
+for item in $(l_02_df2e "${ptr_path_1}"); do
+    # l_00_echo_info "'\$item = $item'"
+    arr_file_dsae123444+=("${ptr_path_1}/$item")
+done
+# l_02_pa3e arr_file_dsae123444
+local res_file_bh565fdgg=
+
+l_02_pa2mm arr_file_dsae123444 arr_file_dsae123444 res_file_bh565fdgg "$arg_3"
+
+# l_00_echo_info "'\$res_file_bh565fdgg = $res_file_bh565fdgg'"
+
+#* choice str in file
+IFS=$'\n'
+local arr_str_hrfde3223=($(l_02_f2e "${res_file_bh565fdgg}"))
+unset IFS
+# l_02_pa3e arr_str_hrfde3223
+local res_str_ukfs2345=
+
+l_02_pa2mm arr_str_hrfde3223 arr_str_hrfde3223 res_str_ukfs2345 "$arg_4"
+
+# l_00_echo_info "'\$res_str_ukfs2345 = $res_str_ukfs2345'"
+
+eval "$2=\"$res_str_ukfs2345\""

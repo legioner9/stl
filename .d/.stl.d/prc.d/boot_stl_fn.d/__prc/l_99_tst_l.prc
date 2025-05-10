@@ -37,7 +37,6 @@ local ret1=0
 local exec_tst_fl_pth=
 local lnm=
 local prn=
-local md5=
 
 for exec_tst_fl_pth in $(find ${tst_dir} -name exec.tst); do
     l_00_echo_info "\${exec_tst_fl_pth} = file://${exec_tst_fl_pth}"
@@ -61,9 +60,6 @@ for exec_tst_fl_pth in $(find ${tst_dir} -name exec.tst); do
             ret1=1
         fi
 
-        # md5sum ${fn_nm} > ${tst_nm_dr}/${FNN}/.grot/_prn/${FNN}.md5
-        # echo ${fn_nm} > ${tst_nm_dr}/${FNN}/.grot/_prn/${FNN}.pth
-        # type ${FNN} > ${tst_nm_dr}/${FNN}/.grot/_prn/
     else
         ret1=1
     fi
