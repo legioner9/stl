@@ -116,7 +116,7 @@ l_02_zipp2() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: zip -P str from stdin \$1 dist file from \$2 src node (-f|-d) 
 TAGS:
 \$1 
 [, \$2]
@@ -149,6 +149,23 @@ CNTL:
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
+tree ${tst_nm_dr}/dir_init
+├── dir_src_in
+│   └── file_src_in
+└── file_src
+
+    cd ${tst_nm_dr}
+    rm -r dir_src dir_dist
+    mkdir dir_dist
+    cp -r dir_init dir_src
+
+    echo 111 | l_02_zipp2 dir_dist/file_src dir_src/file_src
+    unzip -P 111 dir_dist/file_src.zip -d dir_dist
+    diff dir_dist/file_src dir_src/file_src # true
+
+    echo 111 | l_02_zipp2 dir_dist/dir_src_in dir_src/dir_src_in
+    unzip -P 111 dir_dist/dir_src_in.zip -d dir_dist
+    diff -r dir_dist/dir_src_in dir_src/dir_src_in # true
 "
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0
@@ -242,13 +259,17 @@ if ! cd ${dir_src}; then
     return 1
 fi
 
+local str=
+
+read -r -p "enter str for ${FNN}" str
+
 if [[ -f ${path_src} ]]; then
-    zip -e "${file_dist}" "${file_src}"
+    zip -P "$str" "${file_dist}" "${file_src}"
     mv "${file_dist}" "${path_dist}"
 fi
 
 if [[ -d ${path_src} ]]; then
-    zip -e -r "${file_dist}" "${file_src}"
+    zip -r -P "$str" "${file_dist}" "${file_src}"
     mv "${file_dist}" "${path_dist}"
 fi
 

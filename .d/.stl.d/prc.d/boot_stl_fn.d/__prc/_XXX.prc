@@ -84,6 +84,9 @@ fi
 #     :
 # done <"${1:-/dev/stdin}"
 
+#! use arg_ptr
+# eval "$2=$res_12341c43234rfe"
+
 #! ptr_path_1
 # local ptr_path_1="$1"
 # ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"

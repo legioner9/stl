@@ -117,7 +117,7 @@ l_02_ia2xs() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: exec \$1 string with stdin [, ] args 
-TAGS:
+TAGS: @in @args @exec
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -150,25 +150,29 @@ CNTL:
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
 
-    case file.exec+stdin:
+    
 
     cat >file.exec <<EOF
 echo :\$1
 EOF
-
-    ${FNN} ". file.exec" <<EOF
-first_str
-second_str
-EOF
-
-    case file.exec+file.args
 
     cat >file.args <<EOF
 third_str
 fourth_str
 EOF
 
+CASE file.exec<stdin :: 
+    ${FNN} ". file.exec" <<EOF       
+first_str
+second_str
+EOF
+
+CASE file.exec,file.args :: 
     ${FNN} ". file.exec" file.args
+
+CASE file.exec,file.args :: 
+    cat file.args | ${FNN} ". file.exec"
+
 "
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0

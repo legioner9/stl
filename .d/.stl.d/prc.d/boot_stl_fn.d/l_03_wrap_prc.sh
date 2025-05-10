@@ -21,6 +21,7 @@ l_03_wrap_prc() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -116,8 +117,8 @@ l_03_wrap_prc() {
 #? for copy to help block
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
-TAGS:
+MAIN: ${FNN} :: wrap (const and cntl) l_xx.prc
+TAGS: @wrp @prc
 \$1 
 [, \$2]
 CNTL: 

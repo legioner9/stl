@@ -116,7 +116,7 @@ l_03_f8s() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: in \$1 file (in menu)=8 choice string
+MAIN: ${FNN} :: in \$1 file (in menu)=8 choice string \$2 ptr_result \$3 0 or num_menu['TODO not work' or @ - num_menu from stdin]
 TAGS:
 \$1 
 [, \$2]
@@ -188,11 +188,23 @@ fi
 #! echo ARGS
 # [[ -n ${ARGS[0]} ]] && l_02_pa3e ARGS
 
-[[ -n "$2" ]] || {
+[[ -n "$3" ]] || {
     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$2' mast be 0 or num_menu return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }
+
+if [[ "@" == "$3" ]]; then
+    # TODO don't work this section see ${FNN} _flow_1
+    echo "Enter num menu :"
+    read -r
+    arg_3=$REPLY
+    l_00_echo_info "'\$arg_3 = $arg_3'"
+else
+    arg_3="$3"
+fi
+
+local arg_2="$2"
 
 # while IFS=$'\n' read -r line; do
 #     :
@@ -206,20 +218,22 @@ ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
 # local ptr_path_2="$2"
 # ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
 
-l_01_is_od "$2" || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '\$2=$2' mast be 0 or num_menu return 1"
+l_01_is_od "$arg_3" || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '\$3=$3' mast be 0 or num_menu return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }
 
-local __arr=($(l_02_f2e "${ptr_path_1}")) 
-unset IFS
+local arr_fery23451ddwf=($(l_02_f2e "${ptr_path_1}"))
 
-local __res=
+local res_erwfw45345gtryh=
 
-l_02_pa2mm __arr __arr __res  "$2"
+# l_00_echo_code "'l_02_pa2mm arr_fery23451ddwf arr_fery23451ddwf res_erwfw45345gtryh $arg_3'"
+l_02_pa2mm arr_fery23451ddwf arr_fery23451ddwf res_erwfw45345gtryh "$arg_3"
 
-l_00_echo_info "'\$__res = $__res'"
+# l_00_echo_info "'\$res_erwfw45345gtryh = $res_erwfw45345gtryh'"
+# l_00_echo_code "'$arg_2=$res_erwfw45345gtryh'"
+eval $arg_2=$res_erwfw45345gtryh
 
     #* END fn block ------------------
 

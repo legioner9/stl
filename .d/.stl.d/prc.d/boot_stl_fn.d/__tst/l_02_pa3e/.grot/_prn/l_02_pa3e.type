@@ -3,6 +3,7 @@ l_02_pa3e ()
 { 
     local FNN=${FUNCNAME[0]};
     local PPWD=$PWD;
+    local ARGS=("$@");
     local NARGS=$#;
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d;
     local prc_dr=${fn_dr}/__prc;
@@ -79,7 +80,7 @@ l_02_pa3e ()
     if [[ "-h" == "$1" ]]; then
         echo -e "
 MAIN: ${FNN} :: \$1: parr treat echo
-TAGS:
+TAGS: @pa @3
 \$1 
 [, \$2]
 FLOW:   [if 

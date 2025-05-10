@@ -85,6 +85,16 @@ ${NORMAL}"
             }
         done
     }
+    echo -e "
+    # self exec 
+- l_00_color_self.sh
+- l_99_tst_l.sh
+# -----------------------------------------------------------------------------------
+RECOMMENT SELF EXEC in this functoins
+if DOIT tap key ENTER
+"
+read -r
+
     l_01_stl_init
 
     #{{body_fn}}

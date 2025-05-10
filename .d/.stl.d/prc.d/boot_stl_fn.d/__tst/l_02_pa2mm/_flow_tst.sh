@@ -58,11 +58,11 @@ _l_02_pa2mm_26e1a86_flow() {
     l_02_pa2mm nm_arr re_arr re 3 &>>"${res}"
 
     l_00_echo_info "'\$re = $re'" &>>"${res}"
-    re=
-    l_00_echo_code "'l_02_pa2mm nm_arr re_arr re 4'" &>>"${res}"
-    l_02_pa2mm nm_arr re_arr re 4 &>>"${res}"
+    # re=
+    # l_00_echo_code "'l_02_pa2mm nm_arr re_arr re 4'" &>>"${res}"
+    # l_02_pa2mm nm_arr re_arr re 4 &>>"${res}"
 
-    l_00_echo_info "'\$re = $re'" &>>"${res}"
+    # l_00_echo_info "'\$re = $re'" &>>"${res}"
 
     # l_02_pa2mm "${tst_dir}" &>>"${res}"
 

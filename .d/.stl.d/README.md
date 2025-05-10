@@ -5,3 +5,9 @@
 or
    
     $ curl "https://raw.githubusercontent.com/legioner9/stl/refs/heads/master/.d/.stl.d/prc.d/boot_stl_fn.d/__res/l.sh" | sh
+
+
+# Pricipal
+
+- use only as ptr: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
+

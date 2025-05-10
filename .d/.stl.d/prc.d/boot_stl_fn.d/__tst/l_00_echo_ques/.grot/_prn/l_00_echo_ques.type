@@ -3,6 +3,7 @@ l_00_echo_ques ()
 { 
     local FNN=${FUNCNAME[0]};
     local PPWD=$PWD;
+    local ARGS=("$@");
     local NARGS=$#;
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d;
     local prc_dr=${fn_dr}/__prc;
@@ -79,7 +80,7 @@ l_00_echo_ques ()
     if [[ "-h" == "$1" ]]; then
         echo -e "
 MAIN: ${FNN} :: stdout \$1 like question
-TAGS:
+TAGS: @col 
 \$1 
 [, \$2]
 CNTL: 

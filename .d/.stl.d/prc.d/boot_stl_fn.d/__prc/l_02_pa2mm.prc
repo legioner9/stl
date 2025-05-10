@@ -111,7 +111,7 @@ local ARGS3="$4"
 local num=
 
 #! ------ START confict_name_arg ------
-local coflict_name_arr=("arr_name" "arr_res" "result")
+local coflict_name_arr=("arr_name_234wqf" "arr_res_vcdf48" "result_fr9430")
 local item1=
 local item2=
 local i=
@@ -120,7 +120,7 @@ for item1 in ${coflict_name_arr[@]}; do
     i=0
     for item2 in ${ARGS[@]}; do
         if [[ ${item1} = ${item2} ]]; then
-            hint="\$1: parr [n]ame mm, \$2: parr [r]es [mm], \$3: parr string result \$4 0 or num menu"
+            hint="\$1: parr [n]ame mm, \$2: parr [r]es [mm], \$3: parr string result_fr9430 \$4 0 or num menu"
             l_00_echo_err "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: CONFLICT_NAME : ARGS${i} not be equal '${item1}' : ${hint} : continue"
             conflict_flag=1
         fi
@@ -135,7 +135,7 @@ fi
 #! ------ END confict_name_arg ------
 #[[confict_name_arg]]
 #* ---------- arr_name ----------------
-local arr_name=()
+local arr_name_234wqf=()
 
 eval num=\$\{#"${ARGS0}"[@]\}
 
@@ -148,14 +148,14 @@ if [[ "${num}" -eq 0 ]]; then
 fi
 
 for ((i = 0; i < ${num}; i++)); do
-    eval arr_name+=\(\"\${${ARGS0}[$i]}\"\)
+    eval arr_name_234wqf+=\(\"\${${ARGS0}[$i]}\"\)
 done
 
-# l_02_pa3e arr_name
+# l_02_pa3e arr_name_234wqf
 
-#* ---------- arr_res ----------------
+#* ---------- arr_res_vcdf48 ----------------
 
-local arr_res=()
+local arr_res_vcdf48=()
 
 eval num=\$\{#"${ARGS1}"[@]\}
 
@@ -167,19 +167,19 @@ if [[ "${num}" -eq 0 ]]; then
 
 fi
 
-# if [[ "${ARGS1}" == "arr_res" ]]; then
-#     hint="\$1: parr [n]ame mm, \$2: parr [r]es [mm], \$3: parr string result \$4 0 or num menu"
-#     _st_exit "in fs= file:// , line=${LINENO}, ${FNN}() : CONFLICT_NAME : ARGS1 not be equal 'arr_res' : ${hint} : return 1"
+# if [[ "${ARGS1}" == "arr_res_vcdf48" ]]; then
+#     hint="\$1: parr [n]ame mm, \$2: parr [r]es [mm], \$3: parr string result_fr9430 \$4 0 or num menu"
+#     _st_exit "in fs= file:// , line=${LINENO}, ${FNN}() : CONFLICT_NAME : ARGS1 not be equal 'arr_res_vcdf48' : ${hint} : return 1"
 #     return 1
 # fi
 
 for ((i = 0; i < ${num}; i++)); do
-    eval arr_res+=\(\"\${${ARGS1}[$i]}\"\)
+    eval arr_res_vcdf48+=\(\"\${${ARGS1}[$i]}\"\)
 done
 
-# l_02_pa3e arr_res
+# l_02_pa3e arr_res_vcdf48
 
-eval result=${ARGS2}
+eval result_fr9430=${ARGS2}
 
 #! start bash select -----------------------------------
 #! enter env menu: $1 as nomber menu, arr as name of points, res as using stinr
@@ -187,7 +187,7 @@ eval result=${ARGS2}
 
 local num_res=
 local item_arr=
-#{arr_res}
+#{arr_res_vcdf48}
 # arr+=("aaaaaaaaa")
 # res+=("bbbbbbbbb")
 # arr+=("aaaaaaaaa")
@@ -196,11 +196,11 @@ local item_arr=
 # res+=("bbbbbbbbb")
 # arr+=("aaaaaaaaa")
 # res+=("bbbbbbbbb")
-arr_name+=("exit menu")
-arr_res+=("return 0")
+arr_name_234wqf+=("exit menu")
+arr_res_vcdf48+=("return 0")
 
-#! l_02_pa3e arr_name
-#! l_02_pa3e arr_res
+#! l_02_pa3e arr_name_234wqf
+#! l_02_pa3e arr_res_vcdf48
 
 if ! l_01_is_od $ARGS3; then
     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUM : '\$ARGS3 = $ARGS3: 0 or num menu' return 1"
@@ -208,33 +208,32 @@ if ! l_01_is_od $ARGS3; then
     return 1
 fi
 
-if ! [[ $ARGS3 -le ${#arr_name[@]} ]]; then
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FAIL : '[[ \$ARGS3 -le \${#arr_name[@]} ]]' return 1"
+if ! [[ $ARGS3 -le ${#arr_name_234wqf[@]} ]]; then
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FAIL : '[[ \$ARGS3 -le \${#arr_name_234wqf[@]} ]]' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : return 1${NRM}"
     return 1
 fi
 
-if [[ -n "$ARGS3" ]] && [[ $ARGS3 -ne 0 ]] && l_01_is_od $ARGS3 && [[ $ARGS3 -le ${#arr_name[@]} ]]; then
+if [[ -n "$ARGS3" ]] && [[ $ARGS3 -ne 0 ]] && l_01_is_od $ARGS3 && [[ $ARGS3 -le ${#arr_name_234wqf[@]} ]]; then
     num_res=$(($ARGS3 - 1))
-    if [[ "${arr_name[${num_res}]}" == "exit menu" ]]; then
+    if [[ "${arr_name_234wqf[${num_res}]}" == "exit menu" ]]; then
 
         cd $PPWD
         return 0
     fi
-    eval $result=\"${arr_res[${num_res}]}\"
+    eval $result_fr9430=\"${arr_res_vcdf48[${num_res}]}\"
 
     cd $PPWD
     return 0
 fi
 PS3="eligendi actiones: "
-select item_arr in "${arr_name[@]}"; do
+select item_arr in "${arr_name_234wqf[@]}"; do
     for ((i = 0; i < 1000; i++)); do
-        if [[ ${item_arr} == ${arr_name[$i]} ]]; then
-            if [[ "${arr_name[$i]}" == "exit menu" ]]; then
+        if [[ ${item_arr} == ${arr_name_234wqf[$i]} ]]; then
+            if [[ "${arr_name_234wqf[$i]}" == "exit menu" ]]; then
                 return 0
             fi
-            eval $result=\"${arr_res[$i]}\"
-
+            eval $result_fr9430=\"${arr_res_vcdf48[$i]}\"
             cd $PPWD
             return 0
         fi

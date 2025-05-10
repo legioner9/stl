@@ -3,6 +3,7 @@ l_02_d2z ()
 { 
     local FNN=${FUNCNAME[0]};
     local PPWD=$PWD;
+    local ARGS=("$@");
     local NARGS=$#;
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d;
     local prc_dr=${fn_dr}/__prc;
@@ -79,7 +80,7 @@ l_02_d2z ()
     if [[ "-h" == "$1" ]]; then
         echo -e "
 MAIN: ${FNN} :: stdout size b of dir $PWD [, \$1 ]  [arg_ls] 
-TAGS:
+TAGS: @dr @2e @size
 \$1 
 [, \$2]
 CNTL: 

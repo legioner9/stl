@@ -3,6 +3,7 @@ l_02_dr2xAe ()
 { 
     local FNN=${FUNCNAME[0]};
     local PPWD=$PWD;
+    local ARGS=("$@");
     local NARGS=$#;
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d;
     local prc_dr=${fn_dr}/__prc;
@@ -79,7 +80,7 @@ l_02_dr2xAe ()
     if [[ "-h" == "$1" ]]; then
         echo -e "
 MAIN: ${FNN} :: prevent stl_dir (_) and dot_dir (.) recuce l_02_d2Ae , stdout ALL_full_path_ent
-TAGS:
+TAGS: @dr @fl
 \$1 
 [, \$2]
 CNTL: 
@@ -97,35 +98,69 @@ CNTL:
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
-tree \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/d2
-├── _d1.no
+tree -a \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/d2
+
+├── .d1.no
+│   ├── .f2
 │   ├── _f2
 │   ├── f2
+│   ├── .f2.no
 │   ├── _f2.no
 │   ├── f2.no
+│   ├── .f2.yes
+│   ├── _f2.yes
+│   └── f2.yes
+├── _d1.no
+│   ├── .f2
+│   ├── _f2
+│   ├── f2
+│   ├── .f2.no
+│   ├── _f2.no
+│   ├── f2.no
+│   ├── .f2.yes
 │   ├── _f2.yes
 │   └── f2.yes
 ├── d1.no
+│   ├── .f2
 │   ├── _f2
 │   ├── f2
+│   ├── .f2.no
 │   ├── _f2.no
 │   ├── f2.no
+│   ├── .f2.yes
+│   ├── _f2.yes
+│   └── f2.yes
+├── .d1.yes
+│   ├── .f2
+│   ├── _f2
+│   ├── f2
+│   ├── .f2.no
+│   ├── _f2.no
+│   ├── f2.no
+│   ├── .f2.yes
 │   ├── _f2.yes
 │   └── f2.yes
 ├── _d1.yes
+│   ├── .f2
 │   ├── _f2
 │   ├── f2
+│   ├── .f2.no
 │   ├── _f2.no
 │   ├── f2.no
+│   ├── .f2.yes
 │   ├── _f2.yes
 │   └── f2.yes
 ├── d1.yes
+│   ├── .f2.no
 │   ├── _f2.no
 │   ├── f2.no
+│   ├── .f2.yes
 │   ├── _f2.yes
-│   └── f2.yes 
+│   └── f2.yes
+├── .f1.no
 ├── _f1.no
 ├── f1.no
+├── .f1.yes
 ├── _f1.yes
 └── f1.yes
 

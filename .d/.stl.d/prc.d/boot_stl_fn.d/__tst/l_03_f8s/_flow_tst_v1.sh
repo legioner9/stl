@@ -44,9 +44,20 @@ _l_03_f8s_60c975c_flow_1() {
         return 1
     }
 
-    l_03_f8s file.lst 0
-    l_03_f8s file.lst 2
+    local res=
 
+    l_03_f8s file.lst res 0
+    l_00_echo_info "'\$res = $res'"
+    res=
+    l_03_f8s file.lst res 2
+    l_00_echo_info "'\$res = $res'"
+    res=
+    l_03_f8s file.lst res @
+    l_00_echo_info "'\$res = $res'"
+    res1=
+    echo 1 | l_03_f8s file.lst res1 @
+    # TODO don't work this section res=''
+    l_00_echo_info "'\$res1 = $res1'"
 
     # l_03_f8s "${tst_dir}" &>>"${res}"
 

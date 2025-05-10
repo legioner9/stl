@@ -112,6 +112,48 @@ CNTL:
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
+tree ${tst_nm_dr}/dir_init
+├── dir_src_in
+│   └── file_src_in
+└── file_src
+
+    rm -r dir_src dir_dist
+    mkdir dir_dist
+    cp -r dir_init dir_src
+
+    cd dir_src || return 1
+    zip file_src.zip file_src
+
+    cd ${tst_nm_dr} || return 1
+    l_02_unzip2 dir_src/file_src.zip dir_dist
+
+    cd dir_src || return 1
+    zip -r dir_src_in.zip dir_src_in
+
+    cd ${tst_nm_dr} || return 1
+    l_02_unzip2 dir_src/dir_src_in.zip dir_dist
+    diff dir_dist/dir_src_in dir_src/dir_src_in
+    #! unzip to $PWD
+
+    rm -r dir_src dir_dist
+    mkdir dir_dist
+    cp -r dir_init dir_src
+
+    cd dir_src || return 1
+    zip file_src.zip file_src
+
+    cd ${tst_nm_dr} || return 1
+    mv dir_src/file_src dir_src/file_src~
+    l_02_unzip2 dir_src/file_src.zip
+    diff dir_src/file_src dir_src/file_src~ # true
+
+    cd dir_src || return 1
+    zip -r dir_src_in.zip dir_src_in
+
+    cd ${tst_nm_dr} || return 1
+    mv dir_src/dir_src_in dir_src/dir_src_in~
+    l_02_unzip2 dir_src/dir_src_in.zip
+    diff dir_src/dir_src_in dir_src/dir_src_in~ # true
 ";
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
         return 0;
@@ -125,7 +167,6 @@ EXAM:   ${FNN} [, [, ]]
     ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")";
     local ptr_path_2="$2";
     ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")";
-    l_00_echo_info "'\$ptr_path_2 = $ptr_path_2'";
     [[ -f ${ptr_path_1} ]] || { 
         l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${ptr_path_1}' where '\$1=$1' return 1";
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
@@ -133,14 +174,12 @@ EXAM:   ${FNN} [, [, ]]
     };
     if [[ -d "$ptr_path_2" ]]; then
         if [[ -n "$2" ]]; then
-            l_00_echo_code "'unzip \"${ptr_path_1}\" -d \"$ptr_path_2\"' in $(pwd) ";
             unzip "${ptr_path_1}" -d "${ptr_path_2}" || { 
                 l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'unzip \"${ptr_path_1}\" -d \"$ptr_path_2\"' where '\$1=$1' '\$2=$2' return 1";
                 cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
                 return 1
             };
         else
-            l_00_echo_code "'unzip \"${ptr_path_1}\" -d \"$(dirname ${ptr_path_1})\"' in $(pwd) ";
             unzip "${ptr_path_1}" -d "$(dirname ${ptr_path_1})" || { 
                 l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'unzip \"${ptr_path_1}\" -d \"$ptr_path_2\"' where '\$1=$1' '\$2=$2' return 1";
                 cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";

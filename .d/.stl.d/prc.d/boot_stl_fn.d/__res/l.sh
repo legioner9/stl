@@ -21,6 +21,7 @@ l_00_all_name_fn2e() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -115,7 +116,7 @@ l_00_all_name_fn2e() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stdout all function and alias in shell
-TAGS:
+TAGS: @fn @nm
 \$1 
 [, \$2]
 CNTL: 
@@ -180,6 +181,7 @@ l_00_color2e() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -274,7 +276,7 @@ l_00_color2e() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stdout stl color
-TAGS:
+TAGS: @col @2e
 \$1 
 [, \$2]
 CNTL: 
@@ -563,6 +565,7 @@ l_00_color_self() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -657,7 +660,7 @@ l_00_color_self() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: up to mem color constants
-TAGS:
+TAGS: @col @self
 \$1 
 [, \$2]
 CNTL: 
@@ -958,6 +961,7 @@ l_00_date() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -1052,7 +1056,7 @@ l_00_date() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stdout %s_%d%m%Y%H%M%S
-TAGS:
+TAGS: @date @2e
 \$1 
 [, \$2]
 CNTL: 
@@ -1121,6 +1125,7 @@ l_00_echo_code() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -1215,7 +1220,7 @@ l_00_echo_code() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stdout \$1 like code
-TAGS:
+TAGS: @col 
 \$1 
 [, \$2]
 CNTL: 
@@ -1279,6 +1284,7 @@ l_00_echo_err() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -1373,7 +1379,7 @@ l_00_echo_err() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stderr \$1 like error
-TAGS:
+TAGS: @col
 \$1 
 [, \$2]
 CNTL: 
@@ -1437,6 +1443,7 @@ l_00_echo_exec() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -1531,7 +1538,7 @@ l_00_echo_exec() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stdout \$1 like exec function
-TAGS:
+TAGS: @col 
 \$1 
 [, \$2]
 CNTL: 
@@ -1595,6 +1602,7 @@ l_00_echo_fail() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -1689,7 +1697,7 @@ l_00_echo_fail() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stderr \$1 like fail tst
-TAGS:
+TAGS: @col 
 \$1 
 [, \$2]
 CNTL: 
@@ -1752,6 +1760,7 @@ l_00_echo_fls() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -1846,7 +1855,7 @@ l_00_echo_fls() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stdout \$1 like false
-TAGS:
+TAGS: @col 
 \$1 
 [, \$2]
 CNTL: 
@@ -1910,6 +1919,7 @@ l_00_echo_info() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -2004,7 +2014,7 @@ l_00_echo_info() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stdout \$1 like info
-TAGS:
+TAGS: @col 
 \$1 
 [, \$2]
 CNTL: 
@@ -2068,6 +2078,7 @@ l_00_echo_no() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -2162,7 +2173,7 @@ l_00_echo_no() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stdout \$1 like negative ansver
-TAGS:
+TAGS: @col 
 \$1 
 [, \$2]
 CNTL: 
@@ -2225,6 +2236,7 @@ l_00_echo_ques() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -2319,7 +2331,7 @@ l_00_echo_ques() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stdout \$1 like question
-TAGS:
+TAGS: @col 
 \$1 
 [, \$2]
 CNTL: 
@@ -2383,6 +2395,7 @@ l_00_echo_ret1() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -2477,7 +2490,7 @@ l_00_echo_ret1() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stderr \$1 like 'return 1'
-TAGS:
+TAGS: @col 
 \$1 
 [, \$2]
 CNTL: 
@@ -2541,6 +2554,7 @@ l_00_echo_succ() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -2635,7 +2649,7 @@ l_00_echo_succ() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stdout \$1 like success tst
-TAGS:
+TAGS: @col 
 \$1 
 [, \$2]
 CNTL: 
@@ -2698,6 +2712,7 @@ l_00_echo_sys() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -2792,7 +2807,7 @@ l_00_echo_sys() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stdout \$1 like system message
-TAGS:
+TAGS: @col 
 \$1 
 [, \$2]
 CNTL: 
@@ -2856,6 +2871,7 @@ l_00_echo_true() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -2950,7 +2966,7 @@ l_00_echo_true() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stdout \$1 like true
-TAGS:
+TAGS: @col 
 \$1 
 [, \$2]
 CNTL: 
@@ -3014,6 +3030,7 @@ l_00_echo_warn() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -3108,7 +3125,7 @@ l_00_echo_warn() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stdout \$1 like warning
-TAGS:
+TAGS: @col 
 \$1 
 [, \$2]
 CNTL: 
@@ -3172,6 +3189,7 @@ l_00_echo_yes() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -3266,7 +3284,7 @@ l_00_echo_yes() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stdout \$1 like yes
-TAGS:
+TAGS: @col 
 \$1 
 [, \$2]
 CNTL: 
@@ -3330,6 +3348,7 @@ l_00_err_name2e() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -3424,7 +3443,7 @@ l_00_err_name2e() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stdout STL errors name
-TAGS:
+TAGS: @exa
 \$1 
 [, \$2]
 CNTL: 
@@ -3498,6 +3517,7 @@ l_00_err_p_r0() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -3592,7 +3612,7 @@ l_00_err_p_r0() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stderr \$1 like error and wait ETR or ^C
-TAGS:
+TAGS: @2e @pause
 \$1 
 [, \$2]
 CNTL: 
@@ -3658,6 +3678,7 @@ l_00_err_struct2e() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -3752,7 +3773,7 @@ l_00_err_struct2e() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stdout err struct STL
-TAGS:
+TAGS: @exa
 \$1 
 [, \$2]
 CNTL: 
@@ -3820,6 +3841,7 @@ l_00_fail_p_r1() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -3914,7 +3936,7 @@ l_00_fail_p_r1() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stderr \$1 like ret1 and wait ETR or ^C
-TAGS:
+TAGS: @2e @pause
 \$1 
 [, \$2]
 CNTL: 
@@ -3980,6 +4002,7 @@ l_00_info_p_r0() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -4074,7 +4097,7 @@ l_00_info_p_r0() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stdout STL like info and wait ETR or ^C
-TAGS:
+TAGS: @2e @pause
 \$1 
 [, \$2]
 CNTL: 
@@ -4139,6 +4162,7 @@ l_00_warn_p_r0() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -4233,7 +4257,7 @@ l_00_warn_p_r0() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stdout STL like warning and wait ETR or ^C
-TAGS:
+TAGS: @2e @pause
 \$1 
 [, \$2]
 CNTL: 
@@ -4299,6 +4323,7 @@ l_01_abs_path() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -4393,7 +4418,7 @@ l_01_abs_path() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: echo abs_path [, \$1 abs_path [, \$2 ptr_to_path]] {see FLOW}
-TAGS:
+TAGS: @pth
 ARGS:
 [, \$1 abs_path
 [, \$2 ptr_to_path
@@ -4515,6 +4540,7 @@ l_01_c_up() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -4609,7 +4635,7 @@ l_01_c_up() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: exec (source) recurce in dir \$1 stl_files with ext=.sh
-TAGS:
+TAGS: @up2mem
 \$1 
 [, \$2]
 CNTL: 
@@ -4736,6 +4762,7 @@ l_01_is_od() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -4831,7 +4858,7 @@ l_01_is_od() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: 
-TAGS:
+TAGS: @is
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -4963,6 +4990,7 @@ l_01_is_root() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -5057,7 +5085,7 @@ l_01_is_root() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: if \$1 is absolut path return 0 else return 1
-TAGS:
+TAGS: @is
 \$1 
 [, \$2]
 CNTL: 
@@ -5131,6 +5159,7 @@ l_01_is_yes() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -5226,7 +5255,7 @@ l_01_is_yes() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: 
-TAGS:
+TAGS: @is
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -5361,6 +5390,7 @@ l_01_prs_f() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -5457,7 +5487,7 @@ local path=/the/path/_foo.bar.ext.txt
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: pars \$1 path - stdout part
-TAGS:
+TAGS: @pth
 \$1 
 [, \$2]
 CNTL: 
@@ -5577,6 +5607,7 @@ l_01_source() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -5671,7 +5702,7 @@ l_01_source() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: if \$1 is file \`source \$1; return \$?\` else return 1 
-TAGS:
+TAGS: @exec
 \$1 
 [, \$2]
 CNTL: 
@@ -5750,6 +5781,7 @@ l_01_stl_init() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -5844,7 +5876,7 @@ l_01_stl_init() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: source ${STL_D_PATH}/.stldrc
-TAGS:
+TAGS: @stl
 \$1 
 [, \$2]
 CNTL: 
@@ -5910,6 +5942,7 @@ l_02_arb_tst() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -6004,7 +6037,7 @@ l_02_arb_tst() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: 
-TAGS:
+TAGS: @tst
 \$1 
 [, \$2]
 CNTL: 
@@ -6117,6 +6150,7 @@ l_02_arb_up() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -6211,7 +6245,7 @@ l_02_arb_up() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: \$1 arb_dr for exec fn.sh (err_flag)
-TAGS:
+TAGS: @up2mem @arb
 \$1 
 [, \$2]
 CNTL: 
@@ -6419,8 +6453,8 @@ l_02_catf() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
-TAGS:
+MAIN: ${FNN} :: like cat - stdin or file \$2 into \$1 file.tsf with [interface::use variable \$line in as string from stdin]
+TAGS: @no
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -6488,11 +6522,11 @@ fi
 
 #* define local variables
 
-# [[ -n "$1" ]] || {
-#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
-#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-#     return 1
-# }
+[[ -n "$1" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
 
 # while IFS=$'\n' read -r line; do
 #     :
@@ -6504,6 +6538,38 @@ fi
 
 #! echo ARGS
 # [[ -n ${ARGS[0]} ]] && l_02_pa3e ARGS
+
+local ptr_path_1="$1"
+ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
+
+local ptr_path_2=
+
+[[ -f ${ptr_path_1} ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${ptr_path_1}' where '\$1=$1' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
+
+if [[ -n "${2}" ]]; then
+    if [[ -f "${2}" ]]; then
+        ptr_path_2="$2"
+        ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
+        # l_00_echo_info "'\$ptr_path = file://$ptr_path '"
+        while IFS= read -r line; do
+            l_00_echo_info "'\$line = $line'"
+            . "${1}"
+        done <"${ptr_path_2}"
+    else
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${ptr_path_2}' where '\$2=$2' return 1"
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        return 1
+    fi
+else
+    while IFS= read -r line; do
+        l_00_echo_info "'\$line = $line'"
+        . "${1}"
+    done
+fi
 
     #* END fn block ------------------
 
@@ -6537,6 +6603,7 @@ l_02_d2ae() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -6632,7 +6699,7 @@ l_02_d2ae() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: prevent stl_dir (_) stdout name [,with \$2 .ext] - like 'ls \$1' - if in root_dir mst \$1=@
-TAGS:
+TAGS: @dr @2e
 \$1 
 [, \$2]
 CNTL: 
@@ -6828,6 +6895,7 @@ l_02_d2Ae() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -6923,7 +6991,7 @@ l_02_d2Ae() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: prevent stl_dir (_) stdout ALL_name [,with \$2 .ext] - like 'ls \$1' - if in root_dir mst \$1=@
-TAGS:
+TAGS: @dr @2e
 \$1 
 [, \$2]
 CNTL: 
@@ -7121,6 +7189,7 @@ l_02_d2e() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -7216,7 +7285,7 @@ l_02_d2e() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: prevent stl_dir (_) stdout stl_name [,with \$2 .ext] - like 'ls \$1' - if in root_dir mst \$1=@
-TAGS:
+TAGS: @dr @2e
 \$1 
 [, \$2]
 CNTL: 
@@ -7411,6 +7480,7 @@ l_02_d2z() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -7506,7 +7576,7 @@ l_02_d2z() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stdout size b of dir $PWD [, \$1 ]  [arg_ls] 
-TAGS:
+TAGS: @dr @2e @size
 \$1 
 [, \$2]
 CNTL: 
@@ -7633,6 +7703,7 @@ l_02_dd2e() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -7728,7 +7799,7 @@ l_02_dd2e() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: 
-TAGS:
+TAGS: @dr @2e
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -7940,6 +8011,7 @@ l_02_df2e() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -8035,7 +8107,7 @@ l_02_df2e() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: prevent stl_dir (_) stdout stl_name only files [,with \$2 .ext] - like 'ls \$1' - if in root_dir mst \$1=@
-TAGS:
+TAGS: @dr @fl @2e
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -8248,6 +8320,7 @@ l_02_dfr2aewd() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -8343,7 +8416,7 @@ l_02_dfr2aewd() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: like _dfr2ae - {echo \"file_path:depth_dir_contane_file\"} - \$1 dir (non uprev : like ls) (@|path) @ if path='' [, \$2 .ext]
-TAGS:
+TAGS: @dr @fl @2e @dpth
 \$1 
 [, \$2]
 CNTL: 
@@ -8557,6 +8630,7 @@ l_02_dr2ae() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -8652,7 +8726,7 @@ l_02_dr2ae() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} ::  prevent stl_dir (_) recuce l_02_d2ae , stdout full_path_ent
-TAGS:
+TAGS: @dr @fl @2e
 \$1 
 [, \$2]
 CNTL: 
@@ -8862,6 +8936,7 @@ l_02_dr2Ae() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -8957,7 +9032,7 @@ l_02_dr2Ae() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} ::  prevent stl_dir (_) recuce l_02_d2Ae , stdout ALL_full_path_ent
-TAGS:
+TAGS: @dr @fl @2e
 \$1 
 [, \$2]
 CNTL: 
@@ -8975,54 +9050,94 @@ CNTL:
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
-tree \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/d2
-├── _d1.no
+tree -a \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/d2
+
+├── .d1.no
+│   ├── .f2
 │   ├── _f2
 │   ├── f2
+│   ├── .f2.no
 │   ├── _f2.no
 │   ├── f2.no
+│   ├── .f2.yes
+│   ├── _f2.yes
+│   └── f2.yes
+├── _d1.no
+│   ├── .f2
+│   ├── _f2
+│   ├── f2
+│   ├── .f2.no
+│   ├── _f2.no
+│   ├── f2.no
+│   ├── .f2.yes
 │   ├── _f2.yes
 │   └── f2.yes
 ├── d1.no
+│   ├── .f2
 │   ├── _f2
 │   ├── f2
+│   ├── .f2.no
 │   ├── _f2.no
 │   ├── f2.no
+│   ├── .f2.yes
+│   ├── _f2.yes
+│   └── f2.yes
+├── .d1.yes
+│   ├── .f2
+│   ├── _f2
+│   ├── f2
+│   ├── .f2.no
+│   ├── _f2.no
+│   ├── f2.no
+│   ├── .f2.yes
 │   ├── _f2.yes
 │   └── f2.yes
 ├── _d1.yes
+│   ├── .f2
 │   ├── _f2
 │   ├── f2
+│   ├── .f2.no
 │   ├── _f2.no
 │   ├── f2.no
+│   ├── .f2.yes
 │   ├── _f2.yes
 │   └── f2.yes
 ├── d1.yes
+│   ├── .f2.no
 │   ├── _f2.no
 │   ├── f2.no
+│   ├── .f2.yes
 │   ├── _f2.yes
-│   └── f2.yes 
+│   └── f2.yes
+├── .f1.no
 ├── _f1.no
 ├── f1.no
+├── .f1.yes
 ├── _f1.yes
 └── f1.yes
 
+
     cd \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt || return 1
     l_02_dr2Ae d2 yes ->:
-        \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/d2/.d1.no/_f2.yes
-        \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/d2/.d1.no/f2.yes
-        \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/d2/d1.no/_f2.yes
-        \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/d2/d1.no/f2.yes
-        \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/d2/.d1.yes
-        \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/d2/.d1.yes/_f2.yes
-        \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/d2/.d1.yes/f2.yes
-        \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/d2/_d1.yes
-        \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/d2/d1.yes
-        \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/d2/d1.yes/_f2.yes
-        \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/d2/d1.yes/f2.yes
-        \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/d2/.f1.yes
-        \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/d2/_f1.yes
-        \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/d2/f1.yes
+
+        /prc.d/boot_stl_fn.d/__ext/_dt/d2/.d1.no/.f2.yes
+        /prc.d/boot_stl_fn.d/__ext/_dt/d2/.d1.no/_f2.yes
+        /prc.d/boot_stl_fn.d/__ext/_dt/d2/.d1.no/f2.yes
+        /prc.d/boot_stl_fn.d/__ext/_dt/d2/d1.no/.f2.yes
+        /prc.d/boot_stl_fn.d/__ext/_dt/d2/d1.no/_f2.yes
+        /prc.d/boot_stl_fn.d/__ext/_dt/d2/d1.no/f2.yes
+        /prc.d/boot_stl_fn.d/__ext/_dt/d2/.d1.yes
+        /prc.d/boot_stl_fn.d/__ext/_dt/d2/.d1.yes/.f2.yes
+        /prc.d/boot_stl_fn.d/__ext/_dt/d2/.d1.yes/_f2.yes
+        /prc.d/boot_stl_fn.d/__ext/_dt/d2/.d1.yes/f2.yes
+        /prc.d/boot_stl_fn.d/__ext/_dt/d2/_d1.yes
+        /prc.d/boot_stl_fn.d/__ext/_dt/d2/d1.yes
+        /prc.d/boot_stl_fn.d/__ext/_dt/d2/d1.yes/.f2.yes
+        /prc.d/boot_stl_fn.d/__ext/_dt/d2/d1.yes/_f2.yes
+        /prc.d/boot_stl_fn.d/__ext/_dt/d2/d1.yes/f2.yes
+        /prc.d/boot_stl_fn.d/__ext/_dt/d2/.f1.yes
+        /prc.d/boot_stl_fn.d/__ext/_dt/d2/_f1.yes
+        /prc.d/boot_stl_fn.d/__ext/_dt/d2/f1.yes
 "
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0
@@ -9172,6 +9287,7 @@ l_02_dr2e() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -9267,7 +9383,7 @@ l_02_dr2e() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: prevent stl_dir (_) recuce l_02_d2e , stdout stl_full_path_ent
-TAGS:
+TAGS: @dr @fl
 \$1 
 [, \$2]
 CNTL: 
@@ -9473,6 +9589,7 @@ l_02_dr2xAe() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -9568,7 +9685,7 @@ l_02_dr2xAe() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: prevent stl_dir (_) and dot_dir (.) recuce l_02_d2Ae , stdout ALL_full_path_ent
-TAGS:
+TAGS: @dr @fl
 \$1 
 [, \$2]
 CNTL: 
@@ -9586,35 +9703,69 @@ CNTL:
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
-tree \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/d2
-├── _d1.no
+tree -a \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/d2
+
+├── .d1.no
+│   ├── .f2
 │   ├── _f2
 │   ├── f2
+│   ├── .f2.no
 │   ├── _f2.no
 │   ├── f2.no
+│   ├── .f2.yes
+│   ├── _f2.yes
+│   └── f2.yes
+├── _d1.no
+│   ├── .f2
+│   ├── _f2
+│   ├── f2
+│   ├── .f2.no
+│   ├── _f2.no
+│   ├── f2.no
+│   ├── .f2.yes
 │   ├── _f2.yes
 │   └── f2.yes
 ├── d1.no
+│   ├── .f2
 │   ├── _f2
 │   ├── f2
+│   ├── .f2.no
 │   ├── _f2.no
 │   ├── f2.no
+│   ├── .f2.yes
+│   ├── _f2.yes
+│   └── f2.yes
+├── .d1.yes
+│   ├── .f2
+│   ├── _f2
+│   ├── f2
+│   ├── .f2.no
+│   ├── _f2.no
+│   ├── f2.no
+│   ├── .f2.yes
 │   ├── _f2.yes
 │   └── f2.yes
 ├── _d1.yes
+│   ├── .f2
 │   ├── _f2
 │   ├── f2
+│   ├── .f2.no
 │   ├── _f2.no
 │   ├── f2.no
+│   ├── .f2.yes
 │   ├── _f2.yes
 │   └── f2.yes
 ├── d1.yes
+│   ├── .f2.no
 │   ├── _f2.no
 │   ├── f2.no
+│   ├── .f2.yes
 │   ├── _f2.yes
-│   └── f2.yes 
+│   └── f2.yes
+├── .f1.no
 ├── _f1.no
 ├── f1.no
+├── .f1.yes
 ├── _f1.yes
 └── f1.yes
 
@@ -9776,6 +9927,7 @@ l_02_e2z() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -9871,7 +10023,7 @@ l_02_e2z() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stdout [tabout] : 'ent_cls'\t'ent_size'\t'ent_pth of dir or file $PWD [, \$1 ]  [arg_ls]
-TAGS:
+TAGS: @dr @fl @size 
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -10028,6 +10180,7 @@ l_02_edit() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -10122,7 +10275,7 @@ l_02_edit() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: 
-TAGS:
+TAGS: 
 \$1 
 [, \$2]
 CNTL: 
@@ -10232,6 +10385,7 @@ l_02_f2e() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -10327,7 +10481,7 @@ l_02_f2e() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: if [[ {str0:1} != # ]] ; eval echo str from file \$1 
-TAGS:
+TAGS: @fl
 \$1 
 [, \$2]
 CNTL: 
@@ -10449,6 +10603,7 @@ l_02_f2z() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -10544,7 +10699,7 @@ l_02_f2z() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: 
-TAGS:
+TAGS: @fl @size
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -10820,6 +10975,28 @@ CNTL:
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
+
+    cat > init.f << EOF
+    ...
+    {{44}}
+    ...
+    EOF
+    cat > ins.f << EOF
+     555
+      666    
+    EOF
+
+    rm rcv.f
+    cp init.f rcv.f
+
+    l_02_fs2f ins.f "{{44}}" rcv.f
+    cat rcv.f
+    ...
+    {{44}}
+     555
+      666 
+    ...
+
 "
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0
@@ -11035,7 +11212,7 @@ l_02_ia2xs() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: exec \$1 string with stdin [, ] args 
-TAGS:
+TAGS: @in @args @exec
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -11068,25 +11245,29 @@ CNTL:
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
 
-    case file.exec+stdin:
+    
 
     cat >file.exec <<EOF
 echo :\$1
 EOF
-
-    ${FNN} ". file.exec" <<EOF
-first_str
-second_str
-EOF
-
-    case file.exec+file.args
 
     cat >file.args <<EOF
 third_str
 fourth_str
 EOF
 
+CASE file.exec<stdin :: 
+    ${FNN} ". file.exec" <<EOF       
+first_str
+second_str
+EOF
+
+CASE file.exec,file.args :: 
     ${FNN} ". file.exec" file.args
+
+CASE file.exec,file.args :: 
+    cat file.args | ${FNN} ". file.exec"
+
 "
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0
@@ -11199,6 +11380,7 @@ l_02_l2E() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -11294,7 +11476,7 @@ l_02_l2E() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: echo All l_xx 
-TAGS:
+TAGS: @info 
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -11431,6 +11613,7 @@ l_02_mc() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -11526,7 +11709,7 @@ l_02_mc() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: 
-TAGS:
+TAGS: @mc
 \$1 
 [, \$2]
 CNTL: 
@@ -11638,6 +11821,7 @@ l_02_pa2mm() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -11732,8 +11916,8 @@ l_02_pa2mm() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
-TAGS:
+MAIN: ${FNN} :: \$1: parr [n]ame mm, \$2: parr [r]es [mm], \$3: parr string result \$4 0 or num menu
+TAGS: @menu @pa
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -11841,7 +12025,7 @@ local ARGS3="$4"
 local num=
 
 #! ------ START confict_name_arg ------
-local coflict_name_arr=("arr_name" "arr_res" "result")
+local coflict_name_arr=("arr_name_234wqf" "arr_res_vcdf48" "result_fr9430")
 local item1=
 local item2=
 local i=
@@ -11850,7 +12034,7 @@ for item1 in ${coflict_name_arr[@]}; do
     i=0
     for item2 in ${ARGS[@]}; do
         if [[ ${item1} = ${item2} ]]; then
-            hint="\$1: parr [n]ame mm, \$2: parr [r]es [mm], \$3: parr string result \$4 0 or num menu"
+            hint="\$1: parr [n]ame mm, \$2: parr [r]es [mm], \$3: parr string result_fr9430 \$4 0 or num menu"
             l_00_echo_err "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: CONFLICT_NAME : ARGS${i} not be equal '${item1}' : ${hint} : continue"
             conflict_flag=1
         fi
@@ -11865,7 +12049,7 @@ fi
 #! ------ END confict_name_arg ------
 #[[confict_name_arg]]
 #* ---------- arr_name ----------------
-local arr_name=()
+local arr_name_234wqf=()
 
 eval num=\$\{#"${ARGS0}"[@]\}
 
@@ -11878,14 +12062,14 @@ if [[ "${num}" -eq 0 ]]; then
 fi
 
 for ((i = 0; i < ${num}; i++)); do
-    eval arr_name+=\(\"\${${ARGS0}[$i]}\"\)
+    eval arr_name_234wqf+=\(\"\${${ARGS0}[$i]}\"\)
 done
 
-# l_02_pa3e arr_name
+# l_02_pa3e arr_name_234wqf
 
-#* ---------- arr_res ----------------
+#* ---------- arr_res_vcdf48 ----------------
 
-local arr_res=()
+local arr_res_vcdf48=()
 
 eval num=\$\{#"${ARGS1}"[@]\}
 
@@ -11897,19 +12081,19 @@ if [[ "${num}" -eq 0 ]]; then
 
 fi
 
-# if [[ "${ARGS1}" == "arr_res" ]]; then
-#     hint="\$1: parr [n]ame mm, \$2: parr [r]es [mm], \$3: parr string result \$4 0 or num menu"
-#     _st_exit "in fs= file:// , line=${LINENO}, ${FNN}() : CONFLICT_NAME : ARGS1 not be equal 'arr_res' : ${hint} : return 1"
+# if [[ "${ARGS1}" == "arr_res_vcdf48" ]]; then
+#     hint="\$1: parr [n]ame mm, \$2: parr [r]es [mm], \$3: parr string result_fr9430 \$4 0 or num menu"
+#     _st_exit "in fs= file:// , line=${LINENO}, ${FNN}() : CONFLICT_NAME : ARGS1 not be equal 'arr_res_vcdf48' : ${hint} : return 1"
 #     return 1
 # fi
 
 for ((i = 0; i < ${num}; i++)); do
-    eval arr_res+=\(\"\${${ARGS1}[$i]}\"\)
+    eval arr_res_vcdf48+=\(\"\${${ARGS1}[$i]}\"\)
 done
 
-# l_02_pa3e arr_res
+# l_02_pa3e arr_res_vcdf48
 
-eval result=${ARGS2}
+eval result_fr9430=${ARGS2}
 
 #! start bash select -----------------------------------
 #! enter env menu: $1 as nomber menu, arr as name of points, res as using stinr
@@ -11917,7 +12101,7 @@ eval result=${ARGS2}
 
 local num_res=
 local item_arr=
-#{arr_res}
+#{arr_res_vcdf48}
 # arr+=("aaaaaaaaa")
 # res+=("bbbbbbbbb")
 # arr+=("aaaaaaaaa")
@@ -11926,11 +12110,11 @@ local item_arr=
 # res+=("bbbbbbbbb")
 # arr+=("aaaaaaaaa")
 # res+=("bbbbbbbbb")
-arr_name+=("exit menu")
-arr_res+=("return 0")
+arr_name_234wqf+=("exit menu")
+arr_res_vcdf48+=("return 0")
 
-#! l_02_pa3e arr_name
-#! l_02_pa3e arr_res
+#! l_02_pa3e arr_name_234wqf
+#! l_02_pa3e arr_res_vcdf48
 
 if ! l_01_is_od $ARGS3; then
     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUM : '\$ARGS3 = $ARGS3: 0 or num menu' return 1"
@@ -11938,33 +12122,32 @@ if ! l_01_is_od $ARGS3; then
     return 1
 fi
 
-if ! [[ $ARGS3 -le ${#arr_name[@]} ]]; then
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FAIL : '[[ \$ARGS3 -le \${#arr_name[@]} ]]' return 1"
+if ! [[ $ARGS3 -le ${#arr_name_234wqf[@]} ]]; then
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FAIL : '[[ \$ARGS3 -le \${#arr_name_234wqf[@]} ]]' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : return 1${NRM}"
     return 1
 fi
 
-if [[ -n "$ARGS3" ]] && [[ $ARGS3 -ne 0 ]] && l_01_is_od $ARGS3 && [[ $ARGS3 -le ${#arr_name[@]} ]]; then
+if [[ -n "$ARGS3" ]] && [[ $ARGS3 -ne 0 ]] && l_01_is_od $ARGS3 && [[ $ARGS3 -le ${#arr_name_234wqf[@]} ]]; then
     num_res=$(($ARGS3 - 1))
-    if [[ "${arr_name[${num_res}]}" == "exit menu" ]]; then
+    if [[ "${arr_name_234wqf[${num_res}]}" == "exit menu" ]]; then
 
         cd $PPWD
         return 0
     fi
-    eval $result=\"${arr_res[${num_res}]}\"
+    eval $result_fr9430=\"${arr_res_vcdf48[${num_res}]}\"
 
     cd $PPWD
     return 0
 fi
 PS3="eligendi actiones: "
-select item_arr in "${arr_name[@]}"; do
+select item_arr in "${arr_name_234wqf[@]}"; do
     for ((i = 0; i < 1000; i++)); do
-        if [[ ${item_arr} == ${arr_name[$i]} ]]; then
-            if [[ "${arr_name[$i]}" == "exit menu" ]]; then
+        if [[ ${item_arr} == ${arr_name_234wqf[$i]} ]]; then
+            if [[ "${arr_name_234wqf[$i]}" == "exit menu" ]]; then
                 return 0
             fi
-            eval $result=\"${arr_res[$i]}\"
-
+            eval $result_fr9430=\"${arr_res_vcdf48[$i]}\"
             cd $PPWD
             return 0
         fi
@@ -12003,6 +12186,7 @@ l_02_pa3e() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -12098,7 +12282,7 @@ l_02_pa3e() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: \$1: parr treat echo
-TAGS:
+TAGS: @pa @3
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -12253,6 +12437,7 @@ l_02_s2f() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -12348,7 +12533,7 @@ l_02_s2f() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: reciver_string: \$1 inserter_string: \$2 [@ - empty string] in reciver_result_file: \$3
-TAGS:
+TAGS: @fl @s2
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -12504,6 +12689,7 @@ l_02_s2se() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -12599,7 +12785,7 @@ l_02_s2se() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: stdout: \$1 reciver_string \$2 inserter_string (if \$2 will be emty - \$2=@ ) \$3 reciver_result_string
-TAGS:
+TAGS: @s @s2
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -12865,6 +13051,48 @@ CNTL:
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
+tree ${tst_nm_dr}/dir_init
+├── dir_src_in
+│   └── file_src_in
+└── file_src
+
+    rm -r dir_src dir_dist
+    mkdir dir_dist
+    cp -r dir_init dir_src
+
+    cd dir_src || return 1
+    zip file_src.zip file_src
+
+    cd ${tst_nm_dr} || return 1
+    l_02_unzip2 dir_src/file_src.zip dir_dist
+
+    cd dir_src || return 1
+    zip -r dir_src_in.zip dir_src_in
+
+    cd ${tst_nm_dr} || return 1
+    l_02_unzip2 dir_src/dir_src_in.zip dir_dist
+    diff dir_dist/dir_src_in dir_src/dir_src_in
+    #! unzip to $PWD
+
+    rm -r dir_src dir_dist
+    mkdir dir_dist
+    cp -r dir_init dir_src
+
+    cd dir_src || return 1
+    zip file_src.zip file_src
+
+    cd ${tst_nm_dr} || return 1
+    mv dir_src/file_src dir_src/file_src~
+    l_02_unzip2 dir_src/file_src.zip
+    diff dir_src/file_src dir_src/file_src~ # true
+
+    cd dir_src || return 1
+    zip -r dir_src_in.zip dir_src_in
+
+    cd ${tst_nm_dr} || return 1
+    mv dir_src/dir_src_in dir_src/dir_src_in~
+    l_02_unzip2 dir_src/dir_src_in.zip
+    diff dir_src/dir_src_in dir_src/dir_src_in~ # true
 "
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0
@@ -12922,8 +13150,6 @@ ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
 local ptr_path_2="$2"
 ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
 
-l_00_echo_info "'\$ptr_path_2 = $ptr_path_2'"
-
 [[ -f ${ptr_path_1} ]] || {
     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${ptr_path_1}' where '\$1=$1' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
@@ -12932,14 +13158,14 @@ l_00_echo_info "'\$ptr_path_2 = $ptr_path_2'"
 
 if [[ -d "$ptr_path_2" ]]; then
     if [[ -n "$2" ]]; then
-        l_00_echo_code "'unzip \"${ptr_path_1}\" -d \"$ptr_path_2\"' in $(pwd) "
+        # l_00_echo_code "'unzip \"${ptr_path_1}\" -d \"$ptr_path_2\"' in $(pwd) "
         unzip "${ptr_path_1}" -d "${ptr_path_2}" || {
             l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'unzip \"${ptr_path_1}\" -d \"$ptr_path_2\"' where '\$1=$1' '\$2=$2' return 1"
             cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
             return 1
         }
     else
-        l_00_echo_code "'unzip \"${ptr_path_1}\" -d \"$(dirname ${ptr_path_1})\"' in $(pwd) "
+        # l_00_echo_code "'unzip \"${ptr_path_1}\" -d \"$(dirname ${ptr_path_1})\"' in $(pwd) "
         unzip "${ptr_path_1}" -d "$(dirname ${ptr_path_1})" || {
             l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'unzip \"${ptr_path_1}\" -d \"$ptr_path_2\"' where '\$1=$1' '\$2=$2' return 1"
             cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
@@ -13112,6 +13338,48 @@ CNTL:
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
+tree ${tst_nm_dr}/dir_init
+├── dir_src_in
+│   └── file_src_in
+└── file_src
+
+    rm -r dir_src dir_dist
+    mkdir dir_dist
+    cp -r dir_init dir_src
+
+    cd dir_src || return 1
+    zip -P 111  file_src.zip file_src
+
+    cd ${tst_nm_dr} || return 1
+    echo 111 | l_02_unzipp2 dir_src/file_src.zip dir_dist
+
+    cd dir_src || return 1
+    zip -P 111 -r dir_src_in.zip dir_src_in
+
+    cd ${tst_nm_dr} || return 1
+    echo 111 | l_02_unzipp2 dir_src/dir_src_in.zip dir_dist
+    diff dir_dist/dir_src_in dir_src/dir_src_in
+    #! unzip to $PWD
+
+    rm -r dir_src dir_dist
+    mkdir dir_dist
+    cp -r dir_init dir_src
+
+    cd dir_src || return 1
+    zip -P 111 file_src.zip file_src
+
+    cd ${tst_nm_dr} || return 1
+    mv dir_src/file_src dir_src/file_src~
+    echo 111 | l_02_unzipp2 dir_src/file_src.zip
+    diff dir_src/file_src dir_src/file_src~ # true
+
+    cd dir_src || return 1
+    zip -P 111 -r dir_src_in.zip dir_src_in
+
+    cd ${tst_nm_dr} || return 1
+    mv dir_src/dir_src_in dir_src/dir_src_in~
+    echo 111 | l_02_unzipp2 dir_src/dir_src_in.zip
+    diff dir_src/dir_src_in dir_src/dir_src_in~ # true
 "
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0
@@ -13628,7 +13896,7 @@ l_02_zipp2() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: zip -P str from stdin \$1 dist file from \$2 src node (-f|-d) 
 TAGS:
 \$1 
 [, \$2]
@@ -13661,6 +13929,23 @@ CNTL:
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
+tree ${tst_nm_dr}/dir_init
+├── dir_src_in
+│   └── file_src_in
+└── file_src
+
+    cd ${tst_nm_dr}
+    rm -r dir_src dir_dist
+    mkdir dir_dist
+    cp -r dir_init dir_src
+
+    echo 111 | l_02_zipp2 dir_dist/file_src dir_src/file_src
+    unzip -P 111 dir_dist/file_src.zip -d dir_dist
+    diff dir_dist/file_src dir_src/file_src # true
+
+    echo 111 | l_02_zipp2 dir_dist/dir_src_in dir_src/dir_src_in
+    unzip -P 111 dir_dist/dir_src_in.zip -d dir_dist
+    diff -r dir_dist/dir_src_in dir_src/dir_src_in # true
 "
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0
@@ -13895,7 +14180,7 @@ l_03_f8s() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: in \$1 file (in menu)=8 choice string
+MAIN: ${FNN} :: in \$1 file (in menu)=8 choice string \$2 ptr_result \$3 0 or num_menu['TODO not work' or @ - num_menu from stdin]
 TAGS:
 \$1 
 [, \$2]
@@ -13967,11 +14252,23 @@ fi
 #! echo ARGS
 # [[ -n ${ARGS[0]} ]] && l_02_pa3e ARGS
 
-[[ -n "$2" ]] || {
+[[ -n "$3" ]] || {
     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$2' mast be 0 or num_menu return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }
+
+if [[ "@" == "$3" ]]; then
+    # TODO don't work this section see ${FNN} _flow_1
+    echo "Enter num menu :"
+    read -r
+    arg_3=$REPLY
+    l_00_echo_info "'\$arg_3 = $arg_3'"
+else
+    arg_3="$3"
+fi
+
+local arg_2="$2"
 
 # while IFS=$'\n' read -r line; do
 #     :
@@ -13985,20 +14282,22 @@ ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
 # local ptr_path_2="$2"
 # ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
 
-l_01_is_od "$2" || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '\$2=$2' mast be 0 or num_menu return 1"
+l_01_is_od "$arg_3" || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '\$3=$3' mast be 0 or num_menu return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }
 
-local __arr=($(l_02_f2e "${ptr_path_1}")) 
-unset IFS
+local arr_fery23451ddwf=($(l_02_f2e "${ptr_path_1}"))
 
-local __res=
+local res_erwfw45345gtryh=
 
-l_02_pa2mm __arr __arr __res  "$2"
+# l_00_echo_code "'l_02_pa2mm arr_fery23451ddwf arr_fery23451ddwf res_erwfw45345gtryh $arg_3'"
+l_02_pa2mm arr_fery23451ddwf arr_fery23451ddwf res_erwfw45345gtryh "$arg_3"
 
-l_00_echo_info "'\$__res = $__res'"
+# l_00_echo_info "'\$res_erwfw45345gtryh = $res_erwfw45345gtryh'"
+# l_00_echo_code "'$arg_2=$res_erwfw45345gtryh'"
+eval $arg_2=$res_erwfw45345gtryh
 
     #* END fn block ------------------
 
@@ -14032,6 +14331,7 @@ l_03_sd2d() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -14127,7 +14427,7 @@ l_03_sd2d() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: cp dir \${3} to \$(dirname \${3}) with replace \${1} to \${2} in files and name node
-TAGS:
+TAGS: @s2 @dr @fl
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -14360,6 +14660,7 @@ l_03_sdd2d() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -14455,7 +14756,7 @@ l_03_sdd2d() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: 
-TAGS:
+TAGS: @no
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -14579,6 +14880,7 @@ l_03_sf2f() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -14674,7 +14976,7 @@ l_03_sf2f() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: cp file \$3 to $(dirname \$3) with reciver \$1 inserter \$2 in file and name file
-TAGS:
+TAGS: @fl @rcv
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -14842,6 +15144,7 @@ l_03_wrap_prc() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -14937,8 +15240,8 @@ l_03_wrap_prc() {
 #? for copy to help block
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
-TAGS:
+MAIN: ${FNN} :: wrap (const and cntl) l_xx.prc
+TAGS: @wrp @prc
 \$1 
 [, \$2]
 CNTL: 
@@ -15178,6 +15481,7 @@ l_04_arb_prc_up() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -15272,7 +15576,7 @@ l_04_arb_prc_up() {
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: arb prc up to mem
-TAGS:
+TAGS: @arb @prc @up2mem
 \$1 
 [, \$2]
 CNTL: 
@@ -15390,6 +15694,7 @@ l_04_is_lfn() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -15483,8 +15788,8 @@ l_04_is_lfn() {
 #? for copy to help block
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
-TAGS:
+MAIN: ${FNN} :: is fn from l_xx
+TAGS: @no
 \$1 
 [, \$2]
 CNTL: 
@@ -15552,6 +15857,7 @@ l_04_ord_l_xx() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
@@ -15718,6 +16024,7 @@ l_99_tst_l() {
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
     local PPWD=$PWD
+    local ARGS=("$@")
     local NARGS=$#
 
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d

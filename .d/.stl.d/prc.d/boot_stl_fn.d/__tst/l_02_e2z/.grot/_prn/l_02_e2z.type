@@ -3,6 +3,7 @@ l_02_e2z ()
 { 
     local FNN=${FUNCNAME[0]};
     local PPWD=$PWD;
+    local ARGS=("$@");
     local NARGS=$#;
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d;
     local prc_dr=${fn_dr}/__prc;
@@ -79,7 +80,7 @@ l_02_e2z ()
     if [[ "-h" == "$1" ]]; then
         echo -e "
 MAIN: ${FNN} :: stdout [tabout] : 'ent_cls'\t'ent_size'\t'ent_pth of dir or file $PWD [, \$1 ]  [arg_ls]
-TAGS:
+TAGS: @dr @fl @size 
 \$1 
 [, \$2]
 FLOW:   [if 

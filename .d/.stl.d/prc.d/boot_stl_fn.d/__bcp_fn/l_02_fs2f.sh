@@ -151,6 +151,28 @@ CNTL:
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
+
+    cat > init.f << EOF
+    ...
+    {{44}}
+    ...
+    EOF
+    cat > ins.f << EOF
+     555
+      666    
+    EOF
+
+    rm rcv.f
+    cp init.f rcv.f
+
+    l_02_fs2f ins.f "{{44}}" rcv.f
+    cat rcv.f
+    ...
+    {{44}}
+     555
+      666 
+    ...
+
 "
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0
@@ -188,7 +210,7 @@ fi
 #* define local variables
 
 #! echo ARGS
-[[ -n ${ARGS[0]} ]] && l_02_pa3e ARGS
+# [[ -n ${ARGS[0]} ]] && l_02_pa3e ARGS
 
 [[ -n "$3" ]] || {
     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$3' return 1"

@@ -3,6 +3,7 @@ l_02_f2e ()
 { 
     local FNN=${FUNCNAME[0]};
     local PPWD=$PWD;
+    local ARGS=("$@");
     local NARGS=$#;
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d;
     local prc_dr=${fn_dr}/__prc;
@@ -79,7 +80,7 @@ l_02_f2e ()
     if [[ "-h" == "$1" ]]; then
         echo -e "
 MAIN: ${FNN} :: if [[ {str0:1} != # ]] ; eval echo str from file \$1 
-TAGS:
+TAGS: @fl
 \$1 
 [, \$2]
 CNTL: 

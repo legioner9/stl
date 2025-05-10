@@ -3,6 +3,7 @@ l_00_warn_p_r0 ()
 { 
     local FNN=${FUNCNAME[0]};
     local PPWD=$PWD;
+    local ARGS=("$@");
     local NARGS=$#;
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d;
     local prc_dr=${fn_dr}/__prc;
@@ -79,7 +80,7 @@ l_00_warn_p_r0 ()
     if [[ "-h" == "$1" ]]; then
         echo -e "
 MAIN: ${FNN} :: stdout STL like warning and wait ETR or ^C
-TAGS:
+TAGS: @2e @pause
 \$1 
 [, \$2]
 CNTL: 

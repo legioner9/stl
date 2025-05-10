@@ -79,7 +79,7 @@ l_03_f8s ()
     fi;
     if [[ "-h" == "$1" ]]; then
         echo -e "
-MAIN: ${FNN} :: in \$1 file (in menu)=8 choice string
+MAIN: ${FNN} :: in \$1 file (in menu)=8 choice string \$2 ptr_result \$3 0 or num_menu['TODO not work' or @ - num_menu from stdin]
 TAGS:
 \$1 
 [, \$2]
@@ -116,23 +116,31 @@ EXAM:   ${FNN} [, [, ]]
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
         return 0;
     fi;
-    [[ -n "$2" ]] || { 
+    [[ -n "$3" ]] || { 
         l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$2' mast be 0 or num_menu return 1";
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
         return 1
     };
+    if [[ "@" == "$3" ]]; then
+        echo "Enter num menu :";
+        read -r;
+        arg_3=$REPLY;
+        l_00_echo_info "'\$arg_3 = $arg_3'";
+    else
+        arg_3="$3";
+    fi;
+    local arg_2="$2";
     local ptr_path_1="$1";
     ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")";
-    l_01_is_od "$2" || { 
-        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '\$2=$2' mast be 0 or num_menu return 1";
+    l_01_is_od "$arg_3" || { 
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '\$3=$3' mast be 0 or num_menu return 1";
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
         return 1
     };
-    local __arr=($(l_02_f2e "${ptr_path_1}"));
-    unset IFS;
-    local __res=;
-    l_02_pa2mm __arr __arr __res "$2";
-    l_00_echo_info "'\$__res = $__res'";
+    local arr_fery23451ddwf=($(l_02_f2e "${ptr_path_1}"));
+    local res_erwfw45345gtryh=;
+    l_02_pa2mm arr_fery23451ddwf arr_fery23451ddwf res_erwfw45345gtryh "$arg_3";
+    eval $arg_2=$res_erwfw45345gtryh;
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
     return 0
 }

@@ -40,7 +40,7 @@ _l_03_f8s_60c975c_flow() {
     #?-------------------------------------
 
     l_00_echo_exec "source file://$filename"
-    
+
     #! if stdout to ${res} only in this file - NOT in exec.tst
     : >"${res}"
 
@@ -49,6 +49,11 @@ _l_03_f8s_60c975c_flow() {
         l_00_echo_ret1 "in fs= file://${filename} , line=${LINENO}, ${FNN}() : NOT_DIR : 'file://${idir}/_dir_tst' : ${hint} : return 1"
         return 1
     }
+
+    local result=
+    l_03_f8s file.lst result 2
+    # l_00_echo_info "'\$res = $res'"
+    echo ${result} &>>"${res}"
 
     # l_03_f8s "${tst_dir}" &>>"${res}"
 

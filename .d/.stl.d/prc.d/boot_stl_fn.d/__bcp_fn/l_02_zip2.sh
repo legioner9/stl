@@ -155,6 +155,7 @@ tree ${tst_nm_dr}/dir_init
 │   └── file_src_in
 └── file_src
 
+    cd ${tst_nm_dr}
     rm -r dir_src dir_dist
     mkdir dir_dist
     cp -r dir_init dir_src

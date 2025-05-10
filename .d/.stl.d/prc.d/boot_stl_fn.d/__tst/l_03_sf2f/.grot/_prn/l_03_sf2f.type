@@ -3,6 +3,7 @@ l_03_sf2f ()
 { 
     local FNN=${FUNCNAME[0]};
     local PPWD=$PWD;
+    local ARGS=("$@");
     local NARGS=$#;
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d;
     local prc_dr=${fn_dr}/__prc;
@@ -79,7 +80,7 @@ l_03_sf2f ()
     if [[ "-h" == "$1" ]]; then
         echo -e "
 MAIN: ${FNN} :: cp file \$3 to $(dirname \$3) with reciver \$1 inserter \$2 in file and name file
-TAGS:
+TAGS: @fl @rcv
 \$1 
 [, \$2]
 FLOW:   [if 
