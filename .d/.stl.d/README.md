@@ -12,3 +12,4 @@ or
 - use only as ptr: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
     - l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' FILE
 
+- res from tst only stdout result, but not stdout function runtime

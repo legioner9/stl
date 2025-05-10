@@ -54,7 +54,7 @@ _l_03_sd2d_a06d120_flow() {
     echo "this fileX.f" >dirX.d/fileX.f
     echo "this fileXX.f" >dirX.d/dirXX.d/fileXX.f
 
-    l_03_sd2d X Y dirX.d &>>"${res}"
+    l_03_sd2d X Y dirX.d 
     cat dirY.d/fileY.f &>>"${res}"
     cat dirY.d/dirYY.d/fileYY.f &>>"${res}"
 

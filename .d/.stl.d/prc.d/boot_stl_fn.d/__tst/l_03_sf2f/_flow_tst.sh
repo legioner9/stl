@@ -52,7 +52,7 @@ _l_03_sf2f_6b8a3ef_flow() {
     this startXfile
 EOF
 
-    l_03_sf2f X Y startXfile &>>"${res}"
+    l_03_sf2f X Y startXfile
     cat startYfile &>>"${res}"
 
     l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"

@@ -12573,7 +12573,7 @@ EXAM:   ${FNN} [, [, ]]
 fi
 
 #! stdout fn introduction
-# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 #     #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
 #     local di=
@@ -16154,6 +16154,7 @@ local ret1=0
 local exec_tst_fl_pth=
 local lnm=
 local prn=
+local md5=
 
 for exec_tst_fl_pth in $(find ${tst_dir} -name exec.tst); do
     l_00_echo_info "\${exec_tst_fl_pth} = file://${exec_tst_fl_pth}"
@@ -16166,9 +16167,12 @@ for exec_tst_fl_pth in $(find ${tst_dir} -name exec.tst); do
             [[ -d "${prn}" ]] || {
                 mkdir -p "${prn}"
             }
-            md5sum ${fn_dr}/${lnm}.sh >${prn}/${lnm}.md5
+
+            md5sum ${fn_dr}/${lnm}.sh | awk '{ print $1 }' >${prn}/${lnm}.md5
+
             type ${lnm} >${prn}/${lnm}.type
-            echo ${fn_dr}/${lnm}.sh >${prn}/${lnm}.pth
+
+            echo '${STL_D_PATH}'/prc.d/boot_stl_fn.d/${FNN}.sh >${prn}/${lnm}.pth
         else
             l_00_echo_err "FAIL_EXEC :: '[[ -d ${tst_nm_dr}/${lnm} ]]' :: ret1=1"
             ret1=1
