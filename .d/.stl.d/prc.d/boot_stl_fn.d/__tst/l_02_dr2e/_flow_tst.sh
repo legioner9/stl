@@ -49,8 +49,7 @@ _l_02_dr2e_4aed326_flow() {
 
     l_02_dr2e d2 yes &>"${res}"
 
-
-    l_02_s2f ${STL_D_PATH} @ "${res}"
+    l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
 
     # l_02_dr2e "${tst_dir}" &>"${res}"
 

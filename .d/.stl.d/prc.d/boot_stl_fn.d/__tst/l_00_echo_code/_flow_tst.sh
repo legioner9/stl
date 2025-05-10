@@ -44,7 +44,7 @@ _l_00_echo_code_b152f8b_flow() {
         return 1
     }
 
-    l_00_echo_code "${tst_dir}" &>"${res}"
+    l_00_echo_code "cfer3" &>"${res}"
 
 
     #?-------------------------------------

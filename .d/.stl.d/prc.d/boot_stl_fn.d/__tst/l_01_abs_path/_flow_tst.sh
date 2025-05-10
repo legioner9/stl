@@ -50,8 +50,7 @@ _l_01_abs_path_0c1cb9e_flow() {
     l_01_abs_path /vdfs &>>"${res}"
     l_01_abs_path &>>"${res}"
 
-    # TODO _s2f -> l_0x_s2f
-    _s2f "${STL_D_PATH}" @ "${res}"
+    l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
 
     #?-------------------------------------
     #?----------------------------------------------------

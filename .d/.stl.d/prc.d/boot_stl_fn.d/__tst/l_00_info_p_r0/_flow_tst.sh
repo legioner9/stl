@@ -44,7 +44,7 @@ _l_00_info_p_r0_a0c5787_flow() {
         return 1
     }
 
-    echo | l_00_info_p_r0 "${tst_dir}" &>"${res}"
+    echo | l_00_info_p_r0 "[cfer3]" &>"${res}"
 
 
     #?-------------------------------------

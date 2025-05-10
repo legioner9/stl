@@ -62,6 +62,8 @@ _l_01_source_f516c0c_flow() {
         echo 1 &>>"${res}"
     fi
 
+    l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
+
     # {
     #     # l_01_source "${tst_dir}/d2/ret0.shx" && echo 0 || echo 1 &>>"${res}"
     # }

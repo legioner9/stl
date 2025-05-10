@@ -49,7 +49,7 @@ _l_02_dfr2aewd_9c04741_flow() {
 
     l_02_dfr2aewd d2 yes &>"${res}"
 
-    l_02_s2f ${STL_D_PATH} @ "${res}"
+    l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
 
     # l_02_dfr2aewd "${tst_dir}" &>"${res}"
 

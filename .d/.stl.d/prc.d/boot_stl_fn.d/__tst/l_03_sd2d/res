@@ -1,18 +1,18 @@
 [0;30m[2m[106m[7m'l_02_s2se X Y dirX.d'[0m
-[0;30m[2m[102m[7m'$result_dir = /home/st/REPOBARE/_repo/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__tst/l_03_sd2d/tst_dir/dirY.d'[0m
+[0;30m[2m[102m[7m'$result_dir = ${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_03_sd2d/tst_dir/dirY.d'[0m
 [0;30m[2m[102m[7m'$item = dirXX.d'[0m
 [0;30m[2m[106m[7ml_02_s2se X Y dirXX.d[0m
 [0;30m[2m[102m[7m'$item = fileXX.f'[0m
 [0;30m[2m[106m[7ml_02_s2se X Y fileXX.f[0m
-[0;30m[2m[106m[7ml_02_s2f X Y /home/st/REPOBARE/_repo/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__tst/l_03_sd2d/tst_dir/dirY.d/dirYY.d/fileYY.f[0m
+[0;30m[2m[106m[7ml_02_s2f X Y ${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_03_sd2d/tst_dir/dirY.d/dirYY.d/fileYY.f[0m
 [0;30m[2m[102m[7m'$1 = X'[0m
 [0;30m[2m[102m[7m'$2 = Y'[0m
-[0;30m[2m[102m[7m'$ptr_path = file:///home/st/REPOBARE/_repo/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__tst/l_03_sd2d/tst_dir/dirY.d/dirYY.d/fileYY.f'[0m
+[0;30m[2m[102m[7m'$ptr_path = file://${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_03_sd2d/tst_dir/dirY.d/dirYY.d/fileYY.f'[0m
 [0;30m[2m[102m[7m'$item = fileX.f'[0m
 [0;30m[2m[106m[7ml_02_s2se X Y fileX.f[0m
-[0;30m[2m[106m[7ml_02_s2f X Y /home/st/REPOBARE/_repo/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__tst/l_03_sd2d/tst_dir/dirY.d/fileY.f[0m
+[0;30m[2m[106m[7ml_02_s2f X Y ${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_03_sd2d/tst_dir/dirY.d/fileY.f[0m
 [0;30m[2m[102m[7m'$1 = X'[0m
 [0;30m[2m[102m[7m'$2 = Y'[0m
-[0;30m[2m[102m[7m'$ptr_path = file:///home/st/REPOBARE/_repo/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__tst/l_03_sd2d/tst_dir/dirY.d/fileY.f'[0m
+[0;30m[2m[102m[7m'$ptr_path = file://${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_03_sd2d/tst_dir/dirY.d/fileY.f'[0m
 this fileY.f
 this fileYY.f

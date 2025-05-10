@@ -44,7 +44,7 @@ _l_00_echo_err_6354ea2_flow() {
         return 1
     }
 
-    l_00_echo_err "${tst_dir}" &>"${res}"
+    l_00_echo_err "[cfer3]" &>"${res}"
 
 
     #?-------------------------------------

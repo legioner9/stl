@@ -44,7 +44,7 @@ _l_00_echo_yes_cb48644_flow() {
         return 1
     }
 
-    l_00_echo_yes "${tst_dir}" &>"${res}"
+    l_00_echo_yes "[cfer3]" &>"${res}"
 
 
     #?-------------------------------------

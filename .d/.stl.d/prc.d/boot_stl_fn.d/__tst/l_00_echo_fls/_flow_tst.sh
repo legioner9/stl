@@ -44,7 +44,7 @@ _l_00_echo_fls_8732cad_flow() {
         return 1
     }
 
-    l_00_echo_fls "${tst_dir}" &>"${res}"
+    l_00_echo_fls "[cfer3]" &>"${res}"
 
 
     #?-------------------------------------

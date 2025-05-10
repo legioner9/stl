@@ -55,6 +55,8 @@ EOF
     l_03_sf2f X Y startXfile &>>"${res}"
     cat startYfile &>>"${res}"
 
+    l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
+
     # l_03_sf2f "${tst_dir}" &>>"${res}"
 
     #?-------------------------------------

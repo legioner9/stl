@@ -40,7 +40,7 @@ __XXX_RND_flow() {
     #?-------------------------------------
 
     l_00_echo_exec "source file://$filename"
-    
+
     #! if stdout to ${res} only in this file - NOT in exec.tst
     : >"${res}"
 
@@ -51,6 +51,8 @@ __XXX_RND_flow() {
     }
 
     # _XXX "${tst_dir}" &>>"${res}"
+    #! rm abs_path
+    # l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
 
     #?-------------------------------------
     #?----------------------------------------------------

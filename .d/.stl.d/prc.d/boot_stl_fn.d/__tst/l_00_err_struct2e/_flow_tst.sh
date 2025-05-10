@@ -44,7 +44,7 @@ _l_00_err_struct2e_4a04c76_flow() {
         return 1
     }
 
-    l_00_err_struct2e "${tst_dir}" &>"${res}"
+    l_00_err_struct2e "[cfer3]" &>"${res}"
 
 
     #?-------------------------------------

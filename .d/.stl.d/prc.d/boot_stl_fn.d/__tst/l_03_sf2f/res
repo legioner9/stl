@@ -1,5 +1,5 @@
 [0;30m[2m[106m[7ml_02_s2se X Y startXfile[0m
 [0;30m[2m[102m[7m'$1 = X'[0m
 [0;30m[2m[102m[7m'$2 = Y'[0m
-[0;30m[2m[102m[7m'$ptr_path = file:///home/st/REPOBARE/_repo/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__tst/l_03_sf2f/tst_dir/startYfile'[0m
+[0;30m[2m[102m[7m'$ptr_path = file://${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_03_sf2f/tst_dir/startYfile'[0m
     this startYfile

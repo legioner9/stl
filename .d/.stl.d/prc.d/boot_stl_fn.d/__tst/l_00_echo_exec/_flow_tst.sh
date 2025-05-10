@@ -44,7 +44,7 @@ _l_00_echo_exec_569320a_flow() {
         return 1
     }
 
-    l_00_echo_exec "${tst_dir}" &>"${res}"
+    l_00_echo_exec "[cfer3]" &>"${res}"
 
 
     #?-------------------------------------
