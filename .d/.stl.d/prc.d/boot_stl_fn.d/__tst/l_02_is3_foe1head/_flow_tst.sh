@@ -50,6 +50,22 @@ _l_02_is3_foe1head_b103f2e_flow() {
         return 1
     }
 
+    local ext_foe_dir=${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_foe
+    local rpo_foe_dir=${HOME}/tmp/tmp_foe_tst
+    mkdir -p ${rpo_foe_dir}
+    rm -rf ${rpo_foe_dir}/foe_tst_head
+
+    l_02_unzip2 ${ext_foe_dir}/at_head.zip ${rpo_foe_dir} >/dev/null
+    # l_02_is3_foe1head ${rpo_foe_dir}/foe_tst_head
+    l_01_xs2ret "l_02_is3_foe1head ${rpo_foe_dir}/foe_tst_head" &>>"${res}"
+
+    rm -rf ${rpo_foe_dir}/foe_tst_head
+
+    l_02_unzip2 ${ext_foe_dir}/not_at_head.zip ${rpo_foe_dir} >/dev/null
+    # l_02_is3_foe1head ${rpo_foe_dir}/foe_tst_head
+    l_01_xs2ret "l_02_is3_foe1head ${rpo_foe_dir}/foe_tst_head" &>>"${res}"
+    l_01_xs2ret "l_02_is3_foe1head ${rpo_foe_dir}/foe_tst_headX" &>>"${res}"
+
     # l_02_is3_foe1head "${tst_dir}" &>>"${res}"
     #! rm abs_path
     # l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"

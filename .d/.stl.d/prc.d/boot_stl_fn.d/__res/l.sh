@@ -12038,7 +12038,7 @@ local ptr_path="$1"
 ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
 #[[ptr_path]]
 
-l_00_echo_info "'\$ptr_path = $ptr_path'"
+# l_00_echo_info "'\$ptr_path = $ptr_path'"
 
 [[ -n "$1" && ! -d ${ptr_path} ]] && {
     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR 'file://${init_file}' where '\$1=$1' return 1"
@@ -12046,7 +12046,7 @@ l_00_echo_info "'\$ptr_path = $ptr_path'"
     return 1
 }
 
-l_02_foe_td2e ${ptr_path} || {
+l_02_foe_td2e ${ptr_path} >/dev/null || {
     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_GIT_DIR 'file://${ptr_path}' where '\$1=$1' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
