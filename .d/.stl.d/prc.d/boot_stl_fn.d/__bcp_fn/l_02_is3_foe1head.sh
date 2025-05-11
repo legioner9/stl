@@ -8,15 +8,15 @@
 # "${ECHO_ERR}$FNN() $*' in file://${file_name} , line=${LINENO} :: CAUS_NAME [VAR] 'code' :: return 1${NRM}" >&2
 # cd ${PPWD} || echo -e "${ECHO_WAR}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [\${PPWD}] '${PPWD}' return 1${NRM}" >&2
 
-l_03_df8s() {
+l_02_is3_foe1head() {
 
-    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_03_df8s`
+    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_02_is3_foe1head`
     #! All changes will be lost after rebuilding
     #! To change this file use the following commands:
 
-    #! l_03_df8s _e_prc to edit/change 'fn block',
-    #! l_03_df8s _rbld to rebuild fn with changed 'fn block'
-    #! l_03_df8s _e_xxx` to edit 'init block'
+    #! l_02_is3_foe1head _e_prc to edit/change 'fn block',
+    #! l_02_is3_foe1head _rbld to rebuild fn with changed 'fn block'
+    #! l_02_is3_foe1head _e_xxx` to edit 'init block'
 
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
@@ -102,7 +102,7 @@ l_03_df8s() {
     fi
 
     if [[ "_rbld" == "$1" ]]; then
-        #! rebuild fn : bcp && ord fn.sh from l_03_df8s.sh , cp fn.prc into fn.sh
+        #! rebuild fn : bcp && ord fn.sh from l_02_is3_foe1head.sh , cp fn.prc into fn.sh
         . ${fn_dr}/_rbld_l_xx.sh ${FNN}
         #! up to mem fn
         . ${fn_dr}/$1.sh
@@ -110,13 +110,13 @@ l_03_df8s() {
         return 0
     fi
 
-    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_03_df8s.prc ------------------
+    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_02_is3_foe1head.prc ------------------
     #[[fn_body]]
 #? for copy to help block
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: in \$1 dir (in menu)=8 choice string \$2 ptr_result \$3 0 or num_menu for choice file ['TODO not work' or @ - num_menu from stdin] \$4 for string
+MAIN: ${FNN} :: git at HEAD in \$PWD [or in dir \$1] return 0 - is_head, 1 - git error, 3 - not is_head
 TAGS:
 \$1 
 [, \$2]
@@ -188,11 +188,11 @@ fi
 #! echo ARGS
 # [[ -n ${ARGS[0]} ]] && l_02_pa3e ARGS
 
-[[ -n "$4" ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
+# [[ -n "$1" ]] || {
+#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
+#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+#     return 1
+# }
 
 # while IFS=$'\n' read -r line; do
 #     :
@@ -201,66 +201,40 @@ fi
 #! use arg_ptr
 # eval "$2=$res_12341c43234rfe"
 
-# ! ptr_path_1
-local ptr_path_1="$1"
-ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
+#! ptr_path_1
+# local ptr_path_1="$1"
+# ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
 
 #! ptr_path_2
 # local ptr_path_2="$2"
 # ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
 
-local arg_3=
-local arg_4=
+#! ptr_path
+local ptr_path="$1"
+ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
+#[[ptr_path]]
 
-if [[ "@" == "$3" ]]; then
-    # TODO don't work this section see ${FNN} _flow_1
-    echo "Enter num menu :"
-    read -r
-    arg_3=$REPLY
-    l_00_echo_info "'\$arg_3 = $arg_3'"
-else
-    arg_3="$3"
-fi
-
-if [[ "@" == "$4" ]]; then
-    # TODO don't work this section see ${FNN} _flow_1
-    echo "Enter num menu choice dir :"
-    read -r
-    arg_4=$REPLY
-    l_00_echo_info "'\$arg_4 = $arg_4'"
-else
-    arg_4="$4"
-fi
-
-l_01_is_od "$arg_3" || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '\$3=$3' mast be 0 or num_menu return 1"
+[[ -n "$1" && ! -d ${ptr_path} ]] && {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR 'file://${init_file}' where '\$1=$1' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }
 
-l_01_is_od "$arg_4" || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '\$4=$4' mast be 0 or num_menu return 1"
+l_02_foe_td2e ${ptr_path} >/div/null || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_GIT_DIR 'file://${ptr_path}' where '\$1=$1' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }
 
-#* choice file in dir
-local arr_file_dsae123444=($(l_02_df2e "${ptr_path_1}"))
-local res_file_bh565fdgg=
+#l_02_foe_td2e
 
-l_02_pa2mm arr_file_dsae123444 arr_file_dsae123444 res_file_bh565fdgg "$arg_3"
-
-l_00_echo_info "'\$res_file_bh565fdgg = $res_file_bh565fdgg'"
-
-#* choice str in file
-local arr_str_hrfde3223=($(l_02_f2e "${res_file_bh565fdgg}"))
-local res_str_ukfs2345=
-
-l_02_pa2mm arr_str_hrfde3223 arr_str_hrfde3223 res_str_ukfs2345 "$arg_3"
-
-l_00_echo_info "'\$res_str_ukfs2345 = $res_str_ukfs2345'"
-
-eval "$2=$res_str_ukfs2345"
+if [[ -z "$(git status -s)" ]]; then
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 0
+else
+    cd ${PPWD} || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 3
+fi
 
     #* END fn block ------------------
 
@@ -270,4 +244,4 @@ eval "$2=$res_str_ukfs2345"
 }
 
 #! SELF EXEC
-# l_03_df8s @
+# l_02_is3_foe1head @

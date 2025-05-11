@@ -8,15 +8,15 @@
 # "${ECHO_ERR}$FNN() $*' in file://${file_name} , line=${LINENO} :: CAUS_NAME [VAR] 'code' :: return 1${NRM}" >&2
 # cd ${PPWD} || echo -e "${ECHO_WAR}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [\${PPWD}] '${PPWD}' return 1${NRM}" >&2
 
-l_99_tst_l() {
+l_02_is3_foe1head() {
 
-    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_99_tst_l`
+    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_02_is3_foe1head`
     #! All changes will be lost after rebuilding
     #! To change this file use the following commands:
 
-    #! l_99_tst_l _e_prc to edit/change 'fn block',
-    #! l_99_tst_l _rbld to rebuild fn with changed 'fn block'
-    #! l_99_tst_l _e_xxx` to edit 'init block'
+    #! l_02_is3_foe1head _e_prc to edit/change 'fn block',
+    #! l_02_is3_foe1head _rbld to rebuild fn with changed 'fn block'
+    #! l_02_is3_foe1head _e_xxx` to edit 'init block'
 
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
@@ -102,7 +102,7 @@ l_99_tst_l() {
     fi
 
     if [[ "_rbld" == "$1" ]]; then
-        #! rebuild fn : bcp && ord fn.sh from l_99_tst_l.sh , cp fn.prc into fn.sh
+        #! rebuild fn : bcp && ord fn.sh from l_02_is3_foe1head.sh , cp fn.prc into fn.sh
         . ${fn_dr}/_rbld_l_xx.sh ${FNN}
         #! up to mem fn
         . ${fn_dr}/$1.sh
@@ -110,97 +110,131 @@ l_99_tst_l() {
         return 0
     fi
 
-    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_99_tst_l.prc ------------------
+    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_02_is3_foe1head.prc ------------------
     #[[fn_body]]
 #? for copy to help block
+
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: all file 'source exec.tst' in ${tst_nm_dr}/
+MAIN: ${FNN} :: git at HEAD in \$PWD [or in dir \$1] return 0 - is_head, 1 - git error, 3 - not is_head
 TAGS:
 \$1 
 [, \$2]
+FLOW:   [if 
+            -]
+        
+# HIE ${FNN} 
+## CAUSA:
+ПРИЧИНА создания:
+## FORMULA:
+СХЕМА решения:
+## DOGMA:
+РЕШЕНИЕ задачи:
+### TST [as FLOW_1]
+### FLOW_1
+    - cd tst_dir
+    - call with args: [] -> [true answer in res_file]
 CNTL: 
 
     -h          : help
     _go         : edit body     : l_02_edit ${fn_nm}
     _rbld       : rebuild fn    : . ${fn_dr}/_rbld_l_xx.sh ${FNN}
-    _tst        : tst fn        : l_02_edit ${tst_nm_dr}/${FNN}/exec.tst
-
+    _tst        : tst fn        : . ${tst_nm_dr}/${FNN}/exec.tst
     _flow       : tst _flow     : . ${tst_nm_dr}/${FNN}/_flow_tst.sh
     _flow_1     : tst _flow_1   : . ${tst_nm_dr}/${FNN}/_flow_tst_v1.sh
-    
+
     _e_prc      : edit fn.prc   : l_02_edit ${prc_nm}
     _e_tst_dr   : edit tst_nm_dr: l_02_edit ${tst_nm_dr}
-    _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/l_99_tst_l
+    _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/${FNN}
 
-RETU: (any {0} | if: [...] {0} | if [...] {1})
+RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
 "
-    cd "${PPWD}" || {
-        echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
-        return 1
-    }
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0
 fi
 
 #! stdout fn introduction
-echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
-local tst_dir=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst
-local ret1=0
-local exec_tst_fl_pth=
-local lnm=
-local prn=
+#     #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
+#     local di=
+#     if [ -n "$N" ]; then
+#         if [ "$N" == "_i" ]; then
+#             di=1
+#         else
+#             di=0
+#         fi
+#     else
+#         di=0
+#     fi
 
-for exec_tst_fl_pth in $(find ${tst_dir} -name exec.tst); do
-    l_00_echo_info "\${exec_tst_fl_pth} = file://${exec_tst_fl_pth}"
-    if . ${exec_tst_fl_pth}; then
+#* greeting
+# [ $di -eq 1 ] && echo -e "${CYAN}--- $FNN() $* in file://${fn_sh_file} ---${NORMAL}" #started functions
 
-        lnm=$(basename $(dirname ${exec_tst_fl_pth}))
-        prn=${tst_dr}/${lnm}/.grot/_prn/
+#* errno
+# cmd arg
+# errno=$?
+# return ${errno}
 
-        if [[ -d ${tst_dr}/${lnm} ]]; then
-            [[ -d "${prn}" ]] || {
-                mkdir -p "${prn}"
-            }
-                md5sum ${fn_dr}/${lnm}.sh >${prn}/${lnm}.md5
-                l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' ${prn}/${lnm}.md5
+#* rename args
 
-                type ${lnm} >${prn}/${lnm}.type
+#* check cntl
 
-                echo ${fn_dr}/${lnm}.sh >${prn}/${lnm}.pth
-                l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' ${prn}/${lnm}.pth
-        else
-            l_00_echo_err "FAIL_EXEC :: '[[ -d ${tst_nm_dr}/${lnm} ]]' :: ret1=1"
-            ret1=1
-        fi
+#* inname cntl
 
-        # md5sum ${fn_nm} > ${tst_nm_dr}/${FNN}/.grot/_prn/${FNN}.md5
-        # echo ${fn_nm} > ${tst_nm_dr}/${FNN}/.grot/_prn/${FNN}.pth
-        # type ${FNN} > ${tst_nm_dr}/${FNN}/.grot/_prn/
-    else
-        ret1=1
-    fi
+#* define local variables
 
-done
+#! echo ARGS
+# [[ -n ${ARGS[0]} ]] && l_02_pa3e ARGS
 
-l_00_echo_sys "gig file ${fn_dr}/__res/l.sh"
-local item=
-local res_fl=${fn_dr}/__res/l.sh
-: >${res_fl}
-# /prc.d/boot_stl_fn.d/__tst
-for item in $(ls ${fn_dr}); do
-    [[ -f ${fn_dr}/${item} && "_" != "${item:0:1}" ]] && {
-        echo -e "${GREEN}\$item = '$item'${NORMAL}"
-        cat "${fn_dr}/${item}" >>"${res_fl}"
-    }
-done
+# [[ -n "$1" ]] || {
+#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
+#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+#     return 1
+# }
 
-[[ 0 -eq "${ret1}" ]] || {
-    l_00_echo_ret1 "$FNN() $*' in file://${file_name} , line=${LINENO} :: ANY_FAIL [ret1] 'code' :: return 1"
-    cd "$PPWD" || l_00_echo_err "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue"
+# while IFS=$'\n' read -r line; do
+#     :
+# done <"${1:-/dev/stdin}"
+
+#! use arg_ptr
+# eval "$2=$res_12341c43234rfe"
+
+#! ptr_path_1
+# local ptr_path_1="$1"
+# ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
+
+#! ptr_path_2
+# local ptr_path_2="$2"
+# ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
+
+#! ptr_path
+local ptr_path="$1"
+ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
+#[[ptr_path]]
+
+[[ -n "$1" && ! -d ${ptr_path} ]] && {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR 'file://${init_file}' where '\$1=$1' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }
+
+l_02_foe_td2e ${ptr_path} >/dev/null || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_GIT_DIR 'file://${ptr_path}' where '\$1=$1' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
+
+#l_02_foe_td2e
+
+if [[ -z "$(git status -s)" ]]; then
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 0
+else
+    cd ${PPWD} || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 3
+fi
 
     #* END fn block ------------------
 
@@ -210,4 +244,4 @@ done
 }
 
 #! SELF EXEC
-l_99_tst_l @
+# l_02_is3_foe1head @
