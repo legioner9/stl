@@ -7,14 +7,14 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_l_02_is3_foe1head_b103f2e_flow_1() {
+_l_01_xs2ret_4133424_flow_1() {
 
-    if ! command -v l_02_is3_foe1head >/dev/null; then
-        l_00_echo_ret1 "TYPE_ERROR : l_02_is3_foe1head"
+    if ! command -v l_01_xs2ret >/dev/null; then
+        l_00_echo_ret1 "TYPE_ERROR : l_01_xs2ret"
         return 1
     fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_02_is3_foe1head/_flow_tst_v1.sh
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_01_xs2ret/_flow_tst_v1.sh
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -44,15 +44,16 @@ _l_02_is3_foe1head_b103f2e_flow_1() {
         return 1
     }
 
-    local ext_foe_dir=${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_foe
-    rm -rf foe_tst
-    mkdir foe_tst
+    l_00_echo_code "'l_01_xs2ret \"ls\"'"
+    l_01_xs2ret "ls"
 
-    l_02_unzip2 ${ext_foe_dir}/at_head.zip foe_tst
-    l_02_is3_foe1head foe_tst
-    echo $?
+    l_00_echo_code "'l_01_xs2ret \"lsx\"'"
+    l_01_xs2ret "lsx"
 
-    # l_02_is3_foe1head "${tst_dir}" &>>"${res}"
+    l_00_echo_code "'l_01_xs2ret \"ls /csa\"'"
+    l_01_xs2ret "ls /csa"
+
+    # l_01_xs2ret "${tst_dir}" &>>"${res}"
 
     #?-------------------------------------
     #?----------------------------------------------------
@@ -64,4 +65,4 @@ _l_02_is3_foe1head_b103f2e_flow_1() {
 
 }
 
-_l_02_is3_foe1head_b103f2e_flow_1 "$@"
+_l_01_xs2ret_4133424_flow_1 "$@"
