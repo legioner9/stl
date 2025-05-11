@@ -209,7 +209,7 @@ fi
 # local ptr_path_2="$2"
 # ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
 
-"$1" &>/dev/null
+$1 &>/dev/null
 echo $?
 
     #* END fn block ------------------

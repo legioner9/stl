@@ -8,15 +8,15 @@
 # "${ECHO_ERR}$FNN() $*' in file://${file_name} , line=${LINENO} :: CAUS_NAME [VAR] 'code' :: return 1${NRM}" >&2
 # cd ${PPWD} || echo -e "${ECHO_WAR}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [\${PPWD}] '${PPWD}' return 1${NRM}" >&2
 
-l_02_foe_td2e() {
+l_02_is3_foe1head() {
 
-    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_02_foe_td2e`
+    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_02_is3_foe1head`
     #! All changes will be lost after rebuilding
     #! To change this file use the following commands:
 
-    #! l_02_foe_td2e _e_prc to edit/change 'fn block',
-    #! l_02_foe_td2e _rbld to rebuild fn with changed 'fn block'
-    #! l_02_foe_td2e _e_xxx` to edit 'init block'
+    #! l_02_is3_foe1head _e_prc to edit/change 'fn block',
+    #! l_02_is3_foe1head _rbld to rebuild fn with changed 'fn block'
+    #! l_02_is3_foe1head _e_xxx` to edit 'init block'
 
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
@@ -102,7 +102,7 @@ l_02_foe_td2e() {
     fi
 
     if [[ "_rbld" == "$1" ]]; then
-        #! rebuild fn : bcp && ord fn.sh from l_02_foe_td2e.sh , cp fn.prc into fn.sh
+        #! rebuild fn : bcp && ord fn.sh from l_02_is3_foe1head.sh , cp fn.prc into fn.sh
         . ${fn_dr}/_rbld_l_xx.sh ${FNN}
         #! up to mem fn
         . ${fn_dr}/$1.sh
@@ -110,13 +110,13 @@ l_02_foe_td2e() {
         return 0
     fi
 
-    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_02_foe_td2e.prc ------------------
+    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_02_is3_foe1head.prc ------------------
     #[[fn_body]]
 #? for copy to help block
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: stdout git_top_dir in \$PWD [, or \$1]
+MAIN: ${FNN} :: git at HEAD in \$PWD [or in dir \$1] return 0 - is_head, 1 - git error, 3 - not is_head
 TAGS:
 \$1 
 [, \$2]
@@ -209,27 +209,32 @@ fi
 # local ptr_path_2="$2"
 # ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
 
-#! ptr_path_1
-local ptr_path_1="$1"
-ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
+#! ptr_path
+local ptr_path="$1"
+ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
+#[[ptr_path]]
 
-[[ -n "$1" && ! -d ${ptr_path_1} ]] && {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR 'file://${ptr_path_1}' where '\$1=$1' return 1"
+[[ -n "$1" && ! -d ${ptr_path} ]] && {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR 'file://${init_file}' where '\$1=$1' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }
 
-cd ${ptr_path_1} || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'cd ${ptr_path_1}' where '\$1=$1' return 1"
+l_02_foe_td2e ${ptr_path} >/div/null || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_GIT_DIR 'file://${ptr_path}' where '\$1=$1' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }
 
-git rev-parse --show-toplevel || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_GIT_DIR ${ptr_path_1} 'git rev-parse --show-toplevel' where '\$1=$1' return 1"
+#l_02_foe_td2e
+
+if [[ -z "$(git status -s)" ]]; then
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
+    return 0
+else
+    cd ${PPWD} || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 3
+fi
 
     #* END fn block ------------------
 
@@ -239,4 +244,4 @@ git rev-parse --show-toplevel || {
 }
 
 #! SELF EXEC
-# l_02_foe_td2e @
+# l_02_is3_foe1head @

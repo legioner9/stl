@@ -53,6 +53,9 @@ _l_01_xs2ret_4133424_flow_1() {
     l_00_echo_code "'l_01_xs2ret \"ls /csa\"'"
     l_01_xs2ret "ls /csa"
 
+    l_00_echo_code "'l_01_xs2ret \"ls csa\"'"
+    l_01_xs2ret "ls csa"
+
     # l_01_xs2ret "${tst_dir}" &>>"${res}"
 
     #?-------------------------------------
