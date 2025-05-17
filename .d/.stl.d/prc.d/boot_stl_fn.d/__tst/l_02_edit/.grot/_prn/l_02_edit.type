@@ -142,7 +142,7 @@ EXAM:   ${FNN} [, [, ]]
                     else
                         if type "vim" 2> /dev/null; then
                             l_00_echo_code "vim $ptr_path${NORMAL}";
-                            vim "$ptr_path";
+                            gvim -v "$ptr_path";
                         else
                             l_00_echo_err "editors: codium, code, gvim, vim, mc not enabled" 1>&2;
                         fi;

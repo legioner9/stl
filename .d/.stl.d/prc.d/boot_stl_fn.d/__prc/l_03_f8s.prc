@@ -41,7 +41,7 @@ EXAM:   ${FNN} [, [, ]]
 fi
 
 #! stdout fn introduction
-# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 #     #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
 #     local di=

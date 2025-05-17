@@ -14935,7 +14935,7 @@ EXAM:   ${FNN} [, [, ]]
 fi
 
 #! stdout fn introduction
-# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 #     #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
 #     local di=
@@ -14993,23 +14993,54 @@ local arg_3=
 local arg_4=
 
 if [[ "@" == "$3" ]]; then
-    # TODO don't work this section see ${FNN} _flow_1
-    echo "Enter num menu :"
+    echo "Enter num_file:"
     read -r
     arg_3=$REPLY
     l_00_echo_info "'\$arg_3 = $arg_3'"
+    [[ -n "$arg_3" ]] || {
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY '\$arg_3 = $arg_3' where '\$3=$3' return 1"
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        return 1
+    }
 else
     arg_3="$3"
 fi
 
 if [[ "@" == "$4" ]]; then
-    # TODO don't work this section see ${FNN} _flow_1
-    echo "Enter num menu choice dir :"
+    echo "Enter num_str:"
     read -r
     arg_4=$REPLY
     l_00_echo_info "'\$arg_4 = $arg_4'"
+    [[ -n "$arg_4" ]] || {
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY '\$arg_4 = $arg_4' where '\$4=$4' return 1"
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        return 1
+    }
 else
     arg_4="$4"
+fi
+
+local ret1=0
+if [[ "@@" == "$3" ]]; then
+    echo "Enter arr (num_file num_str):"
+    read -r arg_3 arg_4
+    l_00_echo_info "'\$arg_3 = $arg_3'"
+    l_00_echo_info "'\$arg_4 = $arg_4'"
+    [[ -n "$arg_3" ]] || {
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY '\$arg_3 = $arg_3' where '\$3=$3' ret1=1"
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        ret1=1
+    }
+    [[ -n "$arg_4" ]] || {
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY '\$arg_4 = $arg_4' where '\$4=$4' ret1=1"
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        ret1=1
+    }
+    [[ 0 -eq ${ret1} ]] || {
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY '\$arg_3 = $arg_3' or/and '\$arg_4 = $arg_4' where '\$3=$3' '\$4=$4' return 1"
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        return 1
+    }
 fi
 
 l_01_is_od "$arg_3" || {
@@ -15219,7 +15250,7 @@ EXAM:   ${FNN} [, [, ]]
 fi
 
 #! stdout fn introduction
-# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 #     #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
 #     local di=

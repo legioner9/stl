@@ -49,13 +49,42 @@ _l_03_df8s_3187854_flow_1() {
     l_03_df8s "0.d" result 0 0
     l_00_echo_info "'\$result = $result'"
 
+    result=
     l_03_df8s "0.d" result 2 1
     l_00_echo_info "'\$result = $result'"
 
+    result=
+    echo "stdin 1"
     l_03_df8s "0.d" result @ 1 <<<"1"
     l_00_echo_info "'\$result = $result'"
 
-    
+    result=
+    echo "stdin (1) 3"
+    l_03_df8s "0.d" result @ @ <<EOF
+1
+3
+EOF
+    l_00_echo_info "'\$result = $result'"
+
+    result=
+    echo "stdin 'a'"
+    l_03_df8s "0.d" result @ 1 <<<"a"
+    l_00_echo_info "'\$result = $result'"
+
+    result=
+    echo "stdin 4"
+    l_03_df8s "0.d" result 3 @ <<<"4"
+    l_00_echo_info "'\$result = $result'"
+
+    result=
+    echo "stdin '1 4'"
+    l_03_df8s "0.d" result @@ x <<<"1 4"
+    l_00_echo_info "'\$result = $result'"
+
+    result=
+    echo "stdin '1 a'"
+    l_03_df8s "0.d" result @@ x <<<"1 a"
+    l_00_echo_info "'\$result = $result'"
 
     # l_03_df8s "${tst_dir}" &>>"${res}"
 
