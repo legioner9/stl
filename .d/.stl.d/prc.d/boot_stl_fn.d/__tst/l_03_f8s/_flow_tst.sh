@@ -55,6 +55,11 @@ _l_03_f8s_60c975c_flow() {
     # l_00_echo_info "'\$res = $res'"
     echo ${result} &>>"${res}"
 
+    # local val=1
+    l_03_f8s file.lst result @ <<<"1"
+    # TODO don't work this section res=''
+    l_00_echo_info "'\$res1 = $res1'"
+    echo ${result} &>>"${res}"
     # l_03_f8s "${tst_dir}" &>>"${res}"
 
     #?-------------------------------------

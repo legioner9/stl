@@ -54,8 +54,8 @@ _l_03_df8s_3187854_flow() {
     # l_03_df8s "0.d" result 0 0
     # l_00_echo_info "'\$result = $result'"
     # result=
-    l_03_df8s 0.d result 2 1
-    l_00_echo_info "'\$result = $result'" &>>"${res}"
+    l_03_df8s "0.d" result 2 1
+    echo "$result'" &>>"${res}"
 
     # l_03_df8s "${tst_dir}" &>>"${res}"
     #! rm abs_path

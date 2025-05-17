@@ -209,38 +209,6 @@ ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
 # local ptr_path_2="$2"
 # ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
 
-if [[ "@" == "$3" ]]; then
-    # TODO don't work this section see ${FNN} _flow_1
-    echo "Enter num menu :"
-    read -r
-    arg_3=$REPLY
-    l_00_echo_info "'\$arg_3 = $arg_3'"
-else
-    arg_3="$3"
-fi
-
-if [[ "@" == "$4" ]]; then
-    # TODO don't work this section see ${FNN} _flow_1
-    echo "Enter num menu :"
-    read -r
-    arg_4=$REPLY
-    l_00_echo_info "'\$arg_4 = $arg_4'"
-else
-    arg_4="$4"
-fi
-
-if [[ "@@" == "$3" ]]; then
-    # TODO don't work this section see ${FNN} _flow_1
-    echo "Enter num menu :"
-    read -r arg_3 arg_4
-    l_00_echo_info "'\$arg_3 = $arg_3'"
-    l_00_echo_info "'\$arg_4 = $arg_4'"
-else
-    arg_3="$3"
-    #! only from stdin
-    # arg_4="$4" 
-fi
-
 local arg_3=
 local arg_4=
 

@@ -48,9 +48,14 @@ _l_03_df8s_3187854_flow_1() {
     local result=
     l_03_df8s "0.d" result 0 0
     l_00_echo_info "'\$result = $result'"
-    result=
-    l_03_df8s 0.d result 2 1
+
+    l_03_df8s "0.d" result 2 1
     l_00_echo_info "'\$result = $result'"
+
+    l_03_df8s "0.d" result @ 1 <<<"1"
+    l_00_echo_info "'\$result = $result'"
+
+    
 
     # l_03_df8s "${tst_dir}" &>>"${res}"
 

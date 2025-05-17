@@ -55,7 +55,10 @@ _l_03_f8s_60c975c_flow_1() {
     l_03_f8s file.lst res @
     l_00_echo_info "'\$res = $res'"
     res1=
-    echo 1 | l_03_f8s file.lst res1 @
+
+    # echo 1 | l_03_f8s file.lst res1 @ 
+    local val=1
+    l_03_f8s file.lst res1 @ <<<$val
     # TODO don't work this section res=''
     l_00_echo_info "'\$res1 = $res1'"
 
