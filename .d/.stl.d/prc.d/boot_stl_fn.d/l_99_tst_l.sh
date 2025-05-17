@@ -151,9 +151,10 @@ local ret1=0
 local exec_tst_fl_pth=
 local lnm=
 local prn=
-local md5=
 
-for exec_tst_fl_pth in $(find ${tst_dir} -name exec.tst); do
+local arr_fail=()
+
+for exec_tst_fl_pth in $(find ${tst_dir} -name exec.tst | sort); do
     l_00_echo_info "\${exec_tst_fl_pth} = file://${exec_tst_fl_pth}"
     if . ${exec_tst_fl_pth}; then
 
@@ -175,29 +176,28 @@ for exec_tst_fl_pth in $(find ${tst_dir} -name exec.tst); do
             ret1=1
         fi
 
-        # md5sum ${fn_nm} > ${tst_nm_dr}/${FNN}/.grot/_prn/${FNN}.md5
-        # echo ${fn_nm} > ${tst_nm_dr}/${FNN}/.grot/_prn/${FNN}.pth
-        # type ${FNN} > ${tst_nm_dr}/${FNN}/.grot/_prn/
     else
+        arr_fail+=($(basename $(dirname ${exec_tst_fl_pth})))
         ret1=1
     fi
-
 done
 
-l_00_echo_sys "gig file ${fn_dr}/__res/l.sh"
-local item=
-local res_fl=${fn_dr}/__res/l.sh
-: >${res_fl}
-# /prc.d/boot_stl_fn.d/__tst
-for item in $(ls ${fn_dr}); do
-    [[ -f ${fn_dr}/${item} && "_" != "${item:0:1}" ]] && {
-        echo -e "${GREEN}\$item = '$item'${NORMAL}"
-        cat "${fn_dr}/${item}" >>"${res_fl}"
-    }
-done
+[[ 0 -eq "${ret1}" ]] && {
+    l_00_echo_sys "gig file ${fn_dr}/__res/l.sh"
+    local item=
+    local res_fl=${fn_dr}/__res/l.sh
+    : >${res_fl}
+    # /prc.d/boot_stl_fn.d/__tst
+    for item in $(ls ${fn_dr}); do
+        [[ -f ${fn_dr}/${item} && "_" != "${item:0:1}" ]] && {
+            echo -e "${GREEN}\$item = '$item'${NORMAL}"
+            cat "${fn_dr}/${item}" >>"${res_fl}"
+        }
+    done
+}
 
 [[ 0 -eq "${ret1}" ]] || {
-    l_00_echo_ret1 "$FNN() $*' in file://${file_name} , line=${LINENO} :: ANY_FAIL [ret1] 'code' :: return 1"
+    l_00_echo_ret1 "$FNN() $*' in file://${fn_nm}, line=${LINENO} :: FAILS tst functions: ${arr_fail[*]} :: return 1"
     cd "$PPWD" || l_00_echo_err "'$FNN() $*' in fs= file://${STL_D_PATH}/.stldrc , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue"
     return 1
 }

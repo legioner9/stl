@@ -8,15 +8,15 @@
 # "${ECHO_ERR}$FNN() $*' in file://${file_name} , line=${LINENO} :: CAUS_NAME [VAR] 'code' :: return 1${NRM}" >&2
 # cd ${PPWD} || echo -e "${ECHO_WAR}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [\${PPWD}] '${PPWD}' return 1${NRM}" >&2
 
-l_03_f8s() {
+l_02_pa8s() {
 
-    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_03_f8s`
+    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_02_pa8s`
     #! All changes will be lost after rebuilding
     #! To change this file use the following commands:
 
-    #! l_03_f8s _e_prc to edit/change 'fn block',
-    #! l_03_f8s _rbld to rebuild fn with changed 'fn block'
-    #! l_03_f8s _e_xxx` to edit 'init block'
+    #! l_02_pa8s _e_prc to edit/change 'fn block',
+    #! l_02_pa8s _rbld to rebuild fn with changed 'fn block'
+    #! l_02_pa8s _e_xxx` to edit 'init block'
 
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
@@ -102,7 +102,7 @@ l_03_f8s() {
     fi
 
     if [[ "_rbld" == "$1" ]]; then
-        #! rebuild fn : bcp && ord fn.sh from l_03_f8s.sh , cp fn.prc into fn.sh
+        #! rebuild fn : bcp && ord fn.sh from l_02_pa8s.sh , cp fn.prc into fn.sh
         . ${fn_dr}/_rbld_l_xx.sh ${FNN}
         #! up to mem fn
         . ${fn_dr}/$1.sh
@@ -110,14 +110,14 @@ l_03_f8s() {
         return 0
     fi
 
-    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_03_f8s.prc ------------------
+    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_02_pa8s.prc ------------------
     #[[fn_body]]
 #? for copy to help block
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: in \$1 file (in menu)=8 choice string \$2 ptr_result \$3 0 or num_menu['TODO not work' or @ - num_menu from stdin]
-TAGS: @fl @str @menu
+MAIN: ${FNN} :: \$1: parr [n]ame mm, \$2: parr [r]es [mm], \$3: parr string result \$4 0 or num menu
+TAGS: @menu @pa
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -188,52 +188,171 @@ fi
 #! echo ARGS
 # [[ -n ${ARGS[0]} ]] && l_02_pa3e ARGS
 
-[[ -n "$3" ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$2' mast be 0 or num_menu return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
-
-if [[ "@" == "$3" ]]; then
-    # TODO don't work this section see ${FNN} _flow_1
-    echo "Enter num menu :"
-    read -r
-    arg_3=$REPLY
-    l_00_echo_info "'\$arg_3 = $arg_3'"
-else
-    arg_3="$3"
-fi
-
-local arg_2="$2"
+# [[ -n "$1" ]] || {
+#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
+#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+#     return 1
+# }
 
 # while IFS=$'\n' read -r line; do
 #     :
 # done <"${1:-/dev/stdin}"
 
+#! use arg_ptr
+# eval "$2=$res_12341c43234rfe"
+
 #! ptr_path_1
-local ptr_path_1="$1"
-ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
+# local ptr_path_1="$1"
+# ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
 
 #! ptr_path_2
 # local ptr_path_2="$2"
 # ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
 
-l_01_is_od "$arg_3" || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '\$3=$3' mast be 0 or num_menu return 1"
+local ARGS=("$@")
+
+local ARGS0="$1"
+local ARGS1="$2"
+local ARGS2="$3"
+local ARGS3="$4"
+
+[[ -n "$4" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$4' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }
 
-local arr_fery23451ddwf=($(l_02_f2e "${ptr_path_1}"))
+local num=
 
-local res_erwfw45345gtryh=
+#! ------ START confict_name_arg ------
+local coflict_name_arr=("arr_name_234wqf" "arr_res_vcdf48" "result_fr9430")
+local item1=
+local item2=
+local i=
+local conflict_flag=0
+for item1 in ${coflict_name_arr[@]}; do
+    i=0
+    for item2 in ${ARGS[@]}; do
+        if [[ ${item1} = ${item2} ]]; then
+            hint="\$1: parr [n]ame mm, \$2: parr [r]es [mm], \$3: parr string result_fr9430 \$4 0 or num menu"
+            l_00_echo_err "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: CONFLICT_NAME : ARGS${i} not be equal '${item1}' : ${hint} : continue"
+            conflict_flag=1
+        fi
+        ((++i))
+    done
+done
+if [[ ${conflict_flag} -eq 1 ]]; then
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: CONFLICT '\${coflict_name_arr[@]} = ${coflict_name_arr[*]}' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+fi
+#! ------ END confict_name_arg ------
+#[[confict_name_arg]]
+#* ---------- arr_name ----------------
+local arr_name_234wqf=()
 
-# l_00_echo_code "'l_02_pa2mm arr_fery23451ddwf arr_fery23451ddwf res_erwfw45345gtryh $arg_3'"
-l_02_pa2mm arr_fery23451ddwf arr_fery23451ddwf res_erwfw45345gtryh "$arg_3"
+eval num=\$\{#"${ARGS0}"[@]\}
 
-# l_00_echo_info "'\$res_erwfw45345gtryh = $res_erwfw45345gtryh'"
-# l_00_echo_code "'$arg_2=$res_erwfw45345gtryh'"
-eval "$arg_2=$res_erwfw45345gtryh"
+if [[ "${num}" -eq 0 ]]; then
+
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DEFINE as array : '${ARGS0}' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : return 1${NRM}"
+    return 1
+
+fi
+
+for ((i = 0; i < ${num}; i++)); do
+    eval arr_name_234wqf+=\(\"\${${ARGS0}[$i]}\"\)
+done
+
+# l_02_pa3e arr_name_234wqf
+
+#* ---------- arr_res_vcdf48 ----------------
+
+local arr_res_vcdf48=()
+
+eval num=\$\{#"${ARGS1}"[@]\}
+
+if [[ "${num}" -eq 0 ]]; then
+
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DEFINE as array : '${ARGS1}' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : return 1${NRM}"
+    return 1
+
+fi
+
+# if [[ "${ARGS1}" == "arr_res_vcdf48" ]]; then
+#     hint="\$1: parr [n]ame mm, \$2: parr [r]es [mm], \$3: parr string result_fr9430 \$4 0 or num menu"
+#     _st_exit "in fs= file:// , line=${LINENO}, ${FNN}() : CONFLICT_NAME : ARGS1 not be equal 'arr_res_vcdf48' : ${hint} : return 1"
+#     return 1
+# fi
+
+for ((i = 0; i < ${num}; i++)); do
+    eval arr_res_vcdf48+=\(\"\${${ARGS1}[$i]}\"\)
+done
+
+# l_02_pa3e arr_res_vcdf48
+
+eval result_fr9430=${ARGS2}
+
+#! start bash select -----------------------------------
+#! enter env menu: $1 as nomber menu, arr as name of points, res as using stinr
+# echo -e "${BLUE}--- exec ${FNN}() (num_menu) ---${NORMAL}" #started functions
+
+local num_res=
+local item_arr=
+#{arr_res_vcdf48}
+# arr+=("aaaaaaaaa")
+# res+=("bbbbbbbbb")
+# arr+=("aaaaaaaaa")
+# res+=("bbbbbbbbb")
+# arr+=("aaaaaaaaa")
+# res+=("bbbbbbbbb")
+# arr+=("aaaaaaaaa")
+# res+=("bbbbbbbbb")
+arr_name_234wqf+=("exit menu")
+arr_res_vcdf48+=("return 0")
+
+#! l_02_pa3e arr_name_234wqf
+#! l_02_pa3e arr_res_vcdf48
+
+if ! l_01_is_od $ARGS3; then
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUM : '\$ARGS3 = $ARGS3: 0 or num menu' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : return 1${NRM}"
+    return 1
+fi
+
+if ! [[ $ARGS3 -le ${#arr_name_234wqf[@]} ]]; then
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FAIL : '[[ \$ARGS3 -le \${#arr_name_234wqf[@]} ]]' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : return 1${NRM}"
+    return 1
+fi
+
+if [[ -n "$ARGS3" ]] && [[ $ARGS3 -ne 0 ]] && l_01_is_od $ARGS3 && [[ $ARGS3 -le ${#arr_name_234wqf[@]} ]]; then
+    num_res=$(($ARGS3 - 1))
+    if [[ "${arr_name_234wqf[${num_res}]}" == "exit menu" ]]; then
+
+        cd $PPWD
+        return 0
+    fi
+    eval $result_fr9430=\"${arr_res_vcdf48[${num_res}]}\"
+
+    cd $PPWD
+    return 0
+fi
+PS3="eligendi actiones: "
+select item_arr in "${arr_name_234wqf[@]}"; do
+    for ((i = 0; i < 1000; i++)); do
+        if [[ ${item_arr} == ${arr_name_234wqf[$i]} ]]; then
+            if [[ "${arr_name_234wqf[$i]}" == "exit menu" ]]; then
+                return 0
+            fi
+            eval $result_fr9430=\"${arr_res_vcdf48[$i]}\"
+            cd $PPWD
+            return 0
+        fi
+    done
+done
 
     #* END fn block ------------------
 
@@ -243,4 +362,4 @@ eval "$arg_2=$res_erwfw45345gtryh"
 }
 
 #! SELF EXEC
-# l_03_f8s @
+# l_02_pa8s @

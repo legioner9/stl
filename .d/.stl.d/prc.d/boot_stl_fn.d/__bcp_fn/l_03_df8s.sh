@@ -264,7 +264,7 @@ l_02_pa2mm arr_file_dsae123444 arr_file_dsae123444 res_file_bh565fdgg "$arg_3"
 IFS=$'\n'
 local arr_str_hrfde3223=($(l_02_f2e "${res_file_bh565fdgg}"))
 unset IFS
-l_02_pa3e arr_str_hrfde3223
+# l_02_pa3e arr_str_hrfde3223
 local res_str_ukfs2345=
 
 l_02_pa2mm arr_str_hrfde3223 arr_str_hrfde3223 res_str_ukfs2345 "$arg_4"

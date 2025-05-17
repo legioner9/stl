@@ -24,13 +24,20 @@ github
     - commit
     - push
     - pull
-    - 
+    - add remote
+    - clone
 
 ### Выбираем (nm) набор репо с которым будет работать процедура
     - все загруженные на диск
     - некоторые загруженные на диск
-    - только измененные
+    - только измененные среди всех загруженных на диск
     - из списка
+
+### Использование хуков - внешние процедуры используемые before-after
+    - системные - from data fn : [${d_lib_grot_opt}/.ham/sys/] but use var from user ($HOME) files
+        - файл с флагом защиты репо от изменений ${HOME}/.w - command pull reseted any changes in repo
+    - from data fn - ${d_lib_grot_opt}/.ham/nm_opi/
+    - from PATH_TO_REPO/.d/.ham
 
 ## DOGMA:
 РЕШЕНИЕ задачи:

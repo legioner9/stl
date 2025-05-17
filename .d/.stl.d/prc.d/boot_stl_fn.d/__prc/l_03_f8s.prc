@@ -3,7 +3,7 @@
 if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: in \$1 file (in menu)=8 choice string \$2 ptr_result \$3 0 or num_menu['TODO not work' or @ - num_menu from stdin]
-TAGS:
+TAGS: @fl @str @menu
 \$1 
 [, \$2]
 FLOW:   [if 

@@ -1,5 +1,5 @@
-l_03_f8s — это функция
-l_03_f8s () 
+l_02_pa8s — это функция
+l_02_pa8s () 
 { 
     local FNN=${FUNCNAME[0]};
     local PPWD=$PWD;
@@ -79,8 +79,8 @@ l_03_f8s ()
     fi;
     if [[ "-h" == "$1" ]]; then
         echo -e "
-MAIN: ${FNN} :: in \$1 file (in menu)=8 choice string \$2 ptr_result \$3 0 or num_menu['TODO not work' or @ - num_menu from stdin]
-TAGS: @fl @str @menu
+MAIN: ${FNN} :: \$1: parr [n]ame mm, \$2: parr [r]es [mm], \$3: parr string result \$4 0 or num menu
+TAGS: @menu @pa
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -116,31 +116,102 @@ EXAM:   ${FNN} [, [, ]]
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
         return 0;
     fi;
-    [[ -n "$3" ]] || { 
-        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$2' mast be 0 or num_menu return 1";
+    local ARGS=("$@");
+    local ARGS0="$1";
+    local ARGS1="$2";
+    local ARGS2="$3";
+    local ARGS3="$4";
+    [[ -n "$4" ]] || { 
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$4' return 1";
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
         return 1
     };
-    if [[ "@" == "$3" ]]; then
-        echo "Enter num menu :";
-        read -r;
-        arg_3=$REPLY;
-        l_00_echo_info "'\$arg_3 = $arg_3'";
-    else
-        arg_3="$3";
+    local num=;
+    local coflict_name_arr=("arr_name_234wqf" "arr_res_vcdf48" "result_fr9430");
+    local item1=;
+    local item2=;
+    local i=;
+    local conflict_flag=0;
+    for item1 in ${coflict_name_arr[@]};
+    do
+        i=0;
+        for item2 in ${ARGS[@]};
+        do
+            if [[ ${item1} = ${item2} ]]; then
+                hint="\$1: parr [n]ame mm, \$2: parr [r]es [mm], \$3: parr string result_fr9430 \$4 0 or num menu";
+                l_00_echo_err "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: CONFLICT_NAME : ARGS${i} not be equal '${item1}' : ${hint} : continue";
+                conflict_flag=1;
+            fi;
+            ((++i));
+        done;
+    done;
+    if [[ ${conflict_flag} -eq 1 ]]; then
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: CONFLICT '\${coflict_name_arr[@]} = ${coflict_name_arr[*]}' return 1";
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
+        return 1;
     fi;
-    local arg_2="$2";
-    local ptr_path_1="$1";
-    ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")";
-    l_01_is_od "$arg_3" || { 
-        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '\$3=$3' mast be 0 or num_menu return 1";
-        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
-        return 1
-    };
-    local arr_fery23451ddwf=($(l_02_f2e "${ptr_path_1}"));
-    local res_erwfw45345gtryh=;
-    l_02_pa2mm arr_fery23451ddwf arr_fery23451ddwf res_erwfw45345gtryh "$arg_3";
-    eval "$arg_2=$res_erwfw45345gtryh";
+    local arr_name_234wqf=();
+    eval num=\$\{#"${ARGS0}"[@]\};
+    if [[ "${num}" -eq 0 ]]; then
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DEFINE as array : '${ARGS0}' return 1";
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : return 1${NRM}";
+        return 1;
+    fi;
+    for ((i = 0; i < ${num}; i++))
+    do
+        eval arr_name_234wqf+=\(\"\${${ARGS0}[$i]}\"\);
+    done;
+    local arr_res_vcdf48=();
+    eval num=\$\{#"${ARGS1}"[@]\};
+    if [[ "${num}" -eq 0 ]]; then
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DEFINE as array : '${ARGS1}' return 1";
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : return 1${NRM}";
+        return 1;
+    fi;
+    for ((i = 0; i < ${num}; i++))
+    do
+        eval arr_res_vcdf48+=\(\"\${${ARGS1}[$i]}\"\);
+    done;
+    eval result_fr9430=${ARGS2};
+    local num_res=;
+    local item_arr=;
+    arr_name_234wqf+=("exit menu");
+    arr_res_vcdf48+=("return 0");
+    if ! l_01_is_od $ARGS3; then
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUM : '\$ARGS3 = $ARGS3: 0 or num menu' return 1";
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : return 1${NRM}";
+        return 1;
+    fi;
+    if ! [[ $ARGS3 -le ${#arr_name_234wqf[@]} ]]; then
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FAIL : '[[ \$ARGS3 -le \${#arr_name_234wqf[@]} ]]' return 1";
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : return 1${NRM}";
+        return 1;
+    fi;
+    if [[ -n "$ARGS3" ]] && [[ $ARGS3 -ne 0 ]] && l_01_is_od $ARGS3 && [[ $ARGS3 -le ${#arr_name_234wqf[@]} ]]; then
+        num_res=$(($ARGS3 - 1));
+        if [[ "${arr_name_234wqf[${num_res}]}" == "exit menu" ]]; then
+            cd $PPWD;
+            return 0;
+        fi;
+        eval $result_fr9430=\"${arr_res_vcdf48[${num_res}]}\";
+        cd $PPWD;
+        return 0;
+    fi;
+    PS3="eligendi actiones: ";
+    select item_arr in "${arr_name_234wqf[@]}";
+    do
+        for ((i = 0; i < 1000; i++))
+        do
+            if [[ ${item_arr} == ${arr_name_234wqf[$i]} ]]; then
+                if [[ "${arr_name_234wqf[$i]}" == "exit menu" ]]; then
+                    return 0;
+                fi;
+                eval $result_fr9430=\"${arr_res_vcdf48[$i]}\";
+                cd $PPWD;
+                return 0;
+            fi;
+        done;
+    done;
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
     return 0
 }
