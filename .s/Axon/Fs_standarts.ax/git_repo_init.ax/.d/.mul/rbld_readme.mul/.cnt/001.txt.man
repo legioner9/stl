@@ -1,0 +1,5 @@
+# Manifesto
+
+## [Рекомендации RCM](/REPOBARE/_repo/ubique/.d/.mul/rbld_readme.mul/.in_cnx/001.rcm.d/res.md)
+## [Рекомендации RCM]({{path_to_rbld_readme_mul}}/.in_cnx/001.rcm.d/res.md)
+    
