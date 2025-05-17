@@ -1,9 +1,0 @@
-[0;30m[2m[102m[7m'$line =     echo "that echo"'[0m
-[0;30m[2m[106m[7m'eval     echo "that echo"'[0m
-that echo
-[0;30m[2m[102m[7m'$line = echo "command echo"'[0m
-[0;30m[2m[106m[7m'eval echo "command echo"'[0m
-command echo
-[0;30m[2m[102m[7m'$line = echo "command echo"'[0m
-[0;30m[2m[106m[7m'eval echo "command echo"'[0m
-command echo

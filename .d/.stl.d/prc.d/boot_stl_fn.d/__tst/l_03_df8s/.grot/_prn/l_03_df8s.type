@@ -158,13 +158,13 @@ EXAM:   ${FNN} [, [, ]]
         arr_file_dsae123444+=("${ptr_path_1}/$item");
     done;
     local res_file_bh565fdgg=;
-    l_02_pa2mm arr_file_dsae123444 arr_file_dsae123444 res_file_bh565fdgg "$arg_3";
+    l_02_pa8s arr_file_dsae123444 arr_file_dsae123444 res_file_bh565fdgg "$arg_3";
     IFS='
 ';
     local arr_str_hrfde3223=($(l_02_f2e "${res_file_bh565fdgg}"));
     unset IFS;
     local res_str_ukfs2345=;
-    l_02_pa2mm arr_str_hrfde3223 arr_str_hrfde3223 res_str_ukfs2345 "$arg_4";
+    l_02_pa8s arr_str_hrfde3223 arr_str_hrfde3223 res_str_ukfs2345 "$arg_4";
     eval "$2=\"$res_str_ukfs2345\"";
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
     return 0

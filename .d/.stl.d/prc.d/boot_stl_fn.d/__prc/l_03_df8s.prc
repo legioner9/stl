@@ -142,7 +142,7 @@ done
 # l_02_pa3e arr_file_dsae123444
 local res_file_bh565fdgg=
 
-l_02_pa2mm arr_file_dsae123444 arr_file_dsae123444 res_file_bh565fdgg "$arg_3"
+l_02_pa8s arr_file_dsae123444 arr_file_dsae123444 res_file_bh565fdgg "$arg_3"
 
 # l_00_echo_info "'\$res_file_bh565fdgg = $res_file_bh565fdgg'"
 
@@ -153,7 +153,7 @@ unset IFS
 # l_02_pa3e arr_str_hrfde3223
 local res_str_ukfs2345=
 
-l_02_pa2mm arr_str_hrfde3223 arr_str_hrfde3223 res_str_ukfs2345 "$arg_4"
+l_02_pa8s arr_str_hrfde3223 arr_str_hrfde3223 res_str_ukfs2345 "$arg_4"
 
 # l_00_echo_info "'\$res_str_ukfs2345 = $res_str_ukfs2345'"
 

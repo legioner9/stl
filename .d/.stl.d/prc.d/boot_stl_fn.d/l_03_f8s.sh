@@ -229,7 +229,7 @@ local arr_fery23451ddwf=($(l_02_f2e "${ptr_path_1}"))
 local res_erwfw45345gtryh=
 
 # l_00_echo_code "'l_02_pa2mm arr_fery23451ddwf arr_fery23451ddwf res_erwfw45345gtryh $arg_3'"
-l_02_pa2mm arr_fery23451ddwf arr_fery23451ddwf res_erwfw45345gtryh "$arg_3"
+l_02_pa8s arr_fery23451ddwf arr_fery23451ddwf res_erwfw45345gtryh "$arg_3"
 
 # l_00_echo_info "'\$res_erwfw45345gtryh = $res_erwfw45345gtryh'"
 # l_00_echo_code "'$arg_2=$res_erwfw45345gtryh'"

@@ -159,8 +159,8 @@ ${NORMAL}"
     _arr_name+=("l_02_edit ${d_lib_grot_opt}/.prc")
     _arr_result+=("l_02_edit ${d_lib_grot_opt}/.prc")
 
-    l_02_pa2mm _arr_name _arr_result _result "${ARGS[0]}" >/dev/null || {
-        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: FALSE_EXEC 'l_02_pa2mm _arr_name _arr_result _result "$1"' where '\$3=$3' return 1"
+    l_03_f8s _arr_name _arr_result _result "${ARGS[0]}" >/dev/null || {
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: FALSE_EXEC 'l_03_f8s _arr_name _arr_result _result "$1"' where '\$3=$3' return 1"
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
         return 1
     }
