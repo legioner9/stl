@@ -140,6 +140,7 @@ CASE file.exec,file.args ::
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
         return 0;
     fi;
+    echo -e "${ECHO_EXEC}'$FNN $*'${NRM}";
     [[ -n "$1" ]] || { 
         l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1";
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
@@ -155,7 +156,7 @@ CASE file.exec,file.args ::
     if [[ -f ${ptr_path} ]]; then
         while IFS= read -r line; do
             eval "$1 $line" || { 
-                l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE '\"\$1\" \"\$line\"' where '\$1=$1' return 1";
+                l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE '\"$1\" \"$line\"' where '\$1=$1' return 1";
                 cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
                 return 1
             };
@@ -163,7 +164,7 @@ CASE file.exec,file.args ::
     else
         while IFS= read -r line; do
             eval "$1 $line" || { 
-                l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE '\"\$1\" \"\$line\"' where '\$1=$1' return 1";
+                l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE '\"$1\" \"$line\"' where '\$1=$1' return 1";
                 cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
                 return 1
             };

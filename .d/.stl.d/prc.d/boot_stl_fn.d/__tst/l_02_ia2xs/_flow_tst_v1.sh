@@ -60,16 +60,22 @@ EOF
     # cat ${echo_colon_pth}
     # file ${echo_colon_pth}
     l_02_ia2xs ". echo_colon" <<EOF
+->that here_docs<- 
 first_str
 second_str
 EOF
 
     cat >file.args <<EOF
+->that file.args<-
 third_str
 fourth_str
 EOF
     # l_00_echo_code "'l_02_ia2xs \". ${echo_colon_pth}\" \"${file_args_pth}\"'"
+    file echo_colon
+    file file.args
     l_02_ia2xs ". echo_colon" file.args
+
+    l_02_ia2xs ". echo_colon" <<<"->that here_str<- \"argument\""
 
     cd "${PW}" || {
         l_00_echo_ret1 "${PW} not dir"

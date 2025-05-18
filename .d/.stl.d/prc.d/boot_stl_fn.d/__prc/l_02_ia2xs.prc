@@ -65,7 +65,7 @@ CASE file.exec,file.args ::
 fi
 
 #! stdout fn introduction
-# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 #     #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
 #     local di=
@@ -123,7 +123,7 @@ if [[ -f ${ptr_path} ]]; then
     while IFS= read -r line; do
         # l_00_echo_info "'\$line = $line'"
         eval "$1 $line" || {
-            l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE '\"\$1\" \"\$line\"' where '\$1=$1' return 1"
+            l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE '\"$1\" \"$line\"' where '\$1=$1' return 1"
             cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
             return 1
         }
@@ -132,7 +132,7 @@ else
     while IFS= read -r line; do
         # l_00_echo_info "'\$line = $line'"
         eval "$1 $line" || {
-            l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE '\"\$1\" \"\$line\"' where '\$1=$1' return 1"
+            l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE '\"$1\" \"$line\"' where '\$1=$1' return 1"
             cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
             return 1
         }
