@@ -1,0 +1,11 @@
+# Keywords
+
+    udr - [dir LEX(3.1) & LEX(3.3)]
+    ufl - [file LEX(3.1) & LEX(3.3)] 
+    ustr - [string LEX(3.2)]
+
+    dr - [dir LEX(3.3)]
+    fl - [file LEX(3.3)] 
+
+    Adr - [dir]
+    Afl - [file] 

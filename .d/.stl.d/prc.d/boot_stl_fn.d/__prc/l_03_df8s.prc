@@ -2,7 +2,7 @@
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: in \$1 [d]ir with [f]iles [[8] LEX(2.1)] choice string in files \$2 ptr_result \$3 0 or num_menu for choice [f]ile stdin_key or [@ LEX(1.1)] \$4 0 or num_menu for choice string in file stdin_key or [@ LEX(1.1)]
+MAIN: ${FNN} :: in \$1 [d]ir with u[f]iles [[8] LEX(2.1)] choice string in files \$2 [ptr_result LEX(1.3)] \$3 0 or num_menu for choice [f]ile stdin_key or [@ LEX(1.1)] \$4 0 or num_menu for choice string in file stdin_key or [@ LEX(1.1)]
 TAGS:
 \$1 
 [, \$2]
