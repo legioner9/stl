@@ -50,12 +50,47 @@ _l_03_df8s_3187854_flow() {
         return 1
     }
 
-    local result=
+    # local result=
     # l_03_df8s "0.d" result 0 0
-    # l_00_echo_info "'\$result = $result'"
-    # result=
+    # echo "$result" &>>"${res}"
+
+    result=
+    echo "args 2 1" &>>"${res}"
     l_03_df8s "0.d" result 2 1
-    echo "$result'" &>>"${res}"
+    echo "$result" &>>"${res}"
+
+    result=
+    echo "args @ 1 stdin 1" &>>"${res}"
+    l_03_df8s "0.d" result @ 1 <<<"1"
+    echo "$result" &>>"${res}"
+
+    result=
+    echo "args @ @ stdin fl(1 3)" &>>"${res}"
+    l_03_df8s "0.d" result @ @ <<EOF
+1
+3
+EOF
+    echo "$result" &>>"${res}"
+
+    # result=
+    # echo "stdin 'a'"
+    # l_03_df8s "0.d" result @ 1 <<<"a"
+    # echo "$result" &>>"${res}"
+
+    result=
+    echo "args 3 @ stdin 4" &>>"${res}"
+    l_03_df8s "0.d" result 3 @ <<<"4"
+    echo "$result" &>>"${res}"
+
+    result=
+    echo "args @@ x stdin '1 4'" &>>"${res}"
+    l_03_df8s "0.d" result @@ x <<<"1 4"
+    echo "$result" &>>"${res}"
+
+    # result=
+    # echo "stdin '1 a'"
+    # l_03_df8s "0.d" result @@ x <<<"1 a"
+    # echo "$result" &>>"${res}"
 
     # l_03_df8s "${tst_dir}" &>>"${res}"
     #! rm abs_path

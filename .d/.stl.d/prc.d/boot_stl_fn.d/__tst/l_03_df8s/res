@@ -1,1 +1,10 @@
-1 002.f'
+args 2 1
+1 002.f
+args @ 1 stdin 1
+1 001.f
+args @ @ stdin fl(1 3)
+3 001.f
+args 3 @ stdin 4
+4 003.f
+args @@ x stdin '1 4'
+4 001.f
