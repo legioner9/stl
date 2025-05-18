@@ -17,3 +17,12 @@
     local var=
     fn var
 ```
+## (1.4) CNTL arguments stl_fn
+
+    -h          help   
+    _go         edit (fn.sh | fn.prc for prc_functions)    
+    _tst        test fn
+    _flow       use_case for tst
+    _flow_1     free use_case num_1
+  
+    [_rbld]     build fn.sh from fn.prc
