@@ -50,6 +50,8 @@ _l_02_ia2xs_1c7ead4_flow() {
         return 1
     }
 
+    #! SINGLWORD
+
     cat >echo_colon <<EOF
 echo :\$1
 EOF
@@ -57,14 +59,23 @@ EOF
 third_str
 fourth_str
 EOF
+    echo "!STRING_AS_WORD!" &>>"${res}"
+    echo "FILE_ARG:" &>>"${res}"
+    l_02_ia2xs ". echo_colon" file.args &>>"${res}"
+
+    echo "FILE_PIPE:" &>>"${res}"
+    echo "pipe flow : cat file.args | l_02_ia2xs" &>>"${res}"
+    cat file.args | l_02_ia2xs ". echo_colon" &>>"${res}"
+
+    echo "HERE_DOC:" &>>"${res}"
     l_02_ia2xs ". echo_colon" <<EOF &>>"${res}"
+here_doc::
 first_str
 second_str
 EOF
 
-    l_02_ia2xs ". echo_colon" file.args &>>"${res}"
-    cat file.args | l_02_ia2xs ". echo_colon" &>>"${res}"
-    # l_02_ia2xs "${tst_dir}" &>>"${res}"
+    echo "HERE_STR:" &>>"${res}"
+    l_02_ia2xs ". echo_colon" <<<"here_str_::_fifth_str" &>>"${res}"
 
     #?-------------------------------------
     #?----------------------------------------------------

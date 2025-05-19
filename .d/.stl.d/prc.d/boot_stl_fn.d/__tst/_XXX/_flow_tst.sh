@@ -54,6 +54,28 @@ __XXX_RND_flow() {
     #! rm abs_path
     # l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
 
+    #! stdin_tst
+    #         echo "!STRING_AS_WORD!"
+    #     cat >FILE <<EOF
+    # third_str
+    # fourth_str
+    # EOF
+
+    #     echo "FILE_ARG:"
+    #     fn_str FILE &>>"${res}"
+
+    #     echo "FILE_PIPE:"
+    #     cat FILE | fn_str &>>"${res}"
+
+    #     echo "HERE_DOC:"
+    #     fn_str <<EOF &>>"${res}"
+    # first_str
+    # second_str
+    # EOF
+
+    #     echo "HERE_STR:"
+    #     fn_str <<<"here_str_::_fifth_str" &>>"${res}"
+
     #?-------------------------------------
     #?----------------------------------------------------
 

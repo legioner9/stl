@@ -1,9 +1,18 @@
-[0;30m[2m[104m[7m'l_02_ia2xs . echo_colon'[0m
-:first_str
-:second_str
+!STRING_AS_WORD!
+FILE_ARG:
 [0;30m[2m[104m[7m'l_02_ia2xs . echo_colon file.args'[0m
 :third_str
 :fourth_str
+FILE_PIPE:
+pipe flow : cat file.args | l_02_ia2xs
 [0;30m[2m[104m[7m'l_02_ia2xs . echo_colon'[0m
 :third_str
 :fourth_str
+HERE_DOC:
+[0;30m[2m[104m[7m'l_02_ia2xs . echo_colon'[0m
+:here_doc::
+:first_str
+:second_str
+HERE_STR:
+[0;30m[2m[104m[7m'l_02_ia2xs . echo_colon'[0m
+:here_str_::_fifth_str
