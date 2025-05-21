@@ -50,6 +50,21 @@ _l_03_env4fl_36c1332_flow() {
         return 1
     }
 
+    : >init
+
+    cat >init <<EOF
+${STL_LIB_D_PATH}/002_lib.stl_01.arb
+${STL_REPO_PATH}1_data_st/.f
+${STL_LIB_D_PATH}/002_lib.stl_01.arb
+${STL_REPO_PATH}/.s
+${HOME}/YA/.sync
+EOF
+
+    rm env
+    cp init env
+    l_03_env4fl env
+    cat env &>>"${res}"
+
     # l_03_env4fl "${tst_dir}" &>>"${res}"
     #! rm abs_path
     # l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
