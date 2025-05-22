@@ -2,7 +2,7 @@
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: dir []
+MAIN: ${FNN} :: dir 8 dir 
 TAGS:
 \$1 
 [, \$2]
