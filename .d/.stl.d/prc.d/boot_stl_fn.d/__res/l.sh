@@ -17052,7 +17052,7 @@ l_04_d8t4f() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: dir \$1 8 IFS(3.2) dir 4 IFS(2.1) \$2 fl
 TAGS:
 \$1 
 [, \$2]

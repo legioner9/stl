@@ -44,12 +44,34 @@ _l_04_d8t4f_867a09d_flow_1() {
         return 1
     }
 
-    echo "tree ${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_04_d8t4f/tst_dir/tml.d
-├── ins.d
-│   └── body.ins
-└── rcv.f
+    echo "tree ${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_04_d8t4f/tst_dir//tml.d.d
+├── 001.tml.d
+│   ├── ins.d
+│   │   └── body.ins
+│   └── rcv.f
+├── 002.tml.d
+│   ├── ins.d
+│   │   └── body.ins
+│   └── rcv.f
+└── 003.tml.d 
+    ├── ins.d
+    │   └── body.ins
+    └── rcv.f
 "
-    l_04_d8t4f tml.d result.file
+    rm result.file
+    l_04_d8t4f tml.d.d 1 result.file
+    cat result.file
+    rm result.file
+    l_04_d8t4f tml.d.d 0 result.file
+    cat result.file
+    rm result.file
+    l_04_d8t4f tml.d.d @ result.file <<<"2"
+    cat result.file
+    rm result.file
+    echo "3" | l_04_d8t4f tml.d.d @ result.file
+    cat result.file
+    rm result.file
+
     cat result.file
 
     # l_04_d8t4f "${tst_dir}" &>>"${res}"

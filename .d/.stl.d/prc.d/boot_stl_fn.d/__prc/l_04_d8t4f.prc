@@ -2,7 +2,7 @@
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: dir \$1 8 IFS(3.2) dir 4 IFS(2.1) \$2 fl
+MAIN: ${FNN} :: dir {\$1 IFS(3.2)} 8 num_menu {\$2 LEX(1.2)&&LEX(1.5)} dir 4 IFS(2.1) \$3 NOT_EXIST fl
 TAGS:
 \$1 
 [, \$2]
