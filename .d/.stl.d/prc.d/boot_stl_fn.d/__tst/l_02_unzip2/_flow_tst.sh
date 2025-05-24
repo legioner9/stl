@@ -100,6 +100,8 @@ _l_02_unzip2_711cb95_flow() {
     cat dir_src/dir_src_in/file_src_in &>>"${res}"
     echo &>>"${res}"
 
+    rm -r dir_src dir_dist
+
     # l_02_unzip2 "${tst_dir}" &>>"${res}"
 
     #?-------------------------------------

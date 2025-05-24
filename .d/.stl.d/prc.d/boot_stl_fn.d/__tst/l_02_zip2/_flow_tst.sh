@@ -70,6 +70,8 @@ _l_02_zip2_b9f57e3_flow() {
     cat dir_dist/dir_src_in/file_src_in &>>"${res}"
     echo &>>"${res}"
 
+    rm -r dir_src dir_dist
+
     # l_02_zip2 "${tst_dir}" &>>"${res}"
 
     #?-------------------------------------

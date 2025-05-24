@@ -98,6 +98,8 @@ _l_02_unzipp2_22a864a_flow() {
     cat dir_src/dir_src_in/file_src_in &>>"${res}"
     echo &>>"${res}"
 
+    rm -r dir_src dir_dist
+
     # l_02_unzipp2 "${tst_dir}" &>>"${res}"
 
     #?-------------------------------------
