@@ -16,9 +16,14 @@
     - /bsh.d
     - /env.d
     - /via.d
+## ${STL_REPO_PATH}/TODO.stl.md
 
 # ENV 
 ## ${STL_REPO_PATH} - git repo STL
 ## ${STL_D_PATH} - boot STL
 ## ${STL_DATA_D_PATH} - data STL
 ## ${STL_LIB_D_PATH} - lib STL
+
+## Fn
+l_01_stl_init (restart STL 'source ${STL_D_PATH}/.stldrc')
+l_02_l2E (stdout l_xx catalog)
