@@ -8,15 +8,15 @@
 # "${ECHO_ERR}$FNN() $*' in file://${file_name} , line=${LINENO} :: CAUS_NAME [VAR] 'code' :: return 1${NRM}" >&2
 # cd ${PPWD} || echo -e "${ECHO_WAR}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [\${PPWD}] '${PPWD}' return 1${NRM}" >&2
 
-l_02_s2f() {
+l_03_s2Ad() {
 
-    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_02_s2f`
+    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_03_s2Ad`
     #! All changes will be lost after rebuilding
     #! To change this file use the following commands:
 
-    #! l_02_s2f _e_prc to edit/change 'fn block',
-    #! l_02_s2f _rbld to rebuild fn with changed 'fn block'
-    #! l_02_s2f _e_xxx` to edit 'init block'
+    #! l_03_s2Ad _e_prc to edit/change 'fn block',
+    #! l_03_s2Ad _rbld to rebuild fn with changed 'fn block'
+    #! l_03_s2Ad _e_xxx` to edit 'init block'
 
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
@@ -104,7 +104,7 @@ l_02_s2f() {
     fi
 
     if [[ "_rbld" == "$1" ]]; then
-        #! rebuild fn : bcp && ord fn.sh from l_02_s2f.sh , cp fn.prc into fn.sh
+        #! rebuild fn : bcp && ord fn.sh from l_03_s2Ad.sh , cp fn.prc into fn.sh
         . ${fn_dr}/_rbld_l_xx.sh ${FNN}
         #! up to mem fn
         . ${fn_dr}/$1.sh
@@ -112,21 +112,19 @@ l_02_s2f() {
         return 0
     fi
 
-    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_02_s2f.prc ------------------
+    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_03_s2Ad.prc ------------------
     #[[fn_body]]
 #? for copy to help block
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: reciver_string: \$1 inserter_string: \$2 [@ - empty string] in reciver_result_file: \$3
-TAGS: @fl @s2
+MAIN: ${FNN} :: insert \$1 str into str \$2 in ALL LEX(4.5) LEX(4.6) recurce file from dir \$3
+TAGS:
 \$1 
 [, \$2]
 FLOW:   [if 
             -]
-            
-NB!!: escaping in \$2 '\[' '\]' '\\\$' '\^' '\\\\\' and in \$1 '\.'  
-
+        
 # HIE ${FNN} 
 ## CAUSA:
 ПРИЧИНА создания:
@@ -153,6 +151,8 @@ CNTL:
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
+see (${FNN} _flow_1)
+flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
 "
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0
@@ -189,60 +189,70 @@ echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 #* define local variables
 
-# _f2d :: insert $1 file after str $2 in ALL (without prevent) file from dir $3
-# _s2d :: into str $1 insert $2 str in (with prevent) file from dir $3
-# _s2f :: reciver_string: $1 inserter_string: $2 in reciver_result_file: $3
+#! echo ARGS
 
-# hint="\$1: \$2: "
-# if _isn_from ${NARGS} LESS LESS+1 "in fs= file://${fn_sh_file}, line=${LINENO}, ${FNN}() : DEMAND 'LESS LESS+1' ERR_AMOUNT_ARGS entered :'${NARGS}' args : ${hint} : return 1"; then
-#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-#     return 1
-# fi
+# local ARG_23edew=("${ARGS[@]}")
+# [[ -n ${ARGS[0]} ]] && l_02_pa3e ARG_23edew
 
-# [[ -n "$1" ]] || {
-#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
-#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-#     return 1
-# }
+[[ -n "$3" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$3' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
+
+[[ -d "$3" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR 'file://${3}' where '\$3=$3' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
 
 # while IFS=$'\n' read -r line; do
 #     :
 # done <"${1:-/dev/stdin}"
 
-if [[ -z "$3" ]]; then
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DEFINE '\$3' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-fi
+#! use arg_ptr
+# eval "$2=$res_12341c43234rfe"
 
-#! ptr_path
-local ptr_path="$3"
-ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
+#! ptr_path_1
+# local ptr_path_1="$1"
+# ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
 
-if ! [[ -f "$ptr_path" ]]; then
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${init_file}' where '\$3=$3' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-fi
+#! ptr_path_3
+local ptr_path_3="$3"
+ptr_path_3="$(l_01_abs_path "${PPWD}" "ptr_path_3")"
 
-#! ptr_path
-# local ptr_path="$3"
-# ptr_path="$(_abs_path "${PPWD}" "ptr_path")"
-#[[ptr_path]]
+#[[ptr_path_s]]
 
-#! eval "sed -i 's|^'\'' .*||g' ${HOME}/path_file" rm string starting with <' >
+l_00_echo_info "insert '\$1 = $1'"
+l_00_echo_info "resiv '\$2 = $2'"
+l_00_echo_info "'\$ptr_path_3 = file://${ptr_path_3}'"
 
-l_00_echo_info "resiv '\$1 = $1'"
-l_00_echo_info "insert '\$2 = $2'"
-l_00_echo_info "'\$ptr_path = file://${ptr_path}'"
+local dir_result=${ptr_path_3}
 
-# sed -i "s|$1|$2|g" "$3"
-if [ "@" == "${2}" ]; then
-    eval "sed -i 's|${1}||g' $ptr_path"
-else
-    eval "sed -i 's|${1}|${2}|g' $ptr_path"
-fi
+__inner_s2ad() { # $1 dir to treat
+    # local FNN=${FUNCNAME[0]}
+    # echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
+    local item
+    for item in $(ls -A "$1"); do
+        # echo -e "${GREEN}\$item = '$item'${NORMAL}"
+
+        if [[ -d "$1/${item}" ]]; then
+            __inner_s2ad "$1/${item}"
+        fi
+
+        if [[ -f "$1/${item}" ]]; then
+            if ! l_02_s2f "${ARGS[1]}" "${ARGS[0]}" "$1/${item}"; then
+                l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'l_02_s2f ${ARGS[0]} ${ARGS[1]} $1/${item}' where '\$3=$3' return 1"
+                cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+                return 1
+            fi
+        fi
+
+    done
+}
+
+__inner_s2ad ${dir_result}
 
     #* END fn block ------------------
 
@@ -252,4 +262,4 @@ fi
 }
 
 #! SELF EXEC
-# l_02_s2f @
+# l_03_s2Ad @

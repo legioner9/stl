@@ -76,6 +76,11 @@ _l_02_f2f_890e8f0_flow() {
     #     echo "HERE_STR:"
     #     fn_str <<<"here_str_::_fifth_str" &>>"${res}"
 
+    rm file.res
+    cp file.init file.res
+    l_02_f2f file.ins "{{file.ins}}" file.res
+    cat file.res &>>"${res}"
+
     #?-------------------------------------
     #?----------------------------------------------------
 

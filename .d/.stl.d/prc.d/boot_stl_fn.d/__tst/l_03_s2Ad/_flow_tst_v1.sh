@@ -7,14 +7,14 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_l_02_f2f_890e8f0_flow_1() {
+_l_03_s2Ad_52343c8_flow_1() {
 
-    if ! command -v l_02_f2f >/dev/null; then
-        l_00_echo_ret1 "TYPE_ERROR : l_02_f2f"
+    if ! command -v l_03_s2Ad >/dev/null; then
+        l_00_echo_ret1 "TYPE_ERROR : l_03_s2Ad"
         return 1
     fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_02_f2f/_flow_tst_v1.sh
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_03_s2Ad/_flow_tst_v1.sh
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -44,7 +44,7 @@ _l_02_f2f_890e8f0_flow_1() {
         return 1
     }
 
-    # l_02_f2f "${tst_dir}" &>>"${res}"
+    # l_03_s2Ad "${tst_dir}" &>>"${res}"
     #! rm abs_path
     # l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
 
@@ -69,12 +69,11 @@ _l_02_f2f_890e8f0_flow_1() {
 
     #     echo "HERE_STR:"
     #     fn_str <<<"here_str_::_fifth_str" &>>"${res}"
-
-    rm file.res
-    cp file.init file.res
-    l_02_f2f file.ins "{{file.ins}}" file.res
-    cat file.res
-
+    rm -r .dir
+    cp -r .dir.init .dir
+    local str="frewr sdc fesre"
+    l_03_s2Ad "${str}" "{{str}}" .dir
+    cat .dir/.file
     #?-------------------------------------
     #?----------------------------------------------------
 
@@ -85,4 +84,4 @@ _l_02_f2f_890e8f0_flow_1() {
 
 }
 
-_l_02_f2f_890e8f0_flow_1 "$@"
+_l_03_s2Ad_52343c8_flow_1 "$@"

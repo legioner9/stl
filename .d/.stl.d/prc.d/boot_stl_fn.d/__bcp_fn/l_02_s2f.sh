@@ -38,6 +38,8 @@ l_02_s2f() {
     local tst_nm_fw_=${tst_nm_dr}/_flow_tst.sh
     local tst_nm_fw1_=${tst_nm_dr}/_flow_tst_v1.sh
 
+    unset IFS
+
     if ! [[ -d "${PPWD}" ]]; then
         echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
@@ -157,7 +159,7 @@ EXAM:   ${FNN} [, [, ]]
 fi
 
 #! stdout fn introduction
-# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 #     #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
 #     local di=
@@ -230,8 +232,8 @@ fi
 
 #! eval "sed -i 's|^'\'' .*||g' ${HOME}/path_file" rm string starting with <' >
 
-l_00_echo_info "'\$1 = $1'"
-l_00_echo_info "'\$2 = $2'"
+l_00_echo_info "resiv '\$1 = $1'"
+l_00_echo_info "insert '\$2 = $2'"
 l_00_echo_info "'\$ptr_path = file://${ptr_path}'"
 
 # sed -i "s|$1|$2|g" "$3"
@@ -240,6 +242,7 @@ if [ "@" == "${2}" ]; then
 else
     eval "sed -i 's|${1}|${2}|g' $ptr_path"
 fi
+_stl
 
     #* END fn block ------------------
 

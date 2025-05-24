@@ -1,5 +1,5 @@
-l_02_f2f — это функция
-l_02_f2f () 
+l_03_s2Ad — это функция
+l_03_s2Ad () 
 { 
     local FNN=${FUNCNAME[0]};
     local PPWD=$PWD;
@@ -80,7 +80,7 @@ l_02_f2f ()
     fi;
     if [[ "-h" == "$1" ]]; then
         echo -e "
-MAIN: ${FNN} :: insert \$1 file after str \$2 in file \$3
+MAIN: ${FNN} :: insert \$1 str into str \$2 in ALL LEX(4.5) LEX(4.6) recurce file from dir \$3
 TAGS:
 \$1 
 [, \$2]
@@ -119,23 +119,41 @@ flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
         return 0;
     fi;
+    echo -e "${ECHO_EXEC}'$FNN $*'${NRM}";
     [[ -n "$3" ]] || { 
         l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$3' return 1";
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
         return 1
     };
-    [[ -f "$1" ]] || { 
-        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${1}' where '\$1=$1' return 1";
+    [[ -d "$3" ]] || { 
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR 'file://${3}' where '\$3=$3' return 1";
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
         return 1
     };
-    [[ -f "$3" ]] || { 
-        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${3}' where '\$3=$3' return 1";
-        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
-        return 1
+    local ptr_path_3="$3";
+    ptr_path_3="$(l_01_abs_path "${PPWD}" "ptr_path_3")";
+    l_00_echo_info "insert '\$1 = $1'";
+    l_00_echo_info "resiv '\$2 = $2'";
+    l_00_echo_info "'\$ptr_path_3 = file://${ptr_path_3}'";
+    local dir_result=${ptr_path_3};
+    function __inner_s2ad () 
+    { 
+        local item;
+        for item in $(ls -A "$1");
+        do
+            if [[ -d "$1/${item}" ]]; then
+                __inner_s2ad "$1/${item}";
+            fi;
+            if [[ -f "$1/${item}" ]]; then
+                if ! l_02_s2f "${ARGS[1]}" "${ARGS[0]}" "$1/${item}"; then
+                    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'l_02_s2f ${ARGS[0]} ${ARGS[1]} $1/${item}' where '\$3=$3' return 1";
+                    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
+                    return 1;
+                fi;
+            fi;
+        done
     };
-    eval "sed -e '\|$2|{r $1' -e ';}' $3 >_tmp_";
-    mv _tmp_ "$3";
+    __inner_s2ad ${dir_result};
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
     return 0
 }

@@ -89,16 +89,17 @@ fi
 #! use arg_ptr
 # eval "$2=$res_12341c43234rfe"
 
-#! ptr_path_1
-local ptr_path_1="$1"
-ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
 
-#! ptr_path_3
-local ptr_path_3="$3"
-ptr_path_3="$(l_01_abs_path "${PPWD}" "ptr_path_3")"
+[[ -f "$1" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${1}' where '\$1=$1' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
 
-[[ -f "$ptr_path_1" ]] || {
-_stl
+[[ -f "$3" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${3}' where '\$3=$3' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
 }
 
 eval "sed -e '\|$2|{r $1' -e ';}' $3 >_tmp_"

@@ -97,9 +97,9 @@ ${NORMAL}"
 
     l_01_is_yes "ord ${fn_name} in ${tst_dir}?" && {
 
-        echo "_sd2d _XXX ${fn_name} file://${tst_dir}/_XXX"
-        _sd2d _XXX ${fn_name} ${tst_dir}/_XXX || {
-            l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC '_sd2d XXX ${fn_name} ${tst_dir}/_XXX' : ${hint} : return 1"
+        echo "l_03_sd2d _XXX ${fn_name} file://${tst_dir}/_XXX"
+        l_03_sd2d _XXX ${fn_name} ${tst_dir}/_XXX || {
+            l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC 'l_03_sd2d XXX ${fn_name} ${tst_dir}/_XXX' : ${hint} : return 1"
             return 1
         }
         echo "_sd2d RND ${rnd:0:7} file://${tst_dir}/${fn_name}"

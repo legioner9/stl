@@ -118,7 +118,7 @@ l_02_f2f() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: insert \$1 file after str \$2 in file \$3
 TAGS:
 \$1 
 [, \$2]
@@ -192,11 +192,11 @@ fi
 #! echo ARGS
 # [[ -n ${ARGS[0]} ]] && l_02_pa3e ARGS
 
-# [[ -n "$1" ]] || {
-#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
-#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-#     return 1
-# }
+[[ -n "$3" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$3' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
 
 # while IFS=$'\n' read -r line; do
 #     :
@@ -206,12 +206,28 @@ fi
 # eval "$2=$res_12341c43234rfe"
 
 #! ptr_path_1
-# local ptr_path_1="$1"
-# ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
+local ptr_path_1="$1"
+ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
 
-#! ptr_path_2
-# local ptr_path_2="$2"
-# ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
+#! ptr_path_3
+local ptr_path_3="$3"
+ptr_path_3="$(l_01_abs_path "${PPWD}" "ptr_path_3")"
+
+[[ -f "$ptr_path_1" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${ptr_path_1}' where '\$1=$1' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
+
+[[ -f "$ptr_path_3" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${ptr_path_3}' where '\$3=$3' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
+
+eval "sed -e '\|$2|{r $1' -e ';}' $3 >_tmp_"
+
+mv _tmp_ "$3"
 
     #* END fn block ------------------
 
