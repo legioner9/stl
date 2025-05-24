@@ -27,3 +27,9 @@
 ## Fn
 l_01_stl_init (restart STL 'source ${STL_D_PATH}/.stldrc')
 l_02_l2E (stdout l_xx catalog)
+
+## Examples pth this
+${HOME}/.d/.rc.d/.st.rc.d/.st.sh.d
+${REPO_PATH}/plt/.d/.arb
+${REPO_PATH}/plt/.d/.sal.ax
+${REPO_PATH}/st_rc_d/.d/.arb

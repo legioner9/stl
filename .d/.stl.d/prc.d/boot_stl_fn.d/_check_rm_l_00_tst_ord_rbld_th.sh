@@ -1,8 +1,8 @@
 #!/bin/bash
 
-echo -e "${CYAN}--- _fb_full_ord_fn__restart__fn_rbld_rnd7_6a45cb8() $* in file://${REPO_PATH}/stl/.d/.stl.d/prc.d/boot_stl_fn.d/_fb_full_ord_fn__restart__fn_rbld.sh ---${NORMAL}" #started functions
+echo -e "${CYAN}--- _fb_full_ord_fn__restart__fn_rbld_rnd7_6a4tt5cb8() $* in file://${REPO_PATH}/stl/.d/.stl.d/prc.d/boot_stl_fn.d/_check_rm_l_00_tst_ord_rbld_th.sh ---${NORMAL}" #started functions
 
-_fb_full_ord_fn__restart__fn_rbld_rnd7_6a45cb8() {
+_fb_rm_l_00_tst_ord_rbld_rnd7_6a45cb99998() {
 
     # HST :: gig command :: [ufl_stl0 1 1 _fb_full_ord_fn__restart__fn_rbld.sh in file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/ufl_stl0.ram/.grot/ufl_stl0.sh] in file://${REPO_PATH}/stl/.d/.stl.d/prc.d/boot_stl_fn.d
 
@@ -11,7 +11,7 @@ _fb_full_ord_fn__restart__fn_rbld_rnd7_6a45cb8() {
     local NARGS=$#
     local PPWD=$PWD
 
-    local path_file="${REPO_PATH}/stl/.d/.stl.d/prc.d/boot_stl_fn.d/_fb_full_ord_fn__restart__fn_rbld.sh"
+    local path_file="${REPO_PATH}/stl/.d/.stl.d/prc.d/boot_stl_fn.d/_check_rm_l_00_tst_ord_rbld_th.sh"
     local path_dir="$(dirname "$path_file")"
 
     # echo -e "${CYAN}--- $FNN() $* in file://${path_file}---${NORMAL}" #started functions
@@ -77,14 +77,15 @@ ${NORMAL}"
 
     local fn_dir=${STL_D_PATH}/prc.d/boot_stl_fn.d
 
-    [[ -n "$1" ]] || {
-        l_00_echo_ret1 "\$1 EMPTY {fn_name like 'l_04_eee'} :: return 1"
-        return 1
-    }
-
-    . "${fn_dir}/_ord_sh_prc_tst_for_l_xx.sh" "$1"
+    # [[ -n "$1" ]] || {
+    #     l_00_echo_ret1 "\$1 EMPTY {fn_name like 'l_04_eee'} :: return 1"
+    #     return 1
+    # }
+    . "${fn_dir}"/_rm_fn_fl_prc_tst.sh l_00_tst
+    . "${fn_dir}/_ord_sh_prc_tst_for_l_xx.sh" l_00_tst
     l_01_stl_init
-    "$1" _rbld
+    l_00_tst _rbld
+    l_00_tst -h
 
     #{{body_fn}}
 
@@ -95,4 +96,4 @@ ${NORMAL}"
 
 }
 
-_fb_full_ord_fn__restart__fn_rbld_rnd7_6a45cb8 "$@"
+_fb_rm_l_00_tst_ord_rbld_rnd7_6a45cb99998 "$@"

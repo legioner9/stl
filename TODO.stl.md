@@ -1,1 +1,1 @@
-# in _ord_tst_dir_for_l_xx.sh upg all fn
+# to_stl ${REPO_PATH}/plt/.d/.sal.ax/nm_opi_/nm_opi_.sal 
