@@ -89,7 +89,7 @@ ${NORMAL}"
     # _is_yes "ord ${fn_name} in ${fn_dir}?" && {
 
     l_03_sf2f _XXX ${fn_name} ${fn_dir}/_XXX.sh || {
-        l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC '_sd2d XXX ${fn_name} ${tst_dir}/_XXX' : ${hint} : return 1"
+        l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC 'l_03_sf2f XXX ${fn_name} ${tst_dir}/_XXX' : ${hint} : return 1"
         return 1
     }
     # }

@@ -78,7 +78,7 @@ ${NORMAL}"
     local fn_dir=${STL_D_PATH}/prc.d/boot_stl_fn.d
 
     local item=
-    _is_yes "rbld all l_xx in ${fn_dir}?" && {
+    l_01_is_yes "rbld all l_xx in ${fn_dir}?" && {
         for item in $(. ${fn_dir}/_all_name_l_xx.sh); do
             . ${fn_dir}/_rbld_l_xx_2.sh ${item} || {
                 l_00_echo_err "FAIL_EXEC :: . ${fn_dir}/_rbld_l_xx.sh ${item}"

@@ -96,7 +96,7 @@ fi
 # ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
 
 local yes=
-read -r -p "only 'y' is yes. QUESTION: $1" yes
+read -r -p "only 'y' is yes. QUESTION: ''$1'' yes?::" -e -i y yes
 
 if [ "${yes:-no}" == "y" ]; then
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"

@@ -95,7 +95,7 @@ ${NORMAL}"
 
     cd ${tst_dir} || return 1
 
-    _is_yes "ord ${fn_name} in ${tst_dir}?" && {
+    l_01_is_yes "ord ${fn_name} in ${tst_dir}?" && {
 
         echo "_sd2d _XXX ${fn_name} file://${tst_dir}/_XXX"
         _sd2d _XXX ${fn_name} ${tst_dir}/_XXX || {

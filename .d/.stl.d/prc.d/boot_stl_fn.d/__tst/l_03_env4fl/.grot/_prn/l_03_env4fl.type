@@ -125,7 +125,8 @@ flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
         return 1
     };
-    local ptr_path_1="$1";
+    local arg_1="$1";
+    local ptr_path_1="$arg_1";
     ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")";
     l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' ${ptr_path_1};
     l_02_s2f "${STL_DATA_D_PATH}" '${STL_DATA_D_PATH}' ${ptr_path_1};

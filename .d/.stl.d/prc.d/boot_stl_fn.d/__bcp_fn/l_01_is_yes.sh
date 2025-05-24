@@ -38,6 +38,8 @@ l_01_is_yes() {
     local tst_nm_fw_=${tst_nm_dr}/_flow_tst.sh
     local tst_nm_fw1_=${tst_nm_dr}/_flow_tst_v1.sh
 
+    unset IFS
+
     if ! [[ -d "${PPWD}" ]]; then
         echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
@@ -210,7 +212,7 @@ fi
 # ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
 
 local yes=
-read -r -p "only 'y' is yes. QUESTION: $1" yes
+read -r -p "only 'y' is yes. QUESTION: ''$1'' yes?::" -e -i y yes
 
 if [ "${yes:-no}" == "y" ]; then
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"

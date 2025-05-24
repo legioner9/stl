@@ -92,12 +92,12 @@ ${NORMAL}"
         return 1
     }
 
-    _is_yes "rbld ${fn_name} in ${fn_dir}?" && {
+    l_01_is_yes "rbld ${fn_name} in ${fn_dir}?" && {
 
         if ! cat ${fn_dir}/${fn_name}.sh | grep {{fn_body}}; then
 
             l_00_echo_err "allready rebuilded ${fn_dir}/${fn_name}.sh"
-            if _is_yes "bcp ${fn_dir}/${fn_name}.sh ?"; then
+            if l_01_is_yes "bcp ${fn_dir}/${fn_name}.sh ?"; then
                 cp --backup=t ${fn_dir}/${fn_name}.sh ${fn_dir}/__bcp_fn || return 1
                 rm ${fn_dir}/${fn_name}.sh
                 . _ord_file_with_l_xx.sh ${fn_name}
@@ -110,7 +110,7 @@ ${NORMAL}"
             l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC '_f2f ${fn_dir}/__prc/${fn_name}.prc {{fn_body}} ${fn_dir}/${fn_name}.sh' : ${hint} : return 1"
             return 1
         }
-        _s2f "{{fn_body}}" "[[fn_body]]" ${fn_dir}/${fn_name}.sh || {
+        l_02_s2f "{{fn_body}}" "[[fn_body]]" ${fn_dir}/${fn_name}.sh || {
             l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC '_f2f ${fn_dir}/__prc/_${fn_name}.prc {{fn_body}} ${fn_dir}/${fn_name}.sh' : ${hint} : return 1"
             return 1
         }
