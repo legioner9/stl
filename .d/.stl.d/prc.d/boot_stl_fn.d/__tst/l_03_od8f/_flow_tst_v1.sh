@@ -72,6 +72,16 @@ _l_03_od8f_RND_flow_1() {
 
     #     echo "HERE_STR:"
     #     fn_str <<<"here_str_::_fifth_str" &>>"${res}"
+    local res_546hytj=
+
+    l_03_od8f _dir_ res_546hytj "0"
+    echo ${res_546hytj}
+    l_03_od8f _dir_ res_546hytj "1"
+    echo ${res_546hytj}
+    l_03_od8f _dir_ res_546hytj @ <<<"2"
+    echo ${res_546hytj}
+
+    # echo "${res_546hytj}"
 
     #?-------------------------------------
     #?----------------------------------------------------

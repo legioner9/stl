@@ -13507,6 +13507,8 @@ l_02_pa8s() {
     local tst_nm_fw_=${tst_nm_dr}/_flow_tst.sh
     local tst_nm_fw1_=${tst_nm_dr}/_flow_tst_v1.sh
 
+    unset IFS
+
     if ! [[ -d "${PPWD}" ]]; then
         echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
@@ -13624,7 +13626,7 @@ EXAM:   ${FNN} [, [, ]]
 fi
 
 #! stdout fn introduction
-# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 #     #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
 #     local di=
@@ -16400,7 +16402,7 @@ l_03_od8f() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: \$1 dir files to 8 : [if exist [of] 8name=[of] else 8name=file://{path_to_file}] 8res={path_to_file} \$2 ptr_result \$3 8num  
 TAGS:
 \$1 
 [, \$2]
@@ -16441,7 +16443,7 @@ flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
 fi
 
 #! stdout fn introduction
-# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 #     #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
 #     local di=
@@ -16473,19 +16475,28 @@ fi
 
 #! echo ARGS
 # local ARG_23edew=("${ARGS[@]}")
-# [[ -n ${ARGS[0]} ]] && l_02_pa3e ARG_23edew
+# [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_23edew
 
-# [[ -n "$1" ]] || {
-#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
-#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-#     return 1
-# }
+[[ -n "$3" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$3' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
 
-# [[ -f "$3" ]] || {
-#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${3}' where '\$3=$3' return 1"
-#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-#     return 1
-# }
+[[ -d "$1" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR 'file://${1}' where '\$1=$1' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
+
+if [[ "@" == "$3" ]]; then
+    echo "Enter num menu :"
+    read -r
+    arg_3=$REPLY
+    l_00_echo_info "'\$arg_3 = $arg_3'"
+else
+    arg_3="$3"
+fi
 
 # while IFS=$'\n' read -r line; do
 #     :
@@ -16495,12 +16506,41 @@ fi
 # eval "$2=$res_12341c43234rfe"
 
 #! ptr_path_1
-# local ptr_path_1="$1"
-# ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
+local ptr_path_1="$1"
+ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
 
 #! ptr_path_2
 # local ptr_path_2="$2"
 # ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
+
+local item=
+local of=
+local fl_pth=
+
+local name_g433=()
+local res_675j=()
+
+for item in $(l_02_d2e "${ptr_path_1}"); do
+    l_00_echo_info "'\$item = $item'"
+    fl_pth="${ptr_path_1}/$item"
+    of=$(l_02_of2e "${fl_pth}")
+
+    if [[ -n "${of}" ]]; then
+        name_g433+=("${of}")
+    else
+        name_g433+=("file://${fl_pth}")        
+    fi
+    res_675j+=("${fl_pth}")
+done
+
+local result_324frew=
+
+# l_02_pa3e name_g433
+# l_02_pa3e res_675j
+
+l_02_pa8s name_g433 res_675j result_324frew "${arg_3}"
+
+eval "$2=${result_324frew}"
 
     #* END fn block ------------------
 

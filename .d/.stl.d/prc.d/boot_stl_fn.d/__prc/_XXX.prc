@@ -75,7 +75,7 @@ fi
 
 #! echo ARGS
 # local ARG_23edew=("${ARGS[@]}")
-# [[ -n ${ARGS[0]} ]] && l_02_pa3e ARG_23edew
+# [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_23edew
 
 # [[ -n "$1" ]] || {
 #     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
@@ -92,6 +92,15 @@ fi
 # while IFS=$'\n' read -r line; do
 #     :
 # done <"${1:-/dev/stdin}"
+
+# if [[ "@" == "$3" ]]; then
+#     echo "Enter num menu :"
+#     read -r
+#     arg_3=$REPLY
+#     l_00_echo_info "'\$arg_3 = $arg_3'"
+# else
+#     arg_3="$3"
+# fi
 
 #! use arg_ptr
 # eval "$2=$res_12341c43234rfe"

@@ -54,12 +54,12 @@ _l_02_pa8s_56f1c2e_flow() {
     local re_arr=(res_1 res_2)
     local re=
 
-    l_00_echo_code "'l_02_pa8s nm_arr re_arr re 2'" &>>"${res}"
+    # l_00_echo_code "'l_02_pa8s nm_arr re_arr re 2'" &>>"${res}"
     l_02_pa8s nm_arr re_arr re 2 &>>"${res}"
 
     l_00_echo_info "'\$re = $re'" &>>"${res}"
     re=
-    l_00_echo_code "'l_02_pa8s nm_arr re_arr re 3'" &>>"${res}"
+    # l_00_echo_code "'l_02_pa8s nm_arr re_arr re 3'" &>>"${res}"
     l_02_pa8s nm_arr re_arr re 3 &>>"${res}"
 
     l_00_echo_info "'\$re = $re'" &>>"${res}"
