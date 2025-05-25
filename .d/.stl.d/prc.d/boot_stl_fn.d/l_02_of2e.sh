@@ -118,7 +118,7 @@ l_02_of2e() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: stdout [[of] LEX(6.1)] [\$1 fl LEX(1.5)]
+MAIN: ${FNN} :: stdout first match [[of] LEX(6.1)] in [\$1 fl LEX(1.5)]
 TAGS:
 \$1 
 [, \$2]
@@ -207,7 +207,7 @@ fi
 local line
 
 while IFS=$'\n' read -r line; do
-    echo "${line}" | grep "###"
+    echo "${line}" | grep "#@" && break
 done <"${1:-/dev/stdin}"
 
 #! use arg_ptr

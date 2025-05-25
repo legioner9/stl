@@ -1,5 +1,5 @@
-l_02_of2e — это функция
-l_02_of2e () 
+l_03_od8f — это функция
+l_03_od8f () 
 { 
     local FNN=${FUNCNAME[0]};
     local PPWD=$PWD;
@@ -80,7 +80,7 @@ l_02_of2e ()
     fi;
     if [[ "-h" == "$1" ]]; then
         echo -e "
-MAIN: ${FNN} :: stdout first match [[of] LEX(6.1)] in [\$1 fl LEX(1.5)]
+MAIN: ${FNN} :: 
 TAGS:
 \$1 
 [, \$2]
@@ -119,16 +119,6 @@ flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
         return 0;
     fi;
-    if [[ -n "$1" && ! -f "$1" ]]; then
-        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: TRUE '-n $1 && ! -f $1 ' where '\$1=$1' return 1";
-        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
-        return 1;
-    fi;
-    local line;
-    while IFS='
-' read -r line; do
-        echo "${line}" | grep "#@" && break;
-    done < "${1:-/dev/stdin}";
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
     return 0
 }

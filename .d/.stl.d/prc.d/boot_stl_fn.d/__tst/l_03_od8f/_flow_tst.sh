@@ -7,17 +7,19 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_l_02_of2e_d166068_flow() {
+_l_03_od8f_RND_flow() {
+
+    unset IFS
 
     local PW=$(pwd)
 
-    if ! command -v l_02_of2e >/dev/null; then
-        l_00_echo_ret1 "TYPE_ERROR : l_02_of2e"
+    if ! command -v l_03_od8f >/dev/null; then
+        l_00_echo_ret1 "TYPE_ERROR : l_03_od8f"
         cd $PW
         return 1
     fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_02_of2e/_flow_tst.sh
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_03_od8f/_flow_tst.sh
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -50,12 +52,13 @@ _l_02_of2e_d166068_flow() {
         return 1
     }
 
-    # l_02_of2e "${tst_dir}" &>>"${res}"
+    # l_03_od8f "${tst_dir}" &>>"${res}"
     #! rm abs_path
     # l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
 
     #! stdin_tst
     #         echo "!STRING_AS_WORD!"
+    # : >FILE
     #     cat >FILE <<EOF
     # third_str
     # fourth_str
@@ -76,32 +79,6 @@ _l_02_of2e_d166068_flow() {
     #     echo "HERE_STR:"
     #     fn_str <<<"here_str_::_fifth_str" &>>"${res}"
 
-    cat >FILE <<EOF
-#@ res_str1       csdc
-    third_str
-    fourth_str
-    ### res_str2
-EOF
-
-    # l_02_of2e FILE
-    # cat "FILE" | l_02_of2e &>>"${res}"
-
-    echo "FILE_ARG:"&>>"${res}"
-    l_02_of2e FILE&>>"${res}"
-
-    echo "FILE_PIPE:"&>>"${res}"
-    cat FILE | l_02_of2e &>>"${res}"
-
-    echo "HERE_DOC:"&>>"${res}"
-    l_02_of2e <<EOF &>>"${res}"
-        #@ res_here_doc 
-    first_str
-    second_str
-EOF
-
-    echo "HERE_STR:"&>>"${res}"
-    l_02_of2e <<<"#@ here_str_::_fifth_str" &>>"${res}"
-
     #?-------------------------------------
     #?----------------------------------------------------
 
@@ -112,4 +89,4 @@ EOF
 
 }
 
-_l_02_of2e_d166068_flow "$@"
+_l_03_od8f_RND_flow "$@"

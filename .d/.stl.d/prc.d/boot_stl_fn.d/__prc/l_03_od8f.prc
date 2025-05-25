@@ -2,7 +2,7 @@
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: stdout first match [[of] LEX(6.1)] in [\$1 fl LEX(1.5)]
+MAIN: ${FNN} :: dir do 8 : [if exist [of] 8name=[of] else 8name=file://{path_to_file}] 8res={path_to_file}
 TAGS:
 \$1 
 [, \$2]
@@ -74,7 +74,8 @@ fi
 #* define local variables
 
 #! echo ARGS
-# [[ -n ${ARGS[0]} ]] && l_02_pa3e ARGS
+# local ARG_23edew=("${ARGS[@]}")
+# [[ -n ${ARGS[0]} ]] && l_02_pa3e ARG_23edew
 
 # [[ -n "$1" ]] || {
 #     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
@@ -82,17 +83,15 @@ fi
 #     return 1
 # }
 
-if [[ -n "$1" && ! -f "$1" ]]; then
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: TRUE '-n $1 && ! -f $1 ' where '\$1=$1' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-fi
+# [[ -f "$3" ]] || {
+#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${3}' where '\$3=$3' return 1"
+#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+#     return 1
+# }
 
-local line
-
-while IFS=$'\n' read -r line; do
-    echo "${line}" | grep "#@" && break
-done <"${1:-/dev/stdin}"
+# while IFS=$'\n' read -r line; do
+#     :
+# done <"${1:-/dev/stdin}"
 
 #! use arg_ptr
 # eval "$2=$res_12341c43234rfe"
@@ -104,7 +103,3 @@ done <"${1:-/dev/stdin}"
 #! ptr_path_2
 # local ptr_path_2="$2"
 # ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
-
-# if [[ "@" == "$1" ]]; then
-#     :
-# fi

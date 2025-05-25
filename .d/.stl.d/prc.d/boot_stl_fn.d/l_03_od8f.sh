@@ -8,15 +8,15 @@
 # "${ECHO_ERR}$FNN() $*' in file://${file_name} , line=${LINENO} :: CAUS_NAME [VAR] 'code' :: return 1${NRM}" >&2
 # cd ${PPWD} || echo -e "${ECHO_WAR}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [\${PPWD}] '${PPWD}' return 1${NRM}" >&2
 
-l_02_of2e() {
+l_03_od8f() {
 
-    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_02_of2e`
+    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_03_od8f`
     #! All changes will be lost after rebuilding
     #! To change this file use the following commands:
 
-    #! l_02_of2e _e_prc to edit/change 'fn block',
-    #! l_02_of2e _rbld to rebuild fn with changed 'fn block'
-    #! l_02_of2e _e_xxx` to edit 'init block'
+    #! l_03_od8f _e_prc to edit/change 'fn block',
+    #! l_03_od8f _rbld to rebuild fn with changed 'fn block'
+    #! l_03_od8f _e_xxx` to edit 'init block'
 
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
@@ -104,7 +104,7 @@ l_02_of2e() {
     fi
 
     if [[ "_rbld" == "$1" ]]; then
-        #! rebuild fn : bcp && ord fn.sh from l_02_of2e.sh , cp fn.prc into fn.sh
+        #! rebuild fn : bcp && ord fn.sh from l_03_od8f.sh , cp fn.prc into fn.sh
         . ${fn_dr}/_rbld_l_xx.sh ${FNN}
         #! up to mem fn
         . ${fn_dr}/$1.sh
@@ -112,13 +112,13 @@ l_02_of2e() {
         return 0
     fi
 
-    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_02_of2e.prc ------------------
+    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_03_od8f.prc ------------------
     #[[fn_body]]
 #? for copy to help block
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: stdout first match [[of] LEX(6.1)] in [\$1 fl LEX(1.5)]
+MAIN: ${FNN} :: 
 TAGS:
 \$1 
 [, \$2]
@@ -190,7 +190,8 @@ fi
 #* define local variables
 
 #! echo ARGS
-# [[ -n ${ARGS[0]} ]] && l_02_pa3e ARGS
+# local ARG_23edew=("${ARGS[@]}")
+# [[ -n ${ARGS[0]} ]] && l_02_pa3e ARG_23edew
 
 # [[ -n "$1" ]] || {
 #     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
@@ -198,17 +199,15 @@ fi
 #     return 1
 # }
 
-if [[ -n "$1" && ! -f "$1" ]]; then
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: TRUE '-n $1 && ! -f $1 ' where '\$1=$1' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-fi
+# [[ -f "$3" ]] || {
+#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${3}' where '\$3=$3' return 1"
+#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+#     return 1
+# }
 
-local line
-
-while IFS=$'\n' read -r line; do
-    echo "${line}" | grep "###" && break
-done <"${1:-/dev/stdin}"
+# while IFS=$'\n' read -r line; do
+#     :
+# done <"${1:-/dev/stdin}"
 
 #! use arg_ptr
 # eval "$2=$res_12341c43234rfe"
@@ -221,10 +220,6 @@ done <"${1:-/dev/stdin}"
 # local ptr_path_2="$2"
 # ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
 
-# if [[ "@" == "$1" ]]; then
-#     :
-# fi
-
     #* END fn block ------------------
 
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
@@ -233,4 +228,4 @@ done <"${1:-/dev/stdin}"
 }
 
 #! SELF EXEC
-# l_02_of2e @
+# l_03_od8f @
