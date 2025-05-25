@@ -236,7 +236,7 @@ local fl_pth=
 local name_g433=()
 local res_675j=()
 
-for item in $(l_02_d2e "${ptr_path_1}"); do
+for item in $(l_02_df2e "${ptr_path_1}"); do
     l_00_echo_info "'\$item = $item'"
     fl_pth="${ptr_path_1}/$item"
     of=$(l_02_of2e "${fl_pth}")
@@ -254,7 +254,7 @@ local result_324frew=
 # l_02_pa3e name_g433
 # l_02_pa3e res_675j
 
-l_02_pa8s name_g433 res_675j result_324frew "${3}"
+l_02_pa8s name_g433 res_675j result_324frew "${arg_3}"
 
 eval "$2=${result_324frew}"
 

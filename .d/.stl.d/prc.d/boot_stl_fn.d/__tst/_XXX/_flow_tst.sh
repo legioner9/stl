@@ -65,19 +65,19 @@ __XXX_RND_flow() {
     # EOF
 
     #     echo "FILE_ARG:"
-    #     fn_str FILE &>>"${res}"
+    #     _XXX FILE &>>"${res}"
 
     #     echo "FILE_PIPE:"
-    #     cat FILE | fn_str &>>"${res}"
+    #     cat FILE | _XXX &>>"${res}"
 
     #     echo "HERE_DOC:"
-    #     fn_str <<EOF &>>"${res}"
+    #     _XXX <<EOF &>>"${res}"
     # first_str
     # second_str
     # EOF
 
     #     echo "HERE_STR:"
-    #     fn_str <<<"here_str_::_fifth_str" &>>"${res}"
+    #     _XXX <<<"here_str_::_fifth_str" &>>"${res}"
 
     #?-------------------------------------
     #?----------------------------------------------------

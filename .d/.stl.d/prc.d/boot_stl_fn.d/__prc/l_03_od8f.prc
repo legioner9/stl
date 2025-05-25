@@ -120,7 +120,8 @@ local fl_pth=
 local name_g433=()
 local res_675j=()
 
-for item in $(l_02_d2e "${ptr_path_1}"); do
+for item in $(l_02_df2e "${ptr_path_1}"); do
+    of=
     l_00_echo_info "'\$item = $item'"
     fl_pth="${ptr_path_1}/$item"
     of=$(l_02_of2e "${fl_pth}")

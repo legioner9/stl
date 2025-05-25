@@ -7,16 +7,16 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-__XXX_RND_flow_1() {
+_l_03_od8d_RND_flow_1() {
 
     unset IFS
 
-    if ! command -v _XXX >/dev/null; then
-        l_00_echo_ret1 "TYPE_ERROR : _XXX"
+    if ! command -v l_03_od8d >/dev/null; then
+        l_00_echo_ret1 "TYPE_ERROR : l_03_od8d"
         return 1
     fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/_XXX/_flow_tst_v1.sh
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_03_od8d/_flow_tst_v1.sh
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -46,7 +46,7 @@ __XXX_RND_flow_1() {
         return 1
     }
 
-    # _XXX "${tst_dir}" &>>"${res}"
+    # l_03_od8d "${tst_dir}" &>>"${res}"
     #! rm abs_path
     # l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
 
@@ -59,19 +59,28 @@ __XXX_RND_flow_1() {
     # EOF
 
     #     echo "FILE_ARG:"
-    #     _XXX FILE &>>"${res}"
+    #     fn_str FILE &>>"${res}"
 
     #     echo "FILE_PIPE:"
-    #     cat FILE | _XXX &>>"${res}"
+    #     cat FILE | fn_str &>>"${res}"
 
     #     echo "HERE_DOC:"
-    #     _XXX <<EOF &>>"${res}"
+    #     fn_str <<EOF &>>"${res}"
     # first_str
     # second_str
     # EOF
 
     #     echo "HERE_STR:"
-    #     _XXX <<<"here_str_::_fifth_str" &>>"${res}"
+    #     fn_str <<<"here_str_::_fifth_str" &>>"${res}"
+
+    local res_546hyt66=
+
+    l_03_od8d _dir_ res_546hyt66 "0"
+    echo ${res_546hyt66}
+    l_03_od8d _dir_ res_546hyt66 "2"
+    echo ${res_546hyt66}
+    l_03_od8d _dir_ res_546hyt66 @ <<<"3"
+    echo ${res_546hyt66}
 
     #?-------------------------------------
     #?----------------------------------------------------
@@ -83,4 +92,4 @@ __XXX_RND_flow_1() {
 
 }
 
-__XXX_RND_flow_1 "$@"
+_l_03_od8d_RND_flow_1 "$@"
