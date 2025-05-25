@@ -9,6 +9,8 @@
 
 __XXX_RND_exec() {
 
+    unset IFS
+
     local PW=$(pwd)
 
     if ! command -v _XXX >/dev/null; then
@@ -54,6 +56,6 @@ __XXX_RND_exec() {
 }
 
 if ! __XXX_RND_exec "$@"; then
-    l_00_echo_ret1 "EXEC_FAIL for fuction : 'XXX' : GOTO file://${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/_XXX : return 1"
+    l_00_echo_ret1 "EXEC_FAIL for fuction : '__XXX_RND_exec' : GOTO file://${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/_XXX : return 1"
     return 1
 fi

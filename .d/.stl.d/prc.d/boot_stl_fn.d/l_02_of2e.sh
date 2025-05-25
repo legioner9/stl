@@ -192,15 +192,23 @@ fi
 #! echo ARGS
 # [[ -n ${ARGS[0]} ]] && l_02_pa3e ARGS
 
-[[ -n "$1" ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
+# [[ -n "$1" ]] || {
+#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
+#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+#     return 1
+# }
+
+if [[ -n "$1" && ! -f "$1" ]]; then
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: TRUE '-n $1 && ! -f $1 ' where '\$1=$1' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
-}
+fi
 
-# while IFS=$'\n' read -r line; do
-#     :
-# done <"${1:-/dev/stdin}"
+local line
+
+while IFS=$'\n' read -r line; do
+    echo "${line}" | grep "###"
+done <"${1:-/dev/stdin}"
 
 #! use arg_ptr
 # eval "$2=$res_12341c43234rfe"
@@ -213,9 +221,9 @@ fi
 # local ptr_path_2="$2"
 # ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
 
-if [[ "@" == "$1" ]]; then
-    :
-fi
+# if [[ "@" == "$1" ]]; then
+#     :
+# fi
 
     #* END fn block ------------------
 

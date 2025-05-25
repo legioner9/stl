@@ -9,6 +9,8 @@
 
 __XXX_RND_flow_1() {
 
+    unset IFS
+
     if ! command -v _XXX >/dev/null; then
         l_00_echo_ret1 "TYPE_ERROR : _XXX"
         return 1
@@ -49,6 +51,7 @@ __XXX_RND_flow_1() {
     # l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
 
     #! stdin_tst
+    # : >FILE
     #         echo "!STRING_AS_WORD!"
     #     cat >FILE <<EOF
     # third_str

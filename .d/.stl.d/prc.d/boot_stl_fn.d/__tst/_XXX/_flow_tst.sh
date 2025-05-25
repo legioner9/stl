@@ -9,6 +9,8 @@
 
 __XXX_RND_flow() {
 
+    unset IFS
+
     local PW=$(pwd)
 
     if ! command -v _XXX >/dev/null; then
@@ -56,6 +58,7 @@ __XXX_RND_flow() {
 
     #! stdin_tst
     #         echo "!STRING_AS_WORD!"
+    # : >FILE
     #     cat >FILE <<EOF
     # third_str
     # fourth_str

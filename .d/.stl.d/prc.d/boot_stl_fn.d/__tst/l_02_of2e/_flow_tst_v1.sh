@@ -44,31 +44,42 @@ _l_02_of2e_d166068_flow_1() {
         return 1
     }
 
+    # l_02_of2e "f1.true"
+    # l_02_of2e "f1x.true"
+    # l_02_of2e "f2.false"
+
     # l_02_of2e "${tst_dir}" &>>"${res}"
     #! rm abs_path
     # l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
 
     #! stdin_tst
-    #         echo "!STRING_AS_WORD!"
-    #     cat >FILE <<EOF
-    # third_str
-    # fourth_str
-    # EOF
+    # echo "!STRING_AS_WORD!"
+    # IFS=$'\n'
+    cat >FILE <<EOF
+### res_str1       csdc
+    third_str
+    fourth_str
+    ### res_str2
+EOF
 
-    #     echo "FILE_ARG:"
-    #     fn_str FILE &>>"${res}"
+    l_02_of2e FILE
+    cat "FILE" | l_02_of2e
 
-    #     echo "FILE_PIPE:"
-    #     cat FILE | fn_str &>>"${res}"
+    echo "FILE_ARG:"
+    l_02_of2e FILE
 
-    #     echo "HERE_DOC:"
-    #     fn_str <<EOF &>>"${res}"
-    # first_str
-    # second_str
-    # EOF
+    echo "FILE_PIPE:"
+    cat FILE | l_02_of2e
 
-    #     echo "HERE_STR:"
-    #     fn_str <<<"here_str_::_fifth_str" &>>"${res}"
+    echo "HERE_DOC:"
+    l_02_of2e <<EOF
+        ### res_here_doc 
+    first_str
+    second_str
+EOF
+
+    echo "HERE_STR:"
+    fn_str <<<"### here_str_::_fifth_str"
 
     #?-------------------------------------
     #?----------------------------------------------------

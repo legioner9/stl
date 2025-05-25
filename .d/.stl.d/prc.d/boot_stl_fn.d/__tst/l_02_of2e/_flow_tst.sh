@@ -76,6 +76,32 @@ _l_02_of2e_d166068_flow() {
     #     echo "HERE_STR:"
     #     fn_str <<<"here_str_::_fifth_str" &>>"${res}"
 
+    cat >FILE <<EOF
+### res_str1       csdc
+    third_str
+    fourth_str
+    ### res_str2
+EOF
+
+    # l_02_of2e FILE
+    # cat "FILE" | l_02_of2e &>>"${res}"
+
+    echo "FILE_ARG:"&>>"${res}"
+    l_02_of2e FILE&>>"${res}"
+
+    echo "FILE_PIPE:"&>>"${res}"
+    cat FILE | l_02_of2e &>>"${res}"
+
+    echo "HERE_DOC:"&>>"${res}"
+    l_02_of2e <<EOF &>>"${res}"
+        ### res_here_doc 
+    first_str
+    second_str
+EOF
+
+    echo "HERE_STR:"&>>"${res}"
+    l_02_of2e <<<"### here_str_::_fifth_str" &>>"${res}"
+
     #?-------------------------------------
     #?----------------------------------------------------
 
