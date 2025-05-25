@@ -118,7 +118,7 @@ l_04_d8t4f() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: dir \$1 8 IFS(3.2) dir 4 IFS(2.1) \$2 fl
+MAIN: ${FNN} :: dir {\$1 IFS(3.2)} 8num {\$2 LEX(1.2)} dir 4 IFS(2.1) \$3 NOT_EXIST fl
 TAGS:
 \$1 
 [, \$2]
@@ -192,11 +192,17 @@ fi
 #! echo ARGS
 # [[ -n ${ARGS[0]} ]] && l_02_pa3e ARGS
 
-# [[ -n "$1" ]] || {
-#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
-#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-#     return 1
-# }
+[[ -n "$3" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$3' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
+
+[[ -d "$1" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR 'file://${3}' where '\$3=$3' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
 
 # while IFS=$'\n' read -r line; do
 #     :
@@ -206,12 +212,18 @@ fi
 # eval "$2=$res_12341c43234rfe"
 
 #! ptr_path_1
-# local ptr_path_1="$1"
-# ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
+local ptr_path_1="$1"
+ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
 
 #! ptr_path_2
 # local ptr_path_2="$2"
 # ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
+
+local res_itky5427=
+
+l_03_od8d "${ptr_path_1}" res_itky5427 "$2"
+
+l_00_echo_info "'\$res_itky5427 = $res_itky5427'"
 
     #* END fn block ------------------
 

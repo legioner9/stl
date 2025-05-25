@@ -119,6 +119,7 @@ flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
         return 0;
     fi;
+    echo -e "${ECHO_EXEC}'$FNN $*'${NRM}";
     [[ -n "$3" ]] || { 
         l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$3' return 1";
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
@@ -132,7 +133,7 @@ flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
     local ptr_path_1="$1";
     ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")";
     local res_itky5427=;
-    l_03_od8f "${ptr_path_1}" res_itky5427 "$2";
+    l_03_od8d "${ptr_path_1}" res_itky5427 "$2";
     l_00_echo_info "'\$res_itky5427 = $res_itky5427'";
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
     return 0

@@ -18881,7 +18881,7 @@ flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
 fi
 
 #! stdout fn introduction
-# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 #     #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
 #     local di=
@@ -18943,7 +18943,7 @@ ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
 
 local res_itky5427=
 
-l_03_od8f "${ptr_path_1}" res_itky5427 "$2"
+l_03_od8d "${ptr_path_1}" res_itky5427 "$2"
 
 l_00_echo_info "'\$res_itky5427 = $res_itky5427'"
 
