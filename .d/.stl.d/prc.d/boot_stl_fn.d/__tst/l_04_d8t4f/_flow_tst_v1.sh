@@ -59,7 +59,7 @@ _l_04_d8t4f_867a09d_flow_1() {
     └── rcv.f
 "
     rm result.file
-    l_04_d8t4f tml.d.d 1 result.file
+    l_04_d8t4f tml.d.d 1 @
     cat result.file
     rm result.file
     l_04_d8t4f tml.d.d 0 result.file
