@@ -38,6 +38,8 @@ l_02_fs2f() {
     local tst_nm_fw_=${tst_nm_dr}/_flow_tst.sh
     local tst_nm_fw1_=${tst_nm_dr}/_flow_tst_v1.sh
 
+    unset IFS
+
     if ! [[ -d "${PPWD}" ]]; then
         echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
@@ -179,7 +181,7 @@ EXAM:   ${FNN} [, [, ]]
 fi
 
 #! stdout fn introduction
-# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 #     #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
 #     local di=
@@ -242,10 +244,15 @@ ptr_path_3="$(l_01_abs_path "${PPWD}" "ptr_path_3")"
     return 1
 }
 
+#* grass parameter
+
+l_00_echo_info "\$1 :: 'ins_fl = file://$ptr_path_1 '"
+l_00_echo_info "\$2 :: 'rcv_str = $2'"
+l_00_echo_info "\$3 :: 'rcv_fl = file://$ptr_path_3 '"
+
+
 cat ${ptr_path_3} | grep "$2" >/dev/null || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: FALSE 'in '${ptr_path_3}' not contane '$2' ' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
+    l_00_echo_warn "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: FALSE 'in '${ptr_path_3}' not contane '$2' ' continue"
 }
 
 eval "sed -e '\|$2|{r ${ptr_path_1}' -e ';}' ${ptr_path_3} >_tmp_" || {

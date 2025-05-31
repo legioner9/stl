@@ -8,15 +8,15 @@
 # "${ECHO_ERR}$FNN() $*' in file://${file_name} , line=${LINENO} :: CAUS_NAME [VAR] 'code' :: return 1${NRM}" >&2
 # cd ${PPWD} || echo -e "${ECHO_WAR}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [\${PPWD}] '${PPWD}' return 1${NRM}" >&2
 
-l_02_s2f() {
+l_03_sf2f() {
 
-    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_02_s2f`
+    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_03_sf2f`
     #! All changes will be lost after rebuilding
     #! To change this file use the following commands:
 
-    #! l_02_s2f _e_prc to edit/change 'fn block',
-    #! l_02_s2f _rbld to rebuild fn with changed 'fn block'
-    #! l_02_s2f _e_xxx` to edit 'init block'
+    #! l_03_sf2f _e_prc to edit/change 'fn block',
+    #! l_03_sf2f _rbld to rebuild fn with changed 'fn block'
+    #! l_03_sf2f _e_xxx` to edit 'init block'
 
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
@@ -104,7 +104,7 @@ l_02_s2f() {
     fi
 
     if [[ "_rbld" == "$1" ]]; then
-        #! rebuild fn : bcp && ord fn.sh from l_02_s2f.sh , cp fn.prc into fn.sh
+        #! rebuild fn : bcp && ord fn.sh from l_03_sf2f.sh , cp fn.prc into fn.sh
         . ${fn_dr}/_rbld_l_xx.sh ${FNN}
         #! up to mem fn
         . ${fn_dr}/$1.sh
@@ -112,21 +112,19 @@ l_02_s2f() {
         return 0
     fi
 
-    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_02_s2f.prc ------------------
+    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_03_sf2f.prc ------------------
     #[[fn_body]]
 #? for copy to help block
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: reciver_string: \$1 inserter_string: \$2 [@ - empty string] in reciver_result_file: \$3
-TAGS: @fl @s2
+MAIN: ${FNN} :: cp file \$3 to $(dirname \$3) with reciver \$1 inserter \$2 in file and name file
+TAGS: @fl @rcv
 \$1 
 [, \$2]
 FLOW:   [if 
             -]
-            
-NB: BACKSLASH ALLOWED 
-
+        
 # HIE ${FNN} 
 ## CAUSA:
 ПРИЧИНА создания:
@@ -152,7 +150,16 @@ CNTL:
     _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/${FNN}
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
-EXAM:   ${FNN} [, [, ]]
+EXAM: $
+: >startXfile
+rm startYfile
+
+    cat >startXfile <<EOF
+    this startXfile
+EOF
+
+    l_03_sf2f X Y startXfile &>>\"\${res}\"
+    cat startYfile &>>\"\${res}\" -> '    this startYfile'
 "
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0
@@ -199,54 +206,56 @@ echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 #     return 1
 # fi
 
-# [[ -n "$1" ]] || {
-#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
-#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-#     return 1
-# }
+[[ -n ${ARGS[0]} ]] && l_02_pa3e ARGS
+
+[[ -n "$3" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$3' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
 
 # while IFS=$'\n' read -r line; do
 #     :
 # done <"${1:-/dev/stdin}"
 
-if [[ -z "$3" ]]; then
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DEFINE '\$3' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-fi
-
 #! ptr_path
-local ptr_path="$3"
-ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
+local init_file="$3"
+init_file="$(l_01_abs_path "${PPWD}" "init_file")"
 
-if ! [[ -f "$ptr_path" ]]; then
+if ! [[ -f "$init_file" ]]; then
     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${init_file}' where '\$3=$3' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 fi
 
-#! ptr_path
-# local ptr_path="$3"
-# ptr_path="$(_abs_path "${PPWD}" "ptr_path")"
-#[[ptr_path]]
+local reciver=${1}
+local inserter=${2}
 
-#! eval "sed -i 's|^'\'' .*||g' ${HOME}/path_file" rm string starting with <' >
+local init_file_name=$(basename $init_file)
+local init_file_base=$(dirname $init_file)
 
-l_00_echo_info "\$1 :: 'rcv_str = $1'"
-l_00_echo_info "\$2 :: 'ins_str = $2'"
-l_00_echo_info "\$3 :: 'rcv_fl = file://$ptr_path_ '"
+l_00_echo_code "l_02_s2se $reciver $inserter $init_file_name"
+local result_file_name=$(l_02_s2se $reciver $inserter $init_file_name)
 
-local arg_2="$2"
+# echo -e "${HLIGHT}--- exec: cp -r ${init_dir_base}/${init_dir_name}/. ${init_dir_base}/${result_dir_name} ---${NORMAL}" #start files
+if [[ -f ${init_file_base}/${result_file_name} ]]; then
 
-local str_x=${arg_2//'\'/'\\'}
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXIST_FILE 'file://${init_file_base}/${result_file_name} ' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
 
-# sed -i "s|$1|$2|g" "$3"
-if [ "@" == "${2}" ]; then
-    eval "sed -i 's|${1}||g' $ptr_path"
-else
-    eval "sed -i 's|${1}|${str_x}|g' $ptr_path"
 fi
 
+if ! cp ${init_file_base}/${init_file_name} ${init_file_base}/${result_file_name}; then
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'cp ${init_file_base}/${init_file_name} ${init_file_base}/${result_file_name}' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+fi
+
+if ! l_02_s2f $reciver $inserter ${init_file_base}/${result_file_name}; then
+    echo "in fs= file://${HOME}/.d/.rc.d/.st.rc.d/.st.sh.d/_sf2f.sh , line=${LINENO}, ${FNN}() : : EXEC_FAIL : '_s2f $reciver $inserter ${init_file_base}/${result_file_name}' : ${hint} : return 1" >&2
+    return 1
+fi
 
     #* END fn block ------------------
 
@@ -256,4 +265,4 @@ fi
 }
 
 #! SELF EXEC
-# l_02_s2f @
+# l_03_sf2f @

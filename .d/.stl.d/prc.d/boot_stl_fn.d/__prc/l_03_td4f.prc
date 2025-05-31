@@ -2,7 +2,7 @@
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: \$1 recive file with {{[name]}} string \$2 dir with [name].ins files LEX(6.2)
 TAGS:
 \$1 
 [, \$2]
@@ -32,7 +32,7 @@ CNTL:
     _e_prc      : edit fn.prc   : l_02_edit ${prc_nm}
     _e_tst_dr   : edit tst_nm_dr: l_02_edit ${tst_nm_dr}
     _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/${FNN}
-
+DOIN: change \$1
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
 see (${FNN} _flow_1)
@@ -43,7 +43,7 @@ flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
 fi
 
 #! stdout fn introduction
-# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 #     #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
 #     local di=
@@ -67,12 +67,6 @@ fi
 
 #* rename args
 
-#* grass parameter
-# l_00_echo_info "--- grass parameter ---"
-# l_00_echo_info "\$1 :: 'ins_fl = file://$ptr_path_1 '"
-# l_00_echo_info "\$2 :: 'rcv_str = $2'"
-# l_00_echo_info "\$3 :: 'rcv_fl = file://$ptr_path_3 '"
-
 #* check cntl
 
 #* inname cntl
@@ -83,11 +77,11 @@ fi
 # local ARG_23edew=("${ARGS[@]}")
 # [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_23edew
 
-# [[ -n "$1" ]] || {
-#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
-#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-#     return 1
-# }
+[[ -n "$2" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$2' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
 
 # [[ -f "$3" ]] || {
 #     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${3}' where '\$3=$3' return 1"
@@ -112,9 +106,45 @@ fi
 # eval "$2=$res_12341c43234rfe"
 
 #! ptr_path_1
-# local ptr_path_1="$1"
-# ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
+local ptr_path_1="$1"
+ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
+
+[[ -f "$ptr_path_1" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${ptr_path_1}' where '\$1=$1' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
 
 #! ptr_path_2
-# local ptr_path_2="$2"
-# ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
+local ptr_path_2="$2"
+ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
+
+[[ -d "$ptr_path_2" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR 'file://${ptr_path_2}' where '\$2=$2' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
+
+#* rename args
+local rcv_fl=${ptr_path_1}
+local ins_dir=${ptr_path_2}
+
+l_00_echo_info "--- grass parameter ---"
+l_00_echo_info "\$1 :: 'rcv_fl = file://$ptr_path_1 '"
+l_00_echo_info "\$2 :: 'ins_dir = file://${ptr_path_2} '"
+
+local item=
+local name_ins=
+local fl_ins=
+
+for item in $(l_02_df2e ${ins_dir} "ins"); do
+    # l_00_echo_info "'\$item = $item'"
+    fl_ins="${ins_dir}/$item"
+    name_ins=$(l_01_prs_f -n $item)
+    # l_00_echo_info "'\$name_ins = $name_ins'"
+
+    grep "{{${name_ins}}}" "${rcv_fl}" && {
+        l_02_fs2f "${fl_ins}" "{{${name_ins}}}" "${rcv_fl}"
+        l_02_s2f "{{${name_ins}}}" "[[${name_ins}]]" "${rcv_fl}"
+    }
+done

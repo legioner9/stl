@@ -65,7 +65,7 @@ EXAM:   ${FNN} [, [, ]]
 fi
 
 #! stdout fn introduction
-# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 #     #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
 #     local di=
@@ -127,6 +127,13 @@ ptr_path_3="$(l_01_abs_path "${PPWD}" "ptr_path_3")"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }
+
+#* grass parameter
+l_00_echo_info "--- grass parameter ---"
+l_00_echo_info "\$1 :: 'ins_fl = file://$ptr_path_1 '"
+l_00_echo_info "\$2 :: 'rcv_str = $2'"
+l_00_echo_info "\$3 :: 'rcv_fl = file://$ptr_path_3 '"
+
 
 cat ${ptr_path_3} | grep "$2" >/dev/null || {
     l_00_echo_warn "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: FALSE 'in '${ptr_path_3}' not contane '$2' ' continue"
