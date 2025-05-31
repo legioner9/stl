@@ -8,15 +8,15 @@
 # "${ECHO_ERR}$FNN() $*' in file://${file_name} , line=${LINENO} :: CAUS_NAME [VAR] 'code' :: return 1${NRM}" >&2
 # cd ${PPWD} || echo -e "${ECHO_WAR}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [\${PPWD}] '${PPWD}' return 1${NRM}" >&2
 
-l_02_fs2f() {
+l_02_s2f_iu() {
 
-    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_02_fs2f`
+    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_02_s2f_iu`
     #! All changes will be lost after rebuilding
     #! To change this file use the following commands:
 
-    #! l_02_fs2f _e_prc to edit/change 'fn block',
-    #! l_02_fs2f _rbld to rebuild fn with changed 'fn block'
-    #! l_02_fs2f _e_xxx` to edit 'init block'
+    #! l_02_s2f_iu _e_prc to edit/change 'fn block',
+    #! l_02_s2f_iu _rbld to rebuild fn with changed 'fn block'
+    #! l_02_s2f_iu _e_xxx` to edit 'init block'
 
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
@@ -104,7 +104,7 @@ l_02_fs2f() {
     fi
 
     if [[ "_rbld" == "$1" ]]; then
-        #! rebuild fn : bcp && ord fn.sh from l_02_fs2f.sh , cp fn.prc into fn.sh
+        #! rebuild fn : bcp && ord fn.sh from l_02_s2f_iu.sh , cp fn.prc into fn.sh
         . ${fn_dr}/_rbld_l_xx.sh ${FNN}
         #! up to mem fn
         . ${fn_dr}/$1.sh
@@ -112,21 +112,19 @@ l_02_fs2f() {
         return 0
     fi
 
-    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_02_fs2f.prc ------------------
+    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_02_s2f_iu.prc ------------------
     #[[fn_body]]
 #? for copy to help block
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: insert \$1 file after str \$2 in file \$3
+MAIN: ${FNN} :: reciver_string: \$1 inserter_string: \$2 [@ - empty string] in stdin to stdout
 TAGS:
 \$1 
 [, \$2]
 FLOW:   [if 
             -]
-
-NB!!: escaping in \$2 '\[' '\]' '\\\$' '\^' '\\\\\'      
-
+        
 # HIE ${FNN} 
 ## CAUSA:
 ПРИЧИНА создания:
@@ -153,28 +151,8 @@ CNTL:
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
-
-    cat > init.f << EOF
-    ...
-    {{44}}
-    ...
-    EOF
-    cat > ins.f << EOF
-     555
-      666    
-    EOF
-
-    rm rcv.f
-    cp init.f rcv.f
-
-    l_02_fs2f ins.f "{{44}}" rcv.f
-    cat rcv.f
-    ...
-    {{44}}
-     555
-      666 
-    ...
-
+see (${FNN} _flow_1)
+flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
 "
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0
@@ -212,53 +190,54 @@ fi
 #* define local variables
 
 #! echo ARGS
-# [[ -n ${ARGS[0]} ]] && l_02_pa3e ARGS
+# local ARG_23edew=("${ARGS[@]}")
+# [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_23edew
 
-[[ -n "$3" ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$3' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
+# [[ -n "$1" ]] || {
+#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
+#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+#     return 1
+# }
+
+# [[ -f "$3" ]] || {
+#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${3}' where '\$3=$3' return 1"
+#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+#     return 1
+# }
 
 # while IFS=$'\n' read -r line; do
 #     :
 # done <"${1:-/dev/stdin}"
 
+# if [[ "@" == "$3" ]]; then
+#     echo "Enter num menu :"
+#     read -r
+#     arg_3=$REPLY
+#     l_00_echo_info "'\$arg_3 = $arg_3'"
+# else
+#     arg_3="$3"
+# fi
+
+#! use arg_ptr
+# eval "$2=$res_12341c43234rfe"
+
 #! ptr_path_1
-local ptr_path_1="$1"
-ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
+# local ptr_path_1="$1"
+# ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
 
-[[ -f ${ptr_path_1} ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${ptr_path_1}' where '\$1=$1' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
+#! ptr_path_2
+# local ptr_path_2="$2"
+# ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
 
-#! ptr_path_3
-local ptr_path_3="$3"
-ptr_path_3="$(l_01_abs_path "${PPWD}" "ptr_path_3")"
+# l_00_echo_info "resiv '\$1 = $1'"
+# l_00_echo_info "insert '\$2 = $2'"
 
-[[ -f ${ptr_path_3} ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${ptr_path_3}' where '\$3=$3' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
-
-cat ${ptr_path_3} | grep "$2" >/dev/null || {
-    l_00_echo_warn "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: FALSE 'in '${ptr_path_3}' not contane '$2' ' continue"
-}
-
-eval "sed -e '\|$2|{r ${ptr_path_1}' -e ';}' ${ptr_path_3} >_tmp_" || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'sed -e '\|$2|{r ${ptr_path_1}' -e ';}' ${ptr_path_3} >_tmp_'  return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
-
-mv _tmp_ "${ptr_path_3}" || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'mv _tmp_ \"${ptr_path_3}\"' -e ';}' ${ptr_path_3} >_tmp_'  return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
+# sed -i "s|$1|$2|g" "$3"
+if [ "@" == "${2}" ]; then
+    eval "sed 's|${1}||g'"
+else
+    eval "sed 's|${1}|${2}|g'"
+fi
 
     #* END fn block ------------------
 
@@ -268,4 +247,4 @@ mv _tmp_ "${ptr_path_3}" || {
 }
 
 #! SELF EXEC
-# l_02_fs2f @
+# l_02_s2f_iu @

@@ -2,15 +2,14 @@
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: insert \$1 file after str \$2 in file \$3
+MAIN: ${FNN} :: insert \$1 file after str \$2 from stdin to stdout
 TAGS:
 \$1 
 [, \$2]
 FLOW:   [if 
             -]
-
-NB!!: escaping in \$2 '\[' '\]' '\\\$' '\^' '\\\\\'      
-
+NB!!: escaping in \$2 '\[' '\]' '\\\$' '\^' '\\\\\'  
+        
 # HIE ${FNN} 
 ## CAUSA:
 ПРИЧИНА создания:
@@ -37,28 +36,8 @@ CNTL:
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
-
-    cat > init.f << EOF
-    ...
-    {{44}}
-    ...
-    EOF
-    cat > ins.f << EOF
-     555
-      666    
-    EOF
-
-    rm rcv.f
-    cp init.f rcv.f
-
-    l_02_fs2f ins.f "{{44}}" rcv.f
-    cat rcv.f
-    ...
-    {{44}}
-     555
-      666 
-    ...
-
+see (${FNN} _flow_1)
+flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
 "
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0
@@ -96,17 +75,44 @@ fi
 #* define local variables
 
 #! echo ARGS
-# [[ -n ${ARGS[0]} ]] && l_02_pa3e ARGS
+# local ARG_23edew=("${ARGS[@]}")
+# [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_23edew
 
-[[ -n "$3" ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$3' return 1"
+[[ -n "$2" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$2' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }
 
+# [[ -f "$3" ]] || {
+#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${3}' where '\$3=$3' return 1"
+#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+#     return 1
+# }
+
 # while IFS=$'\n' read -r line; do
 #     :
 # done <"${1:-/dev/stdin}"
+
+# if [[ "@" == "$3" ]]; then
+#     echo "Enter num menu :"
+#     read -r
+#     arg_3=$REPLY
+#     l_00_echo_info "'\$arg_3 = $arg_3'"
+# else
+#     arg_3="$3"
+# fi
+
+#! use arg_ptr
+# eval "$2=$res_12341c43234rfe"
+
+#! ptr_path_1
+# local ptr_path_1="$1"
+# ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
+
+#! ptr_path_2
+# local ptr_path_2="$2"
+# ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
 
 #! ptr_path_1
 local ptr_path_1="$1"
@@ -118,28 +124,4 @@ ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
     return 1
 }
 
-#! ptr_path_3
-local ptr_path_3="$3"
-ptr_path_3="$(l_01_abs_path "${PPWD}" "ptr_path_3")"
-
-[[ -f ${ptr_path_3} ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${ptr_path_3}' where '\$3=$3' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
-
-cat ${ptr_path_3} | grep "$2" >/dev/null || {
-    l_00_echo_warn "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: FALSE 'in '${ptr_path_3}' not contane '$2' ' continue"
-}
-
-eval "sed -e '\|$2|{r ${ptr_path_1}' -e ';}' ${ptr_path_3} >_tmp_" || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'sed -e '\|$2|{r ${ptr_path_1}' -e ';}' ${ptr_path_3} >_tmp_'  return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
-
-mv _tmp_ "${ptr_path_3}" || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'mv _tmp_ \"${ptr_path_3}\"' -e ';}' ${ptr_path_3} >_tmp_'  return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
+eval "sed -e '\|${2}|{r ${ptr_path_1}' -e ';}'"

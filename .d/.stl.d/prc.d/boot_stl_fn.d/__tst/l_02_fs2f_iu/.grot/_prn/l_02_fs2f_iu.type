@@ -1,5 +1,5 @@
-l_02_fs2f — это функция
-l_02_fs2f () 
+l_02_fs2f_iu — это функция
+l_02_fs2f_iu () 
 { 
     local FNN=${FUNCNAME[0]};
     local PPWD=$PWD;
@@ -80,15 +80,14 @@ l_02_fs2f ()
     fi;
     if [[ "-h" == "$1" ]]; then
         echo -e "
-MAIN: ${FNN} :: insert \$1 file after str \$2 in file \$3
+MAIN: ${FNN} :: insert \$1 file after str \$2 from stdin to stdout
 TAGS:
 \$1 
 [, \$2]
 FLOW:   [if 
             -]
-
-NB!!: escaping in \$2 '\[' '\]' '\\\$' '\^' '\\\\\'      
-
+NB!!: escaping in \$2 '\[' '\]' '\\\$' '\^' '\\\\\'  
+        
 # HIE ${FNN} 
 ## CAUSA:
 ПРИЧИНА создания:
@@ -115,34 +114,14 @@ CNTL:
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
-
-    cat > init.f << EOF
-    ...
-    {{44}}
-    ...
-    EOF
-    cat > ins.f << EOF
-     555
-      666    
-    EOF
-
-    rm rcv.f
-    cp init.f rcv.f
-
-    l_02_fs2f ins.f "{{44}}" rcv.f
-    cat rcv.f
-    ...
-    {{44}}
-     555
-      666 
-    ...
-
+see (${FNN} _flow_1)
+flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
 ";
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
         return 0;
     fi;
-    [[ -n "$3" ]] || { 
-        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$3' return 1";
+    [[ -n "$2" ]] || { 
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$2' return 1";
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
         return 1
     };
@@ -153,26 +132,7 @@ EXAM:   ${FNN} [, [, ]]
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
         return 1
     };
-    local ptr_path_3="$3";
-    ptr_path_3="$(l_01_abs_path "${PPWD}" "ptr_path_3")";
-    [[ -f ${ptr_path_3} ]] || { 
-        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${ptr_path_3}' where '\$3=$3' return 1";
-        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
-        return 1
-    };
-    cat ${ptr_path_3} | grep "$2" > /dev/null || { 
-        l_00_echo_warn "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: FALSE 'in '${ptr_path_3}' not contane '$2' ' continue"
-    };
-    eval "sed -e '\|$2|{r ${ptr_path_1}' -e ';}' ${ptr_path_3} >_tmp_" || { 
-        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'sed -e '\|$2|{r ${ptr_path_1}' -e ';}' ${ptr_path_3} >_tmp_'  return 1";
-        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
-        return 1
-    };
-    mv _tmp_ "${ptr_path_3}" || { 
-        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'mv _tmp_ \"${ptr_path_3}\"' -e ';}' ${ptr_path_3} >_tmp_'  return 1";
-        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
-        return 1
-    };
+    eval "sed -e '\|${2}|{r ${ptr_path_1}' -e ';}'";
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
     return 0
 }
