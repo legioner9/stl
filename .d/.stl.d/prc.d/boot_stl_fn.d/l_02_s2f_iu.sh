@@ -124,7 +124,7 @@ TAGS:
 [, \$2]
 FLOW:   [if 
             -]
-        
+NB: BACKSLASH ALLOWED       
 # HIE ${FNN} 
 ## CAUSA:
 ПРИЧИНА создания:

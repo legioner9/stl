@@ -244,7 +244,7 @@ local str_x=${arg_2//'\'/'\\'}
 if [ "@" == "${2}" ]; then
     eval "sed 's|${1}||g'"
 else
-    eval "sed 's|${1}|${arg_2}|g'"
+    eval "sed 's|${1}|${str_x}|g'"
 fi
 
     #* END fn block ------------------

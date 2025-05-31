@@ -2,15 +2,13 @@
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: reciver_string: \$1 inserter_string: \$2 [@ - empty string] in reciver_result_file: \$3
-TAGS: @fl @s2
+MAIN: ${FNN} :: 
+TAGS:
 \$1 
 [, \$2]
 FLOW:   [if 
             -]
-            
-NB: BACKSLASH ALLOWED 
-
+        
 # HIE ${FNN} 
 ## CAUSA:
 ПРИЧИНА создания:
@@ -37,13 +35,15 @@ CNTL:
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
+see (${FNN} _flow_1)
+flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
 "
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0
 fi
 
 #! stdout fn introduction
-echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 #     #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
 #     local di=
@@ -73,18 +73,18 @@ echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 #* define local variables
 
-# _f2d :: insert $1 file after str $2 in ALL (without prevent) file from dir $3
-# _s2d :: into str $1 insert $2 str in (with prevent) file from dir $3
-# _s2f :: reciver_string: $1 inserter_string: $2 in reciver_result_file: $3
-
-# hint="\$1: \$2: "
-# if _isn_from ${NARGS} LESS LESS+1 "in fs= file://${fn_sh_file}, line=${LINENO}, ${FNN}() : DEMAND 'LESS LESS+1' ERR_AMOUNT_ARGS entered :'${NARGS}' args : ${hint} : return 1"; then
-#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-#     return 1
-# fi
+#! echo ARGS
+# local ARG_23edew=("${ARGS[@]}")
+# [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_23edew
 
 # [[ -n "$1" ]] || {
 #     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
+#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+#     return 1
+# }
+
+# [[ -f "$3" ]] || {
+#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${3}' where '\$3=$3' return 1"
 #     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
 #     return 1
 # }
@@ -93,41 +93,23 @@ echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 #     :
 # done <"${1:-/dev/stdin}"
 
-if [[ -z "$3" ]]; then
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DEFINE '\$3' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-fi
+# if [[ "@" == "$3" ]]; then
+#     echo "Enter num menu :"
+#     read -r
+#     arg_3=$REPLY
+#     l_00_echo_info "'\$arg_3 = $arg_3'"
+# else
+#     arg_3="$3"
+# fi
 
-#! ptr_path
-local ptr_path="$3"
-ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
+#! use arg_ptr
+# eval "$2=$res_12341c43234rfe"
 
-if ! [[ -f "$ptr_path" ]]; then
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${init_file}' where '\$3=$3' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-fi
+#! ptr_path_1
+# local ptr_path_1="$1"
+# ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
 
-#! ptr_path
-# local ptr_path="$3"
-# ptr_path="$(_abs_path "${PPWD}" "ptr_path")"
-#[[ptr_path]]
-
-#! eval "sed -i 's|^'\'' .*||g' ${HOME}/path_file" rm string starting with <' >
-
-l_00_echo_info "resiv '\$1 = $1'"
-l_00_echo_info "insert '\$2 = $2'"
-l_00_echo_info "'\$ptr_path = file://${ptr_path}'"
-
-local arg_2="$2"
-
-local str_x=${arg_2//'\'/'\\'}
-
-# sed -i "s|$1|$2|g" "$3"
-if [ "@" == "${2}" ]; then
-    eval "sed -i 's|${1}||g' $ptr_path"
-else
-    eval "sed -i 's|${1}|${str_x}|g' $ptr_path"
-fi
-
+#! ptr_path_2
+# local ptr_path_2="$2"
+# ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
+sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'

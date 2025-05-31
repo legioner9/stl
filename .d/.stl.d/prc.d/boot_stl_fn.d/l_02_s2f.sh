@@ -125,7 +125,7 @@ TAGS: @fl @s2
 FLOW:   [if 
             -]
             
-NB!!: escaping in \$2 '\[' '\]' '\\\$' '\^' '\\\\\' and in \$1 '\.'  
+NB: BACKSLASH ALLOWED 
 
 # HIE ${FNN} 
 ## CAUSA:
