@@ -2,7 +2,7 @@
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: dir {\$1 IFS(3.2)} 8num {\$2 LEX(1.2)} dir 4 IFS(2.1) [LEX(1.11) result is stdout]
+MAIN: ${FNN} :: dir {\$1 IFS(3.2)} 8num {\$2 LEX(1.2)} dir 4 IFS(2.1), \$3 result fl name, \$4 result dir or @ LEX(1.12)
 TAGS:
 \$1 
 [, \$2]
@@ -67,6 +67,12 @@ echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 #* rename args
 
+#* grass parameter
+
+# l_00_echo_gras "\$1 :: 'ins_fl = file://$ptr_path_1 '"
+# l_00_echo_gras "\$2 :: 'rcv_str = $2'"
+# l_00_echo_gras "\$3 :: 'rcv_fl = file://$ptr_path_3 '"
+
 #* check cntl
 
 #* inname cntl
@@ -74,10 +80,47 @@ echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 #* define local variables
 
 #! echo ARGS
-# [[ -n ${ARGS[0]} ]] && l_02_pa3e ARGS
+# local ARG_23edew=("${ARGS[@]}")
+# [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_23edew
 
-[[ -n "$2" ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$2' return 1"
+# [[ -n "$1" ]] || {
+#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
+#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+#     return 1
+# }
+
+# [[ -f "$3" ]] || {
+#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${3}' where '\$3=$3' return 1"
+#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+#     return 1
+# }
+
+# while IFS=$'\n' read -r line; do
+#     :
+# done <"${1:-/dev/stdin}"
+
+# if [[ "@" == "$3" ]]; then
+#     echo "Enter num menu :"
+#     read -r
+#     arg_3=$REPLY
+#     l_00_echo_info "'\$arg_3 = $arg_3'"
+# else
+#     arg_3="$3"
+# fi
+
+#! use arg_ptr
+# eval "$2=$res_12341c43234rfe"
+
+#! ptr_path_1
+# local ptr_path_1="$1"
+# ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
+
+#! ptr_path_2
+# local ptr_path_2="$2"
+# ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
+
+[[ -n "$4" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$4' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }
@@ -86,6 +129,14 @@ echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR 'file://${1}' where '\$1=$1' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
+}
+
+[[ "@" != "$4" ]] && {
+    [[ -d "$4" ]] || {
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR 'file://${4}' where '\$4=$4' return 1"
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        return 1
+    }
 }
 
 # while IFS=$'\n' read -r line; do
@@ -99,12 +150,19 @@ echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 local ptr_path_1="$1"
 ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
 
-#! ptr_path_2
-# local ptr_path_2="$2"
-# ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
+#! ptr_path_4
+local ptr_path_4="$4"
+ptr_path_4="$(l_01_abs_path "${PPWD}" "ptr_path_4")"
 
-local dir_res_itky5427=
+#* grass parameter
 
-l_03_od8d "${ptr_path_1}" dir_res_itky5427 "$2"
+l_00_echo_gras "${FNN} \$1 :: 'dir_with_dirs = file://$ptr_path_1 '"
+l_00_echo_gras "${FNN} \$2 :: '8num = $2'"
+l_00_echo_gras "${FNN} \$3 :: 'res_fl_name = $3'"
+# l_00_echo_gras "\$4 :: 'res_dir_pth = file://$ptr_path_4 '"
 
-l_00_echo_info "'\$dir_res_itky5427 = $dir_res_itky5427'"
+local dir_res_itky54271=
+
+l_03_od8d "${ptr_path_1}" dir_res_itky54271 "$2"
+
+l_00_echo_gras "${FNN} peer :: 'tml_dir_pth = file://$dir_res_itky54271 '"

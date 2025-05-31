@@ -248,6 +248,9 @@ echo -e "
     l_00_echo_true  : ECHO_TRUE=$FNL$EGH \$FNL\$EGH $NRM
     l_00_echo_fls   : ECHO_FLS=$FNL$ERH \$FNL\$ERH $NRM
 
+    l_00_echo_gras  : ECHO_GRAS=$FNL$EGL$RVC \$FNL\$EGH\$RVC $NRM
+
+
     $FRL$EDH$RVC \$FRL\$EDH\$RVC $NRM
     $FGL$EDH$RVC \$FGL\$EDH\$RVC $NRM
     $FYL$EDH$RVC \$FYL\$EDH\$RVC $NRM

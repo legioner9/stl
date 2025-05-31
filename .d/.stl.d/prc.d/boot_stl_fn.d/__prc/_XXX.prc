@@ -68,10 +68,10 @@ fi
 #* rename args
 
 #* grass parameter
-# l_00_echo_info "--- grass parameter ---"
-# l_00_echo_info "\$1 :: 'ins_fl = file://$ptr_path_1 '"
-# l_00_echo_info "\$2 :: 'rcv_str = $2'"
-# l_00_echo_info "\$3 :: 'rcv_fl = file://$ptr_path_3 '"
+
+# l_00_echo_gras "${FNN} \$1 :: 'ins_fl = file://$ptr_path_1 '"
+# l_00_echo_gras "${FNN} \$2 :: 'rcv_str = $2'"
+# l_00_echo_gras "${FNN} {} :: 'rcv_fl = file://$ptr_path_3 '"
 
 #* check cntl
 

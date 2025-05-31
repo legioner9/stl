@@ -134,12 +134,15 @@ flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
         echo "Enter num menu :";
         read -r;
         arg_3=$REPLY;
-        l_00_echo_info "'\$arg_3 = $arg_3'";
     else
         arg_3="$3";
     fi;
+    l_00_echo_gras "peer :: 'num8 = $arg_3 '";
     local ptr_path_1="$1";
     ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")";
+    l_00_echo_gras "\$1 :: 'dir_with_dirs = file://$ptr_path_1 '";
+    l_00_echo_gras "\$2 :: 'ptr_result = $2'";
+    l_00_echo_gras "\$3 :: '8num = $3'";
     local item=;
     local of=;
     local dr_pth=;
@@ -148,7 +151,6 @@ flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
     for item in $(l_02_dd2e "${ptr_path_1}");
     do
         of=;
-        l_00_echo_info "'\$item = $item'";
         dr_pth="${ptr_path_1}/$item";
         dr_od_pth="${ptr_path_1}/$item"/.od;
         [[ -f "${dr_od_pth}" ]] && { 

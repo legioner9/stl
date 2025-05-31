@@ -8,15 +8,15 @@
 # "${ECHO_ERR}$FNN() $*' in file://${file_name} , line=${LINENO} :: CAUS_NAME [VAR] 'code' :: return 1${NRM}" >&2
 # cd ${PPWD} || echo -e "${ECHO_WAR}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [\${PPWD}] '${PPWD}' return 1${NRM}" >&2
 
-l_04_d8t4f() {
+l_04_d8td4f() {
 
-    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_04_d8t4f`
+    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_04_d8td4f`
     #! All changes will be lost after rebuilding
     #! To change this file use the following commands:
 
-    #! l_04_d8t4f _e_prc to edit/change 'fn block',
-    #! l_04_d8t4f _rbld to rebuild fn with changed 'fn block'
-    #! l_04_d8t4f _e_xxx` to edit 'init block'
+    #! l_04_d8td4f _e_prc to edit/change 'fn block',
+    #! l_04_d8td4f _rbld to rebuild fn with changed 'fn block'
+    #! l_04_d8td4f _e_xxx` to edit 'init block'
 
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
@@ -104,7 +104,7 @@ l_04_d8t4f() {
     fi
 
     if [[ "_rbld" == "$1" ]]; then
-        #! rebuild fn : bcp && ord fn.sh from l_04_d8t4f.sh , cp fn.prc into fn.sh
+        #! rebuild fn : bcp && ord fn.sh from l_04_d8td4f.sh , cp fn.prc into fn.sh
         . ${fn_dr}/_rbld_l_xx.sh ${FNN}
         #! up to mem fn
         . ${fn_dr}/$1.sh
@@ -112,13 +112,13 @@ l_04_d8t4f() {
         return 0
     fi
 
-    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_04_d8t4f.prc ------------------
+    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_04_d8td4f.prc ------------------
     #[[fn_body]]
 #? for copy to help block
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: dir {\$1 IFS(3.2)} 8num {\$2 LEX(1.2)} dir 4 IFS(2.1) [\$3 NOT_EXIST fl if \$3=@ result is stdout]
+MAIN: ${FNN} :: 
 TAGS:
 \$1 
 [, \$2]
@@ -159,7 +159,7 @@ flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
 fi
 
 #! stdout fn introduction
-echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 #     #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
 #     local di=
@@ -183,6 +183,12 @@ echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 #* rename args
 
+#* grass parameter
+# l_00_echo_info "--- grass parameter ---"
+# l_00_echo_info "\$1 :: 'ins_fl = file://$ptr_path_1 '"
+# l_00_echo_info "\$2 :: 'rcv_str = $2'"
+# l_00_echo_info "\$3 :: 'rcv_fl = file://$ptr_path_3 '"
+
 #* check cntl
 
 #* inname cntl
@@ -190,40 +196,44 @@ echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 #* define local variables
 
 #! echo ARGS
-# [[ -n ${ARGS[0]} ]] && l_02_pa3e ARGS
+# local ARG_23edew=("${ARGS[@]}")
+# [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_23edew
 
-[[ -n "$3" ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$3' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
+# [[ -n "$1" ]] || {
+#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
+#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+#     return 1
+# }
 
-[[ -d "$1" ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR 'file://${3}' where '\$3=$3' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
+# [[ -f "$3" ]] || {
+#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${3}' where '\$3=$3' return 1"
+#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+#     return 1
+# }
 
 # while IFS=$'\n' read -r line; do
 #     :
 # done <"${1:-/dev/stdin}"
 
+# if [[ "@" == "$3" ]]; then
+#     echo "Enter num menu :"
+#     read -r
+#     arg_3=$REPLY
+#     l_00_echo_info "'\$arg_3 = $arg_3'"
+# else
+#     arg_3="$3"
+# fi
+
 #! use arg_ptr
 # eval "$2=$res_12341c43234rfe"
 
 #! ptr_path_1
-local ptr_path_1="$1"
-ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
+# local ptr_path_1="$1"
+# ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
 
 #! ptr_path_2
 # local ptr_path_2="$2"
 # ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
-
-local dir_res_itky5427=
-
-l_03_od8d "${ptr_path_1}" dir_res_itky5427 "$2"
-
-l_00_echo_info "'\$dir_res_itky5427 = $dir_res_itky5427'"
 
     #* END fn block ------------------
 
@@ -233,4 +243,4 @@ l_00_echo_info "'\$dir_res_itky5427 = $dir_res_itky5427'"
 }
 
 #! SELF EXEC
-# l_04_d8t4f @
+# l_04_d8td4f @

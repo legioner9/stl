@@ -38,6 +38,8 @@ l_00_color_self() {
     local tst_nm_fw_=${tst_nm_dr}/_flow_tst.sh
     local tst_nm_fw1_=${tst_nm_dr}/_flow_tst_v1.sh
 
+    unset IFS
+
     if ! [[ -d "${PPWD}" ]]; then
         echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
@@ -382,6 +384,8 @@ ECHO_FAIL=$FML$ERH$RVC
 ECHO_YES=$FBL$EGH$RVC
 ECHO_NO=$FBL$ERH$RVC
 
+ECHO_GRAS=$FNL$EGL$RVC
+
 
 
 
@@ -393,4 +397,4 @@ ECHO_NO=$FBL$ERH$RVC
 }
 
 #! SELF EXEC
-l_00_color_self @
+# l_00_color_self @

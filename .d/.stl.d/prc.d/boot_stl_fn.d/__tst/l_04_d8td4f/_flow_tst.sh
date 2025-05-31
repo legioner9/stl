@@ -7,14 +7,19 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_l_04_d8t4f_867a09d_flow_1() {
+_l_04_d8td4f_RND_flow() {
 
-    if ! command -v l_04_d8t4f >/dev/null; then
-        l_00_echo_ret1 "TYPE_ERROR : l_04_d8t4f"
+    unset IFS
+
+    local PW=$(pwd)
+
+    if ! command -v l_04_d8td4f >/dev/null; then
+        l_00_echo_ret1 "TYPE_ERROR : l_04_d8td4f"
+        cd $PW
         return 1
     fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_04_d8t4f/_flow_tst_v1.sh
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_04_d8td4f/_flow_tst.sh
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -35,7 +40,10 @@ _l_04_d8t4f_867a09d_flow_1() {
 
     #?----------------------------------------------------
     #?-------------------------------------
+
     l_00_echo_exec "source file://$filename"
+
+    #! if stdout to ${res} only in this file - NOT in exec.tst
     : >"${res}"
 
     cd tst_dir || {
@@ -44,61 +52,32 @@ _l_04_d8t4f_867a09d_flow_1() {
         return 1
     }
 
-    echo "tree ${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_04_d8t4f/tst_dir//tml.d.d
-├── 001.tml.d
-│   ├── ins.d
-│   │   └── body.ins
-│   └── rcv.f
-├── 002.tml.d
-│   ├── ins.d
-│   │   └── body.ins
-│   └── rcv.f
-└── 003.tml.d 
-    ├── ins.d
-    │   └── body.ins
-    └── rcv.f
-"
-    rm result.file
-    l_04_d8t4f tml.d.d 1 @
-    cat result.file
-    rm result.file
-    l_04_d8t4f tml.d.d 0 result.file
-    cat result.file
-    rm result.file
-    l_04_d8t4f tml.d.d @ result.file <<<"2"
-    cat result.file
-    rm result.file
-    echo "3" | l_04_d8t4f tml.d.d @ result.file
-    cat result.file
-    rm result.file
-
-    cat result.file
-
-    # l_04_d8t4f "${tst_dir}" &>>"${res}"
+    # l_04_d8td4f "${tst_dir}" &>>"${res}"
     #! rm abs_path
     # l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
 
     #! stdin_tst
     #         echo "!STRING_AS_WORD!"
+    # : >FILE
     #     cat >FILE <<EOF
     # third_str
     # fourth_str
     # EOF
 
     #     echo "FILE_ARG:"
-    #     fn_str FILE &>>"${res}"
+    #     l_04_d8td4f FILE &>>"${res}"
 
     #     echo "FILE_PIPE:"
-    #     cat FILE | fn_str &>>"${res}"
+    #     cat FILE | l_04_d8td4f &>>"${res}"
 
     #     echo "HERE_DOC:"
-    #     fn_str <<EOF &>>"${res}"
+    #     l_04_d8td4f <<EOF &>>"${res}"
     # first_str
     # second_str
     # EOF
 
     #     echo "HERE_STR:"
-    #     fn_str <<<"here_str_::_fifth_str" &>>"${res}"
+    #     l_04_d8td4f <<<"here_str_::_fifth_str" &>>"${res}"
 
     #?-------------------------------------
     #?----------------------------------------------------
@@ -110,4 +89,4 @@ _l_04_d8t4f_867a09d_flow_1() {
 
 }
 
-_l_04_d8t4f_867a09d_flow_1 "$@"
+_l_04_d8td4f_RND_flow "$@"

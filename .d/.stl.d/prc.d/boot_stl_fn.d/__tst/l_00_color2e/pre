@@ -652,6 +652,9 @@ $FML$EDH [0;35m[2m[107m SDFfhn.;90*&[0m $FML$EDH$RVC [0;35m[2m[107m[7m S
     l_00_echo_true  : ECHO_TRUE=[0;30m[2m[102m $FNL$EGH [0m
     l_00_echo_fls   : ECHO_FLS=[0;30m[2m[101m $FNL$ERH [0m
 
+    l_00_echo_gras  : ECHO_GRAS=[0;30m[2m[42m[7m $FNL$EGH$RVC [0m
+
+
     [0;31m[2m[107m[7m $FRL$EDH$RVC [0m
     [0;32m[2m[107m[7m $FGL$EDH$RVC [0m
     [0;33m[2m[107m[7m $FYL$EDH$RVC [0m

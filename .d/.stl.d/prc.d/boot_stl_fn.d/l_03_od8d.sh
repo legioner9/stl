@@ -245,10 +245,13 @@ if [[ "@" == "$3" ]]; then
     echo "Enter num menu :"
     read -r
     arg_3=$REPLY
-    l_00_echo_info "'\$arg_3 = $arg_3'"
+    # l_00_echo_info "'\$arg_3 = $arg_3'"
 else
     arg_3="$3"
 fi
+
+#* grass parameter
+l_00_echo_gras "peer :: 'num8 = $arg_3 '"
 
 #! ptr_path_1
 local ptr_path_1="$1"
@@ -257,6 +260,12 @@ ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
 #! ptr_path_2
 # local ptr_path_2="$2"
 # ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
+
+#* grass parameter
+
+l_00_echo_gras "\$1 :: 'dir_with_dirs = file://$ptr_path_1 '"
+l_00_echo_gras "\$2 :: 'ptr_result = $2'"
+l_00_echo_gras "\$3 :: '8num = $3'"
 
 local item=
 local of=
@@ -267,7 +276,7 @@ local res_67j5j=()
 
 for item in $(l_02_dd2e "${ptr_path_1}"); do
     of=
-    l_00_echo_info "'\$item = $item'"
+    # l_00_echo_info "'\$item = $item'"
     dr_pth="${ptr_path_1}/$item"
     dr_od_pth="${ptr_path_1}/$item"/.od
 

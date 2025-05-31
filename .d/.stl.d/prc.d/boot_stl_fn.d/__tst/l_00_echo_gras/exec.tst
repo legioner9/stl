@@ -7,19 +7,21 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_l_04_d8t4f_867a09d_exec() {
+_l_00_echo_gras_RND_exec() {
+
+    unset IFS
 
     local PW=$(pwd)
 
-    if ! command -v l_04_d8t4f >/dev/null; then
-        l_00_echo_ret1 "TYPE_ERROR : l_04_d8t4f" >&2
+    if ! command -v l_00_echo_gras >/dev/null; then
+        l_00_echo_ret1 "TYPE_ERROR : l_00_echo_gras" >&2
         return 1
     fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_04_d8t4f/exec.tst
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_00_echo_gras/exec.tst
     local idir="$(dirname ${filename})"
 
-    l_00_echo_info "test function l_04_d8t4f in file://${filename}"
+    l_00_echo_info "test function l_00_echo_gras in file://${filename}"
 
     # cd "$(prs_f -d $filename)" || qq_exit "$(prs_f -d filename) not found"
 
@@ -53,7 +55,7 @@ _l_04_d8t4f_867a09d_exec() {
 
 }
 
-if ! _l_04_d8t4f_867a09d_exec "$@"; then
-    l_00_echo_ret1 "EXEC_FAIL for fuction : 'XXX' : GOTO file://${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_04_d8t4f : return 1"
+if ! _l_00_echo_gras_RND_exec "$@"; then
+    l_00_echo_ret1 "EXEC_FAIL for fuction : '_l_00_echo_gras_RND_exec' : GOTO file://${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_00_echo_gras : return 1"
     return 1
 fi

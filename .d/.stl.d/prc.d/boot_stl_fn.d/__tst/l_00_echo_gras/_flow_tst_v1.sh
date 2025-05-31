@@ -7,17 +7,16 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_l_04_d8t4f_867a09d_flow() {
+_l_00_echo_gras_RND_flow_1() {
 
-    local PW=$(pwd)
+    unset IFS
 
-    if ! command -v l_04_d8t4f >/dev/null; then
-        l_00_echo_ret1 "TYPE_ERROR : l_04_d8t4f"
-        cd $PW
+    if ! command -v l_00_echo_gras >/dev/null; then
+        l_00_echo_ret1 "TYPE_ERROR : l_00_echo_gras"
         return 1
     fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_04_d8t4f/_flow_tst.sh
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_00_echo_gras/_flow_tst_v1.sh
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -38,10 +37,7 @@ _l_04_d8t4f_867a09d_flow() {
 
     #?----------------------------------------------------
     #?-------------------------------------
-
     l_00_echo_exec "source file://$filename"
-
-    #! if stdout to ${res} only in this file - NOT in exec.tst
     : >"${res}"
 
     cd tst_dir || {
@@ -50,11 +46,12 @@ _l_04_d8t4f_867a09d_flow() {
         return 1
     }
 
-    # l_04_d8t4f "${tst_dir}" &>>"${res}"
+    # l_00_echo_gras "${tst_dir}" &>>"${res}"
     #! rm abs_path
     # l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
 
     #! stdin_tst
+    # : >FILE
     #         echo "!STRING_AS_WORD!"
     #     cat >FILE <<EOF
     # third_str
@@ -62,19 +59,19 @@ _l_04_d8t4f_867a09d_flow() {
     # EOF
 
     #     echo "FILE_ARG:"
-    #     fn_str FILE &>>"${res}"
+    #     l_00_echo_gras FILE &>>"${res}"
 
     #     echo "FILE_PIPE:"
-    #     cat FILE | fn_str &>>"${res}"
+    #     cat FILE | l_00_echo_gras &>>"${res}"
 
     #     echo "HERE_DOC:"
-    #     fn_str <<EOF &>>"${res}"
+    #     l_00_echo_gras <<EOF &>>"${res}"
     # first_str
     # second_str
     # EOF
 
     #     echo "HERE_STR:"
-    #     fn_str <<<"here_str_::_fifth_str" &>>"${res}"
+    #     l_00_echo_gras <<<"here_str_::_fifth_str" &>>"${res}"
 
     #?-------------------------------------
     #?----------------------------------------------------
@@ -86,4 +83,4 @@ _l_04_d8t4f_867a09d_flow() {
 
 }
 
-_l_04_d8t4f_867a09d_flow "$@"
+_l_00_echo_gras_RND_flow_1 "$@"

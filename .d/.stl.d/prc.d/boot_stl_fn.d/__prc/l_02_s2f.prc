@@ -116,10 +116,9 @@ fi
 
 #! eval "sed -i 's|^'\'' .*||g' ${HOME}/path_file" rm string starting with <' >
 
-l_00_echo_info "--- grass parameter ---"
-l_00_echo_info "\$1 :: 'rcv_str = $1'"
-l_00_echo_info "\$2 :: 'ins_str = $2'"
-l_00_echo_info "\$3 :: 'rcv_fl = file://$ptr_path '"
+l_00_echo_gras "\$1 :: 'rcv_str = $1'"
+l_00_echo_gras "\$2 :: 'ins_str = $2'"
+l_00_echo_gras "\$3 :: 'rcv_fl = file://$ptr_path '"
 
 local arg_2="$2"
 
