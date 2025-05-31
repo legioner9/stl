@@ -8,15 +8,15 @@
 # "${ECHO_ERR}$FNN() $*' in file://${file_name} , line=${LINENO} :: CAUS_NAME [VAR] 'code' :: return 1${NRM}" >&2
 # cd ${PPWD} || echo -e "${ECHO_WAR}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [\${PPWD}] '${PPWD}' return 1${NRM}" >&2
 
-l_02_siu_trm() {
+l_02_su_trm() {
 
-    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_02_siu_trm`
+    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_02_su_trm`
     #! All changes will be lost after rebuilding
     #! To change this file use the following commands:
 
-    #! l_02_siu_trm _e_prc to edit/change 'fn block',
-    #! l_02_siu_trm _rbld to rebuild fn with changed 'fn block'
-    #! l_02_siu_trm _e_xxx` to edit 'init block'
+    #! l_02_su_trm _e_prc to edit/change 'fn block',
+    #! l_02_su_trm _rbld to rebuild fn with changed 'fn block'
+    #! l_02_su_trm _e_xxx` to edit 'init block'
 
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
@@ -104,7 +104,7 @@ l_02_siu_trm() {
     fi
 
     if [[ "_rbld" == "$1" ]]; then
-        #! rebuild fn : bcp && ord fn.sh from l_02_siu_trm.sh , cp fn.prc into fn.sh
+        #! rebuild fn : bcp && ord fn.sh from l_02_su_trm.sh , cp fn.prc into fn.sh
         . ${fn_dr}/_rbld_l_xx.sh ${FNN}
         #! up to mem fn
         . ${fn_dr}/$1.sh
@@ -112,13 +112,13 @@ l_02_siu_trm() {
         return 0
     fi
 
-    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_02_siu_trm.prc ------------------
+    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_02_su_trm.prc ------------------
     #[[fn_body]]
 #? for copy to help block
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: string input to output with trim 
+MAIN: ${FNN} :: 
 TAGS:
 \$1 
 [, \$2]
@@ -228,7 +228,6 @@ fi
 #! ptr_path_2
 # local ptr_path_2="$2"
 # ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
-sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'
 
     #* END fn block ------------------
 
@@ -238,4 +237,4 @@ sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'
 }
 
 #! SELF EXEC
-# l_02_siu_trm @
+# l_02_su_trm @

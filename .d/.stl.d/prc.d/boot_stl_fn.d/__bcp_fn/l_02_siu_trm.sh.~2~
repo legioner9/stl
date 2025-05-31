@@ -118,7 +118,7 @@ l_02_siu_trm() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: string input to output with trim 
+MAIN: ${FNN} :: 
 TAGS:
 \$1 
 [, \$2]
