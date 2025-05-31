@@ -81,23 +81,23 @@ _l_02_s2f_iu_RND_flow() {
 
     #! stdin_tst
     : >FILE
-    echo "!STRING_AS_WORD!"
+    echo "!STRING_AS_WORD! BACKSLASH ALLOWED"
     cat >FILE <<EOF
     XXX
     fourth_str
 EOF
 
     echo "FILE_PIPE:"
-    cat FILE | l_02_s2f_iu XXX YYY &>>"${res}"
+    cat FILE | l_02_s2f_iu XXX 'YYY\r' &>>"${res}"
 
     echo "HERE_DOC:"
-    l_02_s2f_iu XXX YYY <<EOF &>>"${res}"
+    l_02_s2f_iu XXX 'YYY\r' <<EOF &>>"${res}"
     first_str_XXX
     second_str
 EOF
 
     echo "HERE_STR:"
-    l_02_s2f_iu XXX YYY <<<"here_str_:XXX:_fifth_str" &>>"${res}"
+    l_02_s2f_iu XXX 'YYY\r' <<<"here_str_:XXX:_fifth_str" &>>"${res}"
 
     #?-------------------------------------
     #?----------------------------------------------------

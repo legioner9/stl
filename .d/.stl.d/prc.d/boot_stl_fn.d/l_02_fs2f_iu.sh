@@ -124,7 +124,7 @@ TAGS:
 [, \$2]
 FLOW:   [if 
             -]
-NB!!: escaping in \$2 '\[' '\]' '\\\$' '\^' '\\\\\'  
+NB!!: escaping in \$2 '[' ']' '\$' '^' '\'  
         
 # HIE ${FNN} 
 ## CAUSA:

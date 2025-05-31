@@ -35,6 +35,7 @@ _l_02_s2f_098910a_flow() {
 
     #?----------------------------------------------------
     #?-------------------------------------
+    echo "!STRING_AS_WORD! BACKSLASH ALLOWED"
     l_00_echo_exec "source file://$filename"
     #! if stdout to ${res} only in this file - NOT in exec.tst
     : >"${res}"
@@ -46,7 +47,7 @@ _l_02_s2f_098910a_flow() {
     }
 
     echo "cwqervgf" >file.tst
-    l_02_s2f "cwqervgf" "XXXxxx" file.tst
+    l_02_s2f "cwqervgf" "XXXxxx\C" file.tst
     cat file.tst &>"${res}"
     # l_02_s2f "${tst_dir}" &>"${res}"
 

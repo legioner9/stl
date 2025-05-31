@@ -135,10 +135,12 @@ EXAM:   ${FNN} [, [, ]]
     l_00_echo_info "resiv '\$1 = $1'";
     l_00_echo_info "insert '\$2 = $2'";
     l_00_echo_info "'\$ptr_path = file://${ptr_path}'";
+    local arg_2="$2";
+    local str_x=${arg_2//'\'/'\\'};
     if [ "@" == "${2}" ]; then
         eval "sed -i 's|${1}||g' $ptr_path";
     else
-        eval "sed -i 's|${1}|${2}|g' $ptr_path";
+        eval "sed -i 's|${1}|${str_x}|g' $ptr_path";
     fi;
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
     return 0

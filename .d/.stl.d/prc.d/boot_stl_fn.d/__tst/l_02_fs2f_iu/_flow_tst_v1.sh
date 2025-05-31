@@ -73,9 +73,9 @@ _l_02_fs2f_iu_RND_flow_1() {
     #     echo "HERE_STR:"
     #     l_02_fs2f_iu <<<"here_str_::_fifth_str" &>>"${res}"
 
-    l_02_fs2f_iu ins.f "{{44}}" <<EOF
+    l_02_fs2f_iu ins_1.f "{{44}}" <<EOF
 --- start HERE DOC ---
-gewrthget 
+gewrthget
 {{44}}
 vsgedgetrg
 {{44}}
@@ -86,7 +86,7 @@ EOF
     rm rcv.f
     cp init.f rcv.f
 
-    cat rcv.f | l_02_fs2f_iu ins.f "{{44}}"
+    cat rcv.f | l_02_fs2f_iu ins_1.f "{{44}}"
     # cat rcv.f
 
     # l_02_fs2f "${tst_dir}" &>>"${res}"

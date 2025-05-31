@@ -193,11 +193,11 @@ fi
 # local ARG_23edew=("${ARGS[@]}")
 # [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_23edew
 
-# [[ -n "$1" ]] || {
-#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
-#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-#     return 1
-# }
+[[ -n "$2" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$2' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
 
 # [[ -f "$3" ]] || {
 #     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${3}' where '\$3=$3' return 1"
@@ -232,11 +232,19 @@ fi
 # l_00_echo_info "resiv '\$1 = $1'"
 # l_00_echo_info "insert '\$2 = $2'"
 
+# l_00_echo_info "'\$2 = $2'"
+
+local arg_2="$2"
+
+local str_x=${arg_2//'\'/'\\'}
+# l_00_echo_info "'\$str_x = $str_x"
+
+
 # sed -i "s|$1|$2|g" "$3"
 if [ "@" == "${2}" ]; then
     eval "sed 's|${1}||g'"
 else
-    eval "sed 's|${1}|${2}|g'"
+    eval "sed 's|${1}|${arg_2}|g'"
 fi
 
     #* END fn block ------------------

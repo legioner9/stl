@@ -116,9 +116,17 @@ fi
 # l_00_echo_info "resiv '\$1 = $1'"
 # l_00_echo_info "insert '\$2 = $2'"
 
+# l_00_echo_info "'\$2 = $2'"
+
+local arg_2="$2"
+
+local str_x=${arg_2//'\'/'\\'}
+# l_00_echo_info "'\$str_x = $str_x"
+
+
 # sed -i "s|$1|$2|g" "$3"
 if [ "@" == "${2}" ]; then
     eval "sed 's|${1}||g'"
 else
-    eval "sed 's|${1}|${2}|g'"
+    eval "sed 's|${1}|${str_x}|g'"
 fi

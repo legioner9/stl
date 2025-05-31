@@ -59,16 +59,16 @@ _l_02_s2f_iu_RND_flow_1() {
 EOF
 
     echo "FILE_PIPE:"
-    cat FILE | l_02_s2f_iu XXX YYY
+    cat FILE | l_02_s2f_iu XXX 'YYY^$[]\l'
 
     echo "HERE_DOC:"
-    l_02_s2f_iu XXX YYY <<EOF
+    l_02_s2f_iu XXX 'YYY^$[]\l' <<EOF
     first_str_XXX
     second_str
 EOF
 
     echo "HERE_STR:"
-    l_02_s2f_iu XXX YYY <<<"here_str_:XXX:_fifth_str" 
+    l_02_s2f_iu XXX 'YYY^$[]\l' <<<"here_str_:XXX:_fifth_str" 
 
     #?-------------------------------------
     #?----------------------------------------------------
