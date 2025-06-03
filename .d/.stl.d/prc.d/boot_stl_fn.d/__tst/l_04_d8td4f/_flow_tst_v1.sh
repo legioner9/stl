@@ -74,20 +74,22 @@ _l_04_d8td4f_RND_flow_1() {
     #     l_04_d8td4f <<<"here_str_::_fifth_str" &>>"${res}"
 
     rm result.file
-    l_04_d8td4f tml.d.d 1 result.file @
+    l_04_d8td4f tml.d.d @ result.file @ <<<"1"
     cat result.file
-    rm result.file
-    l_04_d8td4f tml.d.d 0 result.file @
-    cat result.file
-    rm result.file
-    l_04_d8td4f tml.d.d @ result.file @ <<<"2"
-    cat result.file
-    rm result.file
-    echo "3" | l_04_d8td4f tml.d.d @ result.file @
-    cat result.file
-    rm result.file
+    echo
+    rm res.d/result.file
+    echo "3" | l_04_d8td4f tml.d.d @ result.file res.d
+    cat res.d/result.file
+    echo
+    # rm result.file
+    # l_04_d8td4f tml.d.d @ result.file @ <<<"2"
+    # cat result.file
+    # rm result.file
+    # echo "3" | l_04_d8td4f tml.d.d @ result.file @
+    # cat result.file
+    # rm result.file
 
-    cat result.file
+    # cat result.file
 
     #?-------------------------------------
     #?----------------------------------------------------

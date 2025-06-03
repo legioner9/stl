@@ -397,4 +397,4 @@ ECHO_GRAS=$FNL$EGL$RVC
 }
 
 #! SELF EXEC
-# l_00_color_self @
+l_00_color_self @

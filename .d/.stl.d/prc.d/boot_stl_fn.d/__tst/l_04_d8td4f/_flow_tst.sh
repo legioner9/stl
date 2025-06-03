@@ -79,6 +79,14 @@ _l_04_d8td4f_RND_flow() {
     #     echo "HERE_STR:"
     #     l_04_d8td4f <<<"here_str_::_fifth_str" &>>"${res}"
 
+    rm result.file
+    l_04_d8td4f tml.d.d @ result.file @ <<<"1"
+    cat result.file &>>"${res}"
+    echo &>>"${res}"
+    rm res.d/result.file
+    echo "3" | l_04_d8td4f tml.d.d @ result.file res.d
+    cat res.d/result.file &>>"${res}"
+
     #?-------------------------------------
     #?----------------------------------------------------
 

@@ -129,8 +129,8 @@ ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
 local rcv_fl=${ptr_path_1}
 local ins_dir=${ptr_path_2}
 
-l_00_echo_gras "\$1 :: 'rcv_fl = file://$ptr_path_1 '"
-l_00_echo_gras "\$2 :: 'ins_dir = file://${ptr_path_2} '"
+l_00_echo_gras "${FNN}[] \$1 :: 'rcv_fl = file://$ptr_path_1 '"
+l_00_echo_gras "${FNN}[] \$2 :: 'ins_dir = file://${ptr_path_2} '"
 
 local item=
 local name_ins=
@@ -147,3 +147,5 @@ for item in $(l_02_df2e ${ins_dir} "ins"); do
         l_02_s2f "{{${name_ins}}}" "[[${name_ins}]]" "${rcv_fl}"
     }
 done
+
+

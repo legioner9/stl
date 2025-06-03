@@ -275,13 +275,27 @@ ptr_path_4="$(l_01_abs_path "${PPWD}" "ptr_path_4")"
 l_00_echo_gras "${FNN} \$1 :: 'dir_with_dirs = file://$ptr_path_1 '"
 l_00_echo_gras "${FNN} \$2 :: '8num = $2'"
 l_00_echo_gras "${FNN} \$3 :: 'res_fl_name = $3'"
-# l_00_echo_gras "\$4 :: 'res_dir_pth = file://$ptr_path_4 '"
+l_00_echo_gras "${FNN} \$4 :: 'res_dir_pth = file://$ptr_path_4 '"
 
 local dir_res_itky54271=
 
 l_03_od8d "${ptr_path_1}" dir_res_itky54271 "$2"
 
-l_00_echo_gras "${FNN} peer :: 'tml_dir_pth = file://$dir_res_itky54271 '"
+#* rename args
+
+local tml_dir_pth=${dir_res_itky54271}
+
+l_00_echo_gras "${FNN}[choiced dir]{} :: 'tml_dir_pth = file://$tml_dir_pth '"
+
+# l_03_td4f :: \$1 recive file with {{[name]}} string \$2 dir with [name].ins files LEX(6.2)
+
+cp -f $tml_dir_pth/rcv.f $ptr_path_4/$3|| {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'cp -f file://$tml_dir_pth/rcv.f file://$ptr_path_4/${res_fl_name}' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
+
+l_03_td4f ${ptr_path_4}/$3 $tml_dir_pth/ins.d
 
     #* END fn block ------------------
 

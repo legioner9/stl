@@ -74,12 +74,17 @@ else
     return 0
 fi
 
-if [[ -z "$2" ]]; then
+if [[ "@" == "$2" || -z "$2" ]]; then
     echo "$dpwd"
     return 0
 else
     eval "local arg2=\${$2}"
 fi
+
+[[ "@" == "${arg2}" ]] && {
+    echo "${dpwd}"
+    return 0
+}
 
 if [[ -n "${arg2}" ]]; then
 

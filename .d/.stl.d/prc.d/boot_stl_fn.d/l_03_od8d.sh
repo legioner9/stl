@@ -263,9 +263,9 @@ ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
 
 #* grass parameter
 
-l_00_echo_gras "\$1 :: 'dir_with_dirs = file://$ptr_path_1 '"
-l_00_echo_gras "\$2 :: 'ptr_result = $2'"
-l_00_echo_gras "\$3 :: '8num = $3'"
+l_00_echo_gras "${FNN}\$1 :: 'dir_with_dirs = file://$ptr_path_1 '"
+l_00_echo_gras "${FNN}\$2 :: 'ptr_result = $2'"
+l_00_echo_gras "${FNN}\$3 :: '8num = $3'"
 
 local item=
 local of=
