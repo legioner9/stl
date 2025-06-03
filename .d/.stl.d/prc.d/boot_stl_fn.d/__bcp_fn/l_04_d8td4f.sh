@@ -290,7 +290,7 @@ l_00_echo_gras "${FNN}[choiced dir]{} :: 'tml_dir_pth = file://$tml_dir_pth '"
 # l_03_td4f :: \$1 recive file with {{[name]}} string \$2 dir with [name].ins files LEX(6.2)
 
 [[ -f "$ptr_path_4/$3" ]] && {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: IS_FILE 'file://$ptr_path_4/$3' where '\$3=$3' return 1"
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: IF_FILE 'file://$ptr_path_4/$3' where '\$3=$3' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }

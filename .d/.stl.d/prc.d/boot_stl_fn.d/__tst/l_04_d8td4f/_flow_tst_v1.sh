@@ -77,7 +77,7 @@ _l_04_d8td4f_RND_flow_1() {
     l_04_d8td4f tml.d.d @ result.file @ <<<"1"
     cat result.file
     echo
-    rm res.d/result.file
+    : >res.d/result.file
     echo "3" | l_04_d8td4f tml.d.d @ result.file res.d
     cat res.d/result.file
     echo

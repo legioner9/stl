@@ -2,7 +2,7 @@
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: dir {\$1 IFS(3.2)} 8num {\$2 LEX(1.2)} dir 4 IFS(2.1), \$3 result fl name LEX(8.1) , \$4 result dir or @ LEX(1.12)
+MAIN: ${FNN} :: dir {\$1 IFS(3.2)} 8num {\$2 LEX(1.2)} dir 4 IFS(2.1), \$3 result fl name LEX(8.2) , \$4 result dir or @ LEX(1.12)
 TAGS:
 \$1 
 [, \$2]
@@ -173,7 +173,13 @@ l_00_echo_gras "${FNN}[choiced dir]{} :: 'tml_dir_pth = file://$tml_dir_pth '"
 
 # l_03_td4f :: \$1 recive file with {{[name]}} string \$2 dir with [name].ins files LEX(6.2)
 
-cp -f $tml_dir_pth/rcv.f $ptr_path_4/$3|| {
+[[ -f "$ptr_path_4/$3" ]] && {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: IS_FILE 'file://$ptr_path_4/$3' where '\$3=$3' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
+
+cp $tml_dir_pth/rcv.f $ptr_path_4/$3 || {
     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'cp -f file://$tml_dir_pth/rcv.f file://$ptr_path_4/${res_fl_name}' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
