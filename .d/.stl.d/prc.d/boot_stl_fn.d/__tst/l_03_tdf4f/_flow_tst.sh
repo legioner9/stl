@@ -88,7 +88,11 @@ _l_03_tdf4f_RND_flow() {
     l_03_tdf4f "001.tml.d" result.file result.d
 
     cat result.d/result.file &>>"${res}"
-    echo >> "${res}"
+    # echo >> "${res}"
+
+    #? MAST TREAT "${res}"
+    #? add_last_empty_line
+    l_01_les2f "${res}"
 
     #?-------------------------------------
     #?----------------------------------------------------

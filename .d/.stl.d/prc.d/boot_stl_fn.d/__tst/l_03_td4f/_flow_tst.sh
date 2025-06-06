@@ -79,6 +79,16 @@ _l_03_td4f_RND_flow() {
     #     echo "HERE_STR:"
     #     l_03_td4f <<<"here_str_::_fifth_str" &>>"${res}"
 
+    rm "001.tml.d/rcv.f"
+    cp "001.tml.d/init.f" "001.tml.d/rcv.f"
+
+    l_03_td4f "001.tml.d/rcv.f" "001.tml.d/ins.d"
+    # echo "xaxswa" &>>"${res}"
+    cat "001.tml.d/rcv.f" &>>"${res}"
+
+    #! TREAT IF NEED "${res}"
+    l_01_les2f "${res}"
+
     #?-------------------------------------
     #?----------------------------------------------------
 

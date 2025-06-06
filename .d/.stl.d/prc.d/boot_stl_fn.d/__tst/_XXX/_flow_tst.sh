@@ -79,8 +79,8 @@ __XXX_RND_flow() {
     #     echo "HERE_STR:"
     #     _XXX <<<"here_str_::_fifth_str" &>>"${res}"
 
-    #! add_last_empty_line
-    # echo >> "${res}"
+    #! TREAT IF NEED "${res}"
+    # l_01_les2f "${res}"
 
     #?-------------------------------------
     #?----------------------------------------------------
