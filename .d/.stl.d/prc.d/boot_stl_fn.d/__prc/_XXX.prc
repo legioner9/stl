@@ -69,9 +69,9 @@ fi
 
 #* grass parameter
 
-# l_00_echo_gras "${FNN} \$1 :: 'ins_fl = file://$ptr_path_1 '"
-# l_00_echo_gras "${FNN} \$2 :: 'rcv_str = $2'"
-# l_00_echo_gras "${FNN} {} :: 'rcv_fl = file://$ptr_path_3 '"
+# l_00_echo_gras "${FNN} [] \$1 :: 'ins_fl = file://$ptr_path_1 '"
+# l_00_echo_gras "${FNN} [] \$2 :: 'rcv_str = $2'"
+# l_00_echo_gras "${FNN} [pth_to_any_tml] {$dr_any} :: '{} = file://$ptr_path_3/any.f '"
 # l_00_echo_gras "${FNN}[chiced dir]{num8} :: 'tml_dir_pth = file://$dir_res_itky54271 '"
 # l_00_echo_gras "${FNN}[discribe var]{origin var} :: 'tml_dir_pth = file://$dir_res_itky54271 '"
 

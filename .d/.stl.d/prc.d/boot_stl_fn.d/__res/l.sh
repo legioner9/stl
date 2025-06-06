@@ -19862,7 +19862,7 @@ l_03_tdf4f() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: \$1 LEX(6.4) tml_dir , \$2 result fl name LEX(8.2) , \$3 result dir or @ LEX(1.12)
 TAGS:
 \$1 
 [, \$2]
@@ -19903,7 +19903,7 @@ flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
 fi
 
 #! stdout fn introduction
-# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 #     #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
 #     local di=
@@ -19945,17 +19945,30 @@ fi
 # local ARG_23edew=("${ARGS[@]}")
 # [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_23edew
 
-# [[ -n "$1" ]] || {
-#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
-#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-#     return 1
-# }
+[[ -n "$3" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$3' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
 
-# [[ -f "$3" ]] || {
-#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${3}' where '\$3=$3' return 1"
-#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-#     return 1
-# }
+[[ -d "$1" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR 'file://${1}' where '\$1=$1' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
+
+[[ -d "$1"/ins.d ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR 'file://${1}/ins.d' where '\$1=$1' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
+
+[[ -f "$1"/rcv.f ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${1}/rcv.f' where '\$1=$1' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
+
 
 # while IFS=$'\n' read -r line; do
 #     :
@@ -19974,12 +19987,33 @@ fi
 # eval "$2=$res_12341c43234rfe"
 
 #! ptr_path_1
-# local ptr_path_1="$1"
-# ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
+local ptr_path_1="$1"
+ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
 
 #! ptr_path_2
-# local ptr_path_2="$2"
-# ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
+local ptr_path_3="$3"
+ptr_path_3="$(l_01_abs_path "${PPWD}" "ptr_path_3")"
+
+[[ -d ${ptr_path_3} ]] || {
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR '${ptr_path_3}' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
+
+#* rename args
+
+local tml_dir_pth="${ptr_path_1}"
+local res_dir_pth="${ptr_path_3}"
+
+l_00_echo_gras "${FNN} [tml_fi for res_fl] :: '{} = file://$tml_dir_pth/rcv.f '"
+
+cp "$tml_dir_pth/rcv.f" "$res_dir_pth/$2" || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'cp file://$tml_dir_pth/rcv.f file://$res_dir_pth/$2 ' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
+
+l_03_td4f "$res_dir_pth/$2" "$tml_dir_pth/ins.d"
 
     #* END fn block ------------------
 

@@ -261,7 +261,7 @@ ptr_path_3="$(l_01_abs_path "${PPWD}" "ptr_path_3")"
 local tml_dir_pth="${ptr_path_1}"
 local res_dir_pth="${ptr_path_3}"
 
-l_00_echo_gras "${FNN} [tml_fi for res_fl] :: '{} = file://$tml_dir_pth/rcv.f '"
+l_00_echo_gras "${FNN} [tml_fi for res_fl] :: '{} = file://$tml_dir_pth/ins.f '"
 
 cp "$tml_dir_pth/rcv.f" "$res_dir_pth/$2" || {
     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'cp file://$tml_dir_pth/rcv.f file://$res_dir_pth/$2 ' return 1"

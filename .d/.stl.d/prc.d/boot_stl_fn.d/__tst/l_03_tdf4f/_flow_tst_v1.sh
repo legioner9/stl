@@ -46,6 +46,16 @@ _l_03_tdf4f_RND_flow_1() {
         return 1
     }
 
+    rm result.file
+    l_03_tdf4f "001.tml.d" result.file @
+
+    cat result.file
+
+    rm result.d/result.file
+    l_03_tdf4f "001.tml.d" result.file result.d
+
+    cat result.d/result.file
+
     # l_03_tdf4f "${tst_dir}" &>>"${res}"
     #! rm abs_path
     # l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
