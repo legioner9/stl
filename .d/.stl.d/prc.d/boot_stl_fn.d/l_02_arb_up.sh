@@ -38,6 +38,8 @@ l_02_arb_up() {
     local tst_nm_fw_=${tst_nm_dr}/_flow_tst.sh
     local tst_nm_fw1_=${tst_nm_dr}/_flow_tst_v1.sh
 
+    unset IFS
+
     if ! [[ -d "${PPWD}" ]]; then
         echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
@@ -166,7 +168,7 @@ local dir=
 local item=
 local ret1=0
 
-for item in $(ls "$ptr_path"); do
+for item in $(ls "$ptr_path" | sort ); do
     # echo "\$item=$item"
     # lib.0stl.arb/_XXX_YYY.ram/.grot/_XXX_YYY.sh
     item_path=$ptr_path/$item

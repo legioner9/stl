@@ -155,7 +155,7 @@ _in_fn_1_sd2d() {
     fi
 
     local item
-    for item in $(ls -A "$1"); do
+    for item in $(ls -A "$1" | sort); do
         l_00_echo_info "'\$item = $item'"
 
         # echo -e "${HLIGHT}--- exec: echo $item | grep $reciver ---${NORMAL}" #start files

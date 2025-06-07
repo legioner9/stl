@@ -234,7 +234,7 @@ __inner_s2ad() { # $1 dir to treat
     # echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
     local item
-    for item in $(ls -A "$1"); do
+    for item in $(ls -A "$1" | sort); do
         # echo -e "${GREEN}\$item = '$item'${NORMAL}"
 
         if [[ -d "$1/${item}" ]]; then

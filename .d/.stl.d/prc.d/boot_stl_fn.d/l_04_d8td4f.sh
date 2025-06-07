@@ -301,7 +301,7 @@ cp $tml_dir_pth/rcv.f $ptr_path_4/$3 || {
     return 1
 }
 
-l_03_td4f ${ptr_path_4}/$3 $tml_dir_pth/ins.d
+l_03_td4f "${ptr_path_4}/$3" "$tml_dir_pth/ins.d"
 
     #* END fn block ------------------
 

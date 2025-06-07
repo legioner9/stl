@@ -129,7 +129,7 @@ local item=
 
 if [[ "$1" == "@" ]]; then
     # ls
-    for item in $(ls); do
+    for item in $(ls | sort); do
         if [ -z "$2" ]; then
             # echo -e "${HLIGHT}--- [ -d /$item ] || [ -f /$item ] ---${NORMAL}" #start files
             if { [ -d "$item" ] || [ -f "$item" ]; } && [ "${item:0:1}" != "_" ]; then
@@ -156,7 +156,7 @@ else
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
         return 1
     }
-    for item in $(ls $ptr_path); do
+    for item in $(ls $ptr_path | sort); do
         if [ -z "$2" ]; then
             if { [ -d "$ptr_path/$item" ] || [ -f "$ptr_path/$item" ]; } && [ "${item:0:1}" != "_" ]; then
                 echo "$ptr_path/$item"

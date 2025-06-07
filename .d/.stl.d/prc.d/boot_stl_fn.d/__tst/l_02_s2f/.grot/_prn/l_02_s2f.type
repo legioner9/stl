@@ -132,9 +132,9 @@ EXAM:   ${FNN} [, [, ]]
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
         return 1;
     fi;
-    l_00_echo_gras "\$1 :: 'rcv_str = $1'";
-    l_00_echo_gras "\$2 :: 'ins_str = $2'";
-    l_00_echo_gras "\$3 :: 'rcv_fl = file://$ptr_path '";
+    l_00_echo_gras "${FNN} \$1 :: 'rcv_str = $1'";
+    l_00_echo_gras "${FNN} \$2 :: 'ins_str = $2'";
+    l_00_echo_gras "${FNN} \$3 :: 'rcv_fl = file://$ptr_path '";
     local arg_2="$2";
     local str_x=${arg_2//'\'/'\\'};
     if [ "@" == "${2}" ]; then

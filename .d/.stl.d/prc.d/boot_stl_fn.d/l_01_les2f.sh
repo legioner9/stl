@@ -118,7 +118,7 @@ l_01_les2f() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: add to \$1 file [l]ast [e]mpty [s]tring if it is not exist
 TAGS:
 \$1 
 [, \$2]

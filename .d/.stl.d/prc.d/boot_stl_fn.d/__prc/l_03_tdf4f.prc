@@ -109,7 +109,6 @@ echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
     return 1
 }
 
-
 # while IFS=$'\n' read -r line; do
 #     :
 # done <"${1:-/dev/stdin}"
@@ -135,7 +134,7 @@ local ptr_path_3="$3"
 ptr_path_3="$(l_01_abs_path "${PPWD}" "ptr_path_3")"
 
 [[ -d ${ptr_path_3} ]] || {
-        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR '${ptr_path_3}' return 1"
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR '${ptr_path_3}' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }
@@ -144,8 +143,6 @@ ptr_path_3="$(l_01_abs_path "${PPWD}" "ptr_path_3")"
 
 local tml_dir_pth="${ptr_path_1}"
 local res_dir_pth="${ptr_path_3}"
-
-
 
 l_00_echo_gras "${FNN} [tml_fi for res_fl] :: '{} = file://$tml_dir_pth/rcv.f '"
 

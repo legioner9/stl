@@ -38,6 +38,8 @@ l_02_dfr2aewd() {
     local tst_nm_fw_=${tst_nm_dr}/_flow_tst.sh
     local tst_nm_fw1_=${tst_nm_dr}/_flow_tst_v1.sh
 
+    unset IFS
+
     if ! [[ -d "${PPWD}" ]]; then
         echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
@@ -248,7 +250,7 @@ _dr2ewd_infn_1() {
 
     if [[ "$2" == "@" ]]; then
         # ls
-        for item in $(ls); do
+        for item in $(ls | sort); do
             if [ -z "$3" ]; then
                 # echo -e "${HLIGHT}--- [ -d /$item ] || [ -f /$item ] ---${NORMAL}" #start files
                 if { [ -f "$item" ]; } && [ "${item:0:1}" != "_" ]; then
@@ -275,7 +277,7 @@ _dr2ewd_infn_1() {
             cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
             return 1
         }
-        for item in $(ls $ptr_path); do
+        for item in $(ls $ptr_path | sort); do
             if [ -z "$3" ]; then
                 if { [ -f "$ptr_path/$item" ]; } && [ "${item:0:1}" != "_" ]; then
                     echo "$ptr_path/$item":$1

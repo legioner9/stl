@@ -80,7 +80,7 @@ l_03_d7e ()
     fi;
     if [[ "-h" == "$1" ]]; then
         echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: stdout name fl or dir from (l_02_d2e \$1).lst with num \$2
 TAGS:
 \$1 
 [, \$2]
@@ -119,6 +119,38 @@ flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
         return 0;
     fi;
+    [[ -n "$2" ]] || { 
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1";
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
+        return 1
+    };
+    [[ -d "$1" ]] || { 
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR 'file://${1}' where '\$3=$3' return 1";
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
+        return 1
+    };
+    if [[ "@" == "$2" ]]; then
+        read -r;
+        arg_2=$REPLY;
+    else
+        arg_2="$2";
+    fi;
+    local ptr_path_1="$1";
+    ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")";
+    l_01_is_od "$arg_2" || { 
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'l_01_is_od $arg_2' where '\$2=$2' return 1";
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
+        return 1
+    };
+    local arr_d2f=();
+    arr_d2f=($(l_02_d2e "${ptr_path_1}"));
+    [[ "${#arr_d2f[@]}" -gt "$arg_2" ]] || { 
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE '${#arr_d2f[@]} -gt $arg_2' where '\$2=$2' return 1";
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
+        return 1
+    };
+    local res=${arr_d2f["${arg_2}"]};
+    echo "$res";
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
     return 0
 }

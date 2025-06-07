@@ -52,7 +52,7 @@ local dir=
 local item=
 local ret1=0
 
-for item in $(ls "$ptr_path"); do
+for item in $(ls "$ptr_path" | sort ); do
     # echo "\$item=$item"
     # lib.0stl.arb/_XXX_YYY.ram/.grot/_XXX_YYY.sh
     item_path=$ptr_path/$item

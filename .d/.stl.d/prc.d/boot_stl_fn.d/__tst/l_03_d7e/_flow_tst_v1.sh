@@ -73,10 +73,13 @@ _l_03_d7e_RND_flow_1() {
     #     echo "HERE_STR:"
     #     l_03_d7e <<<"here_str_::_fifth_str" &>>"${res}"
 
-    l_03_d7f _dir_ 0
-    l_03_d7f _dir_ 1
-    l_03_d7f _dir_ 2
-    l_03_d7f _dir_ 3
+    cd ${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/7e || return 1
+
+    l_03_d7e _dir_ 0
+    echo "1" | l_03_d7e _dir_ "@"
+    l_03_d7e _dir_ 2
+    l_03_d7e _dir_ "@" <<<"3"
+    l_03_d7e _dir_ 4
 
     #! TREAT IF NEED "${res}"
     # l_01_les2f "${res}"

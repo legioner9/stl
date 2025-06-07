@@ -198,12 +198,6 @@ echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
     return 1
 }
 
-local arg_1="$1"
-
-# [[ "@" == "$arg_1" ]] ;then
-
-# read 
-
 # while IFS=$'\n' read -r line; do
 #     :
 # done <"${1:-/dev/stdin}"
@@ -212,7 +206,7 @@ local arg_1="$1"
 # eval "$2=$res_12341c43234rfe"
 
 #! ptr_path_1
-local ptr_path_1="$arg_1"
+local ptr_path_1="$1"
 ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
 
 #! ptr_path_2

@@ -145,7 +145,7 @@ local item=
 if [[ "$1" == "@" ]]; then
     # ls
 
-    for item in $(ls); do
+    for item in $(ls | sort ); do
         # l_00_echo_info "'\$item = $item'"
         if [ -z "$2" ]; then
             if [[ -f "$item" && "${item:0:1}" != "_" ]]; then
@@ -167,7 +167,7 @@ else
         return 1
     }
 
-    for item in $(ls "$ptr_path"); do
+    for item in $(ls "$ptr_path" | sort ); do
         # l_00_echo_info "'\$item = $item'"
         if [ -z "$2" ]; then
             if [[ -f "$ptr_path/$item" && "${item:0:1}" != "_" ]]; then

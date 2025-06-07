@@ -118,7 +118,7 @@ l_03_zbcpl() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: \$1 (_bcp|_dpl) LEX(1.7) use \$2 fl LEX(6.2) bcp<->dpl with zip<->unzip
 TAGS:
 \$1 
 [, \$2]

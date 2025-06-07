@@ -129,7 +129,7 @@ local item=
 if [[ "$1" == "@" ]]; then
     # ls
 
-    for item in $(ls); do
+    for item in $(ls | sort ); do
         if [ -z "$2" ]; then
             if { [ -d "$item" ] || [ -f "$item" ]; } && [ "${item:0:1}" != "_" ]; then
                 echo "$item"
@@ -150,7 +150,7 @@ else
         return 1
     }
 
-    for item in $(ls "$ptr_path"); do
+    for item in $(ls "$ptr_path" | sort ); do
         if [ -z "$2" ]; then
             if { [ -d "$ptr_path/$item" ] || [ -f "$1/$item" ]; } && [ "${item:0:1}" != "_" ]; then
                 echo "$item"

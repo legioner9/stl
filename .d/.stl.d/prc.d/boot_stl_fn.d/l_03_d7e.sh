@@ -118,7 +118,7 @@ l_03_d7e() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: stdout name fl or dir from (l_02_d2e \$1).lst with num \$2
 TAGS:
 \$1 
 [, \$2]
@@ -201,30 +201,30 @@ fi
 # local ARG_23edew=("${ARGS[@]}")
 # [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_23edew
 
-# [[ -n "$1" ]] || {
-#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
-#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-#     return 1
-# }
+[[ -n "$2" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
 
-# [[ -f "$3" ]] || {
-#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${3}' where '\$3=$3' return 1"
-#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-#     return 1
-# }
+[[ -d "$1" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR 'file://${1}' where '\$3=$3' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
 
 # while IFS=$'\n' read -r line; do
 #     :
 # done <"${1:-/dev/stdin}"
 
-# if [[ "@" == "$3" ]]; then
-#     echo "Enter num menu :"
-#     read -r
-#     arg_3=$REPLY
-#     l_00_echo_info "'\$arg_3 = $arg_3'"
-# else
-#     arg_3="$3"
-# fi
+if [[ "@" == "$2" ]]; then
+    # echo "Enter num menu :"
+    read -r
+    arg_2=$REPLY
+    # l_00_echo_info "'\$arg_2 = $arg_2'"
+else
+    arg_2="$2"
+fi
 
 #! use arg_ptr
 # eval "$2=$res_12341c43234rfe"
@@ -236,6 +236,34 @@ fi
 #! ptr_path_2
 # local ptr_path_2="$2"
 # ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
+
+#! ptr_path_1
+local ptr_path_1="$1"
+ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
+
+l_01_is_od "$arg_2" || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'l_01_is_od $arg_2' where '\$2=$2' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
+
+#! ptr_path_2
+# local ptr_path_2="$2"
+# ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
+
+local arr_d2f=()
+
+arr_d2f=($(l_02_d2e "${ptr_path_1}"))
+
+[[ "${#arr_d2f[@]}" -gt "$arg_2" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE '${#arr_d2f[@]} -gt $arg_2' where '\$2=$2' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
+
+local res=${arr_d2f["${arg_2}"]}
+
+echo "$res"
 
     #* END fn block ------------------
 

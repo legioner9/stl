@@ -118,7 +118,7 @@ l_03_od8f() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: \$1 dir files to 8 : [if exist [of] 8name=[of] else 8name=file://{path_to_file}] 8res={path_to_file} \$2 ptr_result \$3 8num  
+MAIN: ${FNN} :: \$1 dir files with_o LEX(6.1) to 8 : [if exist [of] 8name=[of] else 8name=file://{path_to_file}] 8res={path_to_file} \$2 ptr_result \$3 8num  
 TAGS:
 \$1 
 [, \$2]
@@ -228,6 +228,12 @@ ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
 #! ptr_path_2
 # local ptr_path_2="$2"
 # ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
+
+#* grass parameter
+
+l_00_echo_gras "${FNN}\$1 :: 'dir_with_files = file://$ptr_path_1 '"
+l_00_echo_gras "${FNN}\$2 :: 'ptr_result = $2'"
+l_00_echo_gras "${FNN}\$3 [num fl in ]:: '8num = $3'"
 
 local item=
 local of=

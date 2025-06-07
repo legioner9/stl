@@ -38,6 +38,8 @@ l_02_e2z() {
     local tst_nm_fw_=${tst_nm_dr}/_flow_tst.sh
     local tst_nm_fw1_=${tst_nm_dr}/_flow_tst_v1.sh
 
+    unset IFS
+
     if ! [[ -d "${PPWD}" ]]; then
         echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
@@ -158,8 +160,8 @@ tree -L 1 \${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/df2z
     l_02_e2z 1964_b_d.px 
     l_02_e2z 208_b_file.px 
         ->:
-        d	1964	/home/st/REPOBARE/_repo/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__ext/_dt/df2z/1964_b_d.px
-        f	208	/home/st/REPOBARE/_repo/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__ext/_dt/df2z/208_b_file.px
+        d	1964	${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/df2z/1964_b_d.px
+        f	208	${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/df2z/208_b_file.px
 "
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0

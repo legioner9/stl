@@ -38,6 +38,8 @@ l_03_df8s() {
     local tst_nm_fw_=${tst_nm_dr}/_flow_tst.sh
     local tst_nm_fw1_=${tst_nm_dr}/_flow_tst_v1.sh
 
+    unset IFS
+
     if ! [[ -d "${PPWD}" ]]; then
         echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR [{PPWD}] '${PPWD}' return 1${NRM}" >&2
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
@@ -116,7 +118,7 @@ l_03_df8s() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: in \$1 dir (in menu)=8 choice string \$2 ptr_result \$3 0 or num_menu for choice file ['TODO not work' or @ - num_menu from stdin] \$4 for string
+MAIN: ${FNN} :: in \$1 [d]ir with u[f]iles [[8] LEX(2.1)] choice string in files \$2 [ptr_result LEX(1.3)] \$3 0 or num_menu for choice [f]ile stdin_key or [@ LEX(1.1)] \$4 0 or num_menu for choice string in file stdin_key or [@ LEX(1.1)]
 TAGS:
 \$1 
 [, \$2]
@@ -147,8 +149,61 @@ CNTL:
     _e_tst_dr   : edit tst_nm_dr: l_02_edit ${tst_nm_dr}
     _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/${FNN}
 
-RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
+RETU: ( change to ptr )
 EXAM:   ${FNN} [, [, ]]
+see (${FNN} _flow_1)
+flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
+\${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/tst_dir/0.d
+├── 001.f
+├── 002.f
+├── 003.f
+└── 004.f
+cat 00X.f
+1 00X.f
+2 00X.f
+3 00X.f
+4 00X.f
+
+    local result=
+    l_03_df8s \"0.d\" result 0 0
+    echo \"\$result\" # define user
+
+    result=
+    l_03_df8s \"0.d\" result 2 1
+    echo \"\$result\" # 1 002.f
+
+    result=
+    echo \"stdin 1\"
+    l_03_df8s \"0.d\" result @ 1 <<<\"1\"
+    echo \"\$result\" # 1 001.f
+
+    result=
+    echo \"stdin (1) 3\"
+    l_03_df8s \"0.d\" result @ @ <<EOF
+1
+3
+EOF
+    echo \"\$result\" # 3 001.f
+
+    result=
+    echo \"stdin 'a'\"
+    l_03_df8s \"0.d\" result @ 1 <<<\"a\"
+    echo \"\$result\" # err arg not number
+
+    result=
+    echo \"stdin 4\"
+    l_03_df8s \"0.d\" result 3 @ <<<\"4\"
+    echo \"\$result\" # 4 003.f
+
+    result=
+    echo \"stdin '1 4'\"
+    l_03_df8s \"0.d\" result @@ x <<<\"1 4\"
+    echo \"\$result\" # 4 001.f
+
+    result=
+    echo \"stdin '1 a'\"
+    l_03_df8s \"0.d\" result @@ x <<<\"1 a\"
+    echo \"\$result\" # err arg not number
 "
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0
