@@ -7,19 +7,16 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_l_03_f2gs2f_RND_flow() {
+_l_03_d7f_RND_flow_1() {
 
     unset IFS
 
-    local PW=$(pwd)
-
-    if ! command -v l_03_f2gs2f >/dev/null; then
-        l_00_echo_ret1 "TYPE_ERROR : l_03_f2gs2f"
-        cd $PW
+    if ! command -v l_03_d7f >/dev/null; then
+        l_00_echo_ret1 "TYPE_ERROR : l_03_d7f"
         return 1
     fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_03_f2gs2f/_flow_tst.sh
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_03_d7f/_flow_tst_v1.sh
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -40,10 +37,7 @@ _l_03_f2gs2f_RND_flow() {
 
     #?----------------------------------------------------
     #?-------------------------------------
-
     l_00_echo_exec "source file://$filename"
-
-    #! if stdout to ${res} only in this file - NOT in exec.tst
     : >"${res}"
 
     cd tst_dir || {
@@ -52,37 +46,38 @@ _l_03_f2gs2f_RND_flow() {
         return 1
     }
 
-    # l_03_f2gs2f "${tst_dir}" &>>"${res}"
+    # l_03_d7f "${tst_dir}" &>>"${res}"
     #! rm abs_path
     # l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
 
     #! stdin_tst
-    #         echo "!STRING_AS_WORD!"
     # : >FILE
+    #         echo "!STRING_AS_WORD!"
     #     cat >FILE <<EOF
     # third_str
     # fourth_str
     # EOF
 
     #     echo "FILE_ARG:"
-    #     l_03_f2gs2f FILE &>>"${res}"
+    #     l_03_d7f FILE &>>"${res}"
 
     #     echo "FILE_PIPE:"
-    #     cat FILE | l_03_f2gs2f &>>"${res}"
+    #     cat FILE | l_03_d7f &>>"${res}"
 
     #     echo "HERE_DOC:"
-    #     l_03_f2gs2f <<EOF &>>"${res}"
+    #     l_03_d7f <<EOF &>>"${res}"
     # first_str
     # second_str
     # EOF
 
     #     echo "HERE_STR:"
-    #     l_03_f2gs2f <<<"here_str_::_fifth_str" &>>"${res}"
+    #     l_03_d7f <<<"here_str_::_fifth_str" &>>"${res}"
 
-    cp -f init.f result.f
+    l_03_d7f _dir_ 0
+    l_03_d7f _dir_ 1
+    l_03_d7f _dir_ 2
+    l_03_d7f _dir_ 3
 
-    l_03_f2gs2f glb.lst result.f
-    cat result.f &>>"${res}"
 
     #! TREAT IF NEED "${res}"
     # l_01_les2f "${res}"
@@ -97,4 +92,4 @@ _l_03_f2gs2f_RND_flow() {
 
 }
 
-_l_03_f2gs2f_RND_flow "$@"
+_l_03_d7f_RND_flow_1 "$@"
