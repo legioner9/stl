@@ -65,7 +65,7 @@ _l_02_ixfv_RND_flow_1() {
     #     cat FILE | l_02_ixfv &>>"${res}"
 
     #     echo "HERE_DOC:"
-    #     l_02_ixfv <<EOF &>>"${res}" 
+    #     l_02_ixfv <<EOF &>>"${res}"
     # first_str
     # second_str
     # EOF
@@ -73,10 +73,14 @@ _l_02_ixfv_RND_flow_1() {
     #     echo "HERE_STR:"
     #     l_02_ixfv <<<"here_str_::_fifth_str" &>>"${res}"
 
-    l_02_ixfv ixf.sh gv.sh <<EOF
-    first_str
+    l_02_ixfv ixf.sh gv.sh
+
+    l_02_ixfv ixf.sh gv.sh "2" <<EOF
+first_str
     second_str
 EOF
+
+    l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
 
     #! TREAT IF NEED "${res}"
     # l_01_les2f "${res}"

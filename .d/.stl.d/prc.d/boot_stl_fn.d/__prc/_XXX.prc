@@ -97,7 +97,7 @@ fi
 #     return 1
 # }
 
-# while IFS=$'\n' read -r line; do
+# while IFS=$'\n' read -t 0.0002 -r line; do
 #     :
 # done <"${1:-/dev/stdin}"
 

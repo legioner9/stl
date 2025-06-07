@@ -43,7 +43,7 @@ flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
 fi
 
 #! stdout fn introduction
-echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 #     #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
 #     local di=
@@ -154,6 +154,6 @@ ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
 
 local line=
 
-while IFS=$'\n' read -r line; do
+while IFS=$'\n' read -t 0.0002 -r line; do
     . ${ptr_path_1} ${ARGS[@]:2}
 done

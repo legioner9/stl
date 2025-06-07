@@ -1,0 +1,2 @@
+1:first_str '${HOME}=${HOME}'
+3:    second_str '${HOME}=${HOME}'

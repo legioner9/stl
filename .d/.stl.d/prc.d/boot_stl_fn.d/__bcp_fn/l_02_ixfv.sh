@@ -159,7 +159,7 @@ flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
 fi
 
 #! stdout fn introduction
-# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 #     #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
 #     local di=
