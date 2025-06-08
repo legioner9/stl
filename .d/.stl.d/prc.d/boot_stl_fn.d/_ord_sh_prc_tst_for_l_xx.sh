@@ -87,6 +87,7 @@ ${NORMAL}"
     . ${fn_dir}/_ord_file_with_l_xx.sh || ret1=1
     . ${fn_dir}/__tst/_ord_tst_dir_for_l_xx.sh || ret1=1
     . ${fn_dir}/__prc/_ord_prc_fl_for_l_xx.sh || ret1=1
+    . ${fn_dir}/__dta/_ord_prc_fl_for_l_xx.sh || ret1=1
 
     #{{body_fn}}
 

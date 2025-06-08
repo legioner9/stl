@@ -1,24 +1,17 @@
 #!/bin/bash
 
-### Written by Legioner9 for the universe
-### Part of the STL shell subsystem
-### Location ${STL_D_PATH}/prc.d/boot_stl_fn.d
-# "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
+echo -e "${CYAN}--- _ord_prc_fl_for_l_xx_rnd7_5a6e6f0() $* in file://${REPO_PATH}/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__dta/_ord_prc_fl_for_l_xx.sh ---${NORMAL}" #started functions
 
-# ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
+_ord_prc_fl_for_l_xx_rnd7_5a6e6f0() {
 
-echo -e "${CYAN}--- _ord_tst_dir_for_l_xx_rnd7_9caabeb() $* in file://${REPO_PATH}/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__tst/_ord_tst_dir_for_l_xx.sh ---${NORMAL}" #started functions
-
-_ord_tst_dir_for_l_xx_rnd7_9caabeb() {
-
-    # HST :: gig command :: [ufl_stl0 1 1 _ord_tst_dir_for_l_xx.sh in file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/ufl_stl0.ram/.grot/ufl_stl0.sh] in file://${REPO_PATH}/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__tst
+    # HST :: gig command :: [ufl_stl0 1 1 _ord_prc_fl_for_l_xx.sh in file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/ufl_stl0.ram/.grot/ufl_stl0.sh] in file://${REPO_PATH}/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__prc
 
     local FNN=${FUNCNAME[0]}
     local ARGS=("$@")
     local NARGS=$#
     local PPWD=$PWD
 
-    local path_file="${REPO_PATH}/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__tst/_ord_tst_dir_for_l_xx.sh"
+    local path_file="${REPO_PATH}/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__dta/_ord_prc_fl_for_l_xx.sh"
     local path_dir="$(dirname "$path_file")"
 
     # echo -e "${CYAN}--- $FNN() $* in file://${path_file}---${NORMAL}" #started functions
@@ -80,6 +73,8 @@ ${NORMAL}"
 
     #! START BODY FN ---------------------------------------
 
+    #{{body_fn}}
+
     echo "START BODY FN : ${FNN}() $*"
 
     [[ -n "$1" ]] || {
@@ -87,7 +82,7 @@ ${NORMAL}"
         return 1
     }
 
-    local tst_dir=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst
+    local tst_dir=${STL_D_PATH}/prc.d/boot_stl_fn.d/__dta
 
     local fn_name="$1"
 
@@ -97,18 +92,17 @@ ${NORMAL}"
 
     l_01_is_yes "ord ${fn_name} in ${tst_dir}?" && {
 
-        # echo "l_03_sd2d _XXX ${fn_name} file://${tst_dir}/_XXX"
+        echo "l_03_sd2d _XXX ${fn_name} file://${tst_dir}/_XXX"
         l_03_sd2d _XXX ${fn_name} ${tst_dir}/_XXX || {
             l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC 'l_03_sd2d XXX ${fn_name} ${tst_dir}/_XXX' : ${hint} : return 1"
             return 1
         }
-        # echo "l_03_s2Ad RND ${rnd:0:7} file://${tst_dir}/${fn_name}"
-        l_03_s2Ad ${rnd:0:7} RND ${tst_dir}/${fn_name} || {
+        echo "l_03_s2Ad RND ${rnd:0:7} file://${tst_dir}/${fn_name}"
+        l_03_s2Ad  ${rnd:0:7} RND ${tst_dir}/${fn_name} || {
             l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC 'l_03_s2Ad XXX ${fn_name} ${tst_dir}/_XXX' : ${hint} : return 1"
             return 1
         }
     }
-    #{{body_fn}}
 
     #! END BODY FN ---------------------------------------
 
@@ -117,4 +111,4 @@ ${NORMAL}"
 
 }
 
-_ord_tst_dir_for_l_xx_rnd7_9caabeb "$@"
+_ord_prc_fl_for_l_xx_rnd7_5a6e6f0 "$@"
