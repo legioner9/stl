@@ -65,9 +65,9 @@ _l_02_ixf_RND_flow_1() {
     #     cat FILE | l_02_ixf &>>"${res}"
 
     #     echo "HERE_DOC:"
-    l_02_ixf <<EOF &>>"${res}"
+    l_02_ixf  ixf.sh "str45" <<EOF 
     first_str
-    second_str
+second_str
 EOF
 
     #     echo "HERE_STR:"

@@ -2,7 +2,7 @@
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: stdin as \$line global for process :: . \$@ { \$1 file for exec, [. \$2] - inject global var and other } 
+MAIN: ${FNN} :: stdin as \$line global for process :: . \$@ { \$1 file for exec, [. \$2] - inject global var and other} 
 TAGS:
 \$1 
 [, \$2]

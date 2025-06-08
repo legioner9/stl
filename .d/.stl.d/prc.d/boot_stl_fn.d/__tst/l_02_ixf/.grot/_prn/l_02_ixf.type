@@ -80,7 +80,7 @@ l_02_ixf ()
     fi;
     if [[ "-h" == "$1" ]]; then
         echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: stdin as \$line global for process :: . \$@ { \$1 file for exec }
 TAGS:
 \$1 
 [, \$2]
@@ -119,6 +119,23 @@ flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
         return 0;
     fi;
+    [[ -n "$1" ]] || { 
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1";
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
+        return 1
+    };
+    [[ -f "$1" ]] || { 
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${1}' where '\$1=$1' return 1";
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
+        return 1
+    };
+    local ptr_path_1="$1";
+    ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")";
+    local line=;
+    while IFS='
+' read -t 0.0002 -r line; do
+        . ${ptr_path_1} ${ARGS[@]:1};
+    done;
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
     return 0
 }

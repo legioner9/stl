@@ -2,7 +2,7 @@
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: stdin as \$line global for process :: . \$@ { \$1 mast by file}
+MAIN: ${FNN} :: stdin as \$line global for process :: . \$@ { \$1 file for exec }
 TAGS:
 \$1 
 [, \$2]
@@ -117,6 +117,8 @@ ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
 # local ptr_path_2="$2"
 # ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
 
-while IFS=$'\n' read -r line; do
+local line=
+
+while IFS=$'\n' read -t 0.0002 -r line; do
     . ${ptr_path_1} ${ARGS[@]:1}
 done

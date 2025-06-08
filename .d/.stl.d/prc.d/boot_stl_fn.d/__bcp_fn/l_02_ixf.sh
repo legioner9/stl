@@ -118,7 +118,7 @@ l_02_ixf() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: stdin as \$line global for process :: . \$@ { \$1 file for exec }
+MAIN: ${FNN} :: 
 TAGS:
 \$1 
 [, \$2]
@@ -201,17 +201,21 @@ fi
 # local ARG_23edew=("${ARGS[@]}")
 # [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_23edew
 
-[[ -n "$1" ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
+# [[ -n "$1" ]] || {
+#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
+#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+#     return 1
+# }
 
-[[ -f "$1" ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${1}' where '\$1=$1' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
+# [[ -f "$3" ]] || {
+#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${3}' where '\$3=$3' return 1"
+#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+#     return 1
+# }
+
+# while IFS=$'\n' read -r line; do
+#     :
+# done <"${1:-/dev/stdin}"
 
 # if [[ "@" == "$3" ]]; then
 #     echo "Enter num menu :"
@@ -226,18 +230,12 @@ fi
 # eval "$2=$res_12341c43234rfe"
 
 #! ptr_path_1
-local ptr_path_1="$1"
-ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
+# local ptr_path_1="$1"
+# ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
 
 #! ptr_path_2
 # local ptr_path_2="$2"
 # ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
-
-local line=
-
-while IFS=$'\n' read -t 0.0002 -r line; do
-    . ${ptr_path_1} ${ARGS[@]:1}
-done
 
     #* END fn block ------------------
 

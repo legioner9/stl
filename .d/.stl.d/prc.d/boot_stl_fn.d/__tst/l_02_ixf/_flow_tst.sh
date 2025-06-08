@@ -79,6 +79,13 @@ _l_02_ixf_RND_flow() {
     #     echo "HERE_STR:"
     #     l_02_ixf <<<"here_str_::_fifth_str" &>>"${res}"
 
+    l_02_ixf ixf.sh "str45" <<EOF &>>"${res}"
+    first_str
+second_str
+EOF
+
+    l_02_s2f "${HOME}" '${HOME}' "${res}"
+
     #! TREAT IF NEED "${res}"
     # l_01_les2f "${res}"
 
