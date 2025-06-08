@@ -31,6 +31,7 @@ CNTL:
 
     _e_prc      : edit fn.prc   : l_02_edit ${prc_nm}
     _e_tst_dr   : edit tst_nm_dr: l_02_edit ${tst_nm_dr}
+    _e_dta_dr   : edit dta_nm_dr: l_02_edit ${dta_nm_dr}
     _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/${FNN}
 
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
@@ -97,7 +98,8 @@ fi
 #     return 1
 # }
 
-# while IFS=$'\n' read -t 0.0002 -r line; do
+# read -t 0.0002 - timeout
+# while IFS=$'\n' read -r line; do
 #     :
 # done <"${1:-/dev/stdin}"
 
@@ -120,3 +122,9 @@ fi
 #! ptr_path_2
 # local ptr_path_2="$2"
 # ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
+
+#! DTA path
+# local dta_sh=${dta_nm_dr}/.sh
+# local dta_lst=${dta_nm_dr}/.lst
+# local dta_tml=${dta_nm_dr}/.tml
+

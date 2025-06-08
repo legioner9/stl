@@ -7,16 +7,19 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_l_03_d7e_RND_flow_1() {
+_l_03_ibu_9da5b4e_flow() {
 
     unset IFS
 
-    if ! command -v l_03_d7e >/dev/null; then
-        l_00_echo_ret1 "TYPE_ERROR : l_03_d7e"
+    local PW=$(pwd)
+
+    if ! command -v l_03_ibu >/dev/null; then
+        l_00_echo_ret1 "TYPE_ERROR : l_03_ibu"
+        cd $PW
         return 1
     fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_03_d7e/_flow_tst_v1.sh
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_03_ibu/_flow_tst.sh
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -37,7 +40,10 @@ _l_03_d7e_RND_flow_1() {
 
     #?----------------------------------------------------
     #?-------------------------------------
+
     l_00_echo_exec "source file://$filename"
+
+    #! if stdout to ${res} only in this file - NOT in exec.tst
     : >"${res}"
 
     cd tst_dir || {
@@ -46,40 +52,32 @@ _l_03_d7e_RND_flow_1() {
         return 1
     }
 
-    # l_03_d7e "${tst_dir}" &>>"${res}"
+    # l_03_ibu "${tst_dir}" &>>"${res}"
     #! rm abs_path
     # l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
 
     #! stdin_tst
-    # : >FILE
     #         echo "!STRING_AS_WORD!"
+    # : >FILE
     #     cat >FILE <<EOF
     # third_str
     # fourth_str
     # EOF
 
     #     echo "FILE_ARG:"
-    #     l_03_d7e FILE &>>"${res}"
+    #     l_03_ibu FILE &>>"${res}"
 
     #     echo "FILE_PIPE:"
-    #     cat FILE | l_03_d7e &>>"${res}"
+    #     cat FILE | l_03_ibu &>>"${res}"
 
     #     echo "HERE_DOC:"
-    #     l_03_d7e <<EOF &>>"${res}"
+    #     l_03_ibu <<EOF &>>"${res}"
     # first_str
     # second_str
     # EOF
 
     #     echo "HERE_STR:"
-    #     l_03_d7e <<<"here_str_::_fifth_str" &>>"${res}"
-
-    cd ${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt/7e || return 1
-
-    l_03_d7e _dir_ 0
-    echo "1" | l_03_d7e _dir_ "@"
-    l_03_d7e _dir_ 2
-    l_03_d7e _dir_ "@" <<<"3"
-    l_03_d7e _dir_ 4
+    #     l_03_ibu <<<"here_str_::_fifth_str" &>>"${res}"
 
     #! TREAT IF NEED "${res}"
     # l_01_les2f "${res}"
@@ -94,4 +92,4 @@ _l_03_d7e_RND_flow_1() {
 
 }
 
-_l_03_d7e_RND_flow_1 "$@"
+_l_03_ibu_9da5b4e_flow "$@"

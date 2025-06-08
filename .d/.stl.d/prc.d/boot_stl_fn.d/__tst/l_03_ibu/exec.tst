@@ -7,21 +7,21 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_l_03_d7e_RND_exec() {
+_l_03_ibu_9da5b4e_exec() {
 
     unset IFS
 
     local PW=$(pwd)
 
-    if ! command -v l_03_d7e >/dev/null; then
-        l_00_echo_ret1 "TYPE_ERROR : l_03_d7e" >&2
+    if ! command -v l_03_ibu >/dev/null; then
+        l_00_echo_ret1 "TYPE_ERROR : l_03_ibu" >&2
         return 1
     fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_03_d7e/exec.tst
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_03_ibu/exec.tst
     local idir="$(dirname ${filename})"
 
-    l_00_echo_info "test function l_03_d7e in file://${filename}"
+    l_00_echo_info "test function l_03_ibu in file://${filename}"
 
     # cd "$(prs_f -d $filename)" || qq_exit "$(prs_f -d filename) not found"
 
@@ -55,7 +55,7 @@ _l_03_d7e_RND_exec() {
 
 }
 
-if ! _l_03_d7e_RND_exec "$@"; then
-    l_00_echo_ret1 "EXEC_FAIL for fuction : '_l_03_d7e_RND_exec' : GOTO file://${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_03_d7e : return 1"
+if ! _l_03_ibu_9da5b4e_exec "$@"; then
+    l_00_echo_ret1 "EXEC_FAIL for fuction : '_l_03_ibu_9da5b4e_exec' : GOTO file://${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_03_ibu : return 1"
     return 1
 fi

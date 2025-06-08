@@ -119,6 +119,6 @@ ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
 
 local line=
 
-while IFS=$'\n' read -t 0.0002 -r line; do
+while IFS=$'\n' read -r line; do
     . ${ptr_path_1} ${ARGS[@]:1}
 done

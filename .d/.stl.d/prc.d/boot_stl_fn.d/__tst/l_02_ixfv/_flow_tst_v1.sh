@@ -73,7 +73,14 @@ _l_02_ixfv_RND_flow_1() {
     #     echo "HERE_STR:"
     #     l_02_ixfv <<<"here_str_::_fifth_str" &>>"${res}"
 
+    cat >FILE <<EOF
+first_str
+    second_str
+EOF
+
     l_02_ixfv ixf.sh gv.sh
+
+    cat FILE | l_02_ixfv ixf.sh gv.sh "2"
 
     l_02_ixfv ixf.sh gv.sh "2" <<EOF
 first_str
