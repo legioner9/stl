@@ -77,7 +77,9 @@ _l_03_ifu_696cfda_flow_1() {
     # l_02_d2e _dir_
 
     # l_02_d2e _dir_ 
-    l_02_d2e _dir_ | l_03_ifu
+    l_02_d2pth _dir_ | l_03_ifu
+    cd _dir_
+    l_02_d2pth @ | l_03_ifu
 
     #! TREAT IF NEED "${res}"
     # l_01_les2f "${res}"

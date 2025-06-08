@@ -53,8 +53,6 @@ _l_03_ifu_696cfda_flow() {
     }
 
     # l_03_ifu "${tst_dir}" &>>"${res}"
-    #! rm abs_path
-    # l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
 
     #! stdin_tst
     #         echo "!STRING_AS_WORD!"
@@ -78,6 +76,18 @@ _l_03_ifu_696cfda_flow() {
 
     #     echo "HERE_STR:"
     #     l_03_ifu <<<"here_str_::_fifth_str" &>>"${res}"
+
+    cd "${STL_D_PATH}"/prc.d/boot_stl_fn.d/__ext/_dt/7e || return 1
+
+    # l_02_d2e _dir_
+
+    # l_02_d2e _dir_
+    l_02_d2pth _dir_ | l_03_ifu &>>"${res}"
+    cd _dir_
+    l_02_d2pth @ | l_03_ifu &>>"${res}"
+
+    #! rm abs_path
+    l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
 
     #! TREAT IF NEED "${res}"
     # l_01_les2f "${res}"
