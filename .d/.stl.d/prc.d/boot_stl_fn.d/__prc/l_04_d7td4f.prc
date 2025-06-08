@@ -2,7 +2,7 @@
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: stdin tsf_to_stdout: if \$line only dir {wrp l_02_ixfv} 
+MAIN: ${FNN} :: dir {\$1 IFS(3.2)} 7num LEX(2.3) {\$2 LEX(1.13)} dir 4 IFS(2.1), \$3 result fl name LEX(8.2) , \$4 result dir or @ LEX(1.12)
 TAGS:
 \$1 
 [, \$2]
@@ -124,9 +124,7 @@ fi
 # ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
 
 #! DTA path
-local dta_sh=${dta_nm_dr}/.sh
+# local dta_sh=${dta_nm_dr}/.sh
 # local dta_lst=${dta_nm_dr}/.lst
 # local dta_tml=${dta_nm_dr}/.tml
 
-# l_00_echo_code "'l_02_ixfv ${dta_sh}/ixf.sh  ${dta_sh}/gv.sh $1'"
-l_02_ixfv "${dta_sh}"/ixf.sh "${dta_sh}"/gv.sh

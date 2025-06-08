@@ -2,7 +2,7 @@
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: stdin tsf_to_stdout: if \$line only file {wrp l_02_ixfv} 
 TAGS:
 \$1 
 [, \$2]

@@ -7,16 +7,19 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-__XXX_RND_flow_1() {
+_l_04_d7td4f_400c874_flow() {
 
     unset IFS
 
-    if ! command -v _XXX >/dev/null; then
-        l_00_echo_ret1 "TYPE_ERROR : _XXX"
+    local PW=$(pwd)
+
+    if ! command -v l_04_d7td4f >/dev/null; then
+        l_00_echo_ret1 "TYPE_ERROR : l_04_d7td4f"
+        cd $PW
         return 1
     fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/_XXX/_flow_tst_v1.sh
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_04_d7td4f/_flow_tst.sh
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -37,7 +40,10 @@ __XXX_RND_flow_1() {
 
     #?----------------------------------------------------
     #?-------------------------------------
+
     l_00_echo_exec "source file://$filename"
+
+    #! if stdout to ${res} only in this file - NOT in exec.tst
     : >"${res}"
 
     cd tst_dir || {
@@ -46,33 +52,33 @@ __XXX_RND_flow_1() {
         return 1
     }
 
-    # _XXX "${tst_dir}" &>>"${res}"
+    # l_04_d7td4f "${tst_dir}" &>>"${res}"
 
     #! stdin_tst
-    # : >FILE
     #         echo "!STRING_AS_WORD!"
+    # : >FILE
     #     cat >FILE <<EOF
     # third_str
     # fourth_str
     # EOF
 
     #     echo "FILE_ARG:"
-    #     _XXX FILE &>>"${res}"
+    #     l_04_d7td4f FILE &>>"${res}"
 
     #     echo "FILE_PIPE:"
-    #     cat FILE | _XXX &>>"${res}"
+    #     cat FILE | l_04_d7td4f &>>"${res}"
 
     #     echo "HERE_DOC:"
-    #     _XXX <<EOF &>>"${res}"
+    #     l_04_d7td4f <<EOF &>>"${res}"
     # first_str
     # second_str
     # EOF
 
     #     echo "HERE_STR:"
-    #     _XXX <<<"here_str_::_fifth_str" &>>"${res}"
+    #     l_04_d7td4f <<<"here_str_::_fifth_str" &>>"${res}"
 
     #*--------
-
+    
     #*--------
 
     #! rm abs_path
@@ -91,4 +97,4 @@ __XXX_RND_flow_1() {
 
 }
 
-__XXX_RND_flow_1 "$@"
+_l_04_d7td4f_400c874_flow "$@"
