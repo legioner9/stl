@@ -7,19 +7,16 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_l_03_ifu_696cfda_flow() {
+_l_03_idu_abf30b6_flow_1() {
 
     unset IFS
 
-    local PW=$(pwd)
-
-    if ! command -v l_03_ifu >/dev/null; then
-        l_00_echo_ret1 "TYPE_ERROR : l_03_ifu"
-        cd $PW
+    if ! command -v l_03_idu >/dev/null; then
+        l_00_echo_ret1 "TYPE_ERROR : l_03_idu"
         return 1
     fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_03_ifu/_flow_tst.sh
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_03_idu/_flow_tst_v1.sh
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -40,10 +37,7 @@ _l_03_ifu_696cfda_flow() {
 
     #?----------------------------------------------------
     #?-------------------------------------
-
     l_00_echo_exec "source file://$filename"
-
-    #! if stdout to ${res} only in this file - NOT in exec.tst
     : >"${res}"
 
     cd tst_dir || {
@@ -52,42 +46,32 @@ _l_03_ifu_696cfda_flow() {
         return 1
     }
 
-    # l_03_ifu "${tst_dir}" &>>"${res}"
+    # l_03_idu "${tst_dir}" &>>"${res}"
+    #! rm abs_path
+    # l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
 
     #! stdin_tst
-    #         echo "!STRING_AS_WORD!"
     # : >FILE
+    #         echo "!STRING_AS_WORD!"
     #     cat >FILE <<EOF
     # third_str
     # fourth_str
     # EOF
 
     #     echo "FILE_ARG:"
-    #     l_03_ifu FILE &>>"${res}"
+    #     l_03_idu FILE &>>"${res}"
 
     #     echo "FILE_PIPE:"
-    #     cat FILE | l_03_ifu &>>"${res}"
+    #     cat FILE | l_03_idu &>>"${res}"
 
     #     echo "HERE_DOC:"
-    #     l_03_ifu <<EOF &>>"${res}"
+    #     l_03_idu <<EOF &>>"${res}"
     # first_str
     # second_str
     # EOF
 
     #     echo "HERE_STR:"
-    #     l_03_ifu <<<"here_str_::_fifth_str" &>>"${res}"
-
-    cd "${STL_D_PATH}"/prc.d/boot_stl_fn.d/__ext/_dt/7e || return 1
-
-    # l_02_d2e _dir_
-
-    # l_02_d2e _dir_
-    l_02_d2pth _dir_ | l_03_ifu &>>"${res}"
-    cd _dir_ || return 1
-    l_02_d2pth @ | l_03_ifu &>>"${res}"
-
-    #! rm abs_path
-    l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
+    #     l_03_idu <<<"here_str_::_fifth_str" &>>"${res}"
 
     #! TREAT IF NEED "${res}"
     # l_01_les2f "${res}"
@@ -102,4 +86,4 @@ _l_03_ifu_696cfda_flow() {
 
 }
 
-_l_03_ifu_696cfda_flow "$@"
+_l_03_idu_abf30b6_flow_1 "$@"
