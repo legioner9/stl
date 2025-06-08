@@ -7,19 +7,19 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-__XXX_RND_flow() {
+_l_02_d2pth_a192201_flow() {
 
     unset IFS
 
     local PW=$(pwd)
 
-    if ! command -v _XXX >/dev/null; then
-        l_00_echo_ret1 "TYPE_ERROR : _XXX"
+    if ! command -v l_02_d2pth >/dev/null; then
+        l_00_echo_ret1 "TYPE_ERROR : l_02_d2pth"
         cd $PW
         return 1
     fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/_XXX/_flow_tst.sh
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_02_d2pth/_flow_tst.sh
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -52,7 +52,9 @@ __XXX_RND_flow() {
         return 1
     }
 
-    # _XXX "${tst_dir}" &>>"${res}"
+    # l_02_d2pth "${tst_dir}" &>>"${res}"
+    #! rm abs_path
+    # l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
 
     #! stdin_tst
     #         echo "!STRING_AS_WORD!"
@@ -63,26 +65,29 @@ __XXX_RND_flow() {
     # EOF
 
     #     echo "FILE_ARG:"
-    #     _XXX FILE &>>"${res}"
+    #     l_02_d2pth FILE &>>"${res}"
 
     #     echo "FILE_PIPE:"
-    #     cat FILE | _XXX &>>"${res}"
+    #     cat FILE | l_02_d2pth &>>"${res}"
 
     #     echo "HERE_DOC:"
-    #     _XXX <<EOF &>>"${res}"
+    #     l_02_d2pth <<EOF &>>"${res}"
     # first_str
     # second_str
     # EOF
 
     #     echo "HERE_STR:"
-    #     _XXX <<<"here_str_::_fifth_str" &>>"${res}"
+    #     l_02_d2pth <<<"here_str_::_fifth_str" &>>"${res}"
 
-    #*--------
-    
-    #*--------
+    cd ${STL_D_PATH}/prc.d/boot_stl_fn.d/__ext/_dt || return 1
 
-    #! rm abs_path
-    # l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
+    l_02_d2pth d2 yes &>>"${res}"
+
+    cd d2
+
+    l_02_d2pth @ yes &>>"${res}"
+
+    l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
 
     #! TREAT IF NEED "${res}"
     # l_01_les2f "${res}"
@@ -97,4 +102,4 @@ __XXX_RND_flow() {
 
 }
 
-__XXX_RND_flow "$@"
+_l_02_d2pth_a192201_flow "$@"

@@ -77,7 +77,7 @@ _l_03_ibu_9da5b4e_flow_1() {
 
     # l_02_d2e _dir_ 
 
-    l_02_d2e _dir_ | l_03_ibu 1
+    l_02_d2e _dir_ | l_03_ibu 
 
     #     cat >FILE <<EOF
     # first_str
