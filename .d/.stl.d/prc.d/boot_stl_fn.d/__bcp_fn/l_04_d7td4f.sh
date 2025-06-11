@@ -234,14 +234,14 @@ fi
 #     :
 # done <"${1:-/dev/stdin}"
 
-if [[ "@" == "$2" ]]; then
-    echo "Enter num menu :"
-    read -r
-    arg_2=$REPLY
-    l_00_echo_info "'\$arg_2 = $arg_2'"
-else
-    arg_2="$3"
-fi
+# if [[ "@" == "$3" ]]; then
+#     echo "Enter num menu :"
+#     read -r
+#     arg_3=$REPLY
+#     l_00_echo_info "'\$arg_3 = $arg_3'"
+# else
+#     arg_3="$3"
+# fi
 
 #! use arg_ptr
 # eval "$2=$res_12341c43234rfe"
@@ -260,17 +260,17 @@ ptr_path_4="$(l_01_abs_path "${PPWD}" "ptr_path_4")"
 # local dta_tml=${dta_nm_dr}/.tml
 
 l_00_echo_gras "${FNN} \$1 :: 'dir_with_dirs = file://$ptr_path_1 '"
-l_00_echo_gras "${FNN} \$2 :: '7num = $arg_2'"
+l_00_echo_gras "${FNN} \$2 :: '7num = $2'"
 l_00_echo_gras "${FNN} \$3 :: 'res_fl_name = $3'"
 l_00_echo_gras "${FNN} \$4 :: 'res_dir_pth = file://$ptr_path_4 '"
 
-local tml_dir_nm=$(l_02_dd2e "$ptr_path_1" | l_03_ibu "$arg_2")
+local tml_dir_nm=$(l_02_dd2e "$ptr_path_1" | l_03_ibu "$2")
 
 [[ -n ${tml_dir_nm} ]] || {
     l_00_echo_sys "ls file://$ptr_path_1 :: "
     ls $ptr_path_1
-    l_00_echo_sys "7num :: $arg_2"
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY '\$(l_02_dd2e \$ptr_path_1 | l_03_ibu \$arg_2)' where '\$arg_2=$arg_2' return 1"    
+    l_00_echo_sys "7num :: $2"
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY '\$(l_02_dd2e \$ptr_path_1 | l_03_ibu \$2)' where '\$2=$2' return 1"    
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }
