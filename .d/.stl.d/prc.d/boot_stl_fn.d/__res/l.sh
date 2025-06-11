@@ -20591,7 +20591,7 @@ flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
 fi
 
 #! stdout fn introduction
-echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 #     #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
 #     local di=
@@ -20679,7 +20679,7 @@ local dta_sh=${dta_nm_dr}/.sh
 # local dta_lst=${dta_nm_dr}/.lst
 # local dta_tml=${dta_nm_dr}/.tml
 
-l_00_echo_code "'l_02_ixfv file://${dta_sh}/ixf.sh  file://${dta_sh}/gv.sh $1'"
+# l_00_echo_code "'l_02_ixfv file://${dta_sh}/ixf.sh  file://${dta_sh}/gv.sh $1'"
 l_02_ixfv "${dta_sh}"/ixf.sh "${dta_sh}"/gv.sh "$1"
 
     #* END fn block ------------------
@@ -23945,12 +23945,12 @@ fi
 # done <"${1:-/dev/stdin}"
 
 if [[ "@" == "$2" ]]; then
-    echo "Enter num menu :"
+    # echo "Enter num menu :"
     read -r
     arg_2=$REPLY
     l_00_echo_info "'\$arg_2 = $arg_2'"
 else
-    arg_2="$3"
+    arg_2="$2"
 fi
 
 #! use arg_ptr
@@ -23974,13 +23974,13 @@ l_00_echo_gras "${FNN} \$2 :: '7num = $arg_2'"
 l_00_echo_gras "${FNN} \$3 :: 'res_fl_name = $3'"
 l_00_echo_gras "${FNN} \$4 :: 'res_dir_pth = file://$ptr_path_4 '"
 
+l_00_echo_info "7num = $arg_2, sruct of file://$ptr_path_1 :: "
+l_02_dd2e "$ptr_path_1" | l_03_ineu file://"$ptr_path_1"/
+
 local tml_dir_nm=$(l_02_dd2e "$ptr_path_1" | l_03_ibu "$arg_2")
 
 [[ -n ${tml_dir_nm} ]] || {
-    l_00_echo_sys "ls file://$ptr_path_1 :: "
-    ls $ptr_path_1
-    l_00_echo_sys "7num :: $arg_2"
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY '\$(l_02_dd2e \$ptr_path_1 | l_03_ibu \$arg_2)' where '\$arg_2=$arg_2' return 1"    
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY '\$(l_02_dd2e \$ptr_path_1 | l_03_ibu \$arg_2)' where '\$arg_2=$arg_2' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }

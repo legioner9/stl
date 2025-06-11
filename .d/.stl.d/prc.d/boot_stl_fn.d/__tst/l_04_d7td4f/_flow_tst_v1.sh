@@ -77,6 +77,17 @@ _l_04_d7td4f_400c874_flow_1() {
     l_04_d7td4f tml.d.d @ result.file @ <<<"1"
     cat result.file
     echo
+
+    rm res.d/result.file
+    l_04_d7td4f tml.d.d "0" result.file res.d
+    cat res.d/result.file
+    # echo
+
+    : >res.d/result.file
+    l_04_d7td4f tml.d.d "0" result.file res.d
+    cat res.d/result.file
+    # echo
+
     : >res.d/result.file
     echo "3" | l_04_d7td4f tml.d.d @ result.file res.d
     cat res.d/result.file

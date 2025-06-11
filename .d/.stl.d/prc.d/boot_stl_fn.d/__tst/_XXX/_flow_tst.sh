@@ -84,7 +84,7 @@ __XXX_RND_flow() {
     #! rm abs_path
     # l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
 
-    #! TREAT IF NEED "${res}"
+    #! TREAT IF NEED [l]ast [e]mpty [s]tring "${res}"
     # l_01_les2f "${res}"
 
     #?-------------------------------------

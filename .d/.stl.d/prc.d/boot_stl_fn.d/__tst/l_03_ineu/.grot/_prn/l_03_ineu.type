@@ -127,9 +127,7 @@ flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
         return 0;
     fi;
-    echo -e "${ECHO_EXEC}'$FNN $*'${NRM}";
     local dta_sh=${dta_nm_dr}/.sh;
-    l_00_echo_code "'l_02_ixfv file://${dta_sh}/ixf.sh  file://${dta_sh}/gv.sh $1'";
     l_02_ixfv "${dta_sh}"/ixf.sh "${dta_sh}"/gv.sh "$1";
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
     return 0

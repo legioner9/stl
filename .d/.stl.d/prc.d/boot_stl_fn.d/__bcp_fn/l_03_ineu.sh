@@ -168,7 +168,7 @@ flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
 fi
 
 #! stdout fn introduction
-# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 #     #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
 #     local di=
@@ -256,7 +256,7 @@ local dta_sh=${dta_nm_dr}/.sh
 # local dta_lst=${dta_nm_dr}/.lst
 # local dta_tml=${dta_nm_dr}/.tml
 
-# l_00_echo_code "'l_02_ixfv file://${dta_sh}/ixf.sh  file://${dta_sh}/gv.sh $1'"
+l_00_echo_code "'l_02_ixfv file://${dta_sh}/ixf.sh  file://${dta_sh}/gv.sh $1'"
 l_02_ixfv "${dta_sh}"/ixf.sh "${dta_sh}"/gv.sh "$1"
 
     #* END fn block ------------------

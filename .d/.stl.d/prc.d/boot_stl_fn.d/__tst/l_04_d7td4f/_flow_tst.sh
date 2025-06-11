@@ -78,7 +78,19 @@ _l_04_d7td4f_400c874_flow() {
     #     l_04_d7td4f <<<"here_str_::_fifth_str" &>>"${res}"
 
     #*--------
-    
+    rm result.file
+    l_04_d7td4f tml.d.d @ result.file @ <<<"1"
+    cat result.file &>>"${res}"
+    echo &>>"${res}"
+
+    rm res.d/result.file
+    l_04_d7td4f tml.d.d "0" result.file res.d
+    cat res.d/result.file &>>"${res}"
+    # echo
+
+    #! TREAT IF NEED [l]ast [e]mpty [s]tring "${res}"
+    l_01_les2f "${res}"
+
     #*--------
 
     #! rm abs_path
