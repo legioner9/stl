@@ -94,6 +94,7 @@ ${NORMAL}"
     rm "${path_dir}/__prc/${fn_name}.prc"
     rm -r "${path_dir}/__tst/${fn_name}"
     rm -r "${path_dir}/__dta/${fn_name}"
+    rm -r "${path_dir}/__doc/${fn_name}"
 
     #{{body_fn}}
 

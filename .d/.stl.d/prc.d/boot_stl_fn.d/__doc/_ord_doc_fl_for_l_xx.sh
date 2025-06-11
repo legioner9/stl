@@ -1,17 +1,17 @@
 #!/bin/bash
 
-echo -e "${CYAN}--- _ord_sh_prc_tst_for_l_xx_rnd7_7260537() $* in file://${REPO_PATH}/stl/.d/.stl.d/prc.d/boot_stl_fn.d/_ord_sh_prc_tst_for_l_xx.sh ---${NORMAL}" #started functions
+echo -e "${CYAN}--- _ord_prc_fl_for_l_xx_rnd7_5a6e6f0() $* in file://${REPO_PATH}/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__doc/_ord_doc_fl_for_l_xx.sh ---${NORMAL}" #started functions
 
-_ord_sh_prc_tst_for_l_xx_rnd7_7260537() {
+_ord_prc_fl_for_l_xx_rnd7_5a6e6f0() {
 
-    # HST :: gig command :: [ufl_stl0 1 1 _ord_sh_prc_tst_for_l_xx.sh in file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/ufl_stl0.ram/.grot/ufl_stl0.sh] in file://${REPO_PATH}/stl/.d/.stl.d/prc.d/boot_stl_fn.d
+    # HST :: gig command :: [ufl_stl0 1 1 _ord_prc_fl_for_l_xx.sh in file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/ufl_stl0.ram/.grot/ufl_stl0.sh] in file://${REPO_PATH}/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__prc
 
     local FNN=${FUNCNAME[0]}
     local ARGS=("$@")
     local NARGS=$#
     local PPWD=$PWD
 
-    local path_file="${REPO_PATH}/stl/.d/.stl.d/prc.d/boot_stl_fn.d/_ord_sh_prc_tst_for_l_xx.sh"
+    local path_file="${REPO_PATH}/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__doc/_ord_doc_fl_for_l_xx.sh"
     local path_dir="$(dirname "$path_file")"
 
     # echo -e "${CYAN}--- $FNN() $* in file://${path_file}---${NORMAL}" #started functions
@@ -73,35 +73,42 @@ ${NORMAL}"
 
     #! START BODY FN ---------------------------------------
 
-    echo "START BODY FN : ${FNN}() $*"
+    #{{body_fn}}
 
-    local fn_dir=${STL_D_PATH}/prc.d/boot_stl_fn.d
+    echo "START BODY FN : ${FNN}() $*"
 
     [[ -n "$1" ]] || {
         l_00_echo_ret1 "\$1 EMPTY {fn_name like 'l_04_eee'} :: return 1"
         return 1
     }
 
-    local ret1=
+    local tst_dir=${STL_D_PATH}/prc.d/boot_stl_fn.d/__doc
 
-    . ${fn_dir}/_ord_file_with_l_xx.sh || ret1=1
-    . ${fn_dir}/__tst/_ord_tst_dir_for_l_xx.sh || ret1=1
-    . ${fn_dir}/__prc/_ord_prc_fl_for_l_xx.sh || ret1=1
-    . ${fn_dir}/__dta/_ord_prc_fl_for_l_xx.sh || ret1=1
-    . ${fn_dir}/__doc/_ord_doc_fl_for_l_xx.sh || ret1=1
+    local fn_name="$1"
 
-    #{{body_fn}}
+    local rnd=$(l_01_rnd2e)
+
+    cd ${tst_dir} || return 1
+
+    l_01_is_yes "ord ${fn_name} in ${tst_dir}?" && {
+
+        echo "l_03_sd2d _XXX ${fn_name} file://${tst_dir}/_XXX"
+        l_03_sd2d _XXX ${fn_name} ${tst_dir}/_XXX || {
+            l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC 'l_03_sd2d XXX ${fn_name} ${tst_dir}/_XXX' : ${hint} : return 1"
+            return 1
+        }
+        echo "l_03_s2Ad RND ${rnd:0:7} file://${tst_dir}/${fn_name}"
+        l_03_s2Ad  ${rnd:0:7} RND ${tst_dir}/${fn_name} || {
+            l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC 'l_03_s2Ad XXX ${fn_name} ${tst_dir}/_XXX' : ${hint} : return 1"
+            return 1
+        }
+    }
 
     #! END BODY FN ---------------------------------------
-
-    [[ 1 -eq "$ret1" ]] && {
-        cd $PPWD
-        return 1
-    }
 
     cd $PPWD
     return 0
 
 }
 
-_ord_sh_prc_tst_for_l_xx_rnd7_7260537 "$@"
+_ord_prc_fl_for_l_xx_rnd7_5a6e6f0 "$@"
