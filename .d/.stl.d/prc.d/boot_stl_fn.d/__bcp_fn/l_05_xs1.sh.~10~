@@ -290,9 +290,9 @@ l_04_od8xfv ${dta_od_d} "$arg_1" "${ARGS[@]:1}" > /dev/null
 
 #? lnum->anum
 anum=$((arg_1 - 1))
-# l_02_dd2e ${dta_od_d} | l_03_ibu "$anum"
+l_02_dd2e ${dta_od_d} | l_03_ibu "$anum"
 
-# echo "${dta_od_d}/$(l_02_dd2e ${dta_od_d} | l_03_ibu "$anum")/u.1"
+echo "${dta_od_d}/$(l_02_dd2e ${dta_od_d} | l_03_ibu "$anum")/u.1"
 cat "${dta_od_d}/$(l_02_dd2e ${dta_od_d} | l_03_ibu "$anum")/u.1"
 
     #* END fn block ------------------

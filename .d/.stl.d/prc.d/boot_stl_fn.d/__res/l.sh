@@ -25164,6 +25164,16 @@ l_05_xs1() {
 
     if [[ "_flow_1" == "$1" ]]; then
         . ${tst_nm_dr}/_flow_tst_v1.sh || {
+            echo -e "${ECHO_RET1}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : '. file://${tst_nm_dr}/_flow_tst_v1.sh' : continue${NRM}"
+            cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+            return 1
+        }
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        return 0
+    fi
+
+    if [[ "_flow_2" == "$1" ]]; then
+        . ${tst_nm_dr}/_flow_tst_v2.sh || {
             echo -e "${ECHO_RET1}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : '. file://${tst_nm_dr}/_flow_tst_v2.sh' : continue${NRM}"
             cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
             return 1
@@ -25291,10 +25301,10 @@ fi
 local arg_1=
 
 if [[ "@" == "$1" ]]; then
-    echo "Enter num menu :"
+    # echo "Enter num menu :"
     read -r
     arg_1=$REPLY
-    l_00_echo_info "'\$arg_1 = $arg_1'"
+    # l_00_echo_info "'\$arg_1 = $arg_1'"
 else
     arg_1="$1"
 fi
@@ -25311,14 +25321,10 @@ l_01_is_od "$arg_1" || {
 #     return 1
 # }
 
-
-
 # read -t 0.0002 - timeout
 # while IFS=$'\n' read -r line; do
 #     :
 # done <"${1:-/dev/stdin}"
-
-
 
 #! use arg_ptr
 # eval "$2=$res_12341c43234rfe"
@@ -25337,7 +25343,15 @@ l_01_is_od "$arg_1" || {
 # local dta_tml=${dta_nm_dr}/.tml
 local dta_od_d=${dta_nm_dr}/od.d
 
-l_04_od8xfv ${dta_od_d} "$arg_1" "${ARGS[@]:1}"
+#? exec lnum from ${dta_od_d} - bulid u.1 - stdout
+l_04_od8xfv ${dta_od_d} "$arg_1" "${ARGS[@]:1}" >/dev/null
+
+#? lnum->anum
+anum=$((arg_1 - 1))
+# l_02_dd2e ${dta_od_d} | l_03_ibu "$anum"
+
+# echo "${dta_od_d}/$(l_02_dd2e ${dta_od_d} | l_03_ibu "$anum")/u.1"
+cat "${dta_od_d}/$(l_02_dd2e ${dta_od_d} | l_03_ibu "$anum")/u.1"
 
     #* END fn block ------------------
 

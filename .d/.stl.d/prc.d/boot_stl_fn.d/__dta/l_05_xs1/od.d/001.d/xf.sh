@@ -8,9 +8,9 @@ l_00_echo_exec ". file://${tml_dir_pth}/xf.sh"
 # echo file://$(pwd)/"${line}"
 
 
-: >${dta_od_d}/u.1
+: >${tml_dir_pth}/u.1
 # l_00_echo_code "ls -A ${ARGS[2]} :: " | tee -a ${tml_dir_pth}/u.1
-l_00_echo_code "ls -A ${ARGS[@]:2} :: " 
-ls -A "${ARGS[2]}" | tee -a ${dta_od_d}/u.1
+l_00_echo_code "ls -A ${ARGS[@]:2} :: " | tee -a ${tml_dir_pth}/u.1
+ls -A "${ARGS[2]}" | tee -a ${tml_dir_pth}/u.1
 # echo "${num} : ${ARGS[2]}${line}"
 # num=$((num + 1))

@@ -72,6 +72,7 @@ _l_05_xs1_f1f1ee1_flow_1() {
     #     l_05_xs1 <<<"here_str_::_fifth_str" &>>"${res}"
 
     #*--------
+    l_05_xs1 @ _dir_ "msg: " <<<1
 
     #*--------
 

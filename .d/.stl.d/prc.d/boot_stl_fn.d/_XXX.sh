@@ -106,6 +106,16 @@ _XXX() {
 
     if [[ "_flow_1" == "$1" ]]; then
         . ${tst_nm_dr}/_flow_tst_v1.sh || {
+            echo -e "${ECHO_RET1}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : '. file://${tst_nm_dr}/_flow_tst_v1.sh' : continue${NRM}"
+            cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+            return 1
+        }
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        return 0
+    fi
+
+    if [[ "_flow_2" == "$1" ]]; then
+        . ${tst_nm_dr}/_flow_tst_v2.sh || {
             echo -e "${ECHO_RET1}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : '. file://${tst_nm_dr}/_flow_tst_v2.sh' : continue${NRM}"
             cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
             return 1
