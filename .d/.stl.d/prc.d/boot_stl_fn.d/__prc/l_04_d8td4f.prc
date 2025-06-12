@@ -2,7 +2,7 @@
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: dir {\$1 IFS(3.2)} 8num {\$2 LEX(1.2)} dir 4 IFS(2.1), \$3 result fl name LEX(8.2) , \$4 result dir or @ LEX(1.12)
+MAIN: ${FNN} :: dir {\$1 IFS(3.2)} 8num {\$2 LEX(1.2) && LEX(1.1)}  dir IFS(2.1), \$3 result fl name LEX(8.2) , \$4 result dir or @ LEX(1.12)
 TAGS:
 \$1 
 [, \$2]

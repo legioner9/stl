@@ -98,6 +98,12 @@ fi
 #     return 1
 # }
 
+l_01_is_od "$1" || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER 'file://${1}' where '\$1=$1' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
+
 # read -t 0.0002 - timeout
 # while IFS=$'\n' read -r line; do
 #     :

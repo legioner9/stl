@@ -28,12 +28,14 @@ l_03_od8d() {
     local prc_dr=${fn_dr}/__prc
     local tst_dr=${fn_dr}/__tst
     local ext_dr=${fn_dr}/__ext
+    local dta_dr=${fn_dr}/__dta
     local ext_dt_dr=${ext_dr}/_dt
     local ext_dr_prc=${ext_dr}/_prc
 
     local fn_nm=${fn_dr}/${FNN}.sh
     local prc_nm=${prc_dr}/${FNN}.prc
     local tst_nm_dr=${tst_dr}/${FNN}
+    local dta_nm_dr=${dta_dr}/${FNN}
     local tst_nm_ex_=${tst_nm_dr}/exec.tst
     local tst_nm_fw_=${tst_nm_dr}/_flow_tst.sh
     local tst_nm_fw1_=${tst_nm_dr}/_flow_tst_v1.sh
@@ -73,8 +75,15 @@ l_03_od8d() {
         return 0
     fi
 
+    if [[ "_e_dta_dr" == "$1" ]]; then
+        l_02_edit ${dta_nm_dr}
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        return 0
+    fi
+
     if [[ "_tst" == "$1" ]]; then
         . ${tst_nm_dr}/exec.tst || {
+            echo -e "${ECHO_RET1}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : '. file://${tst_nm_dr}/exec.tst ' : continue${NRM}"
             cd "${PPWD}" || {
                 echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FAIL '. ${tst_nm_dr}/${FNN}/exec.tst' return 1${NRM}" >&2
                 return 1
@@ -87,6 +96,7 @@ l_03_od8d() {
 
     if [[ "_flow" == "$1" ]]; then
         . ${tst_nm_dr}/_flow_tst.sh || {
+            echo -e "${ECHO_RET1}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : '. file://${tst_nm_dr}/_flow_tst.sh' : continue${NRM}"
             cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
             return 1
         }
@@ -96,6 +106,7 @@ l_03_od8d() {
 
     if [[ "_flow_1" == "$1" ]]; then
         . ${tst_nm_dr}/_flow_tst_v1.sh || {
+            echo -e "${ECHO_RET1}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : '. file://${tst_nm_dr}/_flow_tst_v2.sh' : continue${NRM}"
             cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
             return 1
         }
@@ -242,7 +253,7 @@ echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 }
 
 if [[ "@" == "$3" ]]; then
-    echo "Enter num menu :"
+    # echo "Enter num menu :"
     read -r
     arg_3=$REPLY
     # l_00_echo_info "'\$arg_3 = $arg_3'"
@@ -252,6 +263,12 @@ fi
 
 #* grass parameter
 l_00_echo_gras "peer :: 'num8 = $arg_3 '"
+
+l_01_is_od "$arg_3" || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '${arg_3}' where '\$3=$3' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
 
 #! ptr_path_1
 local ptr_path_1="$1"

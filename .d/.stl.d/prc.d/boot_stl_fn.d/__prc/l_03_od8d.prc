@@ -126,7 +126,7 @@ echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 }
 
 if [[ "@" == "$3" ]]; then
-    echo "Enter num menu :"
+    # echo "Enter num menu :"
     read -r
     arg_3=$REPLY
     # l_00_echo_info "'\$arg_3 = $arg_3'"
@@ -136,6 +136,12 @@ fi
 
 #* grass parameter
 l_00_echo_gras "peer :: 'num8 = $arg_3 '"
+
+l_01_is_od "$arg_3" || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '${arg_3}' where '\$3=$3' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
 
 #! ptr_path_1
 local ptr_path_1="$1"

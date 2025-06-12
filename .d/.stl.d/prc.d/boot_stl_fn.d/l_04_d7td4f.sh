@@ -83,6 +83,7 @@ l_04_d7td4f() {
 
     if [[ "_tst" == "$1" ]]; then
         . ${tst_nm_dr}/exec.tst || {
+            echo -e "${ECHO_RET1}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : '. file://${tst_nm_dr}/exec.tst ' : continue${NRM}"
             cd "${PPWD}" || {
                 echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FAIL '. ${tst_nm_dr}/${FNN}/exec.tst' return 1${NRM}" >&2
                 return 1
@@ -95,6 +96,7 @@ l_04_d7td4f() {
 
     if [[ "_flow" == "$1" ]]; then
         . ${tst_nm_dr}/_flow_tst.sh || {
+            echo -e "${ECHO_RET1}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : '. file://${tst_nm_dr}/_flow_tst.sh' : continue${NRM}"
             cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
             return 1
         }
@@ -104,6 +106,7 @@ l_04_d7td4f() {
 
     if [[ "_flow_1" == "$1" ]]; then
         . ${tst_nm_dr}/_flow_tst_v1.sh || {
+            echo -e "${ECHO_RET1}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : '. file://${tst_nm_dr}/_flow_tst_v2.sh' : continue${NRM}"
             cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
             return 1
         }
@@ -242,6 +245,12 @@ if [[ "@" == "$2" ]]; then
 else
     arg_2="$2"
 fi
+
+l_01_is_od "$arg_2" || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '${arg_2}' where '\$2=$2' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
 
 #! use arg_ptr
 # eval "$2=$res_12341c43234rfe"

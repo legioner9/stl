@@ -28,12 +28,14 @@ l_02_ixfv() {
     local prc_dr=${fn_dr}/__prc
     local tst_dr=${fn_dr}/__tst
     local ext_dr=${fn_dr}/__ext
+    local dta_dr=${fn_dr}/__dta
     local ext_dt_dr=${ext_dr}/_dt
     local ext_dr_prc=${ext_dr}/_prc
 
     local fn_nm=${fn_dr}/${FNN}.sh
     local prc_nm=${prc_dr}/${FNN}.prc
     local tst_nm_dr=${tst_dr}/${FNN}
+    local dta_nm_dr=${dta_dr}/${FNN}
     local tst_nm_ex_=${tst_nm_dr}/exec.tst
     local tst_nm_fw_=${tst_nm_dr}/_flow_tst.sh
     local tst_nm_fw1_=${tst_nm_dr}/_flow_tst_v1.sh
@@ -69,6 +71,12 @@ l_02_ixfv() {
 
     if [[ "_e_tst_dr" == "$1" ]]; then
         l_02_edit ${tst_nm_dr}
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        return 0
+    fi
+
+    if [[ "_e_dta_dr" == "$1" ]]; then
+        l_02_edit ${dta_nm_dr}
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
         return 0
     fi
@@ -118,7 +126,7 @@ l_02_ixfv() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: stdin as \$line global for process :: . \$@ { \$1 file for exec, [. \$2] - inject global var and other } 
+MAIN: ${FNN} :: stdin as \$line global for process :: . \$@ { \$1 file for exec, [. \$2] - inject global var and other} 
 TAGS:
 \$1 
 [, \$2]
@@ -270,7 +278,7 @@ ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
 
 local line=
 
-while IFS=$'\n' read -t 0.0002 -r line; do
+while IFS=$'\n' read -r line; do
     . ${ptr_path_1} ${ARGS[@]:2}
 done
 

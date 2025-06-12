@@ -28,12 +28,14 @@ l_01_is_od() {
     local prc_dr=${fn_dr}/__prc
     local tst_dr=${fn_dr}/__tst
     local ext_dr=${fn_dr}/__ext
+    local dta_dr=${fn_dr}/__dta
     local ext_dt_dr=${ext_dr}/_dt
     local ext_dr_prc=${ext_dr}/_prc
 
     local fn_nm=${fn_dr}/${FNN}.sh
     local prc_nm=${prc_dr}/${FNN}.prc
     local tst_nm_dr=${tst_dr}/${FNN}
+    local dta_nm_dr=${dta_dr}/${FNN}
     local tst_nm_ex_=${tst_nm_dr}/exec.tst
     local tst_nm_fw_=${tst_nm_dr}/_flow_tst.sh
     local tst_nm_fw1_=${tst_nm_dr}/_flow_tst_v1.sh
@@ -69,6 +71,12 @@ l_01_is_od() {
 
     if [[ "_e_tst_dr" == "$1" ]]; then
         l_02_edit ${tst_nm_dr}
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        return 0
+    fi
+
+    if [[ "_e_dta_dr" == "$1" ]]; then
+        l_02_edit ${dta_nm_dr}
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
         return 0
     fi

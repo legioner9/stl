@@ -264,7 +264,7 @@ l_00_echo_gras "${FNN} \$2 :: '7num = $arg_2'"
 l_00_echo_gras "${FNN} \$3 :: 'res_fl_name = $3'"
 l_00_echo_gras "${FNN} \$4 :: 'res_dir_pth = file://$ptr_path_4 '"
 
-l_00_echo_info "7num = $arg_2, sruct of $ptr_path_1 :: "
+l_00_echo_info "7num = $arg_2, sruct of file://$ptr_path_1 :: "
 l_02_dd2e "$ptr_path_1" | l_03_ineu file://"$ptr_path_1"/
 
 local tml_dir_nm=$(l_02_dd2e "$ptr_path_1" | l_03_ibu "$arg_2")

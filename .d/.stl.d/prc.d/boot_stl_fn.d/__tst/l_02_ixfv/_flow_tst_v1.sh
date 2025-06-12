@@ -78,7 +78,7 @@ first_str
     second_str
 EOF
 
-    l_02_ixfv ixf.sh gv.sh
+    # l_02_ixfv ixf.sh gv.sh
 
     cat FILE | l_02_ixfv ixf.sh gv.sh "2"
 

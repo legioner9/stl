@@ -127,6 +127,12 @@ local dta_sh=${dta_nm_dr}/.sh
 # local dta_lst=${dta_nm_dr}/.lst
 # local dta_tml=${dta_nm_dr}/.tml
 
+l_01_is_od "$1" || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '${1}' where '\$1=$1' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
+
 # l_00_echo_code "'l_02_ixfv ${dta_sh}/ixf.sh  ${dta_sh}/gv.sh $1'"
 l_02_ixfv "${dta_sh}"/ixf.sh  "${dta_sh}"/gv.sh "$1"
 # echo 1

@@ -234,6 +234,15 @@ fi
 #     arg_3="$3"
 # fi
 
+if [[ "_flow_2" == "$1" ]]; then
+    . ${tst_nm_dr}/_flow_tst_v2.sh || {
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        return 1
+    }
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 0
+fi
+
 #! use arg_ptr
 # eval "$2=$res_12341c43234rfe"
 
@@ -277,10 +286,21 @@ ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
 }
 
 local line=
+local ret1=0
 
 while IFS=$'\n' read -r line; do
-    . ${ptr_path_1} ${ARGS[@]:2}
+    . ${ptr_path_1} "${ARGS[@]:2}" || {
+        l_00_echo_fls "with \${line}=${line} :: EXEC_FALSE '. ${ptr_path_1} ${ARGS[@]:2}' ret1=1 :: continue"
+        ret1=1
+    }
 done
+
+[[ 1 -eq ${ret1} ]] &&
+    {
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE '. ${ptr_path_1} ${ARGS[@]:2}' where '\$1=$1' return 1"
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        return 1
+    }
 
     #* END fn block ------------------
 

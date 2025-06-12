@@ -7,4 +7,5 @@
 # echo file://$(pwd)/"${line}"
 
 [[ -d "${line}" ]] && echo "${line}"
+return 0
 # num=$((num + 1))

@@ -28,6 +28,7 @@ CNTL:
     _tst        : tst fn        : . ${tst_nm_dr}/${FNN}/exec.tst
     _flow       : tst _flow     : . ${tst_nm_dr}/${FNN}/_flow_tst.sh
     _flow_1     : tst _flow_1   : . ${tst_nm_dr}/${FNN}/_flow_tst_v1.sh
+    _flow_2     : tst _flow_2   : . ${tst_nm_dr}/${FNN}/_flow_tst_v2.sh
 
     _e_prc      : edit fn.prc   : l_02_edit ${prc_nm}
     _e_tst_dr   : edit tst_nm_dr: l_02_edit ${tst_nm_dr}
@@ -42,6 +43,16 @@ flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0
 fi
+
+#! add _flow_N
+# if [[ "_flow_2" == "$1" ]]; then
+#     . ${tst_nm_dr}/_flow_tst_v2.sh || {
+#         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+#         return 1
+#     }
+#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+#     return 0
+# fi
 
 #! stdout fn introduction
 # echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
@@ -92,11 +103,19 @@ fi
 #     return 1
 # }
 
+# l_01_is_od "$2" || {
+#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '${2}' where '\$2=$2' return 1"
+#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+#     return 1
+# }
+
 # [[ -f "$3" ]] || {
 #     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${3}' where '\$3=$3' return 1"
 #     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
 #     return 1
 # }
+
+
 
 # read -t 0.0002 - timeout
 # while IFS=$'\n' read -r line; do
@@ -127,4 +146,3 @@ fi
 # local dta_sh=${dta_nm_dr}/.sh
 # local dta_lst=${dta_nm_dr}/.lst
 # local dta_tml=${dta_nm_dr}/.tml
-
