@@ -72,7 +72,11 @@ _l_05_xs1_f1f1ee1_flow_1() {
     #     l_05_xs1 <<<"here_str_::_fifth_str" &>>"${res}"
 
     #*--------
-
+    l_05_xs1 0 _dir_ "msg: "
+    l_05_xs1 1 _dir_ "msg: "
+    l_05_xs1 @ _dir_ "msg: " <<<1
+    l_05_xs1 @ _dir_ "msg: " <<<a
+    cat ${STL_D_PATH}/prc.d/boot_stl_fn.d/__dta/l_05_xs1/od.d/u.1
     #*--------
 
     #! rm abs_path

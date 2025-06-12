@@ -72,8 +72,10 @@ _l_04_od8xfv_84f8375_flow_1() {
     #     l_04_od8xfv <<<"here_str_::_fifth_str" &>>"${res}"
 
     #*--------
+    
     l_04_od8xfv _dir_ 0 _dir_
     l_04_od8xfv _dir_ @ _dir_ <<<"1"
+
     #*--------
 
     #! rm abs_path

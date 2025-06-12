@@ -131,6 +131,27 @@ flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
         return 0;
     fi;
+    [[ -n "$1" ]] || { 
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1";
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
+        return 1
+    };
+    local arg_1=;
+    if [[ "@" == "$1" ]]; then
+        echo "Enter num menu :";
+        read -r;
+        arg_1=$REPLY;
+        l_00_echo_info "'\$arg_1 = $arg_1'";
+    else
+        arg_1="$1";
+    fi;
+    l_01_is_od "$arg_1" || { 
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '${arg_1}' where '\$1=$1' return 1";
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
+        return 1
+    };
+    local dta_od_d=${dta_nm_dr}/od.d;
+    l_04_od8xfv ${dta_od_d} "$arg_1" "${ARGS[@]:1}";
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
     return 0
 }

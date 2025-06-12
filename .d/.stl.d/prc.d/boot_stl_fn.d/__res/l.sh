@@ -25282,17 +25282,28 @@ fi
 # local ARG_23edew=("${ARGS[@]}")
 # [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_23edew
 
-# [[ -n "$1" ]] || {
-#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
-#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-#     return 1
-# }
+[[ -n "$1" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
 
-# l_01_is_od "$2" || {
-#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '${2}' where '\$2=$2' return 1"
-#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-#     return 1
-# }
+local arg_1=
+
+if [[ "@" == "$1" ]]; then
+    echo "Enter num menu :"
+    read -r
+    arg_1=$REPLY
+    l_00_echo_info "'\$arg_1 = $arg_1'"
+else
+    arg_1="$1"
+fi
+
+l_01_is_od "$arg_1" || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '${arg_1}' where '\$1=$1' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
 
 # [[ -f "$3" ]] || {
 #     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${3}' where '\$3=$3' return 1"
@@ -25307,14 +25318,7 @@ fi
 #     :
 # done <"${1:-/dev/stdin}"
 
-# if [[ "@" == "$3" ]]; then
-#     echo "Enter num menu :"
-#     read -r
-#     arg_3=$REPLY
-#     l_00_echo_info "'\$arg_3 = $arg_3'"
-# else
-#     arg_3="$3"
-# fi
+
 
 #! use arg_ptr
 # eval "$2=$res_12341c43234rfe"
@@ -25331,6 +25335,9 @@ fi
 # local dta_sh=${dta_nm_dr}/.sh
 # local dta_lst=${dta_nm_dr}/.lst
 # local dta_tml=${dta_nm_dr}/.tml
+local dta_od_d=${dta_nm_dr}/od.d
+
+l_04_od8xfv ${dta_od_d} "$arg_1" "${ARGS[@]:1}"
 
     #* END fn block ------------------
 

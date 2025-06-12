@@ -279,7 +279,7 @@ l_01_is_od "$arg_1" || {
 # local dta_tml=${dta_nm_dr}/.tml
 local dta_od_d=${dta_nm_dr}/od.d
 
-l_04_od8xfv ${dta_od_d} "$arg_1" "${ARGS[@]:1}"
+l_04_od8xfv ${dta_od_d} "${ARGS[@]}"
 
     #* END fn block ------------------
 

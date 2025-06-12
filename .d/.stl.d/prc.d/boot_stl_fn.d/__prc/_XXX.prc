@@ -117,11 +117,13 @@ fi
 
 
 
+# local line=
 # read -t 0.0002 - timeout
 # while IFS=$'\n' read -r line; do
 #     :
 # done <"${1:-/dev/stdin}"
 
+# local arg_3=
 # if [[ "@" == "$3" ]]; then
 #     echo "Enter num menu :"
 #     read -r
