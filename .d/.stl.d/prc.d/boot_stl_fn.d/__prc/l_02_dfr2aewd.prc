@@ -145,7 +145,7 @@ _dr2ewd_infn_1() {
                 fi
             else
                 local _dr2e_ext=
-                _dr2e_ext=$(_prs_f -e "$item")
+                _dr2e_ext=$(l_01_prs_f -e "$item")
                 if { [ -f "$item" ]; } && [ "${item:0:1}" != "_" ] && [ "${_dr2e_ext}" == "$3" ]; then
                     echo "$item":$1
                 fi
@@ -171,7 +171,7 @@ _dr2ewd_infn_1() {
                 fi
             else
                 local _dr2e_ext=
-                _dr2e_ext=$(_prs_f -e "$item")
+                _dr2e_ext=$(l_01_prs_f -e "$item")
                 if { [ -f "$ptr_path/$item" ]; } && [ "${item:0:1}" != "_" ] && [ "${_dr2e_ext}" == "$3" ]; then
                     echo "$ptr_path/$item":$1
                 fi

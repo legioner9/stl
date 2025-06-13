@@ -91,8 +91,9 @@ fi
 local line
 
 while IFS=$'\n' read -r line; do
-    echo "${line}" | grep "#@" && break
-done <"${1:-/dev/stdin}"
+    echo "${line}" | grep "#@" | sed 's|#@ ||g' && break
+done \
+    <"${1:-/dev/stdin}"
 
 #! use arg_ptr
 # eval "$2=$res_12341c43234rfe"
