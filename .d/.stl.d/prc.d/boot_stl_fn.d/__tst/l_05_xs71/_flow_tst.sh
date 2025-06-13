@@ -78,7 +78,7 @@ _l_05_xs71_1cf8644_flow() {
     #     l_05_xs71 <<<"here_str_::_fifth_str" &>>"${res}"
 
     #*--------
-    
+    l_05_xs71 @ _dir_ "msg: " <<<0 &>>"${res}"
     #*--------
 
     #! rm abs_path
