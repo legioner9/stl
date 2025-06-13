@@ -7,21 +7,21 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_l_02_dfr2Ayfewd_31d1a1a_exec() {
+_l_03_odd2no_30d0fdd_exec() {
 
     unset IFS
 
     local PW=$(pwd)
 
-    if ! command -v l_02_dfr2Ayfewd >/dev/null; then
-        l_00_echo_ret1 "TYPE_ERROR : l_02_dfr2Ayfewd" >&2
+    if ! command -v l_03_odd2no >/dev/null; then
+        l_00_echo_ret1 "TYPE_ERROR : l_03_odd2no" >&2
         return 1
     fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_02_dfr2Ayfewd/exec.tst
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_03_odd2no/exec.tst
     local idir="$(dirname ${filename})"
 
-    l_00_echo_info "test function l_02_dfr2Ayfewd in file://${filename}"
+    l_00_echo_info "test function l_03_odd2no in file://${filename}"
 
     # cd "$(prs_f -d $filename)" || qq_exit "$(prs_f -d filename) not found"
 
@@ -55,7 +55,7 @@ _l_02_dfr2Ayfewd_31d1a1a_exec() {
 
 }
 
-if ! _l_02_dfr2Ayfewd_31d1a1a_exec "$@"; then
-    l_00_echo_ret1 "EXEC_FAIL for fuction : '_l_02_dfr2Ayfewd_31d1a1a_exec' : GOTO file://${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_02_dfr2Ayfewd : return 1"
+if ! _l_03_odd2no_30d0fdd_exec "$@"; then
+    l_00_echo_ret1 "EXEC_FAIL for fuction : '_l_03_odd2no_30d0fdd_exec' : GOTO file://${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_03_odd2no : return 1"
     return 1
 fi

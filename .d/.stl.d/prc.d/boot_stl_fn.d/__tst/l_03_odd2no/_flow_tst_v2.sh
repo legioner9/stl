@@ -7,16 +7,16 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_l_02_dfr2Ayfewd_31d1a1a_flow_1() {
+_l_03_odd2no_30d0fdd_flow_1() {
 
     unset IFS
 
-    if ! command -v l_02_dfr2Ayfewd >/dev/null; then
-        l_00_echo_ret1 "TYPE_ERROR : l_02_dfr2Ayfewd"
+    if ! command -v l_03_odd2no >/dev/null; then
+        l_00_echo_ret1 "TYPE_ERROR : l_03_odd2no"
         return 1
     fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_02_dfr2Ayfewd/_flow_tst_v1.sh
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_03_odd2no/_flow_tst_v2.sh
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -46,7 +46,7 @@ _l_02_dfr2Ayfewd_31d1a1a_flow_1() {
         return 1
     }
 
-    # l_02_dfr2Ayfewd "${tst_dir}" &>>"${res}"
+    # l_03_odd2no "${tst_dir}" &>>"${res}"
 
     #! stdin_tst
     # : >FILE
@@ -57,22 +57,22 @@ _l_02_dfr2Ayfewd_31d1a1a_flow_1() {
     # EOF
 
     #     echo "FILE_ARG:"
-    #     l_02_dfr2Ayfewd FILE &>>"${res}"
+    #     l_03_odd2no FILE &>>"${res}"
 
     #     echo "FILE_PIPE:"
-    #     cat FILE | l_02_dfr2Ayfewd &>>"${res}"
+    #     cat FILE | l_03_odd2no &>>"${res}"
 
     #     echo "HERE_DOC:"
-    #     l_02_dfr2Ayfewd <<EOF &>>"${res}"
+    #     l_03_odd2no <<EOF &>>"${res}"
     # first_str
     # second_str
     # EOF
 
     #     echo "HERE_STR:"
-    #     l_02_dfr2Ayfewd <<<"here_str_::_fifth_str" &>>"${res}"
+    #     l_03_odd2no <<<"here_str_::_fifth_str" &>>"${res}"
 
     #*--------
-    l_02_dfr2Ayfewd od.dd .od
+
     #*--------
 
     #! rm abs_path
@@ -91,4 +91,4 @@ _l_02_dfr2Ayfewd_31d1a1a_flow_1() {
 
 }
 
-_l_02_dfr2Ayfewd_31d1a1a_flow_1 "$@"
+_l_03_odd2no_30d0fdd_flow_1 "$@"

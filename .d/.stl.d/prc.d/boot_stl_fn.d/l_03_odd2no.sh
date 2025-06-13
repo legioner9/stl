@@ -8,15 +8,15 @@
 # "${ECHO_ERR}$FNN() $*' in file://${file_name} , line=${LINENO} :: CAUS_NAME [VAR] 'code' :: return 1${NRM}" >&2
 # cd ${PPWD} || echo -e "${ECHO_WAR}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [\${PPWD}] '${PPWD}' return 1${NRM}" >&2
 
-l_02_dfr2Ayfewd() {
+l_03_odd2no() {
 
-    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_02_dfr2Ayfewd`
+    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_03_odd2no`
     #! All changes will be lost after rebuilding
     #! To change this file use the following commands:
 
-    #! l_02_dfr2Ayfewd _e_prc to edit/change 'fn block',
-    #! l_02_dfr2Ayfewd _rbld to rebuild fn with changed 'fn block'
-    #! l_02_dfr2Ayfewd _e_xxx` to edit 'init block'
+    #! l_03_odd2no _e_prc to edit/change 'fn block',
+    #! l_03_odd2no _rbld to rebuild fn with changed 'fn block'
+    #! l_03_odd2no _e_xxx` to edit 'init block'
 
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
@@ -125,7 +125,7 @@ l_02_dfr2Ayfewd() {
     fi
 
     if [[ "_rbld" == "$1" ]]; then
-        #! rebuild fn : bcp && ord fn.sh from l_02_dfr2Ayfewd.sh , cp fn.prc into fn.sh
+        #! rebuild fn : bcp && ord fn.sh from l_03_odd2no.sh , cp fn.prc into fn.sh
         . ${fn_dr}/_rbld_l_xx.sh ${FNN}
         #! up to mem fn
         . ${fn_dr}/$1.sh
@@ -133,13 +133,13 @@ l_02_dfr2Ayfewd() {
         return 0
     fi
 
-    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_02_dfr2Ayfewd.prc ------------------
+    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_03_odd2no.prc ------------------
     #[[fn_body]]
 #? for copy to help block
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: like dfr2ae - {echo \"file_path:depth_dir_contane_file\"} - \$1 dir (uprev) (@|path) @ if path=''  \$2 nm_fl
+MAIN: ${FNN} :: stdout struct \$1 dr with odrs wth o_dub_drs (chapt and point)
 TAGS:
 \$1 
 [, \$2]
@@ -234,11 +234,11 @@ fi
 # local ARG_23edew=("${ARGS[@]}")
 # [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_23edew
 
-# [[ -n "$1" ]] || {
-#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
-#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-#     return 1
-# }
+[[ -n "$1" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
 
 # l_01_is_od "$2" || {
 #     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '${2}' where '\$2=$2' return 1"
@@ -246,11 +246,11 @@ fi
 #     return 1
 # }
 
-# [[ -f "$3" ]] || {
-#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${3}' where '\$3=$3' return 1"
-#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-#     return 1
-# }
+[[ -d "$1" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${1}' where '\$1=$1' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
 
 # local line=
 # read -t 0.0002 - timeout
@@ -272,8 +272,8 @@ fi
 # eval "$2=$res_12341c43234rfe"
 
 #! ptr_path_1
-# local ptr_path_1="$1"
-# ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
+local ptr_path_1="$1"
+ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
 
 #! ptr_path_2
 # local ptr_path_2="$2"
@@ -284,76 +284,24 @@ fi
 # local dta_lst=${dta_nm_dr}/.lst
 # local dta_tml=${dta_nm_dr}/.tml
 
-[[ -n "$1" ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
+local item1=
+local item2=
+local n1=0
+local n2=0
 
-# [[ -d "$1" ]] || {
-#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR '\$1' return 1"
-#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-#     return 1
-# }
+l_00_echo_gras "${FNN} [chapt-point] {start_dr} :: 'odd_dr = file://$ptr_path_1 '"
 
-#! ptr_path
-local ptr_path="$1"
-ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
-
-l_00_echo_info "'\$ptr_path = file://$ptr_path'"
-
-local fl_nm="$2"
-
-_Auf_infn_1() {
-    l_00_echo_info "'\$1 = $1'"
-    l_00_echo_info "'\$2 = $2'"
-
-    local ptr_path="$2"
-    ptr_path="$(l_01_abs_path "${PPWD}" "ptr_path")"
-
-    local arg1="$1"
-    local item=
-    local num_file=0
-    if [[ "$2" == "@" ]]; then
-        # ls
-
-        for item in $(ls -A | sort); do
-            l_00_echo_info "'\$item = $item'"
-            # echo -e "${HLIGHT}--- [ -d /$item ] || [ -f /$item ] ---${NORMAL}" #start files
-            if [[ -f "${ptr_path}/$item" && "${item}" == "${fl_nm}" ]]; then
-                echo ${num_file}:${ptr_path}/${item}:${1}
-                num_file=$((num_file + 1))
-            fi
-            if [ -d "${ptr_path}/$item" ] && [ "${item:0:1}" != "_" ]; then
-                _Auf_infn_1 $((arg1 + 1)) "${ptr_path}/$item"
-            fi
-
-        done
-
-    else
-
-        [[ -d $ptr_path ]] || {
-            l_00_echo_ret1 "in fs= file://${fn_nm} , line=${LINENO}, ${FNN}() : : NOT_DIR : ' file://$ptr_path ' : return 1"
-            cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-            return 1
-        }
-        for item in $(ls -A $ptr_path | sort); do
-            l_00_echo_info "'\$item = $item'"
-            # echo -e "${HLIGHT}--- [ -d /$item ] || [ -f /$item ] ---${NORMAL}" #start files
-            if [[ -f "${ptr_path}/$item" && "${item}" == "${fl_nm}" ]]; then
-                echo ${num_file}:${ptr_path}/${item}:${1}
-                num_file=$((num_file + 1))
-            fi
-            if [ -d "${ptr_path}/$item" ] && [ "${item:0:1}" != "_" ]; then
-                _Auf_infn_1 $((arg1 + 1)) "${ptr_path}/$item"
-            fi
-        done
-    fi
-}
-
-l_00_echo_code "'_Auf_infn_1 0 $ptr_path'"
-
-_Auf_infn_1 0 "$ptr_path"
+for item1 in $(l_02_dd2e "${ptr_path_1}"); do
+    # l_00_echo_info "'\$item1 = $item1'"
+    echo "${n1}: $(l_02_of2e "${ptr_path_1}"/${item1}/.od)"
+    n1=$((n1 + 1))
+    n2=0
+    # l_00_echo_info "'ptr_path_1/item1= file://${ptr_path_1}/${item1} '"
+    for item2 in $(l_02_dd2e "${ptr_path_1}/${item1}"); do
+        echo "    ${n2}: $(l_02_of2e "${ptr_path_1}"/${item1}/${item2}/.od)"
+        n2=$((n2 + 1))
+    done
+done
 
     #* END fn block ------------------
 
@@ -363,4 +311,4 @@ _Auf_infn_1 0 "$ptr_path"
 }
 
 #! SELF EXEC
-# l_02_dfr2Ayfewd @
+# l_03_odd2no @
