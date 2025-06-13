@@ -7,19 +7,19 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_l_05_xs1_f1f1ee1_flow() {
+_l_05_xs71_1cf8644_flow() {
 
     unset IFS
 
     local PW=$(pwd)
 
-    if ! command -v l_05_xs1 >/dev/null; then
-        l_00_echo_ret1 "TYPE_ERROR : l_05_xs1"
+    if ! command -v l_05_xs71 >/dev/null; then
+        l_00_echo_ret1 "TYPE_ERROR : l_05_xs71"
         cd $PW
         return 1
     fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_05_xs1/_flow_tst.sh
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_05_xs71/_flow_tst.sh
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -52,7 +52,7 @@ _l_05_xs1_f1f1ee1_flow() {
         return 1
     }
 
-    # l_05_xs1 "${tst_dir}" &>>"${res}"
+    # l_05_xs71 "${tst_dir}" &>>"${res}"
 
     #! stdin_tst
     #         echo "!STRING_AS_WORD!"
@@ -63,25 +63,22 @@ _l_05_xs1_f1f1ee1_flow() {
     # EOF
 
     #     echo "FILE_ARG:"
-    #     l_05_xs1 FILE &>>"${res}"
+    #     l_05_xs71 FILE &>>"${res}"
 
     #     echo "FILE_PIPE:"
-    #     cat FILE | l_05_xs1 &>>"${res}"
+    #     cat FILE | l_05_xs71 &>>"${res}"
 
     #     echo "HERE_DOC:"
-    #     l_05_xs1 <<EOF &>>"${res}"
+    #     l_05_xs71 <<EOF &>>"${res}"
     # first_str
     # second_str
     # EOF
 
     #     echo "HERE_STR:"
-    #     l_05_xs1 <<<"here_str_::_fifth_str" &>>"${res}"
+    #     l_05_xs71 <<<"here_str_::_fifth_str" &>>"${res}"
 
     #*--------
-    # l_05_xs1 @ _dir_ "msg: " <<<a
-    # l_05_xs1 @ _dir_ "msg: " <<<1
-    # cat ${STL_D_PATH}/prc.d/boot_stl_fn.d/__dta/l_05_xs1/od.d/u.1 &>>"${res}"
-    l_05_xs1 @ _dir_ "msg: " <<<1 &>>"${res}"
+    
     #*--------
 
     #! rm abs_path
@@ -100,4 +97,4 @@ _l_05_xs1_f1f1ee1_flow() {
 
 }
 
-_l_05_xs1_f1f1ee1_flow "$@"
+_l_05_xs71_1cf8644_flow "$@"
