@@ -2,7 +2,7 @@
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: wrp l_04_od8xfv in \${dta_nm_dr}/od.d
 TAGS:
 \$1 
 [, \$2]
@@ -148,12 +148,13 @@ l_01_is_od "$arg_1" || {
 # local dta_tml=${dta_nm_dr}/.tml
 local dta_od_d=${dta_nm_dr}/od.d
 
-#? exec lnum from ${dta_od_d} - bulid u.1 - stdout
+#? exec lnum from ${dta_od_d} - bulid :: stdout -> u.1
 l_04_od8xfv ${dta_od_d} "$arg_1" "${ARGS[@]:1}" >/dev/null
 
 #? lnum->anum
 anum=$((arg_1 - 1))
 # l_02_dd2e ${dta_od_d} | l_03_ibu "$anum"
 
+#? u.1 -> stdout
 # echo "${dta_od_d}/$(l_02_dd2e ${dta_od_d} | l_03_ibu "$anum")/u.1"
 cat "${dta_od_d}/$(l_02_dd2e ${dta_od_d} | l_03_ibu "$anum")/u.1"

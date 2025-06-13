@@ -1,0 +1,2 @@
+# man for fn_nm[l_06_xds1] dta dr 
+## 894b843 - this.rnd
