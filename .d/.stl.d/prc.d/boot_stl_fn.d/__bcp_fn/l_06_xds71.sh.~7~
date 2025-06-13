@@ -8,15 +8,15 @@
 # "${ECHO_ERR}$FNN() $*' in file://${file_name} , line=${LINENO} :: CAUS_NAME [VAR] 'code' :: return 1${NRM}" >&2
 # cd ${PPWD} || echo -e "${ECHO_WAR}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [\${PPWD}] '${PPWD}' return 1${NRM}" >&2
 
-l_06_xds1() {
+l_06_xds71() {
 
-    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_06_xds1`
+    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_06_xds71`
     #! All changes will be lost after rebuilding
     #! To change this file use the following commands:
 
-    #! l_06_xds1 _e_prc to edit/change 'fn block',
-    #! l_06_xds1 _rbld to rebuild fn with changed 'fn block'
-    #! l_06_xds1 _e_xxx` to edit 'init block'
+    #! l_06_xds71 _e_prc to edit/change 'fn block',
+    #! l_06_xds71 _rbld to rebuild fn with changed 'fn block'
+    #! l_06_xds71 _e_xxx` to edit 'init block'
 
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
@@ -125,7 +125,7 @@ l_06_xds1() {
     fi
 
     if [[ "_rbld" == "$1" ]]; then
-        #! rebuild fn : bcp && ord fn.sh from l_06_xds1.sh , cp fn.prc into fn.sh
+        #! rebuild fn : bcp && ord fn.sh from l_06_xds71.sh , cp fn.prc into fn.sh
         . ${fn_dr}/_rbld_l_xx.sh ${FNN}
         #! up to mem fn
         . ${fn_dr}/$1.sh
@@ -133,15 +133,14 @@ l_06_xds1() {
         return 0
     fi
 
-    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_06_xds1.prc ------------------
+    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_06_xds71.prc ------------------
     #[[fn_body]]
 #? for copy to help block
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: \$1 num_chapt \$2 num_point wrp l_05_xs1 \${dta_nm_dr}/od.dd
+MAIN: ${FNN} :: 
 TAGS:
-without args exec [see struct] ::{l_03_odd2no \${dta_nm_dr}/od.dd}
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -193,7 +192,7 @@ fi
 # fi
 
 #! stdout fn introduction
-echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 #     #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
 #     local di=
@@ -219,8 +218,8 @@ echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 #* grass parameter
 
-# l_00_echo_gras "${FNN} [lnum chapt] \$1 :: 'chapt = $1'"
-# l_00_echo_gras "${FNN} [lnum point] \$2 :: 'point = $2'"
+# l_00_echo_gras "${FNN} [] \$1 :: 'ins_fl = file://$ptr_path_1 '"
+# l_00_echo_gras "${FNN} [] \$2 :: 'rcv_str = $2'"
 # l_00_echo_gras "${FNN} [pth_to_any_tml] {$dr_any} :: '{} = file://$ptr_path_3/any.f '"
 # l_00_echo_gras "${FNN}[chiced dir]{num8} :: 'tml_dir_pth = file://$dir_res_itky54271 '"
 # l_00_echo_gras "${FNN}[discribe var]{origin var} :: 'tml_dir_pth = file://$dir_res_itky54271 '"
@@ -235,53 +234,26 @@ echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 # local ARG_23edew=("${ARGS[@]}")
 # [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_23edew
 
-local dta_od_dd=${dta_nm_dr}/od.dd
-
-[[ -n "$1" ]] || {
-    l_03_odd2no ${dta_od_dd}
-    return 0
-}
-
 [[ -n "$2" ]] || {
     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$2' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }
 
-local arg_1=
-if [[ "@" == "$1" ]]; then
-    echo "Enter num menu :"
-    read -r
-    arg_1=$REPLY
-    l_00_echo_info "'\$arg_1 = $arg_1'"
-else
-    arg_1="$1"
-fi
-
-local arg_2=
-if [[ "@" == "$2" ]]; then
-    echo "Enter num menu :"
-    read -r
-    arg_2=$REPLY
-    l_00_echo_info "'\$arg_2 = $arg_2'"
-else
-    arg_2="$2"
-fi
-
-l_01_is_od "$arg_1" || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '${arg_1}' where '\$1=$1' return 1"
+l_01_is_od "$1" || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '${1}' where '\$1=$1' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }
 
-l_01_is_od "$arg_2" || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '${arg_2}' where '\$2=$2' return 1"
+l_01_is_od "$2" || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '${2}' where '\$2=$2' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }
 
-l_00_echo_gras "${FNN} [lnum chapt] {} :: 'arg_1 = $arg_1'"
-l_00_echo_gras "${FNN} [lnum point] {} :: 'arg_2 = $arg_2'"
+# l_00_echo_gras "${FNN} [lnum chapt] {} :: '\$1 = $1'"
+# l_00_echo_gras "${FNN} [lnum point] {} :: '\$2 = $2'"
 
 # [[ -f "$3" ]] || {
 #     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${3}' where '\$3=$3' return 1"
@@ -289,11 +261,23 @@ l_00_echo_gras "${FNN} [lnum point] {} :: 'arg_2 = $arg_2'"
 #     return 1
 # }
 
+
+
 # local line=
 # read -t 0.0002 - timeout
 # while IFS=$'\n' read -r line; do
 #     :
 # done <"${1:-/dev/stdin}"
+
+# local arg_3=
+# if [[ "@" == "$3" ]]; then
+#     echo "Enter num menu :"
+#     read -r
+#     arg_3=$REPLY
+#     l_00_echo_info "'\$arg_3 = $arg_3'"
+# else
+#     arg_3="$3"
+# fi
 
 #! use arg_ptr
 # eval "$2=$res_12341c43234rfe"
@@ -311,26 +295,17 @@ l_00_echo_gras "${FNN} [lnum point] {} :: 'arg_2 = $arg_2'"
 # local dta_lst=${dta_nm_dr}/.lst
 # local dta_tml=${dta_nm_dr}/.tml
 
-local dr_od_d=
+local dta_od_dd=${dta_nm_dr}/od.dd
 
-#? choice chapt dr
-l_03_od8d ${dta_od_dd} dr_od_d ${arg_1} >/dev/null
+local dir_chapt=${dta_od_dd}/$(l_02_dd2e ${dta_od_dd} | l_03_ibu "$1")
+# l_00_echo_info "'\$dir_chapt = file://$dir_chapt'"
 
-#? exec lnum from ${dr_od_d} - bulid :: stdout -> u.1
-l_00_echo_gras "${FNN} [choice chapt dr] {} :: 'dr_od_d = file://${dr_od_d} '"
+local dir_point=${dir_chapt}/$(l_02_dd2e ${dir_chapt} | l_03_ibu "$2")
+# l_00_echo_info "'\$dir_point = file://$dir_point'"
 
-# l_00_echo_info "'\$arg_2 = $arg_2'"
+l_04_od7xfv ${dir_chapt} ${2} "${ARGS[@]:2}">/dev/null
 
-l_04_od8xfv ${dr_od_d} ${arg_2} "${ARGS[@]:2}"
-
-# l_00_echo_info "'\$arg_2 = $arg_2'"
-
-# local anum2=
-# #? lnum->anum allready?
-# anum2=$((arg_2 - 1))
-# l_00_echo_info "'\$anum2 = $anum2'"
-# #? u.1 -> stdout
-# cat "${dr_od_d}/$(l_02_dd2e ${dr_od_d} | l_03_ibu "$arg_2")/u.1"
+cat ${dir_point}/u.1
 
     #* END fn block ------------------
 
@@ -340,4 +315,4 @@ l_04_od8xfv ${dr_od_d} ${arg_2} "${ARGS[@]:2}"
 }
 
 #! SELF EXEC
-# l_06_xds1 @
+# l_06_xds71 @

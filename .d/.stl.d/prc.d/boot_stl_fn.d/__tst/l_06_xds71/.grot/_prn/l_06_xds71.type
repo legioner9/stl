@@ -99,8 +99,9 @@ l_06_xds71 ()
     fi;
     if [[ "-h" == "$1" ]]; then
         echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: \$1 num_chapt \$2 num_point wrp l_05_xs71 \${dta_nm_dr}/od.dd 
 TAGS:
+without args exec [see struct] ::{l_03_odd2no \${dta_nm_dr}/od.dd}
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -140,6 +141,12 @@ flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
         return 0;
     fi;
+    echo -e "${ECHO_EXEC}'$FNN $*'${NRM}";
+    local dta_od_dd=${dta_nm_dr}/od.dd;
+    [[ -n "$1" ]] || { 
+        l_03_odd2no ${dta_od_dd};
+        return 0
+    };
     [[ -n "$2" ]] || { 
         l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$2' return 1";
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
@@ -155,7 +162,6 @@ flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
         return 1
     };
-    local dta_od_dd=${dta_nm_dr}/od.dd;
     local dir_chapt=${dta_od_dd}/$(l_02_dd2e ${dta_od_dd} | l_03_ibu "$1");
     local dir_point=${dir_chapt}/$(l_02_dd2e ${dir_chapt} | l_03_ibu "$2");
     l_04_od7xfv ${dir_chapt} ${2} "${ARGS[@]:2}" > /dev/null;

@@ -2,7 +2,7 @@
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: wrp l_04_od8xfv in \${dta_nm_dr}/od.d
+MAIN: ${FNN} :: \$1 num_point  wrp l_04_od8xfv in \${dta_nm_dr}/od.d
 TAGS:
 \$1 
 [, \$2]

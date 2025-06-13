@@ -2,8 +2,9 @@
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: \$1 num_chapt \$2 num_point wrp l_05_xs1 \${dta_nm_dr}/od.dd
 TAGS:
+without args exec [see struct] ::{l_03_odd2no \${dta_nm_dr}/od.dd}
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -81,8 +82,8 @@ echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 #* grass parameter
 
-l_00_echo_gras "${FNN} [lnum chapt] \$1 :: 'chapt = $1'"
-l_00_echo_gras "${FNN} [lnum point] \$2 :: 'point = $2'"
+# l_00_echo_gras "${FNN} [lnum chapt] \$1 :: 'chapt = $1'"
+# l_00_echo_gras "${FNN} [lnum point] \$2 :: 'point = $2'"
 # l_00_echo_gras "${FNN} [pth_to_any_tml] {$dr_any} :: '{} = file://$ptr_path_3/any.f '"
 # l_00_echo_gras "${FNN}[chiced dir]{num8} :: 'tml_dir_pth = file://$dir_res_itky54271 '"
 # l_00_echo_gras "${FNN}[discribe var]{origin var} :: 'tml_dir_pth = file://$dir_res_itky54271 '"
@@ -96,6 +97,13 @@ l_00_echo_gras "${FNN} [lnum point] \$2 :: 'point = $2'"
 #! echo ARGS
 # local ARG_23edew=("${ARGS[@]}")
 # [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_23edew
+
+local dta_od_dd=${dta_nm_dr}/od.dd
+
+[[ -n "$1" ]] || {
+    l_03_odd2no ${dta_od_dd}
+    return 0
+}
 
 [[ -n "$2" ]] || {
     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$2' return 1"
@@ -165,8 +173,6 @@ l_00_echo_gras "${FNN} [lnum point] {} :: 'arg_2 = $arg_2'"
 # local dta_sh=${dta_nm_dr}/.sh
 # local dta_lst=${dta_nm_dr}/.lst
 # local dta_tml=${dta_nm_dr}/.tml
-
-local dta_od_dd=${dta_nm_dr}/od.dd
 
 local dr_od_d=
 

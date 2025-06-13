@@ -139,8 +139,9 @@ l_06_xds71() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: \$1 num_chapt \$2 num_point wrp l_05_xs71 \${dta_nm_dr}/od.dd 
 TAGS:
+without args exec [see struct] ::{l_03_odd2no \${dta_nm_dr}/od.dd}
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -192,7 +193,7 @@ fi
 # fi
 
 #! stdout fn introduction
-# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 #     #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
 #     local di=
@@ -233,6 +234,14 @@ fi
 #! echo ARGS
 # local ARG_23edew=("${ARGS[@]}")
 # [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_23edew
+
+local dta_od_dd=${dta_nm_dr}/od.dd
+
+[[ -n "$1" ]] || {
+    l_03_odd2no ${dta_od_dd}
+    return 0
+}
+
 
 [[ -n "$2" ]] || {
     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$2' return 1"
@@ -294,8 +303,6 @@ l_01_is_od "$2" || {
 # local dta_sh=${dta_nm_dr}/.sh
 # local dta_lst=${dta_nm_dr}/.lst
 # local dta_tml=${dta_nm_dr}/.tml
-
-local dta_od_dd=${dta_nm_dr}/od.dd
 
 local dir_chapt=${dta_od_dd}/$(l_02_dd2e ${dta_od_dd} | l_03_ibu "$1")
 # l_00_echo_info "'\$dir_chapt = file://$dir_chapt'"

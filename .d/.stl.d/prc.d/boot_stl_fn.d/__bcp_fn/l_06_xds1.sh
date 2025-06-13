@@ -139,8 +139,9 @@ l_06_xds1() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: \$1 num_chapt \$2 num_point wrp l_05_xs1 \${dta_nm_dr}/od.dd
 TAGS:
+without args exec [see struct] ::{l_03_odd2no \${dta_nm_dr}/od.dd}
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -234,6 +235,13 @@ l_00_echo_gras "${FNN} [lnum point] \$2 :: 'point = $2'"
 # local ARG_23edew=("${ARGS[@]}")
 # [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_23edew
 
+local dta_od_dd=${dta_nm_dr}/od.dd
+
+[[ -n "$1" ]] || {
+    l_03_odd2no ${dta_od_dd}
+    return 0
+}
+
 [[ -n "$2" ]] || {
     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$2' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
@@ -272,7 +280,7 @@ l_01_is_od "$arg_2" || {
     return 1
 }
 
-l_00_echo_gras "${FNN} [lnum chapt] {} :: 'arg_1 = $arg_1 '"
+l_00_echo_gras "${FNN} [lnum chapt] {} :: 'arg_1 = $arg_1'"
 l_00_echo_gras "${FNN} [lnum point] {} :: 'arg_2 = $arg_2'"
 
 # [[ -f "$3" ]] || {
@@ -303,8 +311,6 @@ l_00_echo_gras "${FNN} [lnum point] {} :: 'arg_2 = $arg_2'"
 # local dta_lst=${dta_nm_dr}/.lst
 # local dta_tml=${dta_nm_dr}/.tml
 
-local dta_od_dd=${dta_nm_dr}/od.dd
-
 local dr_od_d=
 
 #? choice chapt dr
@@ -315,7 +321,7 @@ l_00_echo_gras "${FNN} [choice chapt dr] {} :: 'dr_od_d = file://${dr_od_d} '"
 
 # l_00_echo_info "'\$arg_2 = $arg_2'"
 
-l_04_od8xfv ${dr_od_d} ${arg_2} "${ARGS[@]:2}" >/dev/null
+l_04_od8xfv ${dr_od_d} ${arg_2} "${ARGS[@]:2}"
 
 # l_00_echo_info "'\$arg_2 = $arg_2'"
 

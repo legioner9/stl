@@ -1,4 +1,4 @@
-[0;30m[2m[42m[7ml_03_odd2no [chapt-point] {start_dr} :: 'odd_dr = file:///home/st/REPOBARE/_repo/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__tst/l_03_odd2no/tst_dir/od.dd '[0m
+[0;30m[2m[42m[7ml_03_odd2no [chapt-point] {start_dr} :: 'odd_dr = file://${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_03_odd2no/tst_dir/od.dd '[0m
 0: fs
     0: ls -A $1
     1: that 002.d

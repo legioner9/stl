@@ -139,8 +139,9 @@ l_06_xds71() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: \$1 num_chapt \$2 num_point wrp l_05_xs71 \${dta_nm_dr}/od.dd 
 TAGS:
+without args exec [see struct] ::{l_03_odd2no \${dta_nm_dr}/od.dd}
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -234,6 +235,14 @@ fi
 # local ARG_23edew=("${ARGS[@]}")
 # [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_23edew
 
+local dta_od_dd=${dta_nm_dr}/od.dd
+
+[[ -n "$1" ]] || {
+    l_03_odd2no ${dta_od_dd}
+    return 0
+}
+
+
 [[ -n "$2" ]] || {
     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$2' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
@@ -252,8 +261,8 @@ l_01_is_od "$2" || {
     return 1
 }
 
-l_00_echo_gras "${FNN} [lnum chapt] {} :: '\$1 = $1'"
-l_00_echo_gras "${FNN} [lnum point] {} :: '\$2 = $2'"
+# l_00_echo_gras "${FNN} [lnum chapt] {} :: '\$1 = $1'"
+# l_00_echo_gras "${FNN} [lnum point] {} :: '\$2 = $2'"
 
 # [[ -f "$3" ]] || {
 #     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${3}' where '\$3=$3' return 1"
@@ -295,13 +304,11 @@ l_00_echo_gras "${FNN} [lnum point] {} :: '\$2 = $2'"
 # local dta_lst=${dta_nm_dr}/.lst
 # local dta_tml=${dta_nm_dr}/.tml
 
-local dta_od_dd=${dta_nm_dr}/od.dd
-
 local dir_chapt=${dta_od_dd}/$(l_02_dd2e ${dta_od_dd} | l_03_ibu "$1")
-l_00_echo_info "'\$dir_chapt = file://$dir_chapt'"
+# l_00_echo_info "'\$dir_chapt = file://$dir_chapt'"
 
 local dir_point=${dir_chapt}/$(l_02_dd2e ${dir_chapt} | l_03_ibu "$2")
-l_00_echo_info "'\$dir_point = file://$dir_point'"
+# l_00_echo_info "'\$dir_point = file://$dir_point'"
 
 l_04_od7xfv ${dir_chapt} ${2} "${ARGS[@]:2}">/dev/null
 

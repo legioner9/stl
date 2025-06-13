@@ -4,6 +4,7 @@ if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: 
 TAGS:
+without args exec [see] :: {}
 \$1 
 [, \$2]
 FLOW:   [if 
