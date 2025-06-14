@@ -99,7 +99,7 @@ l_02_od2o ()
     fi;
     if [[ "-h" == "$1" ]]; then
         echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: stdout [o] from od as all sub_dr of \$1 dir
 TAGS:
 \$1 
 [, \$2]
@@ -140,6 +140,26 @@ flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
         return 0;
     fi;
+    [[ -n "$1" ]] || { 
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1";
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
+        return 1
+    };
+    [[ -d "$1" ]] || { 
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${1}' where '\$1=$1' return 1";
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
+        return 1
+    };
+    local ptr_path_1="$1";
+    ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")";
+    l_00_echo_gras "${FNN} [dr with point tml] \$1 :: 'points = file://$ptr_path_1 '";
+    local item=;
+    local num=0;
+    for item in $(l_02_dd2e ${ptr_path_1});
+    do
+        echo "${num}: $(l_02_of2e ${ptr_path_1}/${item}/.od)";
+        num=$((num + 1));
+    done;
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
     return 0
 }

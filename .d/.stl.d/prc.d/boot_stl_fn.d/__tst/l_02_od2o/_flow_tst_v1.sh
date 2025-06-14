@@ -72,7 +72,7 @@ _l_02_od2o_d4a2888_flow_1() {
     #     l_02_od2o <<<"here_str_::_fifth_str" &>>"${res}"
 
     #*--------
-
+    l_02_od2o od.d
     #*--------
 
     #! rm abs_path
