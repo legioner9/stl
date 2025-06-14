@@ -2,8 +2,9 @@
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: \$1 dir with od_dir treat \$2 7num (anum) :: define by num od_dir {[l_02_ibu]} :: . gv.sh ; . xf.sh AND \${ARGS[@]:2} LEX(1.15)
+MAIN: ${FNN} :: wrp [l_04_od7xfv] in \${dta_nm_dr}
 TAGS:
+without args exec [see] :: {}
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -97,33 +98,17 @@ fi
 # local ARG_23edew=("${ARGS[@]}")
 # [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_23edew
 
-[[ -n "$2" ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$2' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
+# [[ -n "$1" ]] || {
+#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
+#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+#     return 1
+# }
 
-[[ -d "$1" ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR 'file://${1}' where '\$1=$1' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
-
-local arg_2=
-if [[ "@" == "$2" ]]; then
-    echo "Enter num menu :"
-    read -r
-    arg_2=$REPLY
-    l_00_echo_info "'\$arg_2 = $arg_2'"
-else
-    arg_2="$2"
-fi
-
-l_01_is_od "$arg_2" || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '${arg_2}' where '\$2=$2' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
+# l_01_is_od "$2" || {
+#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '${2}' where '\$2=$2' return 1"
+#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+#     return 1
+# }
 
 # [[ -f "$3" ]] || {
 #     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${3}' where '\$3=$3' return 1"
@@ -131,13 +116,23 @@ l_01_is_od "$arg_2" || {
 #     return 1
 # }
 
+
+
 # local line=
 # read -t 0.0002 - timeout
 # while IFS=$'\n' read -r line; do
 #     :
 # done <"${1:-/dev/stdin}"
 
-
+# local arg_3=
+# if [[ "@" == "$3" ]]; then
+#     echo "Enter num menu :"
+#     read -r
+#     arg_3=$REPLY
+#     l_00_echo_info "'\$arg_3 = $arg_3'"
+# else
+#     arg_3="$3"
+# fi
 
 #! use arg_ptr
 # eval "$2=$res_12341c43234rfe"
@@ -154,38 +149,3 @@ l_01_is_od "$arg_2" || {
 # local dta_sh=${dta_nm_dr}/.sh
 # local dta_lst=${dta_nm_dr}/.lst
 # local dta_tml=${dta_nm_dr}/.tml
-
-#! ptr_path_1
-local ptr_path_1="$1"
-ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
-
-l_00_echo_gras "${FNN} \$1 :: 'dir_with_dirs = file://$ptr_path_1 '"
-l_00_echo_gras "${FNN} \$2 :: '7num (anum) = $arg_2'"
-
-local tml_dir_pth="${ptr_path_1}/$(l_02_dd2e "${ptr_path_1}" | l_03_ibu "$arg_2")"
-
-l_00_echo_gras "${FNN}[choiced dir]{} :: 'tml_dir_pth = file://$tml_dir_pth '"
-
-[[ -f "${tml_dir_pth}"/gv.sh ]] || {
-        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE '${tml_dir_pth}/gv.sh' where '\$1=$1' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
-
-[[ -f "${tml_dir_pth}"/xf.sh ]] || {
-        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE '${tml_dir_pth}/xf.sh' where '\$1=$1' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
-
-. "${tml_dir_pth}"/gv.sh || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE '. file://${tml_dir_pth}/gv.sh ' where '\$3=$3' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
-
-. "${tml_dir_pth}"/xf.sh "${ARGS[@]:2}" || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE '. file://${tml_dir_pth}/gv.sh ' where '\$3=$3' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
