@@ -10,10 +10,8 @@ sqr_path_HOME() {
         mkdir -p ${sqr_path} || ret1=1
     }
 
-    l_00_echo_warn "HAM be disable :: file://${STL_D_PATH}/.ham/main/main.fn.lst.d/sqr_path_HOME.sh"
-
-    # grep -rl ${REPO_PATH}/${name_repo} ${REPO_PATH}/${name_repo} >${sqr_path}/name_repo.sqr_pth
-    # grep -rl ${HOME} ${REPO_PATH}/${name_repo} >${sqr_path}/HOME.sqr_pth
+    grep -rl ${REPO_PATH}/${name_repo} ${REPO_PATH}/${name_repo} >${sqr_path}/name_repo.sqr_pth
+    grep -rl ${HOME} ${REPO_PATH}/${name_repo} >${sqr_path}/HOME.sqr_pth
 
     [[ 0 -eq ${ret1} ]] || return 1
     return 0
