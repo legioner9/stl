@@ -1,6 +1,6 @@
 @startuml
 
-scale 1000*500
+' scale 1000*500
 autonumber 
 !pragma teoz true
 box "Internal Service" #LightBlue
@@ -13,9 +13,7 @@ end box
 participant data_out as d_out
 participant function as fn
 == up data ==
-ref over d_st
-od.d
-end ref
+
 
 
     
@@ -29,7 +27,9 @@ alt  l_02_dd2e od.d
     group My own label
     d_in -> d_st : l_02_dd2e od.d
     end
-
+ref over d_st
+od.d
+end ref
 else
         d_in <- d_st
         note right

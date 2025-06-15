@@ -25,16 +25,17 @@ box "args" #00bfff
 participant ar1 
 participant ar2 
 participant ar3 
+
 end box
 box "dta" #66cdaa
 participant in 
 participant out 
 end box
 box "stream" #98fb98
-participant 0 as sti
+participant "0" 
 end box
 box "closure" #80ffff
-participant function as fn
+participant fn 
 end box
 box "stream" #98fb98
 participant 1 
@@ -44,12 +45,9 @@ participant 2
 end box
 == args ==
 
-alt l_02_dd2e od.d dfgstrg 
 ref over ar1 
 pth[dr]
 end ref
-ar1 -> dta : l_02_dd2e od.d
-end
 
 ref over ar2
 ptr[value]
@@ -73,24 +71,22 @@ end ref
 ref over out
 end ref
 
-
-ref over a_2
-anum(num )
+ref over 0
 end ref
-
-ref over p_st
-od.d
-end ref
-
-
-
-note right
-<code>
-for read
-</code>
-end note
-
 == fn work ==
+ref over fn
+end ref
+
+
+
+
+' note right
+' <code>
+' for read
+' </code>
+' end note
+
+
 
 ref over d_in
 stdin
