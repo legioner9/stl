@@ -2,10 +2,14 @@
 
 scale 1000*500
 autonumber 
-
+!pragma teoz true
+box "Internal Service" #LightBlue
 participant data_stor as d_st
+box "sub command"
 participant proc_stor as p_st
+end box
 participant data_in as d_in
+end box
 participant data_out as d_out
 participant function as fn
 == up data ==
@@ -17,7 +21,10 @@ end ref
     
 alt  l_02_dd2e od.d
     d_st -> d_in : l_02_dd2e od.d
-        note right : for read
+        note right
+        <code>
+        for read
+        </code>
         end note
     group My own label
     d_in -> d_st : l_02_dd2e od.d
@@ -25,8 +32,11 @@ alt  l_02_dd2e od.d
 
 else
         d_in <- d_st
-        note right : for read
-
+        note right
+        <code>
+        for read
+        </code>
+        end note
 end
 
 opt
@@ -38,8 +48,6 @@ end
 break
 end
 
-critical
-end
 
 == fn work ==
 
@@ -59,6 +67,12 @@ end ref
 ref over fn
 epm full-upgrad
 end ref
+
+create wrappedRequest
+fn -> wrappedRequest: new request()
+p_st <-- d_st: response
+
+
 
 
 @enduml

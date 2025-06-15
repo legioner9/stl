@@ -1,0 +1,8 @@
+!pragma teoz true
+
+{start} Alice -> Bob : старт некоторых работ, занимающих какое-то время
+Bob -> Max : что-то одно
+Max -> Bob : что-то другое
+{end} Bob -> Alice : конец
+
+{start} <-> {end} : прошедшее время
