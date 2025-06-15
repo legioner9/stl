@@ -1,0 +1,54 @@
+@startuml
+
+scale 1000*500
+autonumber 
+
+participant data_stor as d_st
+participant proc_stor as p_st
+participant arg_1 as a_1
+participant arg_2 as a_2
+participant data_in as d_in
+participant data_out as d_out
+participant function as fn
+
+== args ==
+ref over a_1
+pth(od.d)
+end ref
+ref over a_2
+anum(num )
+end ref
+== up data ==
+ref over p_st
+od.d
+end ref
+
+p_st -> d_in : l_02_dd2e od.d
+
+note right
+<code>
+for read
+</code>
+end note
+
+== fn work ==
+
+ref over d_in
+stdin
+end ref
+d_in -> fn : fl_nm
+note right
+<code>
+cat fl_nm
+</code>
+end note
+ref over d_out
+stdout
+end ref
+== ret data ==
+ref over fn
+epm full-upgrad
+end ref
+
+
+@enduml

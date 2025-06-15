@@ -1,0 +1,64 @@
+@startuml
+
+scale 1000*500
+autonumber 
+
+participant data_stor as d_st
+participant proc_stor as p_st
+participant data_in as d_in
+participant data_out as d_out
+participant function as fn
+== up data ==
+ref over d_st
+od.d
+end ref
+
+
+    
+alt  l_02_dd2e od.d
+    d_st -> d_in : l_02_dd2e od.d
+        note right : for read
+        end note
+    group My own label
+    d_in -> d_st : l_02_dd2e od.d
+    end
+
+else
+        d_in <- d_st
+        note right : for read
+
+end
+
+opt
+end
+
+loop
+end
+
+break
+end
+
+critical
+end
+
+== fn work ==
+
+ref over d_in
+stdin
+end ref
+d_in -> fn : fl_nm
+note right
+<code>
+cat fl_nm
+</code>
+end note
+ref over d_out
+stdout
+end ref
+== ret data ==
+ref over fn
+epm full-upgrad
+end ref
+
+
+@enduml
