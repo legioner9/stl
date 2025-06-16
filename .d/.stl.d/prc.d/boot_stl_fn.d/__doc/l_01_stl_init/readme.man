@@ -1,0 +1,2 @@
+# man for fn_nm[l_01_stl_init] dta dr 
+## 1e0ab89 - this.rnd

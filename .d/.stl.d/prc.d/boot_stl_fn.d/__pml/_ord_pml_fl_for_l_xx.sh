@@ -1,17 +1,17 @@
 #!/bin/bash
 
-echo -e "${CYAN}--- _rm_fn_fl_prc_tst_rnd7_f3391bd() $* in file://${REPO_PATH}/stl/.d/.stl.d/prc.d/boot_stl_fn.d/_rm_fn_fl_prc_tst.sh ---${NORMAL}" #started functions
+echo -e "${CYAN}--- _ord_prc_fl_for_l_xx_rnd7_5a6e6f0() $* in file://${REPO_PATH}/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__pml/_ord_pml_fl_for_l_xx.sh ---${NORMAL}" #started functions
 
-_rm_fn_fl_prc_tst_rnd7_f3391bd() {
+_ord_pml_fl_for_l_xx_rnd7_5a6e6f0() {
 
-    # HST :: gig command :: [ufl_stl0 1 1 _rm_fn_fl_prc_tst.sh in file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/ufl_stl0.ram/.grot/ufl_stl0.sh] in file://${REPO_PATH}/stl/.d/.stl.d/prc.d/boot_stl_fn.d
+    # HST :: gig command :: [ufl_stl0 1 1 _ord_prc_fl_for_l_xx.sh in file://${ST_RC_D_PATH}/.d/.arb/stl0.arb/ufl_stl0.ram/.grot/ufl_stl0.sh] in file://${REPO_PATH}/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__prc
 
     local FNN=${FUNCNAME[0]}
     local ARGS=("$@")
     local NARGS=$#
     local PPWD=$PWD
 
-    local path_file="${REPO_PATH}/stl/.d/.stl.d/prc.d/boot_stl_fn.d/_rm_fn_fl_prc_tst.sh"
+    local path_file="${REPO_PATH}/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__pml/_ord_pml_fl_for_l_xx.sh"
     local path_dir="$(dirname "$path_file")"
 
     # echo -e "${CYAN}--- $FNN() $* in file://${path_file}---${NORMAL}" #started functions
@@ -73,6 +73,8 @@ ${NORMAL}"
 
     #! START BODY FN ---------------------------------------
 
+    #{{body_fn}}
+
     echo "START BODY FN : ${FNN}() $*"
 
     [[ -n "$1" ]] || {
@@ -80,24 +82,27 @@ ${NORMAL}"
         return 1
     }
 
+    local tst_dir=${STL_D_PATH}/prc.d/boot_stl_fn.d/__pml
+
     local fn_name="$1"
 
-    cd ${path_dir} || return 1
+    local rnd=$(l_01_rnd2e)
 
-    # [[ -f "${path_dir}/${fn_name}.sh" ]] || {
-    #     l_00_echo_ret1 "NOT_FILE :: ${path_dir}/${fn_name}.sh return 1"
+    cd ${tst_dir} || return 1
 
-    #     return 1
-    # }
+    l_01_is_yes "ord ${fn_name} in ${tst_dir}?" && {
 
-    rm "${path_dir}/${fn_name}.sh"
-    rm "${path_dir}/__prc/${fn_name}.prc"
-    rm -r "${path_dir}/__tst/${fn_name}"
-    rm -r "${path_dir}/__dta/${fn_name}"
-    rm -r "${path_dir}/__doc/${fn_name}"
-    rm -r "${path_dir}/__pml/${fn_name}"
-
-    #{{body_fn}}
+        echo "l_03_sd2d _XXX ${fn_name} file://${tst_dir}/_XXX"
+        l_03_sd2d _XXX ${fn_name} ${tst_dir}/_XXX || {
+            l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC 'l_03_sd2d XXX ${fn_name} ${tst_dir}/_XXX' : ${hint} : return 1"
+            return 1
+        }
+        echo "l_03_s2Ad RND ${rnd:0:7} file://${tst_dir}/${fn_name}"
+        l_03_s2Ad  ${rnd:0:7} RND ${tst_dir}/${fn_name} || {
+            l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC 'l_03_s2Ad XXX ${fn_name} ${tst_dir}/_XXX' : ${hint} : return 1"
+            return 1
+        }
+    }
 
     #! END BODY FN ---------------------------------------
 
@@ -106,4 +111,4 @@ ${NORMAL}"
 
 }
 
-_rm_fn_fl_prc_tst_rnd7_f3391bd "$@"
+_ord_pml_fl_for_l_xx_rnd7_5a6e6f0 "$@"

@@ -1,4 +1,5 @@
 @startuml
+!pragma teoz true
 ' F19CBB
 ' A8E4A0
 ' FAE7B5
@@ -16,6 +17,8 @@
 ' Светлая слива	Plum	#dda0dd
 ' Розовый	Pink	#ffc0cb
 ' scale 1000*500
+
+title function [_XXX]
 autonumber 
 box "fs" #f5deb3
 participant dta 
