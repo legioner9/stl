@@ -22,64 +22,71 @@ title function [l_01_stl_init]
 autonumber 
 box "fs" #f5deb3
 participant dta 
-participant prc 
+' participant prc 
 end box
 box "args" #00bfff
-participant ar1 
-participant ar2 
-participant ar3 
+' participant ar1 
+' participant ar2 
+' participant ar3 
 
 end box
-box "dta" #66cdaa
-participant in 
-participant out 
-end box
-box "stream" #98fb98
-participant "0" 
-end box
+' box "dta" #66cdaa
+' participant in 
+' participant out 
+' end box
+' box "stream" #98fb98
+' participant "0" 
+' end box
 box "closure" #80ffff
 participant fn 
 end box
-box "stream" #98fb98
-participant 1 
-end box
-box "stream" #dda0dd
-participant 2 
-end box
-== args == 
+' box "stream" #98fb98
+' participant 1 
+' end box
+' box "stream" #dda0dd
+' participant 2 
+' end box
+' == args == 
 
-ref over ar1 
-pth[dr]
-end ref
+' ref over ar1 
+' pth[dr]
+' end ref
 
-ref over ar2
-ptr[value]
-end ref
+' ref over ar2
+' ptr[value]
+' end ref
 
-ref over ar3
-nm[fl]
-end ref
-== up data ==
-ref over dta
-dr
-end ref
+' ref over ar3
+' nm[fl]
+' end ref
+' == up data ==
+' ref over dta
+' ${STL_D_PATH}/.stldrc
+' end ref
 
-ref over prc
-od.d
-end ref
+' ref over prc
+' od.d
+' end ref
 
-ref over in 
-end ref
+' ref over in 
+' end ref
 
-ref over out
-end ref
+' ref over out
+' end ref
 
-ref over 0
-end ref
+' ref over 0
+' end ref
 == fn work ==
-ref over fn
-end ref
-
+group l_01_stl_init
+' ref over fn
+' end ref
+dta -> fn : ${STL_D_PATH}/.stldrc 
+        note right
+        <code>
+        source "${STL_D_PATH}/.stldrc"
+        </code>
+        end note
+end
 
 
 
@@ -89,10 +96,10 @@ end ref
 ' </code>
 ' end note
 
-== ret data ==
-ref over fn
-epm full-upgrad
-end ref
+' == ret data ==
+' ref over fn
+' epm full-upgrad
+' end ref
 
 
 @enduml
