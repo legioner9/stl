@@ -7,10 +7,12 @@ l_00_echo_exec ". file://${tml_dir_pth}/xf.sh"
 # num from pre_exec_file
 # echo file://$(pwd)/"${line}"
 
+local pml_jar=${STL_D_PATH}/data.d/cdn.d/plantuml.jar
+
 
 : >${tml_dir_pth}/u.1
 # l_00_echo_code "ls -A ${ARGS[2]} :: " | tee -a ${tml_dir_pth}/u.1
-l_00_echo_code "ls -A ${ARGS[@]:2} :: " | tee -a ${tml_dir_pth}/u.1
-ls -A "${ARGS[2]}" | tee -a ${tml_dir_pth}/u.1
+l_00_echo_code "java -jar ${pml_jar} -h :: " | tee -a ${tml_dir_pth}/u.1
+java -jar ${pml_jar} -h | tee -a ${tml_dir_pth}/u.1
 # echo "${num} : ${ARGS[2]}${line}"
 # num=$((num + 1))

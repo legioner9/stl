@@ -1,6 +1,80 @@
-[0;30m[2m[106m[7mls -A _dir_ msg:  :: [0m
-001.d
-002.d
-003.d
-.d
-.f
+[0;30m[2m[106m[7mjava -jar /home/st/REPOBARE/_repo/stl/.d/.stl.d/data.d/cdn.d/plantuml.jar -h :: [0m
+Usage: java -jar plantuml.jar [options] -gui
+	(to execute the GUI)
+    or java -jar plantuml.jar [options] [file/dir] [file/dir] [file/dir]
+	(to process files or directories)
+
+You can use the following wildcards in files/dirs:
+	*	means any characters but '/'
+	?	one and only one character but '/'
+	**	means any characters (used to recurse through directories)
+
+where options include:
+    -author[s]		To print information about PlantUML authors
+    -checkmetadata		Skip PNG files that don't need to be regenerated
+    -checkonly		To check the syntax of files without generating images
+    -charset xxx	To use a specific charset (default is UTF-8)
+    -computeurl|-encodeurl	To compute the encoded URL of a PlantUML source file
+    -cypher		To cypher texts of diagrams so that you can share them
+    -DVAR1=value	To set a preprocessing variable as if '!define VAR1 value' were used
+    -darkmode		To use dark mode for diagrams
+    -debugsvek		To generate intermediate svek files
+    -decodeurl		To retrieve the PlantUML source from an encoded URL
+    -disablestats	To disable statistics computation (default)
+    -duration		To print the duration of complete diagrams processing
+    -e[x]clude pattern	To exclude files that match the provided pattern
+    -enablestats	To enable statistics computation
+    -encodesprite 4|8|16[z] "file"	To encode a sprite at gray level (z for compression) from an image
+    -extractstdlib	To extract PlantUML Standard Library into stdlib folder
+    -failfast		To stop processing as soon as a syntax error in diagram occurs
+    -failfast2		To do a first syntax check before processing files, to fail even faster
+    -filedir xxx	To behave as if the PlantUML source is in this dir (only affects '-pipe' and PicoWeb 'POST /render')
+    -filename "example.puml"	To override %filename% variable
+    -graphvizdot "exe"	To specify dot executable
+    -gui		To run the graphical user interface
+    -h[elp]		To display this help message
+    -htmlstats		To output general statistics in file plantuml-stats.html
+    -I/path/to/file	To include file as if '!include file' were used
+    -I/path/to/*.puml	To include files with pattern
+    -language		To print the list of PlantUML keywords
+    -loopstats		To continuously print statistics about usage
+    -metadata		To retrieve PlantUML sources from PNG images
+    -nbthread N		To use (N) threads for processing
+    -nbthread auto	To use 24 threads for processing
+    -noerror		To skip images when error in diagrams
+    -nometadata		To NOT export metadata in PNG/SVG generated files
+    -o[utput] "dir"	To generate images in the specified directory
+    -overwrite		To allow to overwrite read only files
+    -Ppragma1=value	To set pragma as if '!pragma pragma1 value' were used
+    -p[ipe]		To use stdin for PlantUML source and stdout for PNG/SVG/EPS generation
+    -picoweb		To start internal HTTP Server. See https://plantuml.com/picoweb
+    -pipeimageindex N	To generate the Nth image with pipe option
+    -preproc		To output preprocessor text of diagrams
+    -printfonts		To print fonts available on your system
+    -progress		To display a textual progress bar in console
+    -quiet		To NOT print error message into the console
+    -realtimestats	To generate statistics on the fly rather than at the end
+    -Sparam1=value	To set a skin parameter as if 'skinparam param1 value' were used
+    -splash		To display a splash screen with some progress bar
+    -stdlib		To print standard library info
+    -syntax		To report any syntax error from standard input without generating images
+    -testdot		To test the installation of graphviz
+    -theme xxx		To use a specific theme
+    -timeout N		Processing timeout in (N) seconds. Defaults to 15 minutes (900 seconds).
+    -teps		To generate images using EPS format
+    -thtml		To generate HTML file for class diagram
+    -tlatex:nopreamble	To generate images using LaTeX/Tikz format without preamble
+    -tlatex		To generate images using LaTeX/Tikz format
+    -tpdf		To generate images using PDF format
+    -tpng		To generate images using PNG format (default)
+    -tscxml		To generate SCXML file for state diagram
+    -tsvg		To generate images using SVG format
+    -ttxt		To generate images with ASCII art
+    -tutxt		To generate images with ASCII art using Unicode characters
+    -tvdx		To generate images using VDX format
+    -txmi		To generate XMI file for class diagram
+    -v[erbose]		To have log information
+    -version		To display information about PlantUML and Java versions
+    -xmlstats		To output general statistics in file plantuml-stats.xml
+
+If needed, you can setup the environment variable GRAPHVIZ_DOT.
