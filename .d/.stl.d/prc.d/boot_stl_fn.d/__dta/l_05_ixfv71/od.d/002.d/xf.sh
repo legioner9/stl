@@ -12,6 +12,10 @@
 l_00_echo_code "echo ${line//${ARGS[2]}/ }"
 # ls -A "${ARGS[2]}" | tee -a ${tml_dir_pth}/u.1
 
+l_00_echo_info "'\${ARGS[1]} = ${ARGS[1]}'"
+l_00_echo_info "'\${ARGS[2]} = ${ARGS[2]}'"
+l_00_echo_info "'\${ARGS[3]} = ${ARGS[3]}'"
+
 echo ${line//${ARGS[2]}/ } | tee -a ${tml_dir_pth}/u.1
 # echo "${num} : ${ARGS[2]}${line}"
 # num=$((num + 1))

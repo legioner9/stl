@@ -153,4 +153,4 @@ ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
 # local dta_lst=${dta_nm_dr}/.lst
 # local dta_tml=${dta_nm_dr}/.tml
 
-l_04_od7xfv "${dta_nm_dr}"/od.d "$1" "${ptr_path_2}"
+l_04_od7xfv "${dta_nm_dr}"/od.d "$1" "${ptr_path_2}" "${ARGS[@]:2}"

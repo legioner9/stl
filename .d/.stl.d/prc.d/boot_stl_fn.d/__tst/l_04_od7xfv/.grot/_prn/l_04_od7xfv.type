@@ -99,7 +99,7 @@ l_04_od7xfv ()
     fi;
     if [[ "-h" == "$1" ]]; then
         echo -e "
-MAIN: ${FNN} :: \$1 dir with od_dir treat \$2 7num (anum) :: define by num od_dir {[l_02_ibu]} :: . gv.sh ; . xf.sh
+MAIN: ${FNN} :: \$1 dir with od_dir treat \$2 7num (anum) :: define by num od_dir {[l_02_ibu]} :: . gv.sh ; . xf.sh AND \${ARGS[@]:2} LEX(1.15)
 TAGS:
 \$1 
 [, \$2]

@@ -72,8 +72,9 @@ _l_04_od7xfv_3df7741_flow_1() {
     #     l_04_od7xfv <<<"here_str_::_fifth_str" &>>"${res}"
 
     #*--------
-    l_04_od7xfv _dir_ 0 _dir_
-    l_04_od7xfv _dir_ @ _dir_ <<<"0"
+    ls
+    l_04_od7xfv _dir_ 1 FILE "that comment"
+    # l_04_od7xfv _dir_ @ _dir_ <<<"0"
     #*--------
 
     #! rm abs_path

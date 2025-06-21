@@ -149,3 +149,5 @@ fi
 # local dta_sh=${dta_nm_dr}/.sh
 # local dta_lst=${dta_nm_dr}/.lst
 # local dta_tml=${dta_nm_dr}/.tml
+
+#! other args "${ARGS[@]:2}" -> ${ARGS[2]} ${ARGS[3]} ... 
