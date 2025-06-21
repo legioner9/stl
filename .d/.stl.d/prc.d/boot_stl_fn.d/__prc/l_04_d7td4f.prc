@@ -4,7 +4,7 @@ if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: dir {\$1 IFS(3.2)} 7num LEX(2.3) {\$2 LEX(1.13)} dir 4 IFS(2.1), \$3 result fl name LEX(8.2) , \$4 result dir or @ LEX(1.12)
 TAGS:
-without args exec [see struct] ::{l_0_od2o \${dta_nm_dr}/od.dd}
+without args exec [see struct] ::{l_02_od2o \${dta_nm_dr}/od.dd}
 \$1 
 [, \$2]
 FLOW:   [if 

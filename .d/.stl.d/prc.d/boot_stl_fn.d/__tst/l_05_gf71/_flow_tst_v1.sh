@@ -72,7 +72,28 @@ _l_05_gf71_f6e6ef9_flow_1() {
     #     l_05_gf71 <<<"here_str_::_fifth_str" &>>"${res}"
 
     #*--------
+    rm result.file
+    l_05_gf71 @ result.file @ <<<"0"
+    cat result.file
+    echo
 
+    rm res.d/result.file
+    l_05_gf71 "0" result.file res.d
+    cat res.d/result.file
+    # echo
+
+    rm res.d/result.file
+    l_05_gf71 "0" result.file res.d
+    cat res.d/result.file
+    # echo
+
+    rm res.d/result.file
+    echo "0" | l_05_gf71 @ result.file res.d
+    cat res.d/result.file
+    # echo
+
+    #! TREAT IF NEED "${res}"
+    l_01_les2f "${res}"
     #*--------
 
     #! rm abs_path

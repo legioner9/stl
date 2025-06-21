@@ -99,9 +99,9 @@ l_05_gf71 ()
     fi;
     if [[ "-h" == "$1" ]]; then
         echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: wrp l_04_d7td4f with fix \${dta_nm_dr}/tml.d.d :: 7num \$1 LEX(1.13)} dir 4 IFS(2.1), \$2 result fl name LEX(8.2) , \$3 result dir or @ LEX(1.12)
 TAGS:
-without args exec [see] :: {}
+without args exec [see struct] ::{l_02_od2o \${dta_nm_dr}/od.dd}
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -141,6 +141,11 @@ flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
         return 0;
     fi;
+    [[ -n "$1" ]] || { 
+        l_02_od2o ${dta_nm_dr}/tml.d.d;
+        return 0
+    };
+    l_04_d7td4f "${dta_nm_dr}"/tml.d.d "$1" "$2" "$3";
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
     return 0
 }

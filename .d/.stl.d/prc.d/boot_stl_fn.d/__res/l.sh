@@ -24523,6 +24523,16 @@ l_04_d7td4f() {
 
     if [[ "_flow_1" == "$1" ]]; then
         . ${tst_nm_dr}/_flow_tst_v1.sh || {
+            echo -e "${ECHO_RET1}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : '. file://${tst_nm_dr}/_flow_tst_v1.sh' : continue${NRM}"
+            cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+            return 1
+        }
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        return 0
+    fi
+
+    if [[ "_flow_2" == "$1" ]]; then
+        . ${tst_nm_dr}/_flow_tst_v2.sh || {
             echo -e "${ECHO_RET1}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : '. file://${tst_nm_dr}/_flow_tst_v2.sh' : continue${NRM}"
             cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
             return 1
@@ -24548,6 +24558,7 @@ if [[ "-h" == "$1" ]]; then
     echo -e "
 MAIN: ${FNN} :: dir {\$1 IFS(3.2)} 7num LEX(2.3) {\$2 LEX(1.13)} dir 4 IFS(2.1), \$3 result fl name LEX(8.2) , \$4 result dir or @ LEX(1.12)
 TAGS:
+without args exec [see struct] ::{l_02_od2o \${dta_nm_dr}/od.dd}
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -26204,9 +26215,9 @@ l_05_gf71() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: wrp l_04_d7td4f with fix \${dta_nm_dr}/tml.d.d :: 7num \$1 LEX(1.13)} dir 4 IFS(2.1), \$2 result fl name LEX(8.2) , \$3 result dir or @ LEX(1.12)
 TAGS:
-without args exec [see] :: {}
+without args exec [see struct] ::{l_02_od2o \${dta_nm_dr}/od.dd}
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -26351,6 +26362,13 @@ fi
 # local dta_sh=${dta_nm_dr}/.sh
 # local dta_lst=${dta_nm_dr}/.lst
 # local dta_tml=${dta_nm_dr}/.tml
+
+[[ -n "$1" ]] || {
+    l_02_od2o ${dta_nm_dr}/tml.d.d
+    return 0
+}
+
+l_04_d7td4f "${dta_nm_dr}"/tml.d.d "$1" "$2" "$3"
 
     #* END fn block ------------------
 

@@ -78,14 +78,16 @@ _l_05_gf71_f6e6ef9_flow() {
     #     l_05_gf71 <<<"here_str_::_fifth_str" &>>"${res}"
 
     #*--------
-    
+    rm result.file
+    l_05_gf71 @ result.file @ <<<"0"
+    cat result.file &>>"${res}"
     #*--------
 
     #! rm abs_path
     # l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
 
     #! TREAT IF NEED [l]ast [e]mpty [s]tring "${res}"
-    # l_01_les2f "${res}"
+    l_01_les2f "${res}"
 
     #?-------------------------------------
     #?----------------------------------------------------

@@ -139,9 +139,9 @@ l_05_gf71() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: wrp l_04_d7td4f with fix \${dta_nm_dr}/tml.d.d :: 7num \$1 LEX(1.13)} dir 4 IFS(2.1), \$2 result fl name LEX(8.2) , \$3 result dir or @ LEX(1.12)
 TAGS:
-without args exec [see] :: {}
+without args exec [see struct] ::{l_02_od2o \${dta_nm_dr}/od.dd}
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -286,6 +286,13 @@ fi
 # local dta_sh=${dta_nm_dr}/.sh
 # local dta_lst=${dta_nm_dr}/.lst
 # local dta_tml=${dta_nm_dr}/.tml
+
+[[ -n "$1" ]] || {
+    l_02_od2o ${dta_nm_dr}/tml.d.d
+    return 0
+}
+
+l_04_d7td4f "${dta_nm_dr}"/tml.d.d "$1" "$2" "$3"
 
     #* END fn block ------------------
 
