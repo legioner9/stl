@@ -7,16 +7,19 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_l_03_ixod_dded59f_flow_1() {
+__XXX_RND_flow() {
 
     unset IFS
 
-    if ! command -v l_03_ixod >/dev/null; then
-        l_00_echo_ret1 "TYPE_ERROR : l_03_ixod"
+    local PW=$(pwd)
+
+    if ! command -v _XXX >/dev/null; then
+        l_00_echo_ret1 "TYPE_ERROR : _XXX"
+        cd $PW
         return 1
     fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_03_ixod/_flow_tst_v2.sh
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/_XXX/_flow_tst.sh
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -37,7 +40,10 @@ _l_03_ixod_dded59f_flow_1() {
 
     #?----------------------------------------------------
     #?-------------------------------------
+
     l_00_echo_exec "source file://$filename"
+
+    #! if stdout to ${res} only in this file - NOT in exec.tst
     : >"${res}"
 
     cd tst_dir || {
@@ -46,44 +52,39 @@ _l_03_ixod_dded59f_flow_1() {
         return 1
     }
 
-    # l_03_ixod "${tst_dir}" &>>"${res}"
+    # _XXX "${tst_dir}" &>>"${res}"
 
     #! stdin_tst
-    # : >FILE
     #         echo "!STRING_AS_WORD!"
+    # : >FILE
     #     cat >FILE <<EOF
     # third_str
     # fourth_str
     # EOF
 
     #     echo "FILE_ARG:"
-    #     l_03_ixod FILE &>>"${res}"
+    #     _XXX FILE &>>"${res}"
 
     #     echo "FILE_PIPE:"
-    #     cat FILE | l_03_ixod &>>"${res}"
+    #     cat FILE | _XXX &>>"${res}"
 
     #     echo "HERE_DOC:"
-    #     l_03_ixod <<EOF &>>"${res}"
+    #     _XXX <<EOF &>>"${res}"
     # first_str
     # second_str
     # EOF
 
     #     echo "HERE_STR:"
-    #     l_03_ixod <<<"here_str_::_fifth_str" &>>"${res}"
+    #     _XXX <<<"here_str_::_fifth_str" &>>"${res}"
 
     #*--------
-    l_03_ixod "_dir_/005.d" "_flow_1" 
-    l_03_ixod "_dir_/005.d" "_tst"
-#     l_03_ixod _dir_/002.d ":" <<EOF
-# 1rewgt:2hthut
-# 3rerggh:4uytint
-# EOF
+    
     #*--------
 
     #! rm abs_path
     # l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
 
-    #! TREAT IF NEED "${res}"
+    #! TREAT IF NEED [l]ast [e]mpty [s]tring "${res}"
     # l_01_les2f "${res}"
 
     #?-------------------------------------
@@ -96,4 +97,4 @@ _l_03_ixod_dded59f_flow_1() {
 
 }
 
-_l_03_ixod_dded59f_flow_1 "$@"
+__XXX_RND_flow "$@"

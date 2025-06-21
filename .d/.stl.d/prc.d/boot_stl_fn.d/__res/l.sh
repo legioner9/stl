@@ -21368,7 +21368,7 @@ local ARGS_1234cedfc=("${ARGS[@]}")
 # local dta_tml=${dta_nm_dr}/.tml
 
 [[ -n "$2" && "_flow_1" == "$2" ]] && {
-    local pth_flow_1="$1"/.d/_flw/flow_1.sh
+    local pth_flow_1="$1"/.d/_tst/_flow_tst_v1.sh
     [[ -f "${pth_flow_1}" ]] && {
         . "${pth_flow_1}"
     }
@@ -21376,7 +21376,7 @@ local ARGS_1234cedfc=("${ARGS[@]}")
 }
 
 [[ -n "$2" && "_flow_2" == "$2" ]] && {
-    local pth_flow_1="$1"/.d/_flw/flow_2.sh
+    local pth_flow_2="$1"/.d/_tst/_flow_tst_v2.sh
     [[ -f "${pth_flow_2}" ]] && {
         . "${pth_flow_2}"
     }
@@ -21384,7 +21384,7 @@ local ARGS_1234cedfc=("${ARGS[@]}")
 }
 
 [[ -n "$2" && "_tst" == "$2" ]] && {
-    local pth_tst="$1"/.d/_tst/tst.sh
+    local pth_tst="$1"/.d/_tst/exec.tst
     [[ -f "${pth_tst}" ]] && {
         . "${pth_tst}"
     }
@@ -28348,12 +28348,14 @@ l_99_tst_l() {
     local prc_dr=${fn_dr}/__prc
     local tst_dr=${fn_dr}/__tst
     local ext_dr=${fn_dr}/__ext
+    local dta_dr=${fn_dr}/__dta
     local ext_dt_dr=${ext_dr}/_dt
     local ext_dr_prc=${ext_dr}/_prc
 
     local fn_nm=${fn_dr}/${FNN}.sh
     local prc_nm=${prc_dr}/${FNN}.prc
     local tst_nm_dr=${tst_dr}/${FNN}
+    local dta_nm_dr=${dta_dr}/${FNN}
     local tst_nm_ex_=${tst_nm_dr}/exec.tst
     local tst_nm_fw_=${tst_nm_dr}/_flow_tst.sh
     local tst_nm_fw1_=${tst_nm_dr}/_flow_tst_v1.sh
@@ -28393,8 +28395,15 @@ l_99_tst_l() {
         return 0
     fi
 
+    if [[ "_e_dta_dr" == "$1" ]]; then
+        l_02_edit ${dta_nm_dr}
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        return 0
+    fi
+
     if [[ "_tst" == "$1" ]]; then
         . ${tst_nm_dr}/exec.tst || {
+            echo -e "${ECHO_RET1}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : '. file://${tst_nm_dr}/exec.tst ' : continue${NRM}"
             cd "${PPWD}" || {
                 echo -e "${ECHO_RET1}'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FAIL '. ${tst_nm_dr}/${FNN}/exec.tst' return 1${NRM}" >&2
                 return 1
@@ -28407,6 +28416,7 @@ l_99_tst_l() {
 
     if [[ "_flow" == "$1" ]]; then
         . ${tst_nm_dr}/_flow_tst.sh || {
+            echo -e "${ECHO_RET1}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : '. file://${tst_nm_dr}/_flow_tst.sh' : continue${NRM}"
             cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
             return 1
         }
@@ -28416,6 +28426,17 @@ l_99_tst_l() {
 
     if [[ "_flow_1" == "$1" ]]; then
         . ${tst_nm_dr}/_flow_tst_v1.sh || {
+            echo -e "${ECHO_RET1}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : '. file://${tst_nm_dr}/_flow_tst_v1.sh' : continue${NRM}"
+            cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+            return 1
+        }
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        return 0
+    fi
+
+    if [[ "_flow_2" == "$1" ]]; then
+        . ${tst_nm_dr}/_flow_tst_v2.sh || {
+            echo -e "${ECHO_RET1}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : '. file://${tst_nm_dr}/_flow_tst_v2.sh' : continue${NRM}"
             cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
             return 1
         }
@@ -28495,6 +28516,10 @@ for exec_tst_fl_pth in $(find ${tst_dir} -name exec.tst | sort); do
             echo '${STL_D_PATH}'/prc.d/boot_stl_fn.d/${FNN}.sh >${prn}/${lnm}.pth
         else
             l_00_echo_err "FAIL_EXEC :: '[[ -d ${tst_nm_dr}/${lnm} ]]' :: ret1=1"
+
+            l_00_echo_info "' file://${exec_tst_fl_pth} '"
+            l_00_echo_info "' file://${tst_nm_dr}/${lnm} '"
+
             ret1=1
         fi
 

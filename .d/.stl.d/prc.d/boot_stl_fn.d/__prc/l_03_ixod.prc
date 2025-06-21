@@ -149,7 +149,7 @@ local ARGS_1234cedfc=("${ARGS[@]}")
 # local dta_tml=${dta_nm_dr}/.tml
 
 [[ -n "$2" && "_flow_1" == "$2" ]] && {
-    local pth_flow_1="$1"/.d/_flw/flow_1.sh
+    local pth_flow_1="$1"/.d/_tst/_flow_tst_v1.sh
     [[ -f "${pth_flow_1}" ]] && {
         . "${pth_flow_1}"
     }
@@ -157,7 +157,7 @@ local ARGS_1234cedfc=("${ARGS[@]}")
 }
 
 [[ -n "$2" && "_flow_2" == "$2" ]] && {
-    local pth_flow_1="$1"/.d/_flw/flow_2.sh
+    local pth_flow_2="$1"/.d/_tst/_flow_tst_v2.sh
     [[ -f "${pth_flow_2}" ]] && {
         . "${pth_flow_2}"
     }
@@ -165,7 +165,7 @@ local ARGS_1234cedfc=("${ARGS[@]}")
 }
 
 [[ -n "$2" && "_tst" == "$2" ]] && {
-    local pth_tst="$1"/.d/_tst/tst.sh
+    local pth_tst="$1"/.d/_tst/exec_n.tst
     [[ -f "${pth_tst}" ]] && {
         . "${pth_tst}"
     }

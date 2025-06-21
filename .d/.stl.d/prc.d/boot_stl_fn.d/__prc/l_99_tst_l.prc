@@ -59,6 +59,10 @@ for exec_tst_fl_pth in $(find ${tst_dir} -name exec.tst | sort); do
             echo '${STL_D_PATH}'/prc.d/boot_stl_fn.d/${FNN}.sh >${prn}/${lnm}.pth
         else
             l_00_echo_err "FAIL_EXEC :: '[[ -d ${tst_nm_dr}/${lnm} ]]' :: ret1=1"
+
+            l_00_echo_info "' file://${exec_tst_fl_pth} '"
+            l_00_echo_info "' file://${tst_nm_dr}/${lnm} '"
+
             ret1=1
         fi
 
