@@ -31,5 +31,11 @@ l_02_l2E (stdout l_xx catalog)
 ## Examples pth this
 ${HOME}/.d/.rc.d/.st.rc.d/.st.sh.d
 ${REPO_PATH}/plt/.d/.arb
-${REPO_PATH}/plt/.d/.sal.ax
+    /bsh.arb/git_reset__.ram
+${REPO_PATH}/plt/.d/.sal.ax 
+    /nm_opi_
 ${REPO_PATH}/st_rc_d/.d/.arb
+    /stl0.arb/ufl_stl0.ram
+             /site2d_stl0.ram
+             /png2jpg_stl0.ram
+
