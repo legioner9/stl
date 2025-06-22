@@ -25723,6 +25723,11 @@ CNTL:
     _flow_1     : tst _flow_1   : . ${tst_nm_dr}/${FNN}/_flow_tst_v1.sh
     _flow_2     : tst _flow_2   : . ${tst_nm_dr}/${FNN}/_flow_tst_v2.sh
 
+    for anum_prc_ifs:
+    [anum] _flow_1 - flow_1 anum_prc ${FNN} [anum]
+    [anum] _tst - test anum_prc ${FNN} [anum]
+    _tst_u - test all anum_prc ${FNN}
+
     _e_prc      : edit fn.prc   : l_02_edit ${prc_nm}
     _e_tst_dr   : edit tst_nm_dr: l_02_edit ${tst_nm_dr}
     _e_dta_dr   : edit dta_nm_dr: l_02_edit ${dta_nm_dr}
@@ -25732,6 +25737,12 @@ RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data |
 EXAM:   ${FNN} [, [, ]]
 see (${FNN} _flow_1)
 flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
+
+${FNN} [without args] - ls sb_dr od.d
+${FNN} _flow_1 - flow_1 functions ${FNN}
+${FNN} [anum] _flow_1 - flow_1 procedure in ${FNN} [anum]
+${FNN} [anum] _tst - test procedure in ${FNN} [anum]
+${FNN} _tst_u - test all procedure in ${FNN}
 "
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 0
@@ -28844,6 +28855,20 @@ for exec_tst_fl_pth in $(find ${tst_dir} -name exec.tst | sort); do
     fi
 done
 
+#! TREAT anum_prc_tst_u_sh.lst
+local _tst_u=
+
+for _tst_u in $(l_02_f2e ${dta_nm_dr}/.lst/anum_prc_tst_u_sh.lst); do
+    l_00_echo_info "'\$_tst_u = file://$_tst_u'"
+    [[ -f "$_tst_u" ]] && {
+        . "$_tst_u" || {
+            l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE ' . file://$item ' where '\$3=$3' ret1=1"
+            cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+            ret1=1
+        }
+    }
+done
+
 [[ 0 -eq "${ret1}" ]] && {
     l_00_echo_sys "gig file ${fn_dr}/__res/l.sh"
     local item=
@@ -28872,4 +28897,4 @@ done
 }
 
 #! SELF EXEC
-l_99_tst_l @
+# l_99_tst_l @

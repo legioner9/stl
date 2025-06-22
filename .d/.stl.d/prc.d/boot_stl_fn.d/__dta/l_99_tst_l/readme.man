@@ -1,0 +1,2 @@
+# man for fn_nm[_XXX] dta dr 
+## RND - this.rnd

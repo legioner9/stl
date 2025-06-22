@@ -209,6 +209,20 @@ for exec_tst_fl_pth in $(find ${tst_dir} -name exec.tst | sort); do
     fi
 done
 
+#! TREAT anum_prc_tst_u_sh.lst
+local _tst_u=
+
+for _tst_u in $(l_02_f2e ${dta_nm_dr}/.lst/anum_prc_tst_u_sh.lst); do
+    l_00_echo_info "'\$_tst_u = file://$_tst_u'"
+    [[ -f "$_tst_u" ]] && {
+        . "$_tst_u" || {
+            l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE ' . file://$item ' where '\$3=$3' ret1=1"
+            cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+            ret1=1
+        }
+    }
+done
+
 [[ 0 -eq "${ret1}" ]] && {
     l_00_echo_sys "gig file ${fn_dr}/__res/l.sh"
     local item=
@@ -237,4 +251,4 @@ done
 }
 
 #! SELF EXEC
-l_99_tst_l @
+# l_99_tst_l @
