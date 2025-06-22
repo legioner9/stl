@@ -71,8 +71,12 @@ __XXX_RND_flow_1() {
     # second_str:eerfre
     # EOF
 
+    #! check anum _XXX sb_dr self :
     #*--------
-
+    l_04_ix7od 0 "comment for : " a2 a3 <<EOF
+first_str xcdswa
+    second_str eerfre
+EOF
     #*--------
 
     #! rm abs_path

@@ -72,7 +72,7 @@ _l_04_ix7od_4239b81_flow_1() {
     #     l_04_ix7od <<<"here_str_::_fifth_str" &>>"${res}"
 
     #*--------
-
+    l_04_ix7od 0 _flow_1
     #*--------
 
     #! rm abs_path

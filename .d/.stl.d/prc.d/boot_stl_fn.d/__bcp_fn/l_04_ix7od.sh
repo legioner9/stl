@@ -139,7 +139,7 @@ l_04_ix7od() {
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: fix arg for l_03_ixod : \$1 - anum sub_dr from \${dta_nm_dr}/od.d
 TAGS:
 without args exec [see] :: {l_02_od2o \${dta_nm_dr}/od.d}
 \$1 
@@ -236,7 +236,7 @@ fi
 # [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_23edew
 
 [[ -n "$1" ]] || {
-    l_02_od2o \${dta_nm_dr}/od.d
+    l_02_od2o "${dta_nm_dr}"/od.d
     return 0
 }
 
@@ -246,11 +246,11 @@ fi
 #     return 1
 # }
 
-# l_01_is_od "$2" || {
-#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '${2}' where '\$2=$2' return 1"
-#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-#     return 1
-# }
+l_01_is_od "$1" || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '${1}' where '\$1=$1' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
 
 # [[ -f "$3" ]] || {
 #     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${3}' where '\$3=$3' return 1"
@@ -293,6 +293,15 @@ fi
 # local dta_tml=${dta_nm_dr}/.tml
 
 #! other args "${ARGS[@]:2}" -> ${ARGS[2]} ${ARGS[3]} ... 
+
+
+local elg_dr=$(l_02_dd2e ${dta_nm_dr}/od.d | l_03_ibu "$1")
+
+[[ -n "${elg_dr}" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: elegendy EMPTY '\${elg_dr}' where '\$1=$1' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
 
     #* END fn block ------------------
 

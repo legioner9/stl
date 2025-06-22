@@ -95,7 +95,7 @@ fi
 #* define local variables
 
 #! echo ARGS
-# local ARG_23edew=("${ARGS[@]}")
+local ARGS_1266dfc=("${ARGS[@]}")
 # [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_23edew
 
 [[ -n "$1" ]] || {
@@ -120,8 +120,6 @@ l_01_is_od "$1" || {
 #     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
 #     return 1
 # }
-
-
 
 # local line=
 # read -t 0.0002 - timeout
@@ -155,13 +153,16 @@ l_01_is_od "$1" || {
 # local dta_lst=${dta_nm_dr}/.lst
 # local dta_tml=${dta_nm_dr}/.tml
 
-#! other args "${ARGS[@]:2}" -> ${ARGS[2]} ${ARGS[3]} ... 
+#! other args "${ARGS[@]:2}" -> ${ARGS[2]} ${ARGS[3]} ...
 
+local elg_dr_nm=$(l_02_dd2e ${dta_nm_dr}/od.d | l_03_ibu "$1")
 
-local elg_dr=$(l_02_dd2e ${dta_nm_dr}/od.d | l_03_ibu "$1")
-
-[[ -n "${elg_dr}" ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: elegendy EMPTY '\${elg_dr}' where '\$1=$1' return 1"
+[[ -n "${elg_dr_nm}" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: elegendy EMPTY '\${elg_dr_nm}' where '\$1=$1' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }
+
+local elg_dr_pth="${dta_nm_dr}/od.d/${elg_dr_nm}"
+
+l_03_ixod ${elg_dr_pth} "${ARGS[@]:1}"

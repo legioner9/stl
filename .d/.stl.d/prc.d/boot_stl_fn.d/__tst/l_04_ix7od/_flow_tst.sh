@@ -78,11 +78,11 @@ _l_04_ix7od_4239b81_flow() {
     #     l_04_ix7od <<<"here_str_::_fifth_str" &>>"${res}"
 
     #*--------
-    
+    l_04_ix7od 0 _flow_1 &>>"${res}"
     #*--------
 
     #! rm abs_path
-    # l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
+    l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
 
     #! TREAT IF NEED [l]ast [e]mpty [s]tring "${res}"
     # l_01_les2f "${res}"

@@ -78,7 +78,10 @@ _001.tst_151adc5_flow() {
     # EOF
 
     #*--------
-
+    l_04_ix7od 0 "comment for : " a2 a3 <<EOF &>>"${res}"
+first_str xcdswa
+    second_str eerfre
+EOF
     #*--------
 
     #! rm abs_path

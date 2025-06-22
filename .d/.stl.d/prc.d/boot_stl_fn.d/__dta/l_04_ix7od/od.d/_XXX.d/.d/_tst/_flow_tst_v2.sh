@@ -70,7 +70,7 @@ __XXX_RND_flow_1() {
     # first_str:xcdswa
     # second_str:eerfre
     # EOF
-
+    #! check anum _XXX sb_dr self :
     #*--------
 
     #*--------

@@ -71,8 +71,11 @@ _l_04_ix7od_4239b81_flow_1() {
     #     echo "HERE_STR:"
     #     l_04_ix7od <<<"here_str_::_fifth_str" &>>"${res}"
 
+    #! check ANY : that anum 001 sb_dr self :
     #*--------
-
+    l_04_ix7od 0 _flow_1
+    l_04_ix7od 0 _flow_2
+    l_04_ix7od 0 _tst
     #*--------
 
     #! rm abs_path
