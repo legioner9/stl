@@ -2,9 +2,9 @@
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: fix arg for l_03_ixod : \$1 - anum sub_dr from \${dta_nm_dr}/od.d
 TAGS:
-without args exec [see] :: {}
+without args exec [see] :: {l_02_od2o \${dta_nm_dr}/od.d}
 \$1 
 [, \$2]
 FLOW:   [if 
@@ -98,10 +98,10 @@ fi
 # local ARG_23edew=("${ARGS[@]}")
 # [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_23edew
 
-# [[ -n "$1" ]] || {
-#     l_02_od2o ${dta_nm_dr}/od.d
-#     return 0
-# }
+[[ -n "$1" ]] || {
+    l_02_od2o "${dta_nm_dr}"/od.d
+    return 0
+}
 
 # [[ -n "$1" ]] || {
 #     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$1' return 1"
