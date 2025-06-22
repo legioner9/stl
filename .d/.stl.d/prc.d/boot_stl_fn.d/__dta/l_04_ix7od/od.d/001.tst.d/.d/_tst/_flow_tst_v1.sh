@@ -65,14 +65,11 @@ _001.tst_151adc5_flow_1() {
 
     #     echo "HERE_STR:"
     #     001.tst <<<"here_str_::_fifth_str" &>>"${res}"
-
-    #     l_03_ixod ${prt_od}/001.tst.d ":" a2 a3 <<EOF
-    # first_str:xcdswa
-    # second_str:eerfre
-    # EOF
-
     #*--------
-
+    l_03_ixod ${prt_od}/001.tst.d ":" a2 a3 <<EOF
+first_str:xcdswa
+second_str:eerfre
+EOF
     #*--------
 
     #! rm abs_path

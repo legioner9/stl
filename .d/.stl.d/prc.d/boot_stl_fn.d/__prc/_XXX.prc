@@ -155,4 +155,6 @@ fi
 # local dta_lst=${dta_nm_dr}/.lst
 # local dta_tml=${dta_nm_dr}/.tml
 
-#! other args "${ARGS[@]:2}" -> ${ARGS[2]} ${ARGS[3]} ... 
+#! after $1, $2 : other args "${ARGS[@]:2}" -> ${ARGS[2]} ${ARGS[3]} ... 
+
+

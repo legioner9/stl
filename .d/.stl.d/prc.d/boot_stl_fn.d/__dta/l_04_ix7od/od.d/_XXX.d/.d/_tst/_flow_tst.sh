@@ -72,7 +72,7 @@ __XXX_RND_flow() {
     #     echo "HERE_STR:"
     #     _XXX <<<"here_str_::_fifth_str" &>>"${res}"
 
-    #     l_03_ixod ${prt_od}/_XXX.d ":" a2 a3 <<EOF &>>"${res}"
+    #     l_04_ix7od ${prt_od}/_XXX.d ":" a2 a3 <<EOF &>>"${res}"
     # first_str:xcdswa
     # second_str:eerfre
     # EOF
