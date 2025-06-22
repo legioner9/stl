@@ -17,6 +17,7 @@ __XXX_RND_flow_1() {
     # fi
 
     local filename={{path_dir}}/_XXX.d/.d/_tst/_flow_tst_v1.sh
+    local prt_od={{path_dir}}
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -30,8 +31,8 @@ __XXX_RND_flow_1() {
 
     local NARGS=$#
 
-    cd "${idir}" || {
-        l_00_echo_ret1 "${idir} not dir"
+    cd "${prt_od}" || {
+        l_00_echo_ret1 "${prt_od} not dir"
         return 1
     }
 
@@ -39,12 +40,6 @@ __XXX_RND_flow_1() {
     #?-------------------------------------
     l_00_echo_exec "source file://$filename"
     : >"${res}"
-
-    cd tst_dir || {
-        hint="\$1: \$2: "
-        l_00_echo_ret1 "in fs= file://${filename} , line=${LINENO}, ${FNN}() : NOT_DIR : 'file://${idir}/_dir_tst' : ${hint} : return 1"
-        return 1
-    }
 
     # _XXX "${tst_dir}" &>>"${res}"
 
@@ -70,6 +65,11 @@ __XXX_RND_flow_1() {
 
     #     echo "HERE_STR:"
     #     _XXX <<<"here_str_::_fifth_str" &>>"${res}"
+
+    #     l_03_ixod ${prt_od}/_XXX.d ":" a2 a3 <<EOF
+    # first_str:xcdswa
+    # second_str:eerfre
+    # EOF
 
     #*--------
 

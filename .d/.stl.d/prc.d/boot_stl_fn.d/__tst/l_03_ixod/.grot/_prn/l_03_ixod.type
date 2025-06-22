@@ -167,7 +167,7 @@ flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
         return 0
     };
     [[ -n "$2" && "_tst" == "$2" ]] && { 
-        local pth_tst="$1"/.d/_tst/exec.tst;
+        local pth_tst="$1"/.d/_tst/exec_n.tst;
         [[ -f "${pth_tst}" ]] && { 
             . "${pth_tst}"
         };

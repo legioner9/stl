@@ -21384,7 +21384,7 @@ local ARGS_1234cedfc=("${ARGS[@]}")
 }
 
 [[ -n "$2" && "_tst" == "$2" ]] && {
-    local pth_tst="$1"/.d/_tst/exec.tst
+    local pth_tst="$1"/.d/_tst/exec_n.tst
     [[ -f "${pth_tst}" ]] && {
         . "${pth_tst}"
     }

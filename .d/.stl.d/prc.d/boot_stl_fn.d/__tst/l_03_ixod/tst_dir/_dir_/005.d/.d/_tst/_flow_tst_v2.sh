@@ -7,7 +7,7 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_005_c76c177_flow_1() {
+_005_48b25bc_flow_1() {
 
     unset IFS
 
@@ -17,6 +17,7 @@ _005_c76c177_flow_1() {
     # fi
 
     local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_03_ixod/tst_dir/_dir_/005.d/.d/_tst/_flow_tst_v2.sh
+    local prt_od=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_03_ixod/tst_dir/_dir_
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -30,8 +31,8 @@ _005_c76c177_flow_1() {
 
     local NARGS=$#
 
-    cd "${idir}" || {
-        l_00_echo_ret1 "${idir} not dir"
+    cd "${prt_od}" || {
+        l_00_echo_ret1 "${prt_od} not dir"
         return 1
     }
 
@@ -39,12 +40,6 @@ _005_c76c177_flow_1() {
     #?-------------------------------------
     l_00_echo_exec "source file://$filename"
     : >"${res}"
-
-    cd tst_dir || {
-        hint="\$1: \$2: "
-        l_00_echo_ret1 "in fs= file://${filename} , line=${LINENO}, ${FNN}() : NOT_DIR : 'file://${idir}/_dir_tst' : ${hint} : return 1"
-        return 1
-    }
 
     # 005 "${tst_dir}" &>>"${res}"
 
@@ -71,6 +66,11 @@ _005_c76c177_flow_1() {
     #     echo "HERE_STR:"
     #     005 <<<"here_str_::_fifth_str" &>>"${res}"
 
+    #     l_03_ixod ${prt_od}/005.d ":" a2 a3 <<EOF
+    # first_str:xcdswa
+    # second_str:eerfre
+    # EOF
+
     #*--------
 
     #*--------
@@ -91,4 +91,4 @@ _005_c76c177_flow_1() {
 
 }
 
-_005_c76c177_flow_1 "$@"
+_005_48b25bc_flow_1 "$@"

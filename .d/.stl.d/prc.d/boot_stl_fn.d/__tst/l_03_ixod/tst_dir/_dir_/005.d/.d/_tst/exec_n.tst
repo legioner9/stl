@@ -7,7 +7,7 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_005_c76c177_exec() {
+_005_48b25bc_exec() {
 
     unset IFS
 
@@ -30,7 +30,8 @@ _005_c76c177_exec() {
         return 1
     }
 
-    . "$idir"/_flow_tst.sh &>/dev/null
+    # . "$idir"/_flow_tst.sh &>/dev/null
+    . "$idir"/_flow_tst.sh 
 
     #? if res, pre dirs -> diff -qr | diff -r
 
@@ -55,7 +56,7 @@ _005_c76c177_exec() {
 
 }
 
-if ! _005_c76c177_exec "$@"; then
-    l_00_echo_ret1 "EXEC_FAIL for fuction : '_005_c76c177_exec' : GOTO file://${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/005 : return 1"
+if ! _005_48b25bc_exec "$@"; then
+    l_00_echo_ret1 "EXEC_FAIL for fuction : '_005_48b25bc_exec' : GOTO file://${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/005 : return 1"
     return 1
 fi
