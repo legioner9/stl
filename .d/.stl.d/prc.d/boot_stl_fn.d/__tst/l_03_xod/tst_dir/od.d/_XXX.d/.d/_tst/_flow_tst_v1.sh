@@ -7,16 +7,17 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_l_04_ix7od_4239b81_flow_1() {
+__XXX_RND_flow_1() {
 
     unset IFS
 
-    if ! command -v l_04_ix7od >/dev/null; then
-        l_00_echo_ret1 "TYPE_ERROR : l_04_ix7od"
-        return 1
-    fi
+    # if ! command -v _XXX >/dev/null; then
+    #     l_00_echo_ret1 "TYPE_ERROR : _XXX"
+    #     return 1
+    # fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_04_ix7od/_flow_tst_v1.sh
+    local filename={{path_dir}}/_XXX.d/.d/_tst/_flow_tst_v1.sh
+    local prt_od={{path_dir}}
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -30,8 +31,8 @@ _l_04_ix7od_4239b81_flow_1() {
 
     local NARGS=$#
 
-    cd "${idir}" || {
-        l_00_echo_ret1 "${idir} not dir"
+    cd "${prt_od}" || {
+        l_00_echo_ret1 "${prt_od} not dir"
         return 1
     }
 
@@ -40,13 +41,7 @@ _l_04_ix7od_4239b81_flow_1() {
     l_00_echo_exec "source file://$filename"
     : >"${res}"
 
-    cd tst_dir || {
-        hint="\$1: \$2: "
-        l_00_echo_ret1 "in fs= file://${filename} , line=${LINENO}, ${FNN}() : NOT_DIR : 'file://${idir}/_dir_tst' : ${hint} : return 1"
-        return 1
-    }
-
-    # l_04_ix7od "${tst_dir}" &>>"${res}"
+    # _XXX "${tst_dir}" &>>"${res}"
 
     #! stdin_tst
     # : >FILE
@@ -57,26 +52,31 @@ _l_04_ix7od_4239b81_flow_1() {
     # EOF
 
     #     echo "FILE_ARG:"
-    #     l_04_ix7od FILE &>>"${res}"
+    #     _XXX FILE &>>"${res}"
 
     #     echo "FILE_PIPE:"
-    #     cat FILE | l_04_ix7od &>>"${res}"
+    #     cat FILE | _XXX &>>"${res}"
 
     #     echo "HERE_DOC:"
-    #     l_04_ix7od <<EOF &>>"${res}"
+    #     _XXX <<EOF &>>"${res}"
     # first_str
     # second_str
     # EOF
 
     #     echo "HERE_STR:"
-    #     l_04_ix7od <<<"here_str_::_fifth_str" &>>"${res}"
+    #     _XXX <<<"here_str_::_fifth_str" &>>"${res}"
 
-    #! check ANY : that anum 001 sb_dr self :
+    #     l_04_ix7od ${prt_od}/_XXX.d ":" a2 a3 <<EOF
+    # first_str:xcdswa
+    # second_str:eerfre
+    # EOF
+
+    #! check anum _XXX sb_dr self :
     #*--------
-    l_04_ix7od
-    l_04_ix7od 1 _flow_1
-    l_04_ix7od 1 _flow_2
-    l_04_ix7od 1 _tst
+    l_04_ix7od 0 "comment for : " a2 a3 <<EOF
+first_str xcdswa
+    second_str eerfre
+EOF
     #*--------
 
     #! rm abs_path
@@ -95,4 +95,4 @@ _l_04_ix7od_4239b81_flow_1() {
 
 }
 
-_l_04_ix7od_4239b81_flow_1 "$@"
+__XXX_RND_flow_1 "$@"
