@@ -233,6 +233,8 @@ fi
 
 #! echo ARGS
 eval "local ARG_$FNN=("\$\{ARGS[@]\}")"
+eval "local nARG_$FNN=("\$\{ARGS[@]:0:2\}")"
+eval "local oARG_$FNN=("\$\{ARGS[@]:2\}")"
 # [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_$FNN
 
 local dta_od_dd=${dta_nm_dr}/od.dd
@@ -308,6 +310,18 @@ local dir_point=${dir_chapt}/$(l_02_dd2e ${dir_chapt} | l_03_ibu "$2")
 # l_00_echo_info "'\$dir_point = file://$dir_point'"
 
 [[ -n "$3" ]] && {
+
+    [[ "_flow" == "$3" ]] && {
+        local flow=${dir_point}/.d/_tst/_flow_tst.sh
+        [[ -f "${flow}" ]] && {
+            . "${flow}" || {
+                l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE '. file://${flow}' where '\$3=$3' return 1"
+                cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+                return 1
+            }
+        }
+        return 0
+    }
 
     [[ "_flow_1" == "$3" ]] && {
         local flow_1=${dir_point}/.d/_tst/_flow_tst_v1.sh

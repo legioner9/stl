@@ -96,6 +96,8 @@ fi
 
 #! echo ARGS
 eval "local ARG_$FNN=("\$\{ARGS[@]\}")"
+eval "local nARG_$FNN=("\$\{ARGS[@]:0:2\}")"
+eval "local oARG_$FNN=("\$\{ARGS[@]:2\}")"
 # [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_$FNN
 
 local dta_od_dd=${dta_nm_dr}/od.dd

@@ -18,16 +18,16 @@ l_00_echo_exec ". file://$tml_dir_pth/xf.sh"
 # /_flow_tst_v2.sh
 # /ecec_n.tst
 
-local SFN="l_06_xds71 ${ARG_l_06_xds71[@]:0:2}"
+local SFN="l_06_xds71 ${nARG_l_06_xds71[@]}"
 
-l_00_echo_code "'${SFN} ${ARG_l_06_xds71[@]:2}' "
+l_00_echo_code "'${SFN} ${oARG_l_06_xds71[@]}' "
 
 [[ -n "${ARG_l_06_xds71[2]}" ]] && {
 
     [[ "${ARG_l_06_xds71[2]}" == "-h" ]] && {
         echo -e "
 MAIN: '${SFN}' :: 
-TAGS:
+TAGS: @ls
 without args exec [see] :: {}
 \$1 
 [, \$2]
@@ -58,16 +58,21 @@ CNTL:
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   '${SFN}' [, [, ]]
 see ('${SFN}' _flow_1)
-flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
+flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_06_xds71/_flow_tst_v1.sh :
     "
         return 0
     }
 }
 
-l_02_pa3e ARG_l_06_xds71
-l_02_pa3e ARG_l_04_od7xfv
+# l_02_pa3e ARG_l_06_xds71
+# l_02_pa3e ARG_l_04_od7xfv
+[[ -n "${nARG_l_06_xds71[0]}" ]] && l_02_pa3e nARG_l_06_xds71
+[[ -n "${oARG_l_06_xds71[0]}" ]] && l_02_pa3e oARG_l_06_xds71
+
 
 #? START procedure ========================================
-# l_00_echo_code "'ls -A ${ARG_l_06_xds71[@]:2}' in 'pwd=$(pwd)'"
-# ls -A "${ARG_l_06_xds71[@]:2}"
+# l_00_echo_code "'ls -A ${oARG_l_06_xds71[@]}' in 'pwd=$(pwd)'"
+# ls -A "${oARG_l_06_xds71[@]}"
 #? END procedure ========================================
+
+:

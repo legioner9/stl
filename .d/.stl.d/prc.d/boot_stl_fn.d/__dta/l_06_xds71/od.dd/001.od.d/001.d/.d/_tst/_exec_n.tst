@@ -7,7 +7,7 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_001_871978e_exec() {
+_001_88dd936_exec() {
 
     unset IFS
 
@@ -55,7 +55,7 @@ _001_871978e_exec() {
 
 }
 
-if ! _001_871978e_exec "$@"; then
-    l_00_echo_ret1 "EXEC_FAIL for fuction : '_001_871978e_exec' : GOTO file://${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/001 : return 1"
+if ! _001_88dd936_exec "$@"; then
+    l_00_echo_ret1 "EXEC_FAIL for fuction : '_001_88dd936_exec' : GOTO file://${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/001 : return 1"
     return 1
 fi

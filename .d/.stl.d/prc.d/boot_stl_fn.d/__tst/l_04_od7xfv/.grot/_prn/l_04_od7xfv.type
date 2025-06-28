@@ -141,6 +141,8 @@ flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
         return 0;
     fi;
     eval "local ARG_$FNN=("\$\{ARGS[@]\}")";
+    eval "local nARG_$FNN=("\$\{ARGS[@]:0:2\}")";
+    eval "local oARG_$FNN=("\$\{ARGS[@]:2\}")";
     [[ -n "$2" ]] || { 
         l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$2' return 1";
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
