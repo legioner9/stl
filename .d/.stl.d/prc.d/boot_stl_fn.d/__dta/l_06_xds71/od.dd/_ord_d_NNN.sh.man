@@ -1,0 +1,16 @@
+# create empty [nnn].od.d -> [N] chapt at ilst l_06_xds71
+
+    . _ord_d_NNN.sh [nnn]
+
+## create [nnn].od.d/001.d -> [N] chapt [0] point at list l_06_xds71
+
+    . [nnn].od.d/_ord_NNN.sh 001
+
+## check work - uncomment any nm_ 
+    
+    l_06_xds71 [N] 0
+    l_06_xds71 [N] 0 _flow_1
+    l_06_xds71 [N] 0 _tst
+
+
+

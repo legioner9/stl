@@ -7,8 +7,8 @@
 
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # ${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_03_ixod/tst_dir/_dir_/_ord_tst_dir_for_NNN.sh
-# REPOBARE/_repo/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__dta/l_06_xds71/od.dd/_ord_d_NNN.sh
-echo -e "${CYAN}--- _ord_tst_dir_for_l_xx_rnd7_9caabeb() $* in file://${STL_D_PATH}/prc.d/boot_stl_fn.d/__dta/l_06_xds71/od.dd/_ord_d_NNN.sh ---${NORMAL}" #started functions
+# REPOBARE/_repo/stl/.d/.stl.d/prc.d/boot_stl_fn.d/__dta/l_06_xds71/od.dd/002.od.d/_ord_NNN.sh
+echo -e "${CYAN}--- _ord_tst_dir_for_l_xx_rnd7_9caabeb() $* in file://${STL_D_PATH}/prc.d/boot_stl_fn.d/__dta/l_06_xds71/od.dd/_YYY.od.d/_ord_NNN.sh ---${NORMAL}" #started functions
 
 _ord_tst_dir_for_NNN_rnd7_95gabeb() {
 
@@ -19,7 +19,7 @@ _ord_tst_dir_for_NNN_rnd7_95gabeb() {
     local NARGS=$#
     local PPWD=$PWD
 
-    local path_file="${STL_D_PATH}/prc.d/boot_stl_fn.d/__dta/l_06_xds71/od.dd/_ord_d_NNN.sh"
+    local path_file="${STL_D_PATH}/prc.d/boot_stl_fn.d/__dta/l_06_xds71/od.dd/_YYY.od.d/_ord_NNN.sh"
     local path_dir="$(dirname "$path_file")"
 
     # echo -e "${CYAN}--- $FNN() $* in file://${path_file}---${NORMAL}" #started functions
@@ -88,7 +88,7 @@ ${NORMAL}"
         return 1
     }
 
-    local odd_ddr=${path_dir}
+    local od_ddr=${path_dir}
 
     local ddr_num="$1"
 
@@ -96,28 +96,28 @@ ${NORMAL}"
 
     cd ${od_ddr} || return 1
 
-    l_01_is_yes "ord ${ddr_num}.od.d in ${odd_ddr}?" && {
+    l_01_is_yes "ord ${ddr_num}.d in ${od_ddr}?" && {
 
         # echo "l_03_sd2d _XXX ${fn_name} file://${path_dir}/_XXX"
-        l_03_sd2d _YYY ${ddr_num} ${path_dir}/_YYY.od.d || {
-            l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC 'l_03_sd2d XXX ${ddr_num} ${path_dir}/_XXX' : ${hint} : return 1"
+        l_03_sd2d _XXX ${ddr_num} ${path_dir}/_XXX.d || {
+            l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC 'l_03_sd2d _XXX ${ddr_num} ${path_dir}/_XXX.d  : ${hint} : return 1"
             return 1
         }
         # echo "l_03_s2Ad RND ${rnd:0:7} file://${path_dir}/${fn_name}"
-        # l_03_s2Ad ${rnd:0:7} RND ${path_dir}/${ddr_num}.od.d || {
-        #     l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC 'l_03_s2Ad XXX ${ddr_num} ${path_dir}/${ddr_num}' : ${hint} : return 1"
-        #     return 1
-        # }
+        l_03_s2Ad ${rnd:0:7} RND ${path_dir}/${ddr_num}.d || {
+            l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC 'l_03_s2Ad ${rnd:0:7} RND ${path_dir}/${ddr_num}.d' : ${hint} : return 1"
+            return 1
+        }
 
-        # l_03_s2Ad "${path_dir}" "{{path_dir}}" "${path_dir}/${ddr_num}".od.d || {
-        #     l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC 'l_03_s2Ad XXX ${ddr_num} ${path_dir}/${ddr_num}' : ${hint} : return 1"
-        #     return 1
-        # }
+        l_03_s2Ad "${path_dir}" "{{path_dir}}" "${path_dir}/${ddr_num}".d || {
+            l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC 'l_03_s2Ad ${path_dir} {{path_dir}} ${path_dir}/${ddr_num}.d' : ${hint} : return 1"
+            return 1
+        }
 
-        # l_03_s2Ad '${STL_D_PATH}' "${STL_D_PATH}" "${path_dir}/${ddr_num}".od.d || {
-        #     l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC 'l_03_s2Ad XXX ${ddr_num} ${path_dir}/${ddr_num}' : ${hint} : return 1"
-        #     return 1
-        # }
+        l_03_s2Ad '${STL_D_PATH}' "${STL_D_PATH}" "${path_dir}/${ddr_num}".d || {
+            l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC 'l_03_s2Ad '${STL_D_PATH}' ${STL_D_PATH} ${path_dir}/${ddr_num}.d' : ${hint} : return 1"
+            return 1
+        }
 
     }
     #{{body_fn}}
