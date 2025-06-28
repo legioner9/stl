@@ -1,18 +1,14 @@
 #!/bin/bash
-l_00_echo_exec ". file://${tml_dir_pth}/xf.sh"
 
-# ${HOME} global variable
-# first free arg ARGS[2] is $3 from l_04_od8xfv
-# $PPWD from clothure of l_02_ixfv
-# num from pre_exec_file
-# echo file://$(pwd)/"${line}"
+: >$tml_dir_pth/u.1
 
-local ARG_23edew=("${ARGS[@]}")
-[[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_23edew
+# ${ARG_l_04_od7xfv[@]} args l_04_od7xfv
+# ${ARG_l_06_xds71[@]} args l_06_xds71
 
-: >${tml_dir_pth}/u.1
-# l_00_echo_code "ls -A ${ARGS[2]} :: " | tee -a ${tml_dir_pth}/u.1
-l_00_echo_code "ls -A ${ARGS[@]:2} :: " | tee -a ${tml_dir_pth}/u.1
-ls -A "${ARGS[2]}" | tee -a ${tml_dir_pth}/u.1
-# echo "${num} : ${ARGS[2]}${line}"
-# num=$((num + 1))
+l_02_pa3e ARG_l_06_xds71
+l_02_pa3e ARG_l_04_od7xfv
+
+l_00_echo_exec ". file://$tml_dir_pth/xf.sh"
+
+l_00_echo_code "'ls -A ${ARG_l_06_xds71[@]:2}' in 'pwd=$(pwd)'" >>$tml_dir_pth/u.1
+ls -A "${ARG_l_06_xds71[@]:2}" >>$tml_dir_pth/u.1

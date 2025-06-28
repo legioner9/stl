@@ -7,19 +7,17 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_l_06_xds71_0b94ae5_flow() {
+__XXX_RND_flow_1() {
 
     unset IFS
 
-    local PW=$(pwd)
+    # if ! command -v _XXX >/dev/null; then
+    #     l_00_echo_ret1 "TYPE_ERROR : _XXX"
+    #     return 1
+    # fi
 
-    if ! command -v l_06_xds71 >/dev/null; then
-        l_00_echo_ret1 "TYPE_ERROR : l_06_xds71"
-        cd $PW
-        return 1
-    fi
-
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_06_xds71/_flow_tst.sh
+    local filename={{path_dir}}/_XXX.d/.d/_tst/_flow_tst_v2.sh
+    local prt_od={{path_dir}}
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -33,58 +31,53 @@ _l_06_xds71_0b94ae5_flow() {
 
     local NARGS=$#
 
-    cd "${idir}" || {
+   cd "${idir}" || {
         l_00_echo_ret1 "${idir} not dir"
         return 1
     }
-
     #?----------------------------------------------------
     #?-------------------------------------
-
     l_00_echo_exec "source file://$filename"
-
-    #! if stdout to ${res} only in this file - NOT in exec.tst
     : >"${res}"
 
-    cd tst_dir || {
-        hint="\$1: \$2: "
-        l_00_echo_ret1 "in fs= file://${filename} , line=${LINENO}, ${FNN}() : NOT_DIR : 'file://${idir}/_dir_tst' : ${hint} : return 1"
-        return 1
-    }
-
-    # l_06_xds71 "${tst_dir}" &>>"${res}"
+    # _XXX "${tst_dir}" &>>"${res}"
 
     #! stdin_tst
-    #         echo "!STRING_AS_WORD!"
     # : >FILE
+    #         echo "!STRING_AS_WORD!"
     #     cat >FILE <<EOF
     # third_str
     # fourth_str
     # EOF
 
     #     echo "FILE_ARG:"
-    #     l_06_xds71 FILE &>>"${res}"
+    #     _XXX FILE &>>"${res}"
 
     #     echo "FILE_PIPE:"
-    #     cat FILE | l_06_xds71 &>>"${res}"
+    #     cat FILE | _XXX &>>"${res}"
 
     #     echo "HERE_DOC:"
-    #     l_06_xds71 <<EOF &>>"${res}"
+    #     _XXX <<EOF &>>"${res}"
     # first_str
     # second_str
     # EOF
 
     #     echo "HERE_STR:"
-    #     l_06_xds71 <<<"here_str_::_fifth_str" &>>"${res}"
+    #     _XXX <<<"here_str_::_fifth_str" &>>"${res}"
 
+    #     l_06_xds71 ${prt_od}/_XXX.d ":" a2 a3 <<EOF
+    # first_str:xcdswa
+    # second_str:eerfre
+    # EOF
+    #! check anum _XXX sb_dr self :
     #*--------
-    # l_06_xds71 0 0 _dir_ &>>"${res}"
+
     #*--------
 
     #! rm abs_path
     # l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "${res}"
 
-    #! TREAT IF NEED [l]ast [e]mpty [s]tring "${res}"
+    #! TREAT IF NEED "${res}"
     # l_01_les2f "${res}"
 
     #?-------------------------------------
@@ -97,4 +90,4 @@ _l_06_xds71_0b94ae5_flow() {
 
 }
 
-_l_06_xds71_0b94ae5_flow "$@"
+__XXX_RND_flow_1 "$@"

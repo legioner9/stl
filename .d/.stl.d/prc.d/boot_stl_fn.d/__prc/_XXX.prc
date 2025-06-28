@@ -95,8 +95,8 @@ fi
 #* define local variables
 
 #! echo ARGS
-# local ARG_23edew=("${ARGS[@]}")
-# [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_23edew
+# eval "local ARG_$FNN=("\$\{ARGS[@]\}")"
+# [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_$FNN
 
 # [[ -n "$1" ]] || {
 #     l_02_od2o ${dta_nm_dr}/od.d

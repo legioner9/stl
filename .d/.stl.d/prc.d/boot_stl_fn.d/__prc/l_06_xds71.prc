@@ -56,7 +56,7 @@ fi
 # fi
 
 #! stdout fn introduction
-echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 #     #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
 #     local di=
@@ -95,8 +95,8 @@ echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 #* define local variables
 
 #! echo ARGS
-# local ARG_23edew=("${ARGS[@]}")
-# [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_23edew
+eval "local ARG_$FNN=("\$\{ARGS[@]\}")"
+# [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_$FNN
 
 local dta_od_dd=${dta_nm_dr}/od.dd
 
@@ -104,7 +104,6 @@ local dta_od_dd=${dta_nm_dr}/od.dd
     l_03_odd2no ${dta_od_dd}
     return 0
 }
-
 
 [[ -n "$2" ]] || {
     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$2' return 1"
@@ -132,8 +131,6 @@ l_01_is_od "$2" || {
 #     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
 #     return 1
 # }
-
-
 
 # local line=
 # read -t 0.0002 - timeout
@@ -173,6 +170,44 @@ local dir_chapt=${dta_od_dd}/$(l_02_dd2e ${dta_od_dd} | l_03_ibu "$1")
 local dir_point=${dir_chapt}/$(l_02_dd2e ${dir_chapt} | l_03_ibu "$2")
 # l_00_echo_info "'\$dir_point = file://$dir_point'"
 
-l_04_od7xfv ${dir_chapt} ${2} "${ARGS[@]:2}">/dev/null
+[[ -n "$3" && "_flow_1" == "$3" ]] && {
+    local flow_1=${dir_point}/.d/_tst/_flow_tst_v1.sh
+    [[ -f "${flow_1}" ]] && {
+        . "${flow_1}" || {
+            l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE '. file://${flow_1}' where '\$3=$3' return 1"
+            cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+            return 1
+        }
+    }
+    return 0
+}
+
+[[ -n "$3" && "_flow_2" == "$3" ]] && {
+    local flow_2=${dir_point}/.d/_tst/_flow_tst_v2.sh
+    [[ -f "${flow_2}" ]] && {
+        . "${flow_2}" || {
+            l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE '. file://${flow_2}' where '\$3=$3' return 1"
+            cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+            return 1
+        }
+    }
+    return 0
+}
+
+[[ -n "$3" && "_tst" == "$3" ]] && {
+    local _tst=${dir_point}/.d/_tst/exec_n.tst
+    [[ -f "${_tst}" ]] && {
+        . "${_tst}" || {
+            l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE '. file://${_tst}' where '\$3=$3' return 1"
+            cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+            return 1
+        }
+    }
+    return 0
+}
+
+l_04_od7xfv "${dir_chapt}" "${2}" "${ARGS[@]:2}" >/dev/null
+
+# l_04_od7xfv "${dir_chapt}" "${2}" "${ARGS[@]:2}"
 
 cat ${dir_point}/u.1
