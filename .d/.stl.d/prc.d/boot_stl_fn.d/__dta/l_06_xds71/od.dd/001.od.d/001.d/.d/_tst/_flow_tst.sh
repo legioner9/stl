@@ -7,7 +7,7 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_001_de47735_flow() {
+_001_871978e_flow() {
 
     unset IFS
 
@@ -19,8 +19,8 @@ _001_de47735_flow() {
     #     return 1
     # fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__dta/l_06_xds71/od.dd/002.od.d/001.d/.d/_tst/_flow_tst.sh
-    local prt_od=${STL_D_PATH}/prc.d/boot_stl_fn.d/__dta/l_06_xds71/od.dd/002.od.d
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__dta/l_06_xds71/od.dd/001.od.d/001.d/.d/_tst/_flow_tst.sh
+    local prt_od=${STL_D_PATH}/prc.d/boot_stl_fn.d/__dta/l_06_xds71/od.dd/001.od.d
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -98,4 +98,4 @@ _001_de47735_flow() {
 
 }
 
-_001_de47735_flow "$@"
+_001_871978e_flow "$@"

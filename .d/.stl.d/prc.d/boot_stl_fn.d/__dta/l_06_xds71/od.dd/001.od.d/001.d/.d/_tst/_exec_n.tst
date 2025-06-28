@@ -7,7 +7,7 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_001_de47735_exec() {
+_001_871978e_exec() {
 
     unset IFS
 
@@ -18,7 +18,7 @@ _001_de47735_exec() {
     #     return 1
     # fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__dta/l_06_xds71/od.dd/002.od.d/001.d/.d/_tst/exec_n.tst
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__dta/l_06_xds71/od.dd/001.od.d/001.d/.d/_tst/exec_n.tst
     local idir="$(dirname ${filename})"
 
     l_00_echo_info "test function 001 in file://${filename}"
@@ -55,7 +55,7 @@ _001_de47735_exec() {
 
 }
 
-if ! _001_de47735_exec "$@"; then
-    l_00_echo_ret1 "EXEC_FAIL for fuction : '_001_de47735_exec' : GOTO file://${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/001 : return 1"
+if ! _001_871978e_exec "$@"; then
+    l_00_echo_ret1 "EXEC_FAIL for fuction : '_001_871978e_exec' : GOTO file://${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/001 : return 1"
     return 1
 fi

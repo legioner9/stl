@@ -26485,12 +26485,12 @@ l_01_is_od "$arg_2" || {
 local ptr_path_1="$1"
 ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
 
-l_00_echo_gras "${FNN} \$1 :: 'dir_with_dirs = file://$ptr_path_1 '"
-l_00_echo_gras "${FNN} \$2 :: '7num (anum) = $arg_2'"
+# l_00_echo_gras "${FNN} \$1 :: 'dir_with_dirs = file://$ptr_path_1 '"
+# l_00_echo_gras "${FNN} \$2 :: '7num (anum) = $arg_2'"
 
 local tml_dir_pth="${ptr_path_1}/$(l_02_dd2e "${ptr_path_1}" | l_03_ibu "$arg_2")"
 
-l_00_echo_gras "${FNN}[choiced dir]{} :: 'tml_dir_pth = file://$tml_dir_pth '"
+# l_00_echo_gras "${FNN}[choiced dir]{} :: 'tml_dir_pth = file://$tml_dir_pth '"
 
 # [[ -f "${tml_dir_pth}"/gv.sh ]] || {
 #     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE '${tml_dir_pth}/gv.sh' where '\$1=$1' return 1"
@@ -28936,47 +28936,65 @@ local dir_chapt=${dta_od_dd}/$(l_02_dd2e ${dta_od_dd} | l_03_ibu "$1")
 local dir_point=${dir_chapt}/$(l_02_dd2e ${dir_chapt} | l_03_ibu "$2")
 # l_00_echo_info "'\$dir_point = file://$dir_point'"
 
-[[ -n "$3" && "_flow_1" == "$3" ]] && {
-    local flow_1=${dir_point}/.d/_tst/_flow_tst_v1.sh
-    [[ -f "${flow_1}" ]] && {
-        . "${flow_1}" || {
-            l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE '. file://${flow_1}' where '\$3=$3' return 1"
-            cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-            return 1
-        }
-    }
-    return 0
-}
+[[ -n "$3" ]] && {
 
-[[ -n "$3" && "_flow_2" == "$3" ]] && {
-    local flow_2=${dir_point}/.d/_tst/_flow_tst_v2.sh
-    [[ -f "${flow_2}" ]] && {
-        . "${flow_2}" || {
-            l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE '. file://${flow_2}' where '\$3=$3' return 1"
-            cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-            return 1
+    [[ "_flow_1" == "$3" ]] && {
+        local flow_1=${dir_point}/.d/_tst/_flow_tst_v1.sh
+        [[ -f "${flow_1}" ]] && {
+            . "${flow_1}" || {
+                l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE '. file://${flow_1}' where '\$3=$3' return 1"
+                cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+                return 1
+            }
         }
+        return 0
     }
-    return 0
-}
 
-[[ -n "$3" && "_tst" == "$3" ]] && {
-    local _tst=${dir_point}/.d/_tst/exec_n.tst
-    [[ -f "${_tst}" ]] && {
-        . "${_tst}" || {
-            l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE '. file://${_tst}' where '\$3=$3' return 1"
-            cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-            return 1
+    [[ "_flow_2" == "$3" ]] && {
+        local flow_2=${dir_point}/.d/_tst/_flow_tst_v2.sh
+        [[ -f "${flow_2}" ]] && {
+            . "${flow_2}" || {
+                l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE '. file://${flow_2}' where '\$3=$3' return 1"
+                cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+                return 1
+            }
         }
+        return 0
     }
-    return 0
-}
 
-l_04_od7xfv "${dir_chapt}" "${2}" "${ARGS[@]:2}" >/dev/null
+    [[ "_tst" == "$3" ]] && {
+        local _tst=${dir_point}/.d/_tst/exec_n.tst
+        [[ -f "${_tst}" ]] && {
+            . "${_tst}" || {
+                l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE '. file://${_tst}' where '\$3=$3' return 1"
+                cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+                return 1
+            }
+        }
+        return 0
+    }
+
+    [[ "_go" == "$3" ]] && {
+        local xf_sh=${dir_point}/xf.sh
+        [[ -f "${xf_sh}" ]] && {
+            l_02_edit "${xf_sh}" || {
+                l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'l_02_edit ${xf_sh}' where '\$3=$3' return 1"
+                cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+                return 1
+            }
+        }
+        return 0
+    }
+}
+:
+
+# l_02_edit $tml_dir_pth/xf.sh
+
+l_04_od7xfv "${dir_chapt}" "${2}" "${ARGS[@]:2}"
 
 # l_04_od7xfv "${dir_chapt}" "${2}" "${ARGS[@]:2}"
 
-cat ${dir_point}/u.1
+# cat ${dir_point}/u.1
 
     #* END fn block ------------------
 

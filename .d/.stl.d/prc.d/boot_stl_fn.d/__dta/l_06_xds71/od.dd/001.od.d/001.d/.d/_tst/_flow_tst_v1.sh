@@ -7,7 +7,7 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_001_de47735_flow_1() {
+_001_871978e_flow_1() {
 
     unset IFS
 
@@ -16,8 +16,8 @@ _001_de47735_flow_1() {
     #     return 1
     # fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__dta/l_06_xds71/od.dd/002.od.d/001.d/.d/_tst/_flow_tst_v2.sh
-    local prt_od=${STL_D_PATH}/prc.d/boot_stl_fn.d/__dta/l_06_xds71/od.dd/002.od.d
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__dta/l_06_xds71/od.dd/001.od.d/001.d/.d/_tst/_flow_tst_v1.sh
+    local prt_od=${STL_D_PATH}/prc.d/boot_stl_fn.d/__dta/l_06_xds71/od.dd/001.od.d
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -31,10 +31,11 @@ _001_de47735_flow_1() {
 
     local NARGS=$#
 
-   cd "${idir}" || {
+    cd "${idir}" || {
         l_00_echo_ret1 "${idir} not dir"
         return 1
     }
+
     #?----------------------------------------------------
     #?-------------------------------------
     l_00_echo_exec "source file://$filename"
@@ -71,7 +72,7 @@ _001_de47735_flow_1() {
     # EOF
     #! check anum 001 sb_dr self :
     #*--------
-
+    l_06_xds71 N M tst_dir_in/ls.d
     #*--------
 
     #! rm abs_path
@@ -90,4 +91,4 @@ _001_de47735_flow_1() {
 
 }
 
-_001_de47735_flow_1 "$@"
+_001_871978e_flow_1 "$@"

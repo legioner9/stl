@@ -193,7 +193,7 @@ fi
 # fi
 
 #! stdout fn introduction
-echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
+# echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 #     #* DEBAG CNTL MAST DEFFINE $N -> ... e.c. [$2]
 #     local di=
@@ -343,11 +343,11 @@ local dir_point=${dir_chapt}/$(l_02_dd2e ${dir_chapt} | l_03_ibu "$2")
     return 0
 }
 
-l_04_od7xfv "${dir_chapt}" "${2}" "${ARGS[@]:2}" >/dev/null
+l_04_od7xfv "${dir_chapt}" "${2}" "${ARGS[@]:2}"
 
 # l_04_od7xfv "${dir_chapt}" "${2}" "${ARGS[@]:2}"
 
-cat ${dir_point}/u.1
+# cat ${dir_point}/u.1
 
     #* END fn block ------------------
 
