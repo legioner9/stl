@@ -288,7 +288,6 @@ local item1=
 local item2=
 local n1=0
 local n2=0
-local n3=
 
 l_00_echo_gras "${FNN} [chapt-point] {start_dr} :: 'odd_dr = file://$ptr_path_1 '"
 
@@ -300,8 +299,6 @@ for item1 in $(l_02_dd2e "${ptr_path_1}"); do
     # l_00_echo_info "'ptr_path_1/item1= file://${ptr_path_1}/${item1} '"
     for item2 in $(l_02_dd2e "${ptr_path_1}/${item1}"); do
         echo "    ${n2}: $(l_02_of2e "${ptr_path_1}"/${item1}/${item2}/.od)"
-        n3=$((n1 - 1))
-        echo "${n3} ${n2}" >"${ptr_path_1}"/${item1}/${item2}/.n12
         n2=$((n2 + 1))
     done
 done

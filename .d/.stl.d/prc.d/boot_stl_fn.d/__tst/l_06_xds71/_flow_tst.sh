@@ -77,6 +77,9 @@ _l_06_xds71_0b94ae5_flow() {
     #     echo "HERE_STR:"
     #     l_06_xds71 <<<"here_str_::_fifth_str" &>>"${res}"
 
+    #! mast have rebuild .n12 in exec l_03_odd2no
+    l_06_xds71
+    
     #*--------
     # l_06_xds71 0 0 _dir_ &>>"${res}"
     #*--------

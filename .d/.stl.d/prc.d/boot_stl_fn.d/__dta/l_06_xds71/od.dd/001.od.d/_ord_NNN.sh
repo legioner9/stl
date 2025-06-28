@@ -100,22 +100,22 @@ ${NORMAL}"
 
         # echo "l_03_sd2d _XXX ${fn_name} file://${path_dir}/_XXX"
         l_03_sd2d _XXX ${ddr_num} ${path_dir}/_XXX.d || {
-            l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC 'l_03_sd2d XXX ${ddr_num} ${path_dir}/_XXX' : ${hint} : return 1"
+            l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC 'l_03_sd2d _XXX ${ddr_num} ${path_dir}/_XXX.d  : ${hint} : return 1"
             return 1
         }
         # echo "l_03_s2Ad RND ${rnd:0:7} file://${path_dir}/${fn_name}"
         l_03_s2Ad ${rnd:0:7} RND ${path_dir}/${ddr_num}.d || {
-            l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC 'l_03_s2Ad XXX ${ddr_num} ${path_dir}/${ddr_num}' : ${hint} : return 1"
+            l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC 'l_03_s2Ad ${rnd:0:7} RND ${path_dir}/${ddr_num}.d' : ${hint} : return 1"
             return 1
         }
 
         l_03_s2Ad "${path_dir}" "{{path_dir}}" "${path_dir}/${ddr_num}".d || {
-            l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC 'l_03_s2Ad XXX ${ddr_num} ${path_dir}/${ddr_num}' : ${hint} : return 1"
+            l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC 'l_03_s2Ad ${path_dir} {{path_dir}} ${path_dir}/${ddr_num}.d' : ${hint} : return 1"
             return 1
         }
 
         l_03_s2Ad '${STL_D_PATH}' "${STL_D_PATH}" "${path_dir}/${ddr_num}".d || {
-            l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC 'l_03_s2Ad XXX ${ddr_num} ${path_dir}/${ddr_num}' : ${hint} : return 1"
+            l_00_echo_ret1 "in fs= file://$path_file , line=${LINENO}, ${FNN}() : FAIL_EXEC 'l_03_s2Ad '${STL_D_PATH}' ${STL_D_PATH} ${path_dir}/${ddr_num}.d' : ${hint} : return 1"
             return 1
         }
 
