@@ -232,7 +232,7 @@ fi
 
 #! echo ARGS
 eval "local ARG_$FNN=("\$\{ARGS[@]\}")"
-[[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_$FNN
+# [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_$FNN
 
 [[ -n "$2" ]] || {
     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$2' return 1"

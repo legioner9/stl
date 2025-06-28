@@ -79,7 +79,7 @@ __XXX_RND_flow() {
 
     #! check anum _XXX sb_dr self :
     #*--------
-    # l_06_xds71 0 0 tst_dir_in/ls.d
+    # l_06_xds71 N M tst_dir_in/ls.d
     #*--------
 
     #! rm abs_path

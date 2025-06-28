@@ -26462,8 +26462,6 @@ l_01_is_od "$arg_2" || {
 #     :
 # done <"${1:-/dev/stdin}"
 
-
-
 #! use arg_ptr
 # eval "$2=$res_12341c43234rfe"
 
@@ -26491,23 +26489,23 @@ local tml_dir_pth="${ptr_path_1}/$(l_02_dd2e "${ptr_path_1}" | l_03_ibu "$arg_2"
 
 l_00_echo_gras "${FNN}[choiced dir]{} :: 'tml_dir_pth = file://$tml_dir_pth '"
 
-[[ -f "${tml_dir_pth}"/gv.sh ]] || {
-        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE '${tml_dir_pth}/gv.sh' where '\$1=$1' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
+# [[ -f "${tml_dir_pth}"/gv.sh ]] || {
+#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE '${tml_dir_pth}/gv.sh' where '\$1=$1' return 1"
+#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+#     return 1
+# }
 
 [[ -f "${tml_dir_pth}"/xf.sh ]] || {
-        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE '${tml_dir_pth}/xf.sh' where '\$1=$1' return 1"
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE '${tml_dir_pth}/xf.sh' where '\$1=$1' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }
 
-. "${tml_dir_pth}"/gv.sh || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE '. file://${tml_dir_pth}/gv.sh ' where '\$3=$3' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
+# . "${tml_dir_pth}"/gv.sh || {
+#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE '. file://${tml_dir_pth}/gv.sh ' where '\$3=$3' return 1"
+#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+#     return 1
+# }
 
 . "${tml_dir_pth}"/xf.sh "${ARGS[@]:2}" || {
     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE '. file://${tml_dir_pth}/gv.sh ' where '\$3=$3' return 1"

@@ -7,17 +7,17 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-__XXX_RND_flow_1() {
+_002_4d7ca18_flow_1() {
 
     unset IFS
 
-    # if ! command -v _XXX >/dev/null; then
-    #     l_00_echo_ret1 "TYPE_ERROR : _XXX"
+    # if ! command -v 002 >/dev/null; then
+    #     l_00_echo_ret1 "TYPE_ERROR : 002"
     #     return 1
     # fi
 
-    local filename={{path_dir}}/_XXX.d/.d/_tst/_flow_tst_v1.sh
-    local prt_od={{path_dir}}
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__dta/l_06_xds71/od.dd/001.od.d/002.d/.d/_tst/_flow_tst_v2.sh
+    local prt_od=${STL_D_PATH}/prc.d/boot_stl_fn.d/__dta/l_06_xds71/od.dd/001.od.d
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -31,17 +31,16 @@ __XXX_RND_flow_1() {
 
     local NARGS=$#
 
-    cd "${idir}" || {
+   cd "${idir}" || {
         l_00_echo_ret1 "${idir} not dir"
         return 1
     }
-
     #?----------------------------------------------------
     #?-------------------------------------
     l_00_echo_exec "source file://$filename"
     : >"${res}"
 
-    # _XXX "${tst_dir}" &>>"${res}"
+    # 002 "${tst_dir}" &>>"${res}"
 
     #! stdin_tst
     # : >FILE
@@ -52,27 +51,27 @@ __XXX_RND_flow_1() {
     # EOF
 
     #     echo "FILE_ARG:"
-    #     _XXX FILE &>>"${res}"
+    #     002 FILE &>>"${res}"
 
     #     echo "FILE_PIPE:"
-    #     cat FILE | _XXX &>>"${res}"
+    #     cat FILE | 002 &>>"${res}"
 
     #     echo "HERE_DOC:"
-    #     _XXX <<EOF &>>"${res}"
+    #     002 <<EOF &>>"${res}"
     # first_str
     # second_str
     # EOF
 
     #     echo "HERE_STR:"
-    #     _XXX <<<"here_str_::_fifth_str" &>>"${res}"
+    #     002 <<<"here_str_::_fifth_str" &>>"${res}"
 
-    #     l_06_xds71 ${prt_od}/_XXX.d ":" a2 a3 <<EOF
+    #     l_06_xds71 ${prt_od}/002.d ":" a2 a3 <<EOF
     # first_str:xcdswa
     # second_str:eerfre
     # EOF
-    #! check anum _XXX sb_dr self :
+    #! check anum 002 sb_dr self :
     #*--------
-    l_06_xds71 N M tst_dir_in/ls.d
+
     #*--------
 
     #! rm abs_path
@@ -91,4 +90,4 @@ __XXX_RND_flow_1() {
 
 }
 
-__XXX_RND_flow_1 "$@"
+_002_4d7ca18_flow_1 "$@"
