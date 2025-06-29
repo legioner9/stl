@@ -34,7 +34,7 @@ _001_88dd936_flow() {
 
     local NARGS=$#
 
-   cd "${idir}" || {
+    cd "${idir}" || {
         l_00_echo_ret1 "${idir} not dir"
         return 1
     }
@@ -79,7 +79,19 @@ _001_88dd936_flow() {
 
     #! check anum 001 sb_dr self :
     #*--------
-    # l_06_xds71 N M tst_dir_in/ls.d
+    cd tst_dir_in || return 1
+
+    rm -rf res.d
+    cp -r init.d res.d
+
+    l_06_xds71 0 0 res.d git
+    cd res.d || return 1
+    unzip dir_1.sth2zip_git.d.zip
+    cat dir_1.sth2zip_git.d/f.1 &>>"${res}"
+
+    cd 1.d || return 1
+    unzip .dir_2.sth2zip_git.d.zip
+    cat .dir_2.sth2zip_git.d/f.2 &>>"${res}"
     #*--------
 
     #! rm abs_path

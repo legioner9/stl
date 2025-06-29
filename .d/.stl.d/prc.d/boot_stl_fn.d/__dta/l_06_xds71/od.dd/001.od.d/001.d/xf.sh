@@ -107,19 +107,19 @@ local arg_3="${oARG_l_06_xds71[2]}"
 # }
 
 [[ -n "$arg_2" ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$arg_2' return 1"
+    l_00_echo_ret1 "'$SFN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$arg_2' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }
 
 # l_01_is_od "$arg_2" || {
-#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '${arg_2}' where '\$arg_2=$arg_2' return 1"
+#     l_00_echo_ret1 "'$SFN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '${arg_2}' where '\$arg_2=$arg_2' return 1"
 #     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
 #     return 1
 # }
 
 # [[ -f "$arg_3" ]] || {
-#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${arg_3}' where '\$arg_3=$arg_3' return 1"
+#     l_00_echo_ret1 "'$SFN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${arg_3}' where '\$arg_3=$arg_3' return 1"
 #     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
 #     return 1
 # }
@@ -159,9 +159,22 @@ l_00_echo_info "'\$ptr_path_1 = file://$ptr_path_1'"
 # local dta_sh=$tml_dir_pth/.d/_dta/.tml
 
 #? START procedure ========================================
-find "$ptr_path_1" -type d -name "*.sth2zip_$arg_2.d"
+# find "$ptr_path_1" -type d -name "*.sth2zip_$arg_2.d"
 local item=
+local ret1=0
 
+for item in $(find "$ptr_path_1" -type d -name "*.sth2zip_$arg_2.d"); do
+    l_00_echo_info "'\$item = $item'"
+    l_06_xds71 0 1 "$item" || {
+        l_00_echo_ret1 "'$SFN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'l_06_xds71 0 1 file://$item ' ret1=1"
+    }
+done
+
+[[ ${ret1} -eq 1 ]] && {
+    l_00_echo_ret1 "'$SFN() $*' in file://${fn_nm} , line=${LINENO} :: ANY_FAIL return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
 
 #? END procedure ========================================
 

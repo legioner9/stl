@@ -1,1 +1,1 @@
-#@ all sdr in dr stash_to_zip for ext
+#@ all sdr in dr stash_to_zip [[0 1]] for ext

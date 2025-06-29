@@ -78,8 +78,13 @@ _001_88dd936_flow_1() {
     cp -r init.d res.d
 
     l_06_xds71 0 0 res.d git
+    cd res.d || return 1
+    unzip dir_1.sth2zip_git.d.zip
+    cat dir_1.sth2zip_git.d/f.1
 
-    diff -r res.d init.d
+    cd 1.d || return 1
+    unzip .dir_2.sth2zip_git.d.zip
+    cat .dir_2.sth2zip_git.d/f.2
 
     #*--------
 
