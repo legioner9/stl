@@ -7,16 +7,16 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_001_88dd936_flow_1() {
+_003_03572e6_flow_1() {
 
     unset IFS
 
-    # if ! command -v 001 >/dev/null; then
-    #     l_00_echo_ret1 "TYPE_ERROR : 001"
+    # if ! command -v 003 >/dev/null; then
+    #     l_00_echo_ret1 "TYPE_ERROR : 003"
     #     return 1
     # fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__dta/l_06_xds71/od.dd/001.od.d/001.d/.d/_tst/_flow_tst_v1.sh
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__dta/l_06_xds71/od.dd/001.od.d/003.d/.d/_tst/_flow_tst_v1.sh
     local prt_od=${STL_D_PATH}/prc.d/boot_stl_fn.d/__dta/l_06_xds71/od.dd/001.od.d
 
     local PW=$(pwd)
@@ -41,7 +41,7 @@ _001_88dd936_flow_1() {
     l_00_echo_exec "source file://$filename"
     : >"${res}"
 
-    # 001 "${tst_dir}" &>>"${res}"
+    # 003 "${tst_dir}" &>>"${res}"
 
     #! stdin_tst
     # : >FILE
@@ -52,35 +52,37 @@ _001_88dd936_flow_1() {
     # EOF
 
     #     echo "FILE_ARG:"
-    #     001 FILE &>>"${res}"
+    #     003 FILE &>>"${res}"
 
     #     echo "FILE_PIPE:"
-    #     cat FILE | 001 &>>"${res}"
+    #     cat FILE | 003 &>>"${res}"
 
     #     echo "HERE_DOC:"
-    #     001 <<EOF &>>"${res}"
+    #     003 <<EOF &>>"${res}"
     # first_str
     # second_str
     # EOF
 
     #     echo "HERE_STR:"
-    #     001 <<<"here_str_::_fifth_str" &>>"${res}"
+    #     003 <<<"here_str_::_fifth_str" &>>"${res}"
 
-    #     l_06_xds71 ${prt_od}/001.d ":" a2 a3 <<EOF
+    #     l_06_xds71 ${prt_od}/003.d ":" a2 a3 <<EOF
     # first_str:xcdswa
     # second_str:eerfre
     # EOF
-    #! check anum 001 sb_dr self :
+    #! check anum 003 sb_dr self :
     #*--------
     cd tst_dir_in || return 1
-
-    rm -rf res.d
+    rm -r res.d
     cp -r init.d res.d
 
-    l_06_xds71 0 0 res.d git
+    l_06_xds71 0 2 res.d/1.d.zip
+    l_06_xds71 0 2 res.d/2.f.zip
 
-    diff -r res.d init.d
+    cd res.d || return 1
 
+    cat "2.f" 
+    cat "1.d/1.f" 
     #*--------
 
     #! rm abs_path
@@ -99,4 +101,4 @@ _001_88dd936_flow_1() {
 
 }
 
-_001_88dd936_flow_1 "$@"
+_003_03572e6_flow_1 "$@"

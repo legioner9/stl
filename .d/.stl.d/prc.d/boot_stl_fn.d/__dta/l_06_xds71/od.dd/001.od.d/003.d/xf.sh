@@ -26,8 +26,8 @@ l_00_echo_code "'${SFN} ${oARG_l_06_xds71[@]}' "
 
     [[ "${ARG_l_06_xds71[2]}" == "-h" ]] && {
         echo -e "
-MAIN: '${SFN}' :: in_dir_all_stash_to_zip [sth2zip] : in \$1 dir all sub_dr as [sub_dr_nm].sth2zip_\$2.d be stash to zip
-TAGS: 
+MAIN: '${SFN}' :: unzip \$arg_1 [nm_ent].zip to [nm_ent] inplace
+TAGS: @unzip @stash
 without args exec [see] :: {}
 \$1 
 [, \$2]
@@ -36,9 +36,9 @@ FLOW:   [if
         
 # HIE '${SFN}' 
 ## CAUSA:
-ПРИЧИНА создания: прятать в зип гит проекты, что бы не мешали основному гиту работать
+ПРИЧИНА создания:
 ## FORMULA:
-СХЕМА решения: находим по расширению все поддир - зипуем их, а оригиналы удаляем
+СХЕМА решения:
 ## DOGMA:
 РЕШЕНИЕ задачи:
 ### TST [as FLOW_1]
@@ -106,8 +106,8 @@ local arg_3="${oARG_l_06_xds71[2]}"
 #     return 0
 # }
 
-[[ -n "$arg_2" ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$arg_2' return 1"
+[[ -n "$arg_1" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$arg_1' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }
@@ -118,11 +118,13 @@ local arg_3="${oARG_l_06_xds71[2]}"
 #     return 1
 # }
 
-# [[ -f "$arg_3" ]] || {
-#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${arg_3}' where '\$arg_3=$arg_3' return 1"
-#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-#     return 1
-# }
+[[ -f "$arg_1" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${arg_1}' where '\$arg_1=$arg_1' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
+
+
 
 # local line=
 # read -t 0.0002 - timeout
@@ -146,12 +148,10 @@ local arg_3="${oARG_l_06_xds71[2]}"
 #! ptr_path_1
 local ptr_path_1="$arg_1"
 ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
-l_00_echo_info "'\$ptr_path_1 = file://$ptr_path_1'"
 
 #! ptr_path_2
 # local ptr_path_2="$arg_2"
 # ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
-# l_00_echo_info "'\$ptr_path_2 = file://$ptr_path_2'"
 
 #! DTA path
 # local dta_sh=$tml_dir_pth/.d/_dta/.sh
@@ -159,9 +159,16 @@ l_00_echo_info "'\$ptr_path_1 = file://$ptr_path_1'"
 # local dta_sh=$tml_dir_pth/.d/_dta/.tml
 
 #? START procedure ========================================
-find "$ptr_path_1" -type d -name "*.sth2zip_$arg_2.d"
-local item=
+local ent_nm=$(basename "$ptr_path_1")
+local ent_pth=$(dirname "$ptr_path_1")
 
+cd ${ent_pth} || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'cd file://${ent_pth} ' where '\$3=$3' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
+
+unzip ${ent_nm}
 
 #? END procedure ========================================
 

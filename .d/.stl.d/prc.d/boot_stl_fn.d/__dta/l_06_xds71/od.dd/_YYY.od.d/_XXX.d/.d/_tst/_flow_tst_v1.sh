@@ -72,6 +72,7 @@ __XXX_RND_flow_1() {
     # EOF
     #! check anum _XXX sb_dr self :
     #*--------
+    cd tst_dir_in || return 1
     l_06_xds71 N M tst_dir_in/ls.d
     #*--------
 
