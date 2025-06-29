@@ -92,6 +92,14 @@ _001_88dd936_flow() {
     cd 1.d || return 1
     unzip .dir_2.sth2zip_git.d.zip
     cat .dir_2.sth2zip_git.d/f.2 &>>"${res}"
+
+    #! zip new files for git - remove
+    cd "${idir}"/tst_dir_in || {
+        l_00_echo_ret1 "${idir} not dir"
+        return 1
+    }
+
+    rm -rf res.d
     #*--------
 
     #! rm abs_path

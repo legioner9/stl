@@ -93,6 +93,15 @@ _002_352a1bf_flow() {
 
     cat "2.f" &>>"${res}"
     cat "1.d/1.f" &>>"${res}"
+
+    #! zip new files for git - remove
+    cd "${idir}"/tst_dir_in || {
+        l_00_echo_ret1 "${idir} not dir"
+        return 1
+    }
+
+    rm -rf res.d
+    
     #*--------
 
     #! rm abs_path
