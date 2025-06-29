@@ -145,12 +145,12 @@ local arg_3="${oARG_l_06_xds71[2]}"
 
 #! ptr_path_1
 # local ptr_path_1="$arg_1"
-# ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
+# ptr_path_1="$(l_01_abs_path "${PPWD_l_06_xds71}" "ptr_path_1")"
 # l_00_echo_info "'\$ptr_path_1 = file://$ptr_path_1'"
 
 #! ptr_path_2
 # local ptr_path_2="$arg_2"
-# ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
+# ptr_path_2="$(l_01_abs_path "${PPWD_l_06_xds71}" "ptr_path_2")"
 # l_00_echo_info "'\$ptr_path_2 = file://$ptr_path_2'"
 
 #! DTA path

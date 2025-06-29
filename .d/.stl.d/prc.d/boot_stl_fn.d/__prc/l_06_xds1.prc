@@ -98,6 +98,8 @@ echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 # local ARG_23edew=("${ARGS[@]}")
 # [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_23edew
 
+eval "local PPWD_$FNN=\$\{PPWD\}"
+
 local dta_od_dd=${dta_nm_dr}/od.dd
 
 [[ -n "$1" ]] || {

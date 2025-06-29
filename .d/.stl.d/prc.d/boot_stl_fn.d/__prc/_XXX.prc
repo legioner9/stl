@@ -157,4 +157,7 @@ fi
 
 #! after $1, $2 : other args "${ARGS[@]:2}" -> ${ARGS[2]} ${ARGS[3]} ... 
 
+#! PPWD from $FNN
+eval "local PPWD_$FNN=\$\{PPWD\}"
+
 

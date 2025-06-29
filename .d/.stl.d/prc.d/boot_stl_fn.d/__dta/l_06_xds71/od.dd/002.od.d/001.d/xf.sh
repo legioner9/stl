@@ -26,8 +26,8 @@ l_00_echo_code "'${SFN} ${oARG_l_06_xds71[@]}' "
 
     [[ "${ARG_l_06_xds71[2]}" == "-h" ]] && {
         echo -e "
-MAIN: '${SFN}' :: 
-TAGS: @ls
+MAIN: '${SFN}' :: in [dr]=\$arg_1 with [name]=\$arg_2 gig in [dr]/[name].sth2zip_git.d git_repo with first_comm (1.f with "that 1.f")
+TAGS: @git @init @repo
 without args exec [see] :: {}
 \$1 
 [, \$2]
@@ -36,7 +36,7 @@ FLOW:   [if
         
 # HIE '${SFN}' 
 ## CAUSA:
-ПРИЧИНА создания:
+ПРИЧИНА создания: первый шаг git_flow - соэдание чистого репо с одним файлом и коммитом
 ## FORMULA:
 СХЕМА решения:
 ## DOGMA:
@@ -106,11 +106,11 @@ local arg_3="${oARG_l_06_xds71[2]}"
 #     return 0
 # }
 
-# [[ -n "$arg_1" ]] || {
-#     l_00_echo_ret1 "'$SFN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$arg_1' return 1"
-#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-#     return 1
-# }
+[[ -n "$arg_2" ]] || {
+    l_00_echo_ret1 "'$SFN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$arg_2' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
 
 # l_01_is_od "$arg_2" || {
 #     l_00_echo_ret1 "'$SFN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_NUMBER '${arg_2}' where '\$arg_2=$arg_2' return 1"
@@ -118,11 +118,16 @@ local arg_3="${oARG_l_06_xds71[2]}"
 #     return 1
 # }
 
-# [[ -f "$arg_3" ]] || {
-#     l_00_echo_ret1 "'$SFN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${arg_3}' where '\$arg_3=$arg_3' return 1"
-#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-#     return 1
-# }
+#! ptr_path_1
+# local ptr_path_1="$arg_1"
+ptr_path_1="$(l_01_abs_path "${PPWD_l_06_xds71}" "ptr_path_1")"
+l_00_echo_info "'\$ptr_path_1 = file://$ptr_path_1'"
+
+[[ -d "$ptr_path_1" ]] || {
+    l_00_echo_ret1 "'$SFN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR 'file://${ptr_path_1}' where '\$arg_1=$arg_1' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
 
 # local line=
 # read -t 0.0002 - timeout
@@ -143,14 +148,9 @@ local arg_3="${oARG_l_06_xds71[2]}"
 #! use arg_ptr
 # eval "$arg_2=$res_12341c43234rfe"
 
-#! ptr_path_1
-# local ptr_path_1="$arg_1"
-# ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
-# l_00_echo_info "'\$ptr_path_1 = file://$ptr_path_1'"
-
 #! ptr_path_2
 # local ptr_path_2="$arg_2"
-# ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
+# ptr_path_2="$(l_01_abs_path "${PPWD_l_06_xds71}" "ptr_path_2")"
 # l_00_echo_info "'\$ptr_path_2 = file://$ptr_path_2'"
 
 #! DTA path
@@ -159,8 +159,30 @@ local arg_3="${oARG_l_06_xds71[2]}"
 # local dta_sh=$tml_dir_pth/.d/_dta/.tml
 
 #? START procedure ========================================
-# l_00_echo_code "'ls -A ${oARG_l_06_xds71[@]}' in 'pwd=$(pwd)'"
-# ls -A "${oARG_l_06_xds71[@]}"
+# .sth2zip_git.d
+
+[[ -d ${ptr_path_1}/${arg_2}.sth2zip_git.d ]] && {
+    l_00_echo_ret1 "'${SFN}() $*' in file://${fn_nm} , line=${LINENO} :: IS_DIR 'file://${init_file}' where '\$3=$3' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
+
+local rpo_pth=${ptr_path_1}/${arg_2}.sth2zip_git.d
+
+mkdir ${rpo_pth}
+
+cd ${rpo_pth} || {
+    l_00_echo_ret1 "'$SFN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'cd file://${rpo_pth}' where '\$3=$3' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
+
+git init
+echo "that 0.f" > "0.f"
+git add .
+git commit -m "first commit"
+
+
 #? END procedure ========================================
 
 :
