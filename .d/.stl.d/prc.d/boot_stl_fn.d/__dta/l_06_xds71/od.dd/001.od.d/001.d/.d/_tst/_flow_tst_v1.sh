@@ -72,7 +72,15 @@ _001_88dd936_flow_1() {
     # EOF
     #! check anum 001 sb_dr self :
     #*--------
-    l_06_xds71 N M tst_dir_in/ls.d
+    cd tst_dir_in || return 1
+
+    rm -rf res.d
+    cp -r init.d res.d
+
+    l_06_xds71 0 0 res.d
+
+    diff -r res.d init.d
+
     #*--------
 
     #! rm abs_path
