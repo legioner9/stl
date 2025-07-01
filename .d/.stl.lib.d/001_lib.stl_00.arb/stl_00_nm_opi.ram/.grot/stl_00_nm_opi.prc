@@ -134,10 +134,23 @@ EXAM:
 
     local d_lib_grot_depo= file://${d_lib_grot}/.depo
 
+    ${FNN}: content ::
+    prv_dta_lst= file://${d_data_ram}/.grot/.opt/.lst/_lst
+    prv_dta_var= file://${d_data_ram}/.grot/.opt/.var/_var
+
+    ham_sys = file://${d_lib_ram}/.grot/.opt/.prc/ham
+    
+    set_fn = file://${d_lib_ram}/.grot/.opt/.mul/set_fn
+    singl_fn = file://${d_lib_ram}/.grot/.opt/.mul/singl_fn
+    util = file://${d_lib_ram}/.grot/.opt/.mul/util
+
+
+
 ${NORMAL}"
         return 0
     fi
     :
+
 
     #? ----- END _XXX body -----
 }
