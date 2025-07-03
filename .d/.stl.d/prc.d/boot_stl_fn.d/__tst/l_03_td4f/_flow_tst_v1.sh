@@ -77,6 +77,7 @@ _l_03_td4f_RND_flow_1() {
     cp "001.tml.d/init.f" "001.tml.d/rcv.f"
 
     l_03_td4f "001.tml.d/rcv.f" "001.tml.d/ins.d"
+    l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "001.tml.d/rcv.f"
     cat "001.tml.d/rcv.f"
     
     #?-------------------------------------

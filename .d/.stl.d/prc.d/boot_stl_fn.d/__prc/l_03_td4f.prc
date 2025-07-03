@@ -2,7 +2,7 @@
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: \$1 recive file with {{[name]}} string \$2 dir with [name].ins files LEX(6.2)
+MAIN: ${FNN} :: \$1 [[ {{rcv_fl}} pth_to_res_fl ]] recive file with {{[name]}} string \$2 dir with [name].ins files LEX(6.2) :: {{rcv_fl}} is full path to \$1
 TAGS:
 \$1 
 [, \$2]
@@ -146,6 +146,16 @@ for item in $(l_02_df2e ${ins_dir} "ins"); do
         l_02_fs2f "${fl_ins}" "{{${name_ins}}}" "${rcv_fl}"
         l_02_s2f "{{${name_ins}}}" "[[${name_ins}]]" "${rcv_fl}"
     }
+    :
 done
 
+grep "{{rcv_fl}}" "${rcv_fl}" && {
+    l_02_s2f "{{rcv_fl}}" "${rcv_fl}" "${rcv_fl}"
+}
+:
+
+grep "${HOME}" "${rcv_fl}" && {
+    l_02_s2f "${HOME}" '${HOME}' "${rcv_fl}"
+}
+:
 

@@ -1,4 +1,3 @@
 #!/bin/bash
-
-#[[body]]
-this body 001
+fn_pth={{rcv_fl}}
+#{{body}}

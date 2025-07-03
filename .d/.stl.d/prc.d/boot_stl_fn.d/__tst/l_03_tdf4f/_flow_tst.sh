@@ -81,12 +81,14 @@ _l_03_tdf4f_RND_flow() {
 
     rm result.file
     l_03_tdf4f "001.tml.d" result.file @
-
+    l_02_s2f '${HOME}' "${HOME}" result.file
+    l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' result.file
     cat result.file &>>"${res}"
 
     rm result.d/result.file
     l_03_tdf4f "001.tml.d" result.file result.d
-
+    l_02_s2f '${HOME}' "${HOME}" result.d/result.file
+    l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' result.d/result.file
     cat result.d/result.file &>>"${res}"
     # echo >> "${res}"
 

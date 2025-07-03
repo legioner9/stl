@@ -8,15 +8,15 @@
 # "${ECHO_ERR}$FNN() $*' in file://${file_name} , line=${LINENO} :: CAUS_NAME [VAR] 'code' :: return 1${NRM}" >&2
 # cd ${PPWD} || echo -e "${ECHO_WAR}'$FNN() $*' in file://${file_name} , line=${LINENO} :: NOT_DIR [\${PPWD}] '${PPWD}' return 1${NRM}" >&2
 
-l_03_tdf4f() {
+l_03_td4f() {
 
-    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_03_tdf4f`
+    #! THIS FILE WILL BE CREATED: `. ${STL_D_PATH}/prc.d/boot_stl_fn.d/_rbld_l_xx.sh l_03_td4f`
     #! All changes will be lost after rebuilding
     #! To change this file use the following commands:
 
-    #! l_03_tdf4f _e_prc to edit/change 'fn block',
-    #! l_03_tdf4f _rbld to rebuild fn with changed 'fn block'
-    #! l_03_tdf4f _e_xxx` to edit 'init block'
+    #! l_03_td4f _e_prc to edit/change 'fn block',
+    #! l_03_td4f _rbld to rebuild fn with changed 'fn block'
+    #! l_03_td4f _e_xxx` to edit 'init block'
 
     #* START 'init block' from ${STL_D_PATH}/prc.d/boot_stl_fn.d/_\XXX ------------------
     local FNN=${FUNCNAME[0]}
@@ -125,7 +125,7 @@ l_03_tdf4f() {
     fi
 
     if [[ "_rbld" == "$1" ]]; then
-        #! rebuild fn : bcp && ord fn.sh from l_03_tdf4f.sh , cp fn.prc into fn.sh
+        #! rebuild fn : bcp && ord fn.sh from l_03_td4f.sh , cp fn.prc into fn.sh
         . ${fn_dr}/_rbld_l_xx.sh ${FNN}
         #! up to mem fn
         . ${fn_dr}/$1.sh
@@ -133,13 +133,13 @@ l_03_tdf4f() {
         return 0
     fi
 
-    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_03_tdf4f.prc ------------------
+    #* START fn block from from ${STL_D_PATH}/prc.d/boot_stl_fn.d/__prc/l_03_td4f.prc ------------------
     #[[fn_body]]
 #? for copy to help block
 
 if [[ "-h" == "$1" ]]; then
     echo -e "
-MAIN: ${FNN} :: \$1 LEX(6.4) tml_dir , \$2 result fl name LEX(8.2) , \$3 result dir or @ LEX(1.12)
+MAIN: ${FNN} :: \$1 [[ {{rcv_fl}} pth_to_res_fl ]] recive file with {{[name]}} string \$2 dir with [name].ins files LEX(6.2) :: {{rcv_fl}} is full path to \$1
 TAGS:
 \$1 
 [, \$2]
@@ -169,7 +169,7 @@ CNTL:
     _e_prc      : edit fn.prc   : l_02_edit ${prc_nm}
     _e_tst_dr   : edit tst_nm_dr: l_02_edit ${tst_nm_dr}
     _e_xxx      : edit fl with \"init block\" for all fn : l_02_edit ${fn_dr}/${FNN}
-
+DOIN: change \$1
 RETU: (any {0} | if: [...] {0} | if [...] {1} | result>stdout, return 0 | data | change to ptr |  fs_structure | ...)
 EXAM:   ${FNN} [, [, ]]
 see (${FNN} _flow_1)
@@ -204,14 +204,6 @@ echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 
 #* rename args
 
-#* grass parameter
-
-# l_00_echo_gras "${FNN} \$1 :: 'ins_fl = file://$ptr_path_1 '"
-# l_00_echo_gras "${FNN} \$2 :: 'rcv_str = $2'"
-# l_00_echo_gras "${FNN} {} :: 'rcv_fl = file://$ptr_path_3 '"
-# l_00_echo_gras "${FNN}[chiced dir]{num8} :: 'tml_dir_pth = file://$dir_res_itky54271 '"
-# l_00_echo_gras "${FNN}[discribe var]{origin var} :: 'tml_dir_pth = file://$dir_res_itky54271 '"
-
 #* check cntl
 
 #* inname cntl
@@ -222,29 +214,17 @@ echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 # local ARG_23edew=("${ARGS[@]}")
 # [[ -n "${ARGS[0]}" ]] && l_02_pa3e ARG_23edew
 
-[[ -n "$3" ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$3' return 1"
+[[ -n "$2" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EMPTY_ARG '\$2' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }
 
-[[ -d "$1" ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR 'file://${1}' where '\$1=$1' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
-
-[[ -d "$1"/ins.d ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR 'file://${1}/ins.d' where '\$1=$1' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
-
-[[ -f "$1"/rcv.f ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${1}/rcv.f' where '\$1=$1' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
-}
+# [[ -f "$3" ]] || {
+#     l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${3}' where '\$3=$3' return 1"
+#     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+#     return 1
+# }
 
 # while IFS=$'\n' read -r line; do
 #     :
@@ -266,30 +246,50 @@ echo -e "${ECHO_EXEC}'$FNN $*'${NRM}"
 local ptr_path_1="$1"
 ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
 
-#! ptr_path_2
-local ptr_path_3="$3"
-ptr_path_3="$(l_01_abs_path "${PPWD}" "ptr_path_3")"
+[[ -f "$ptr_path_1" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${ptr_path_1}' where '\$1=$1' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
 
-[[ -d ${ptr_path_3} ]] || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR '${ptr_path_3}' return 1"
+#! ptr_path_2
+local ptr_path_2="$2"
+ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
+
+[[ -d "$ptr_path_2" ]] || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR 'file://${ptr_path_2}' where '\$2=$2' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }
 
 #* rename args
+local rcv_fl=${ptr_path_1}
+local ins_dir=${ptr_path_2}
 
-local tml_dir_pth="${ptr_path_1}"
-local res_dir_pth="${ptr_path_3}"
+l_00_echo_gras "${FNN}[] \$1 :: 'rcv_fl = file://$ptr_path_1 '"
+l_00_echo_gras "${FNN}[] \$2 :: 'ins_dir = file://${ptr_path_2} '"
 
-l_00_echo_gras "${FNN} [tml_fi for res_fl] :: '{} = file://$tml_dir_pth/rcv.f '"
+local item=
+local name_ins=
+local fl_ins=
 
-cp "$tml_dir_pth/rcv.f" "$res_dir_pth/$2" || {
-    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'cp file://$tml_dir_pth/rcv.f file://$res_dir_pth/$2 ' return 1"
-    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-    return 1
+for item in $(l_02_df2e ${ins_dir} "ins"); do
+    # l_00_echo_info "'\$item = $item'"
+    fl_ins="${ins_dir}/$item"
+    name_ins=$(l_01_prs_f -n $item)
+    # l_00_echo_info "'\$name_ins = $name_ins'"
+
+    grep "{{${name_ins}}}" "${rcv_fl}" && {
+        l_02_fs2f "${fl_ins}" "{{${name_ins}}}" "${rcv_fl}"
+        l_02_s2f "{{${name_ins}}}" "[[${name_ins}]]" "${rcv_fl}"
+    }
+    :
+done
+
+grep "{{rcv_fl}}" "${rcv_fl}" && {
+    l_02_s2f "{{rcv_fl}}" "${rcv_fl}" "${rcv_fl}"
 }
-
-l_03_td4f "$res_dir_pth/$2" "$tml_dir_pth/ins.d"
+:
 
     #* END fn block ------------------
 
@@ -299,4 +299,4 @@ l_03_td4f "$res_dir_pth/$2" "$tml_dir_pth/ins.d"
 }
 
 #! SELF EXEC
-# l_03_tdf4f @
+# l_03_td4f @

@@ -83,7 +83,7 @@ _l_03_td4f_RND_flow() {
     cp "001.tml.d/init.f" "001.tml.d/rcv.f"
 
     l_03_td4f "001.tml.d/rcv.f" "001.tml.d/ins.d"
-    # echo "xaxswa" &>>"${res}"
+    l_02_s2f "${STL_D_PATH}" '${STL_D_PATH}' "001.tml.d/rcv.f"
     cat "001.tml.d/rcv.f" &>>"${res}"
 
     #! TREAT IF NEED "${res}"

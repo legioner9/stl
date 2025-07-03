@@ -1,4 +1,4 @@
 #!/bin/bash
-
+fn_pth=${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/l_03_tdf4f/tst_dir/result.file
 #[[body]]
 this body 001
