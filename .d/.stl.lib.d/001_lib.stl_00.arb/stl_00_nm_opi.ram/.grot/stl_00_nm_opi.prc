@@ -219,19 +219,21 @@ ${NORMAL}"
 
     for dr_up in ${arr_up[@]}; do
         l_01_c_up ${dr_up} || {
-            l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'l_01_c_up file://${dr_up} ' :: ret1=1"
+            l_00_echo_ret1 "'$FNN() $*' in file://${fn_sh_file} , line=${LINENO} :: EXEC_FALSE 'l_01_c_up file://${dr_up} ' :: ret1=1"
             ret1=1
         }
     done
 
     local stl_00_nm_opi_repo_bare=
-    stl_00_nm_opi_repo_bare=$(l_02_f2e ${prv_cns_var}/stl_00_nm_opi_repo_bare.cns.lst)
-
-    echo $?
+    stl_00_nm_opi_repo_bare=$(l_02_f2e ${prv_cns_var}/stl_00_nm_opi_repo_bare.cns.lstX) || {
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_sh_file} , line=${LINENO} :: NOT_FILE 'l_02_f2e file://${prv_cns_var}/stl_00_nm_opi_repo_bare.cns.lstX ' where '\$3=$3' return 1"
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        return 1
+    }
 
     [[ 0 -eq ${ret1} ]] || {
-        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: FLAG_FALSE 'ret1=1' return 1"
-        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_sh_file} , line=${LINENO} :: FLAG_FALSE 'ret1=1' return 1"
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
         return 1
     }
 
