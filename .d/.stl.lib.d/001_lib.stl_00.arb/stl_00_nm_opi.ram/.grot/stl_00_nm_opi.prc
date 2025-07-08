@@ -212,7 +212,7 @@ ${NORMAL}"
     local singl_fn=${d_lib_ram}/.grot/.opt/.mul/singl_fn
     local util=${d_lib_ram}/.grot/.opt/.mul/util
 
-    local arr_up=("$set_fn" "$singl_fn" "$util" "$prv_dta_lst" "$prv_dta_var" "$ham_sys")
+    local arr_up=("$set_fn" "$singl_fn" "$util" "$prv_dta_var" "$ham_sys")
 
     local dr_up=
     local ret1=0
@@ -225,8 +225,8 @@ ${NORMAL}"
     done
 
     local stl_00_nm_opi_repo_bare=
-    stl_00_nm_opi_repo_bare=$(l_02_f2e ${prv_cns_var}/stl_00_nm_opi_repo_bare.cns.lstX) || {
-        l_00_echo_ret1 "'$FNN() $*' in file://${fn_sh_file} , line=${LINENO} :: NOT_FILE 'l_02_f2e file://${prv_cns_var}/stl_00_nm_opi_repo_bare.cns.lstX ' where '\$3=$3' return 1"
+    stl_00_nm_opi_repo_bare=$(l_02_f2e ${prv_cns_var}/stl_00_nm_opi_repo_bare.cns.lst) || {
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_sh_file} , line=${LINENO} :: NOT_FILE 'l_02_f2e file://${prv_cns_var}/stl_00_nm_opi_repo_bare.cns.lst ' where '\$3=$3' return 1"
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
         return 1
     }
@@ -237,10 +237,70 @@ ${NORMAL}"
         return 1
     }
 
-    :
+    l_00_echo_gras "GRAS:::${FNN}[pth from dta file :: ${prv_cns_var}/stl_00_nm_opi_repo_bare.cns.lst ]{origin var:stl_00_nm_opi_repo_bare} :: 'repo_bare_pth = file://$stl_00_nm_opi_repo_bare '"
 
-    l_00_echo_gras "${FNN}[pth from dta file :: ${prv_cns_var}/stl_00_nm_opi_repo_bare.cns.lst ]{origin var:stl_00_nm_opi_repo_bare} :: 'repo_bare_pth = file://$stl_00_nm_opi_repo_bare '"
+    #* CONST for prc
+    #** in $prv_dta_var
+    #? fs contaner: dir_repo
+    local dir_contaner="${stl_00_nm_opi_repo_bare}"
 
+    #? repo lockation: dir_repo
+    local dir_repo=${dir_contaner}/_repo
+    #? bare lockation: dir_repo
+    local dir_bare=${dir_contaner}/_bare
+
+    local clone_net=
+    local clone_local=
+
+    local pull_net_strong=
+    local pull_local_strong=
+
+    local push_net_strong=
+    local push_local_strong=
+
+    local push_net=
+    local push_local=
+
+    arr=($(d2e ${prv_dta_var}))
+    res=()
+
+    #{arr_res}
+    # arr+=("aaaaaaaaa")
+    # res+=("bbbbbbbbb")
+    # arr+=("aaaaaaaaa")
+    # res+=("bbbbbbbbb")
+    # arr+=("aaaaaaaaa")
+    # res+=("bbbbbbbbb")
+    # arr+=("aaaaaaaaa")
+    # res+=("bbbbbbbbb")
+    # arr+=("aaaaaaaaa")
+    # res+=("bbbbbbbbb")
+    # arr+=("aaaaaaaaa")
+    # res+=("bbbbbbbbb")
+
+    arr+=("edit_ ${set_fn}")
+    res+=("edit_ ${set_fn}")
+
+    arr+=("edit_ ${singl_fn}")
+    res+=("edit_ ${singl_fn}")
+
+    arr+=("edit_ ${prv_dta_lst}")
+    res+=("edit_ ${prv_dta_lst}")
+
+    arr+=("edit_ ${prv_dta_var}")
+    res+=("edit_ ${prv_dta_var}")
+
+    arr+=("DO! bcp_before_push__")
+    res+=("bcp_before_push__")
+
+    arr+=("DO! dpl_after_pull__")
+    res+=("dpl_after_pull__")
+
+    arr+=("DO! gig_file_change_repo_smp0 ${dir_repo} ${prv_dta_lst}/017_change_repo.ax.lst")
+    res+=("gig_file_change_repo_smp0 ${dir_repo} ${prv_dta_lst}/017_change_repo.ax.lst")
+
+    arr+=("exit menu")
+    res+=("return 0")
     #? ----- END _XXX body -----
 }
 

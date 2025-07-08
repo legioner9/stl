@@ -16,13 +16,13 @@
     # git identificator: name_repo
     # name_repo="tgu"
 
-    #? fs contaner: dir_repo
-    dir_contaner="$(dirname ${REPO_PATH})"
+    # #? fs contaner: dir_repo
+    # dir_contaner="$(dirname ${REPO_PATH})"
 
-    #? repo lockation: dir_repo
-    dir_repo=${dir_contaner}/_repo
-    #? bare lockation: dir_repo
-    dir_bare=${dir_contaner}/_bare
+    # #? repo lockation: dir_repo
+    # dir_repo=${dir_contaner}/_repo
+    # #? bare lockation: dir_repo
+    # dir_bare=${dir_contaner}/_bare
 
     #! NB single current dir create as clone into curr_repo_dir=${dir_repo}/${name_repo}: dir_contaner/_repo/tgu
 
@@ -45,8 +45,11 @@
     # wrp_fifs1_ mkdir -p ${dir_repo}/ -cnd1
     # wrp_fifs1_ mkdir -p ${dir_bare}/ -cnd1
 
-    wrp2_ mkdir -pv --_cnd ${dir_repo}
-    wrp2_ mkdir -pv --_cnd ${dir_bare}
+    # wrp2_ mkdir -pv --_cnd ${dir_repo}
+    # wrp2_ mkdir -pv --_cnd ${dir_bare}
+
+    [[ -d ${dir_repo} ]] || mkdir -pv ${dir_repo}
+    [[ -d ${dir_bare} ]] || mkdir -pv ${dir_bare}
 
     export clone_net
     export clone_local
