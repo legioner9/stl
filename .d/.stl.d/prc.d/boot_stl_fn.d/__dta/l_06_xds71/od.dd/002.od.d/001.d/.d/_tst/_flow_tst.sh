@@ -80,10 +80,13 @@ _001_b0de1af_flow() {
     #! check anum 001 sb_dr self :
     #*--------
     cd tst_dir_in || return 1
-    rm -rf start.sth2zip_git.d
-    l_06_xds71 1 0 @ start
-    cat start.sth2zip_git.d/0.f &>>"${res}"
-    rm -rf start.sth2zip_git.d
+
+    rm -rf a.d
+    mkdir a.d
+
+    l_06_xds71 1 0 a.d start
+    cat a.d/start.sth2zip_git.d/0.f &>>"${res}"
+    rm -rf a.d
     #*--------
 
     #! rm abs_path

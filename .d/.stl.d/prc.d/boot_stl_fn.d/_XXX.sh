@@ -24,6 +24,8 @@ _XXX() {
     local ARGS=("$@")
     local NARGS=$#
 
+    eval "local PPWD_${FNN}=\$PWD"
+
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
     local prc_dr=${fn_dr}/__prc
     local tst_dr=${fn_dr}/__tst
