@@ -173,7 +173,7 @@ cd ${ent_pth} || {
         return 1
     }
 
-    rm -r ${ptr_path_1} || {
+    rm -rf ${ptr_path_1} || {
         l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'rm -r file://${ptr_path_1} '  return 1"
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
         return 1
@@ -188,7 +188,7 @@ cd ${ent_pth} || {
         return 1
     }
 
-    rm ${ptr_path_1} || {
+    rm -f ${ptr_path_1} || {
         l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'rm -r file://${ptr_path_1} ' return 1"
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
         return 1
