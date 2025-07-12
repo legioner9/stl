@@ -169,8 +169,6 @@ ${NORMAL}"
         return 1
     }
 
-
-
     l_01_is_od "$3" || {
         l_00_echo_ret1 "'$FNN() $*' in file://${fn_sh_file} , line=${LINENO} :: NOT_NUMBER '${2}' where '\$3=$3' return 1"
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
@@ -228,8 +226,8 @@ ${NORMAL}"
     # eval "$2=$res_12341c43234rfe"
 
     #! ptr_path_1
-    local ptr_path_1="$1"
-    ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
+    # local ptr_path_1="$1"
+    # ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
 
     #! ptr_path_2
     # local ptr_path_2="$2"
@@ -262,7 +260,6 @@ ${NORMAL}"
     l_00_echo_info "'\$prv_dta_mul = file://$prv_dta_mul'"
 
     #! code of stl_00_mnd_opi $prv_dta_lst $prv_dta_var $prv_dta_mul_nm $5 $6 $7
-    stl_00_mnd_opi ${ptr_path_1} $prv_dta_lst $prv_dta_var $prv_dta_mul_nm $5 $6 $7 
 
     local set_fn=${prv_dta_mul}/set_fn
     local singl_fn=${prv_dta_mul}/singl_fn

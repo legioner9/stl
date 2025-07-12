@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
-__stl_00_nm_opi_FLOW() {
+__stl_00_mnd_opi_FLOW() {
 
-local PW=$(pwd)
+    local PW=$(pwd)
 
-    if ! command -v stl_00_nm_opi >/dev/null; then
-        l_00_echo_ret1 echo "TYPE_ERROR : stl_00_nm_opi"
+    if ! command -v stl_00_mnd_opi >/dev/null; then
+        l_00_echo_ret1 echo "TYPE_ERROR : stl_00_mnd_opi"
         cd $PW
         return 1
     fi
 
-    local filename=${STL_LIB_D_PATH}/001_lib.stl_00.arb/stl_00_nm_opi.ram/.grot/_tst/_flow_tst.sh.v1
+    local filename=${STL_LIB_D_PATH}/001_lib.stl_00.arb/stl_00_mnd_opi.ram/.grot/_tst/_flow_tst.sh
 
     local PW=$(pwd)
     local idir="$(dirname ${filename})"
@@ -44,11 +44,7 @@ local PW=$(pwd)
         return 1
     }
 
-    # stl_00_nm_opi "${tst_dir}" &>>"${res}"
-    rm -rf opi.d.d
-    unzip opi_repo_v1.d.d.zip
-    stl_00_nm_opi opi.d.d 0 0 0 0 0 0
-    rm -rf opi.d.d
+    # stl_00_mnd_opi "${tst_dir}" &>>"${res}"
 
     #?-------------------------------------
     #?----------------------------------------------------
@@ -57,6 +53,7 @@ local PW=$(pwd)
         l_00_echo_ret1 "${PW} not dir"
         return 1
     }
+
 }
 
-__stl_00_nm_opi_FLOW "$@"
+__stl_00_mnd_opi_FLOW "$@"
