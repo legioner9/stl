@@ -45,6 +45,10 @@ local PW=$(pwd)
     }
 
     # stl_00_nm_opi "${tst_dir}" &>>"${res}"
+    rm -rf opi.d.d
+    unzip opi_repo_v1.d.d.zip
+    stl_00_nm_opi 0 opi.d.d 
+    rm -rf opi.d.d
 
     #?-------------------------------------
     #?----------------------------------------------------
