@@ -25,7 +25,7 @@ ___PRC_FLOW() {
     local NARGS=$#
 
     cd "${idir}" || {
-        l_00_echo_ret1 "${idir} not dir" 
+        l_00_echo_ret1 "${idir} not dir"
         cd $PW
         return 1
     }
@@ -34,7 +34,7 @@ ___PRC_FLOW() {
     #?-------------------------------------
 
     l_00_echo_exec "source file://$filename"
-    
+
     #! if stdout to ${res} only in this file - NOT in exec.tst
     : >"${res}"
 
@@ -45,6 +45,28 @@ ___PRC_FLOW() {
     }
 
     # _PRC "${tst_dir}" &>>"${res}"
+    #! stdin_tst
+    # : >FILE
+    #         echo "!STRING_AS_WORD!"
+    #     cat >FILE <<EOF
+    # third_str
+    # fourth_str
+    # EOF
+
+    #     echo "FILE_ARG:"
+    #     _PRC FILE &>>"${res}"
+
+    #     echo "FILE_PIPE:"
+    #     cat FILE | _PRC &>>"${res}"
+
+    #     echo "HERE_DOC:"
+    #     _PRC <<EOF &>>"${res}"
+    # first_str
+    # second_str
+    # EOF
+
+    #     echo "HERE_STR:"
+    #     _PRC <<<"here_str_::_fifth_str" &>>"${res}"
 
     #?-------------------------------------
     #?----------------------------------------------------

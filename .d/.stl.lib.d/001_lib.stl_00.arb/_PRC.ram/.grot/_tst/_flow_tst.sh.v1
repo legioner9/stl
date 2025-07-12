@@ -45,6 +45,28 @@ local PW=$(pwd)
     }
 
     # _PRC "${tst_dir}" &>>"${res}"
+    #! stdin_tst
+    # : >FILE
+    #         echo "!STRING_AS_WORD!"
+    #     cat >FILE <<EOF
+    # third_str
+    # fourth_str
+    # EOF
+
+    #     echo "FILE_ARG:"
+    #     _PRC FILE &>>"${res}"
+
+    #     echo "FILE_PIPE:"
+    #     cat FILE | _PRC &>>"${res}"
+
+    #     echo "HERE_DOC:"
+    #     _PRC <<EOF &>>"${res}"
+    # first_str
+    # second_str
+    # EOF
+
+    #     echo "HERE_STR:"
+    #     _PRC <<<"here_str_::_fifth_str" &>>"${res}"
 
     #?-------------------------------------
     #?----------------------------------------------------

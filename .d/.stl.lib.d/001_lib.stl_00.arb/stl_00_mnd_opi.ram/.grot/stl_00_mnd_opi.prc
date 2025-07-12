@@ -70,7 +70,7 @@ _stl_00_mnd_opi() {
     local hint="hint -> "
     if [ -n "$1" ] && [ "-h" == "$1" ]; then
         echo -e "${CYAN} ${FNN}() help: 
-MAIN: ${FNN} :: 
+MAIN: ${FNN} :: git treat dr_repo \$1 dir using :: \$2 (dr .lst) \$3 (dr .var) \$4 (dr .mul) :: anum \$5 (fl in .lst) \$6 (fl in .var) \$7 (fl in in .mul)
 TAGS:
 ARGS: [\$1 : ] 
 [, \$N last arg DEBAG CNTL]
@@ -242,12 +242,227 @@ ${NORMAL}"
     # local ptr_path_2="$2"
     # ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
 
-
     #! PPWD from $FNN
     eval "local PPWD_$FNN=\$\{PPWD\}"
 
     #! Gretting
     #! l_00_echo_exec "$FNN() $* in file://${fn_sh_file}" #started functions
+
+    [[ -n "$4" ]] || {
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_sh_file} , line=${LINENO} :: EMPTY_ARG '\$4' return 1"
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        return 1
+    }
+
+    [[ -d "$1" ]] || {
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_sh_file} , line=${LINENO} :: NOT_DIR 'file://${1}' where '\$1=$1' return 1"
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        return 1
+    }
+
+    #! ptr_path_1
+    local ptr_path_1="$1"
+    ptr_path_1="$(l_01_abs_path "${PPWD}" "ptr_path_1")"
+
+    [[ -d "$2" ]] || {
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_sh_file} , line=${LINENO} :: NOT_DIR 'file://${2}' where '\$2=$2' return 1"
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        return 1
+    }
+
+    #! ptr_path_2
+    local ptr_path_2="$2"
+    ptr_path_2="$(l_01_abs_path "${PPWD}" "ptr_path_2")"
+
+    [[ -d "$3" ]] || {
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_sh_file} , line=${LINENO} :: NOT_DIR 'file://${3}' where '\$3=$3' return 1"
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        return 1
+    }
+
+    #! ptr_path_3
+    local ptr_path_3="$3"
+    ptr_path_3="$(l_01_abs_path "${PPWD}" "ptr_path_3")"
+
+    [[ -d "$4" ]] || {
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_sh_file} , line=${LINENO} :: NOT_DIR 'file://${4}' where '\$4=$4' return 1"
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        return 1
+    }
+
+    #! ptr_path_4
+    local ptr_path_4="$4"
+    ptr_path_4="$(l_01_abs_path "${PPWD}" "ptr_path_4")"
+
+    [[ -n "$5" ]] && {
+        l_01_is_od "$5" || {
+            l_00_echo_ret1 "'$FNN() $*' in file://${fn_sh_file} , line=${LINENO} :: NOT_NUMBER '${5}' where '\$5=$5' return 1"
+            cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+            return 1
+        }
+    }
+
+    [[ -n "$6" ]] && {
+        l_01_is_od "$6" || {
+            l_00_echo_ret1 "'$FNN() $*' in file://${fn_sh_file} , line=${LINENO} :: NOT_NUMBER '${6}' where '\$6=$6' return 1"
+            cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+            return 1
+        }
+    }
+
+    [[ -n "$7" ]] && {
+        l_01_is_od "$7" || {
+            l_00_echo_ret1 "'$FNN() $*' in file://${fn_sh_file} , line=${LINENO} :: NOT_NUMBER '${7}' where '\$7=$7' return 1"
+            cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+            return 1
+        }
+    }
+
+    local repo_dr_pth="${ptr_path_}"
+
+    local prv_lst_dr="${ptr_path_2}"
+    local prv_var_dr="${ptr_path_3}"
+    local lib_mul_dr="${ptr_path_4}"
+
+    local lst_anum="$5"
+    [[ -n $lst_anum ]] || lst_anum=0
+    local var_anum="$6"
+    [[ -n $var_anum ]] || var_anum=0
+    local set_anum="$7"
+    [[ -n $set_anum ]] || set_anum=0
+
+    local set_fn_dr=${lib_mul_dr}/set_fn
+    local singl_fn_dr=${lib_mul_dr}/singl_fn
+    local util_dr=${lib_mul_dr}/util
+
+    #? prc up_to_mem
+    local arr_up=("$singl_fn_dr" "$util_dr")
+
+    local dr_up=
+    local ret1=0
+
+    for dr_up in ${arr_up[@]}; do
+        l_01_c_up ${dr_up} || {
+            l_00_echo_ret1 "'$FNN() $*' in file://${fn_sh_file} , line=${LINENO} :: EXEC_FALSE 'l_01_c_up file://${dr_up} ' :: ret1=1"
+            ret1=1
+        }
+    done
+
+    local lst_nm=$(l_02_df2e ${prv_lst_dr} | l_03_ibu "$lst_anum")
+    l_00_echo_info "'\$lst_nm = $lst_nm'"
+    local lst_pth=${prv_lst_dr}/$lst_nm
+    l_00_echo_info "'\$lst_pth = file://$lst_pth'"
+
+    local var_nm=$(l_02_df2e ${prv_var_dr} | l_03_ibu "$var_anum")
+    l_00_echo_info "'\$var_nm = $var_nm'"
+    local var_pth=${prv_var_dr}/$var_nm
+    l_00_echo_info "'\$var_pth = file://$var_pth'"
+
+    local set_nm=$(l_02_df2e ${set_fn_dr} | l_03_ibu "$set_anum")
+    l_00_echo_info "'\$set_nm = $set_nm'"
+    local set_pth=${set_fn_dr}/$set_nm
+    l_00_echo_info "'\$var_pth = file://$set_pth'"
+
+    [[ 0 -eq ${ret1} ]] || {
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_sh_file} , line=${LINENO} :: NOT_FILE '[[ 0 -eq ${ret1} ]]' where '\$ret1=$ret1' return 1"
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        return 1
+    }
+
+    l_00_echo_gras "GRAS:::${FNN}[]{} :: 'repo_dr_pth = file://$repo_dr_pth '"
+    l_00_echo_gras "GRAS:::${FNN}[prc for any]{} :: 'set_pth = file://$set_pth '"
+
+    #* CONST for prc
+    #** in $prv_dta_var
+    #? fs contaner: dir_repo
+    local dir_contaner="${stl_00_nm_opi_repo_bare}"
+
+    #? repo lockation: dir_repo
+    local dir_repo=${dir_contaner}/_repo
+    #? bare lockation: dir_repo
+    local dir_bare=${dir_contaner}/_bare
+
+    local clone_net=
+    local clone_local=
+
+    local pull_net_strong=
+    local pull_local_strong=
+
+    local push_net_strong=
+    local push_local_strong=
+
+    local push_net=
+    local push_local=
+
+    arr=($(l_02_df2e ${prv_dta_var}))
+    res=($(l_02_df2e ${prv_dta_var}))
+
+    #{arr_res}
+    # arr+=("aaaaaaaaa")
+    # res+=("bbbbbbbbb")
+    # arr+=("aaaaaaaaa")
+    # res+=("bbbbbbbbb")
+    # arr+=("aaaaaaaaa")
+    # res+=("bbbbbbbbb")
+    # arr+=("aaaaaaaaa")
+    # res+=("bbbbbbbbb")
+    # arr+=("aaaaaaaaa")
+    # res+=("bbbbbbbbb")
+    # arr+=("aaaaaaaaa")
+    # res+=("bbbbbbbbb")
+
+    arr+=("l_02_edit ${set_fn}")
+    res+=("!l_02_edit ${set_fn}")
+
+    arr+=("l_02_edit ${singl_fn}")
+    res+=("!l_02_edit ${singl_fn}")
+
+    arr+=("l_02_edit ${prv_dta_lst}")
+    res+=("!l_02_edit ${prv_dta_lst}")
+
+    arr+=("l_02_edit ${prv_dta_var}")
+    res+=("!l_02_edit ${prv_dta_var}")
+
+    arr+=("bcp_before_push__")
+    res+=("!bcp_before_push__")
+
+    arr+=("dpl_after_pull__")
+    res+=("!dpl_after_pull__")
+
+    arr+=("l_06_xds71 1 1 ${dir_repo} ${prv_dta_lst}/002_chng.lst")
+    res+=("!l_06_xds71 1 1 ${dir_repo} ${prv_dta_lst}/002_chng.lst ; cat ${prv_dta_lst}/002_chng.lst")
+
+    arr+=("exit menu")
+    res+=("!return 0")
+
+    local arg_1=
+
+    if [[ -n "$1" ]]; then
+        arg_1="$1"
+    else
+        arg_1=0
+    fi
+
+    local _result_=
+
+    l_02_pa8s arr res _result_ ${arg_1}
+
+    l_00_echo_gras "GRAS:::${FNN}[choice .lst :: ${prv_dta_var} ]{origin var:} :: '_result_ = $_result_ '"
+
+    #! maping _result_
+
+    [[ ${_result_:0:1} == "!" ]] && {
+        l_00_echo_code "'${_result_:1}'"
+        eval "${_result_:1}" || {
+            l_00_echo_ret1 "'$FNN() $*' in file://${fn_sh_file} , line=${LINENO} :: EXEC_FALSE '${_result_:1}' return 1"
+            cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+            return 1
+        }
+
+        return 0
+    }
+
+    :
 
     #? ----- END _XXX body -----
 }

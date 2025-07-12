@@ -157,19 +157,17 @@ ${NORMAL}"
         return 1
     }
 
+    [[ -d "$1" ]] || {
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_sh_file} , line=${LINENO} :: NOT_DIR 'file://${1}' where '\$1=$1' return 1"
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        return 1
+    }
+
     l_01_is_od "$2" || {
         l_00_echo_ret1 "'$FNN() $*' in file://${fn_sh_file} , line=${LINENO} :: NOT_NUMBER '${2}' where '\$2=$2' return 1"
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
         return 1
     }
-
-    [[ -d "$1" ]] || {
-        l_00_echo_ret1 "'$FNN() $*' in file://${fn_sh_file} , line=${LINENO} :: NOT_DIR 'file://${4}' where '\$4=$4' return 1"
-        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
-        return 1
-    }
-
-
 
     l_01_is_od "$3" || {
         l_00_echo_ret1 "'$FNN() $*' in file://${fn_sh_file} , line=${LINENO} :: NOT_NUMBER '${2}' where '\$3=$3' return 1"
@@ -186,7 +184,7 @@ ${NORMAL}"
     #   if [[ -n "$5"  && l_01_is_od "$5" ]] ;then
     [[ -n "$5" ]] && {
         l_01_is_od "$5" || {
-            l_00_echo_ret1 "'$FNN() $*' in file://${fn_sh_file} , line=${LINENO} :: NOT_NUMBER '${4}' where '\$5=$5' return 1"
+            l_00_echo_ret1 "'$FNN() $*' in file://${fn_sh_file} , line=${LINENO} :: NOT_NUMBER '${5}' where '\$5=$5' return 1"
             cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
             return 1
         }
@@ -241,14 +239,14 @@ ${NORMAL}"
     #! Gretting
     #! l_00_echo_exec "$FNN() $* in file://${fn_sh_file}" #started functions
 
-    local prv_dta_lst_nm=$(l_02_dd2e ${d_data_ram}/.grot/.opt/.lst | l_03_ibu "$1")
+    local prv_dta_lst_nm=$(l_02_dd2e ${d_data_ram}/.grot/.opt/.lst | l_03_ibu "$2")
     l_00_echo_info "'\$prv_dta_lst_nm = $prv_dta_lst_nm'"
     local prv_dta_lst=${d_data_ram}/.grot/.opt/.lst/${prv_dta_lst_nm}
     l_00_echo_info "'\$prv_dta_lst = file://$prv_dta_lst'"
 
     # local prv_dta_var=${d_data_ram}/.grot/.opt/.var/1.v
 
-    local prv_dta_var_nm=$(l_02_dd2e ${d_data_ram}/.grot/.opt/.var | l_03_ibu "$2")
+    local prv_dta_var_nm=$(l_02_dd2e ${d_data_ram}/.grot/.opt/.var | l_03_ibu "$3")
     l_00_echo_info "'\$prv_dta_var_nm = $prv_dta_var_nm'"
     local prv_dta_var=${d_data_ram}/.grot/.opt/.var/${prv_dta_var_nm}
     l_00_echo_info "'\$prv_dta_var = file://$prv_dta_var'"
@@ -256,17 +254,23 @@ ${NORMAL}"
 
     local ham_sys=${d_lib_ram}/.grot/.opt/.prc/ham
 
-    local prv_dta_mul_nm=$(l_02_dd2e ${d_lib_ram}/.grot/.opt/.mul | l_03_ibu "$3")
-    l_00_echo_info "'\$prv_dta_mul_nm = $prv_dta_mul_nm'"
-    local prv_dta_mul=${d_lib_ram}/.grot/.opt/.mul/${prv_dta_mul_nm}
-    l_00_echo_info "'\$prv_dta_mul = file://$prv_dta_mul'"
+    local lib_dta_mul_nm=$(l_02_dd2e ${d_lib_ram}/.grot/.opt/.mul | l_03_ibu "$4")
+    l_00_echo_info "'\$lib_dta_mul_nm = $lib_dta_mul_nm'"
+    local lib_dta_mul=${d_lib_ram}/.grot/.opt/.mul/${lib_dta_mul_nm}
+    l_00_echo_info "'\$lib_dta_mul = file://$lib_dta_mul'"
 
     #! code of stl_00_mnd_opi $prv_dta_lst $prv_dta_var $prv_dta_mul_nm $5 $6 $7
-    stl_00_mnd_opi ${ptr_path_1} $prv_dta_lst $prv_dta_var $prv_dta_mul_nm $5 $6 $7 
+    stl_00_mnd_opi ${ptr_path_1} $prv_dta_lst $prv_dta_var $lib_dta_mul_nm $5 $6 $7 || {
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_sh_file} , line=${LINENO} :: EXEC_FALSE 'stl_00_mnd_opi ${ptr_path_1} $prv_dta_lst $prv_dta_var $prv_dta_mul_nm $5 $6 $7'  return 1"
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        return 1
+    }
 
-    local set_fn=${prv_dta_mul}/set_fn
-    local singl_fn=${prv_dta_mul}/singl_fn
-    local util=${prv_dta_mul}/util
+    return 0
+
+    local set_fn=${lib_dta_mul}/set_fn
+    local singl_fn=${lib_dta_mul}/singl_fn
+    local util=${lib_dta_mul}/util
 
     local arr_up=("$set_fn" "$singl_fn" "$util" "$prv_dta_var" "$ham_sys")
 
