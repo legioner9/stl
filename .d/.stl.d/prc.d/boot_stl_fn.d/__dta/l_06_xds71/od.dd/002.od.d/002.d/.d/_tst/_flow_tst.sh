@@ -34,7 +34,7 @@ _002_55fa1cf_flow() {
 
     local NARGS=$#
 
-   cd "${idir}" || {
+    cd "${idir}" || {
         l_00_echo_ret1 "${idir} not dir"
         return 1
     }
@@ -79,7 +79,12 @@ _002_55fa1cf_flow() {
 
     #! check anum 002 sb_dr self :
     #*--------
-    # l_06_xds71 N M tst_dir_in/ls.d
+    cd tst_dir_in || return 1
+    rm -rf opi.d.d
+    unzip opi.d.d.zip
+    l_06_xds71 1 1 opi.d.d change_repo.lst
+    rm -rf opi.d.d
+    cat change_repo.lst >"${res}"
     #*--------
 
     #! rm abs_path

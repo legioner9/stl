@@ -178,11 +178,13 @@ local dr_repo_nm=
 : >$ptr_path_2
 
 for dr_repo_nm in $(l_02_dd2e "$ptr_path_1"); do
-    cd $ptr_path_1/${dr_repo_nm}
+    l_06_xds71 1 2 $ptr_path_1/${dr_repo_nm} &>/dev/null || continue
+    # l_06_xds71 1 2 $ptr_path_1/${dr_repo_nm} || continue
+    # cd $ptr_path_1/${dr_repo_nm}
     l_00_echo_info "'in ' file://$ptr_path_1/${dr_repo_nm} ' exec :: 'git status -s''"
     # echo -e "${CYAN}--- in '$ptr_path_1/${dr_repo_nm}' exec :: 'git status -s' ---${NORMAL}" #sistem info mesage
-    if git status -s; then
-        if [[ -n "$(git status -s)" ]]; then
+    if git -C "$ptr_path_1/${dr_repo_nm}" status -s; then
+        if [[ -n "$(git -C "$ptr_path_1/${dr_repo_nm}" status -s)" ]]; then
             l_00_echo_warn "be changed ${dr_repo_nm} "
             echo ${dr_repo_nm} >>$ptr_path_2
         fi

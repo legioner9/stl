@@ -119,7 +119,7 @@ local arg_3="${oARG_l_06_xds71[2]}"
 # }
 
 [[ -d "$arg_1" ]] || {
-    l_00_echo_ret1 "'$SFN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_FILE 'file://${arg_1}' where '\$arg_1=$arg_1' return 1"
+    l_00_echo_ret1 "'$SFN() $*' in file://${fn_nm} , line=${LINENO} :: NOT_DIR 'file://${arg_1}' where '\$arg_1=$arg_1' return 1"
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
     return 1
 }

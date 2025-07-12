@@ -72,10 +72,12 @@ _002_55fa1cf_flow_1() {
     # EOF
     #! check anum 002 sb_dr self :
     #*--------
+
     cd tst_dir_in || return 1
-    # unzip opi.d.d.zip
+    rm -rf opi.d.d
+    unzip opi.d.d.zip
     l_06_xds71 1 1 opi.d.d change_repo.lst
-    # rm -rf opi.d.d
+    rm -rf opi.d.d
     #*--------
 
     #! rm abs_path
