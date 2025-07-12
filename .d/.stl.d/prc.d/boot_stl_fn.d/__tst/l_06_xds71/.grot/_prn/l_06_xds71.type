@@ -225,7 +225,11 @@ flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
         }
     };
     :;
-    l_04_od7xfv "${dir_chapt}" "${2}" "${ARGS[@]:2}";
+    l_04_od7xfv "${dir_chapt}" "${2}" "${ARGS[@]:2}" || { 
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'l_04_od7xfv ${dir_chapt} ${2} ${ARGS[@]:2} ' where '\$3=$3' return 1";
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
+        return 1
+    };
     cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
     return 0
 }

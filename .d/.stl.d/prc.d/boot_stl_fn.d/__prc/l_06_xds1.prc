@@ -186,7 +186,11 @@ l_00_echo_gras "${FNN} [choice chapt dr] {} :: 'dr_od_d = file://${dr_od_d} '"
 
 # l_00_echo_info "'\$arg_2 = $arg_2'"
 
-l_04_od8xfv ${dr_od_d} ${arg_2} "${ARGS[@]:2}"
+l_04_od8xfv ${dr_od_d} ${arg_2} "${ARGS[@]:2}" || {
+    l_00_echo_ret1 "'$FNN() $*' in file://${fn_nm} , line=${LINENO} :: EXEC_FALSE 'l_04_od7xfv ${dr_od_d} ${arg_2} ${ARGS[@]:2} ' where '\$3=$3' return 1"
+    cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+    return 1
+}
 
 # l_00_echo_info "'\$arg_2 = $arg_2'"
 

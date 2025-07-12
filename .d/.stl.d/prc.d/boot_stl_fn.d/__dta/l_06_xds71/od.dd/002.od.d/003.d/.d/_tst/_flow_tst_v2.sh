@@ -7,16 +7,16 @@
 # ENV: ${STL_REPO_PATH} ${STL_D_PATH} ${STL_DATA_D_PATH} ${STL_LIB_D_PATH}
 # "'$FNN() $*' in file://${file_name} :: CAUS_NAME 'code' :: return 1" >&2
 
-_002_55fa1cf_flow_1() {
+_003_ffbe79c_flow_1() {
 
     unset IFS
 
-    # if ! command -v 002 >/dev/null; then
-    #     l_00_echo_ret1 "TYPE_ERROR : 002"
+    # if ! command -v 003 >/dev/null; then
+    #     l_00_echo_ret1 "TYPE_ERROR : 003"
     #     return 1
     # fi
 
-    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__dta/l_06_xds71/od.dd/002.od.d/002.d/.d/_tst/_flow_tst_v1.sh
+    local filename=${STL_D_PATH}/prc.d/boot_stl_fn.d/__dta/l_06_xds71/od.dd/002.od.d/003.d/.d/_tst/_flow_tst_v2.sh
     local prt_od=${STL_D_PATH}/prc.d/boot_stl_fn.d/__dta/l_06_xds71/od.dd/002.od.d
 
     local PW=$(pwd)
@@ -31,17 +31,16 @@ _002_55fa1cf_flow_1() {
 
     local NARGS=$#
 
-    cd "${idir}" || {
+   cd "${idir}" || {
         l_00_echo_ret1 "${idir} not dir"
         return 1
     }
-
     #?----------------------------------------------------
     #?-------------------------------------
     l_00_echo_exec "source file://$filename"
     : >"${res}"
 
-    # 002 "${tst_dir}" &>>"${res}"
+    # 003 "${tst_dir}" &>>"${res}"
 
     #! stdin_tst
     # : >FILE
@@ -52,30 +51,27 @@ _002_55fa1cf_flow_1() {
     # EOF
 
     #     echo "FILE_ARG:"
-    #     002 FILE &>>"${res}"
+    #     003 FILE &>>"${res}"
 
     #     echo "FILE_PIPE:"
-    #     cat FILE | 002 &>>"${res}"
+    #     cat FILE | 003 &>>"${res}"
 
     #     echo "HERE_DOC:"
-    #     002 <<EOF &>>"${res}"
+    #     003 <<EOF &>>"${res}"
     # first_str
     # second_str
     # EOF
 
     #     echo "HERE_STR:"
-    #     002 <<<"here_str_::_fifth_str" &>>"${res}"
+    #     003 <<<"here_str_::_fifth_str" &>>"${res}"
 
-    #     l_06_xds71 ${prt_od}/002.d ":" a2 a3 <<EOF
+    #     l_06_xds71 ${prt_od}/003.d ":" a2 a3 <<EOF
     # first_str:xcdswa
     # second_str:eerfre
     # EOF
-    #! check anum 002 sb_dr self :
+    #! check anum 003 sb_dr self :
     #*--------
-    cd tst_dir_in || return 1
-    # unzip opi.d.d.zip
-    l_06_xds71 1 1 opi.d.d change_repo.lst
-    # rm -rf opi.d.d
+
     #*--------
 
     #! rm abs_path
@@ -94,4 +90,4 @@ _002_55fa1cf_flow_1() {
 
 }
 
-_002_55fa1cf_flow_1 "$@"
+_003_ffbe79c_flow_1 "$@"
