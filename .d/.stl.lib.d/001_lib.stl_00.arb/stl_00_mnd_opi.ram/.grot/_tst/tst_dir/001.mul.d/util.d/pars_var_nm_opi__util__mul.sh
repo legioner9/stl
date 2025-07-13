@@ -22,25 +22,34 @@ pars_var_nm_opi__util__mul() {
 
     arr_all_item_repo=()
 
+    l_00_echo_info "'\$clone_net = $clone_net'"
+    l_00_echo_info "'\$clone_local = $clone_local'"
+    l_00_echo_info "'\$pull_net_strong = $pull_net_strong'"
+    l_00_echo_info "'\$pull_local_strong = $pull_local_strong'"
+    l_00_echo_info "'\$push_net_strong = $push_net_strong'"
+    l_00_echo_info "'\$push_local_strong = $push_local_strong'"
+    l_00_echo_info "'\$push_net = $push_net'"
+    l_00_echo_info "'\$push_local = $push_local'"
+
     if [ -n "${clone_net}" ] && [ -n "${clone_local}" ]; then
-        plt_info "in pars_var_nm_opi__util__mul() : clone_ : EXIST '${clone_net}' && EXIST '${clone_local}' : return 1"
+        plt_info "in pars_var_nm_opi__util__mul() : clone_ : EXIST '\${clone_net}=${clone_net}' && EXIST '\${clone_local}=${clone_local}' : return 1"
         return 1
     fi
 
     if [ -z "${clone_net}" ] && [ -z "${clone_local}" ]; then
-        plt_info "in pars_var_nm_opi__util__mul() : clone_ : NOT_EXIST '${clone_net}' && NOT_EXIST '${clone_local}' : return 1"
+        plt_info "in pars_var_nm_opi__util__mul() : clone_ : NOT_EXIST '\${clone_net}=${clone_net}' && NOT_EXIST '\${clone_local}=${clone_local}' : return 1"
         return 1
     fi
 
-    if ! [ -d "${dir_repo}" ]; then
-        plt_info "in pars_var_nm_opi__util__mul() : FAIL_EXEC : '[ -d file://${dir_repo} ]' : return 1"
-        return 1
-    fi
+    # if ! [ -d "${dir_repo}" ]; then
+    #     plt_info "in pars_var_nm_opi__util__mul() : FAIL_EXEC : '[ -d file://${dir_repo} ]' : return 1"
+    #     return 1
+    # fi
 
-    if ! [ -d "${dir_bare}" ]; then
-        plt_info "in pars_var_nm_opi__util__mul() : FAIL_EXEC : '[ -d file://${dir_bare} ]' : return 1"
-        return 1
-    fi
+    # if ! [ -d "${dir_bare}" ]; then
+    #     plt_info "in pars_var_nm_opi__util__mul() : FAIL_EXEC : '[ -d file://${dir_bare} ]' : return 1"
+    #     return 1
+    # fi
 
     if [ -n "${clone_net}" ]; then
         arr_clone_net=(${clone_net//<>/ })

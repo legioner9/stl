@@ -428,8 +428,6 @@ ${NORMAL}"
 
     l_02_pa8s arr res _result_ ${var_anum}
 
-    l_00_echo_gras "GRAS:::${FNN}[choice fl.lst from prv_dta_var.dr ]{origin var:} :: 'fl.lst = file://${prv_var_dr}/$_result_ '"
-
     #! maping _result_
 
     [[ ${_result_:0:1} == "!" ]] && {
@@ -442,8 +440,32 @@ ${NORMAL}"
 
         return 0
     }
-
     :
+    local fl_var=${prv_var_dr}/${_result_}
+    l_00_echo_gras "GRAS:::${FNN}[choice fl.var from prv_dta_var.dr ]{origin var:} :: 'fl.var = file://${fl_var} '"
+
+    #? define closure for child procedures.var
+
+    local clone_net=
+    local clone_local=
+    local pull_net_strong=
+    local pull_local_strong=
+    local push_net_strong=
+    local push_local_strong=
+    local push_net=
+    local push_local=
+
+    . ${fl_var} || {
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_sh_file} , line=${LINENO} :: NOT_FILE '. file://${fl_var} ' where '\$3=$3' return 1"
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        return 1
+    }
+
+    pars_var_nm_opi__util__mul || {
+        l_00_echo_ret1 "'$FNN() $*' in file://${fn_sh_file} , line=${LINENO} :: EXEC_FALSE 'pars_var_nm_opi__util__mul' return 1"
+        cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_sh_file} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}"
+        return 1
+    }
 
     #? ----- END _XXX body -----
 }

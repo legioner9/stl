@@ -50,7 +50,9 @@
     # wrp2_ mkdir -pv --_cnd ${dir_repo}
     # wrp2_ mkdir -pv --_cnd ${dir_bare}
 
-    [[ -d ${dir_repo} ]] || mkdir -pv ${dir_repo}
-    [[ -d ${dir_bare} ]] || mkdir -pv ${dir_bare}
+    # [[ -d ${dir_repo} ]] || mkdir -pv ${dir_repo}
+    # [[ -d ${dir_bare} ]] || mkdir -pv ${dir_bare}
 
 }
+
+002_github_legioner9_nm_opi__var__mul
