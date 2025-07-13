@@ -2,6 +2,8 @@
 #? return 2 => return 0, return 3 => return 1
 #{pre}
 
+#@ main repo github :: git@github.com:legioner9
+
 002_github_legioner9_nm_opi__var__mul() {
 
     echo -e "${CYAN}--- 002_github_legioner9_nm_opi__var__mul() file://${PLT_PATH}/.d/.mul/nm_opi_/var/02_github_legioner9_nm_opi__var__mul.sh ---${NORMAL}" #sistem info mesage

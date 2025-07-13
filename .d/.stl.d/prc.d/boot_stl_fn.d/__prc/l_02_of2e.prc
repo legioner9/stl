@@ -91,7 +91,7 @@ fi
 local line
 
 while IFS=$'\n' read -r line; do
-    echo "${line}" | grep "#@" | sed 's|#@ ||g' && break
+    echo "${line}" | grep -w '#@' | sed 's|#@ ||g' && break
 done \
     <"${1:-/dev/stdin}"
 

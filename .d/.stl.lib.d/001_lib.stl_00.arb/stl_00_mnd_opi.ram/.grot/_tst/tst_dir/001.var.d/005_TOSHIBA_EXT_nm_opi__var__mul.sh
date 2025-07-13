@@ -2,6 +2,8 @@
 #? return 2 => return 0, return 3 => return 1
 #{pre}
 
+    #@ main repo TOSHIBA_EXT :: /run/media/${USER}/TOSHIBA_EXT/REPOBARE/_bare
+
 005_TOSHIBA_EXT_nm_opi__var__mul() {
 
     echo -e "${CYAN}--- 005_TOSHIBA_EXT_nm_opi__var__mul() file://${PLT_PATH}/.d/.mul/nm_opi_/var/05_TOSHIBA_EXT_nm_opi__var__mul.sh ---${NORMAL}" #sistem info mesage

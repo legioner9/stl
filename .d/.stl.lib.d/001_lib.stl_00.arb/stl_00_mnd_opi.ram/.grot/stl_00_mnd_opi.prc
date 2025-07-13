@@ -318,7 +318,7 @@ ${NORMAL}"
         }
     }
 
-    local repo_dr_pth="${ptr_path_}"
+    local repo_dr_pth="${ptr_path_1}"
 
     local prv_lst_dr="${ptr_path_2}"
     local prv_var_dr="${ptr_path_3}"
@@ -331,9 +331,9 @@ ${NORMAL}"
     local set_anum="$7"
     [[ -n $set_anum ]] || set_anum=0
 
-    local set_fn_dr=${lib_mul_dr}/set_fn
-    local singl_fn_dr=${lib_mul_dr}/singl_fn
-    local util_dr=${lib_mul_dr}/util
+    local set_fn_dr=${lib_mul_dr}/set_fn.d
+    local singl_fn_dr=${lib_mul_dr}/singl_fn.d
+    local util_dr=${lib_mul_dr}/util.d
 
     #? prc up_to_mem
     local arr_up=("$singl_fn_dr" "$util_dr")
@@ -370,32 +370,31 @@ ${NORMAL}"
     }
 
     l_00_echo_gras "GRAS:::${FNN}[]{} :: 'repo_dr_pth = file://$repo_dr_pth '"
-    l_00_echo_gras "GRAS:::${FNN}[prc for any]{} :: 'set_pth = file://$set_pth '"
 
     #* CONST for prc
-    #** in $prv_dta_var
+    #** in $var_pth
     #? fs contaner: dir_repo
-    local dir_contaner="${stl_00_nm_opi_repo_bare}"
+    local dir_contaner="${repo_dr_pth}"
 
-    #? repo lockation: dir_repo
-    local dir_repo=${dir_contaner}/_repo
-    #? bare lockation: dir_repo
-    local dir_bare=${dir_contaner}/_bare
+    # #? repo lockation: dir_repo
+    # local dir_repo=${dir_contaner}/_repo
+    # #? bare lockation: dir_repo
+    # local dir_bare=${dir_contaner}/_bare
 
-    local clone_net=
-    local clone_local=
+    # local clone_net=
+    # local clone_local=
 
-    local pull_net_strong=
-    local pull_local_strong=
+    # local pull_net_strong=
+    # local pull_local_strong=
 
-    local push_net_strong=
-    local push_local_strong=
+    # local push_net_strong=
+    # local push_local_strong=
 
-    local push_net=
-    local push_local=
+    # local push_net=
+    # local push_local=
 
-    arr=($(l_02_df2e ${prv_dta_var}))
-    res=($(l_02_df2e ${prv_dta_var}))
+    arr=($(l_02_df2e ${prv_var_dr}))
+    res=($(l_02_df2e ${prv_var_dr}))
 
     #{arr_res}
     # arr+=("aaaaaaaaa")
@@ -411,17 +410,17 @@ ${NORMAL}"
     # arr+=("aaaaaaaaa")
     # res+=("bbbbbbbbb")
 
-    arr+=("l_02_edit ${set_fn}")
-    res+=("!l_02_edit ${set_fn}")
+    arr+=("l_02_edit ${set_fn_dr}")
+    res+=("!l_02_edit ${set_fn_dr}")
 
-    arr+=("l_02_edit ${singl_fn}")
-    res+=("!l_02_edit ${singl_fn}")
+    arr+=("l_02_edit ${singl_fn_dr}")
+    res+=("!l_02_edit ${singl_fn_dr}")
 
-    arr+=("l_02_edit ${prv_dta_lst}")
-    res+=("!l_02_edit ${prv_dta_lst}")
+    arr+=("l_02_edit ${prv_lst_dr}")
+    res+=("!l_02_edit ${prv_lst_dr}")
 
-    arr+=("l_02_edit ${prv_dta_var}")
-    res+=("!l_02_edit ${prv_dta_var}")
+    arr+=("l_02_edit ${prv_var_dr}")
+    res+=("!l_02_edit ${prv_var_dr}")
 
     arr+=("bcp_before_push__")
     res+=("!bcp_before_push__")
@@ -429,8 +428,8 @@ ${NORMAL}"
     arr+=("dpl_after_pull__")
     res+=("!dpl_after_pull__")
 
-    arr+=("l_06_xds71 1 1 ${dir_repo} ${prv_dta_lst}/002_chng.lst")
-    res+=("!l_06_xds71 1 1 ${dir_repo} ${prv_dta_lst}/002_chng.lst ; cat ${prv_dta_lst}/002_chng.lst")
+    arr+=("l_06_xds71 1 1 ${repo_dr_pth} ${prv_lst_dr}/002_chng.lst")
+    res+=("!l_06_xds71 1 1 ${repo_dr_pth} ${prv_lst_dr}/002_chng.lst ; cat ${prv_lst_dr}/002_chng.lst")
 
     arr+=("exit menu")
     res+=("!return 0")
@@ -445,9 +444,9 @@ ${NORMAL}"
 
     local _result_=
 
-    l_02_pa8s arr res _result_ ${arg_1}
+    l_02_pa8s arr res _result_ ${var_anum}
 
-    l_00_echo_gras "GRAS:::${FNN}[choice .lst :: ${prv_dta_var} ]{origin var:} :: '_result_ = $_result_ '"
+    l_00_echo_gras "GRAS:::${FNN}[choice fl.lst from prv_dta_var.dr ]{origin var:} :: 'fl.lst = file://${prv_var_dr}/$_result_ '"
 
     #! maping _result_
 

@@ -2,6 +2,8 @@
 #? return 2 => return 0, return 3 => return 1
 #{pre}
 
+#@ main repo TOSH :: /run/media/${USER}/TOSH/REPOBARE/_bare
+
 004_TOSH_nm_opi__var__mul() {
 
     echo -e "${CYAN}--- 004_TOSH_nm_opi__var__mul() file://${PLT_PATH}/.d/.mul/nm_opi_/var/04_TOSH_nm_opi__var__mul.sh ---${NORMAL}" #sistem info mesage

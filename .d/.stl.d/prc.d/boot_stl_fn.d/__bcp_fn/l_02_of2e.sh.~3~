@@ -24,8 +24,6 @@ l_02_of2e() {
     local ARGS=("$@")
     local NARGS=$#
 
-    eval "local PPWD_${FNN}=\$PWD"
-
     local fn_dr=${STL_D_PATH}/prc.d/boot_stl_fn.d
     local prc_dr=${fn_dr}/__prc
     local tst_dr=${fn_dr}/__tst
@@ -230,9 +228,11 @@ fi
 local line
 
 while IFS=$'\n' read -r line; do
-    echo "${line}" | grep "#@" | sed 's|#@ ||g' && break
-done \
-    <"${1:-/dev/stdin}"
+    echo "${line}" | grep "#@" >/dev/null && {
+        echo ${line/#@ //}
+        break
+    }
+done <"${1:-/dev/stdin}"
 
 #! use arg_ptr
 # eval "$2=$res_12341c43234rfe"
