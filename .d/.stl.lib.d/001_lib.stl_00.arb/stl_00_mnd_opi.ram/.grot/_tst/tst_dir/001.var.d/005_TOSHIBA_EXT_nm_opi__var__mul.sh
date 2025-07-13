@@ -2,7 +2,7 @@
 #? return 2 => return 0, return 3 => return 1
 #{pre}
 
-    #@ main repo TOSHIBA_EXT :: /run/media/${USER}/TOSHIBA_EXT/REPOBARE/_bare
+#@ main repo TOSHIBA_EXT :: /run/media/${USER}/TOSHIBA_EXT/REPOBARE/_bare
 
 005_TOSHIBA_EXT_nm_opi__var__mul() {
 

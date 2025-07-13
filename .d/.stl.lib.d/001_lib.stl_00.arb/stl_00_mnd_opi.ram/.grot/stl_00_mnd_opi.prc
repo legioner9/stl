@@ -376,39 +376,21 @@ ${NORMAL}"
     #? fs contaner: dir_repo
     local dir_contaner="${repo_dr_pth}"
 
-    # #? repo lockation: dir_repo
-    # local dir_repo=${dir_contaner}/_repo
-    # #? bare lockation: dir_repo
-    # local dir_bare=${dir_contaner}/_bare
+    # | grep -w '#@' | sed 's|#@ ||g'
 
-    # local clone_net=
-    # local clone_local=
+    local arr=()
+    local res=()
+    local item_1=
+    local item_1_pth=
 
-    # local pull_net_strong=
-    # local pull_local_strong=
-
-    # local push_net_strong=
-    # local push_local_strong=
-
-    # local push_net=
-    # local push_local=
-
-    arr=($(l_02_df2e ${prv_var_dr}))
+    for item_1 in $(l_02_df2e ${prv_var_dr}); do
+        #? rcv fl_od
+        item_1_pth=${prv_var_dr}/${item_1}
+        arr+=("$(cat ${item_1_pth} | grep -w '#@' | sed 's|#@ ||g')")
+    done
+    # arr=($(l_02_df2e ${prv_var_dr}))
+    #? rcv fl_nm
     res=($(l_02_df2e ${prv_var_dr}))
-
-    #{arr_res}
-    # arr+=("aaaaaaaaa")
-    # res+=("bbbbbbbbb")
-    # arr+=("aaaaaaaaa")
-    # res+=("bbbbbbbbb")
-    # arr+=("aaaaaaaaa")
-    # res+=("bbbbbbbbb")
-    # arr+=("aaaaaaaaa")
-    # res+=("bbbbbbbbb")
-    # arr+=("aaaaaaaaa")
-    # res+=("bbbbbbbbb")
-    # arr+=("aaaaaaaaa")
-    # res+=("bbbbbbbbb")
 
     arr+=("l_02_edit ${set_fn_dr}")
     res+=("!l_02_edit ${set_fn_dr}")

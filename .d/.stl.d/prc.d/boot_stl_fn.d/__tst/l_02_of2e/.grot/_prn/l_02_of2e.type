@@ -144,7 +144,7 @@ flow from file \${STL_D_PATH}/prc.d/boot_stl_fn.d/__tst/${FNN}/_flow_tst_v1.sh :
         cd "$PPWD" || echo -e "${ECHO_WARN}in fs= file://${fn_nm} , line=${LINENO} , EXEC_FAIL : 'cd $PPWD' : continue${NRM}";
         return 1;
     fi;
-    local line;
+    local line=;
     while IFS='
 ' read -r line; do
         echo "${line}" | grep -w '#@' | sed 's|#@ ||g' && break;

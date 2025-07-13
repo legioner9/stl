@@ -15323,7 +15323,7 @@ if [[ -n "$1" && ! -f "$1" ]]; then
     return 1
 fi
 
-local line
+local line=
 
 while IFS=$'\n' read -r line; do
     echo "${line}" | grep -w '#@' | sed 's|#@ ||g' && break
